@@ -1,0 +1,20 @@
+{
+    "cam_1": {
+        "name": "left camera", 
+        "x_m":  -0.326,
+        "y_m":  -0.13,
+        "z_m":  1      
+    },
+    "cam_2": {
+        "name": "middle camera", 
+        "x_m":  0,
+        "y_m":  -0.17,
+        "z_m":  1      
+    },
+    "cam_3": {
+        "name": "right camera", 
+        "x_m":  0.326,
+        "y_m":  -0.13,
+        "z_m":  1      
+    }
+}

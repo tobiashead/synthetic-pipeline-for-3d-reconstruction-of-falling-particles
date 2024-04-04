@@ -1,0 +1,70 @@
+{
+     "io": {
+          "name": "static_Dodekaeder_60cam",
+          "script_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\blender_pipeline\\Scripts",
+          "obj_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\objects\\Dodekaeder\\Mesh-Dateien\\Wuerfel_12s\\centered\\12s.obj",
+          "base_output_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\blender_data",
+          "label_images": 1,
+          "output_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\blender_data\\text123"
+     },
+     "motion": {
+          "s0": [
+               0,
+               0,
+               1
+          ],
+          "omega": [
+               3600,
+               0,
+               1800
+          ]
+     },
+     "cam": {
+          "even_dist": true,
+          "pos_file_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\blender_pipeline\\Scripts\\camera_positions.json",
+          "number": 20,
+          "z_center": 1,
+          "distance": 0.2,
+          "vert_angle": [
+               -45,
+               0,
+               45
+          ],
+          "focal_length": 16,
+          "sensor_size": [
+               7.12,
+               5.33
+          ],
+          "fps": 218
+     },
+     "light": {
+          "z": [
+               -1,
+               1,
+               2
+          ],
+          "hor_angle": [
+               45,
+               90,
+               135,
+               180,
+               225,
+               270,
+               315,
+               360
+          ],
+          "distance": 1,
+          "intensity": 10
+     },
+     "render": {
+          "format": "JPEG",
+          "engine": "BLENDER_EEVEE",
+          "resolution_x": 2064,
+          "resolution_y": 1544,
+          "resolution_percentage": 100
+     },
+     "exiftool": {
+          "path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\ExifTool\\exiftool.exe",
+          "mod": 2
+     }
+}
