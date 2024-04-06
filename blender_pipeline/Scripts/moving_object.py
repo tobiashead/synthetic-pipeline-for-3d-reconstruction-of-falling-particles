@@ -22,9 +22,7 @@ else:
         # Input and output parameters
         "io": {
             "name": 'falling_dodekaeder_even_dist_15cam',    # project name (e.g. 'Dodekaeder')
-            "script_path": r'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_pipeline\Scripts',                            # Path of the script files
             "obj_path": r'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\objects\Dodekaeder\Mesh-Dateien\Wuerfel_12s\12S.obj',    # Path to the object file
-            "base_output_path": r'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_data',                                   # Base output path
             "label_images": 3               # how to label rendered images
             # 1: "{project_name}_{image_count}"
             # 2: "{project_name}_{timestep_count}_{camera_number}"
@@ -55,10 +53,10 @@ else:
         },
         # Light parameters
         "light": {
-            "z": [-1,1,2],                    # [m] height of the light sources
+            "z": [-1,1,2],                # [m] height of the light sources
             "hor_angle": [45,90,135,180,225,270,315,360],     # [°] Horizontal angle from centre to light position
-            "distance": 1,               # [m] Horizontal Euclidean distance to the center point
-            "intensity": 10             # [W] Light intensity
+            "distance": 1,                # [m] Horizontal Euclidean distance to the center point
+            "intensity": 10               # [W] Light intensity
         },
         # Render Settings
         "render": {
@@ -71,14 +69,17 @@ else:
         },
         # Exiftool options
         "exiftool": {
-            "path": r"C:\Users\Tobias\Documents\Masterarbeit_lokal\ExifTool\exiftool.exe",  # Path to (exiftool.exe)
             "mod": 2   # choose operating mod (1 = "immediately", 2= "aferwards" --> improve performance)
         }
     }
 ######################################################################################
-
+project_path = (Path(__file__).resolve()).parent.parent.parent
+with open(project_path / "path_settings.json", 'r') as file:
+    app_paths = json.load(file)
+params["exiftool"]["path"] = app_paths["exiftool_exe"]
 ############################# Import functions #######################################
 # import functions from external script-folder
+params["io"]["script_path"] = str(project_path / "blender_pipeline" / "Scripts")
 if params["io"]["script_path"] not in sys.path:
     sys.path.append(params["io"]["script_path"])
 else:
@@ -114,7 +115,7 @@ bpy.ops.object.origin_set(type='ORIGIN_CENTER_OF_VOLUME', center='BOUNDS')  # Re
 obj.location = (params["motion"]["s0"])                         # Set the position of the object at t=0s
 #------------------------------------------------------------------------------------
 # Create Output-Path
-params["io"]["output_path"] = create_output_path(params["io"]["base_output_path"],params["io"]["name"])
+params["io"]["output_path"] = create_output_path(project_path,params["io"]["name"])
 #------------------------------------------------------------------------------------
 # Create cameras
 if params["cam"]["even_dist"] == True:

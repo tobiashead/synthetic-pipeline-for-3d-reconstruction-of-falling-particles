@@ -6,6 +6,9 @@ from mpl_toolkits.mplot3d.art3d import Poly3DCollection
 from scipy.spatial.transform import Rotation
 from pathlib import Path
 
+###################################################################################
+# code is originally based on https://github.com/demul/extrinsic2pyramid, but has been modified
+###################################################################################
 class CameraPoseVisualizer:
     def __init__(self, xlim, ylim, zlim):
         self.fig = plt.figure(figsize=(18, 7))

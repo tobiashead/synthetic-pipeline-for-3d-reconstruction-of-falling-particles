@@ -148,8 +148,8 @@ def write_exif_tags(cam,render,image_path,exiftool):
     exif_data = subprocess.run([exiftool_path] + options + commands + [image_path])
 #------------------------------------------------------------------------------------
 # Create Output-Path       
-def create_output_path(base_output_path,project_name):
-    base_output_path = Path(base_output_path)
+def create_output_path(project_path,project_name):
+    base_output_path = project_path / "blender_data"
     output_path = base_output_path / project_name
 
     # Check if the folder already exists

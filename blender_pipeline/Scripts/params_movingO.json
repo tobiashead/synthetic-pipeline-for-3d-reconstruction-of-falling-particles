@@ -1,9 +1,7 @@
 {
      "io": {
           "name": "moving_Dodekaeder_3cam",
-          "script_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\blender_pipeline\\Scripts",
           "obj_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\objects\\Dodekaeder\\Mesh-Dateien\\Wuerfel_12s\\centered\\12s.obj",
-          "base_output_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\blender_data",
           "label_images": 3
      },
      "motion": {
@@ -72,7 +70,6 @@
           "resolution_percentage": 100
      },
      "exiftool": {
-          "path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\ExifTool\\exiftool.exe",
           "mod": 2
      }
 }
