@@ -18,7 +18,7 @@
 - Install packages:
     - Create virtual environment using the **venv** module: (working with **virtualenv** is also possible)
         ```bash
-        cd synthetic-pipeline-for-3d-reconstruction-of-falling-particles/venv_synthetic
+        cd synthetic-pipeline-for-3d-reconstruction-of-falling-particles/venv_synthetic_311
         py -3.11 -m venv . 
         ```
     - Activate virtual environment: 
