@@ -5,6 +5,9 @@ from matplotlib.patches import Patch
 from mpl_toolkits.mplot3d.art3d import Poly3DCollection
 from scipy.spatial.transform import Rotation
 from pathlib import Path
+import importlib
+import sys
+from src.cam_TransMatrix import cam_TransMatrix_ExpBlender
 
 ###################################################################################
 # code is originally based on https://github.com/demul/extrinsic2pyramid, but has been modified
@@ -90,3 +93,19 @@ class CameraPoseVisualizer:
         plt.savefig(str(path) + ".eps", format='eps',bbox_inches='tight')
         plt.savefig(str(path) + ".pdf", format='pdf',bbox_inches='tight')
         plt.savefig(str(path) + ".svg", format='svg',bbox_inches='tight')
+    
+    def load_cameras_blender(self,cam_pos_blender,focal_length,aspect_ratio,sensor_width,scale):
+        for i in range(len(cam_pos_blender)):
+            cam = cam_pos_blender.iloc[i]
+            if cam["TimeStep"] == 1:
+                x = cam["PositionX"]; y = cam["PositionY"]; z = cam["PositionZ"]
+                theta_x = cam["RotationEulerX"]; theta_y = cam["RotationEulerY"]; theta_z = cam["RotationEulerZ"]
+                T_cam =  cam_TransMatrix_ExpBlender(x,y,z,theta_x,theta_y,theta_z)
+                if z == 1:
+                    self.extrinsic2pyramid(T_cam, 'b', focal_length,aspect_ratio,sensor_width,scale)
+                elif z > 1:
+                    self.extrinsic2pyramid(T_cam, 'r', focal_length,aspect_ratio,sensor_width,scale)
+                else:
+                    self.extrinsic2pyramid(T_cam, 'g', focal_length,aspect_ratio,sensor_width,scale)
+            else: 
+                break
