@@ -84,7 +84,7 @@ def pick_points(pcd):
     print("")
     return vis.get_picked_points() 
 # -----------------------------------------------------------------------      
-def Manual_Registration(source,target):
+def ThreePointGobalRegistration(source,target,source_mesh,target_mesh):
     # https://www.open3d.org/docs/release/tutorial/visualization/interactive_visualization.html
     source_points = pick_points(source)
     target_points = pick_points(target)
@@ -94,16 +94,19 @@ def Manual_Registration(source,target):
     print("")
     return trans_init    
 
+
+
 ##############################################################################################################
 #                                       MAIN FUNCTION  --> GlobalMeshRegistration                            #
 ##############################################################################################################
 
-def GlobalMeshRegistration(mesh_r_path,mesh_gt_path,voxel_size,draw_registration,T1,AutomatedGlobalRegistration=True):
+def GlobalMeshRegistration(mesh_r_path,mesh_gt_path,voxel_size,draw_registration,T1,ThreePointRegistration=False):
     # https://www.open3d.org/docs/release/tutorial/pipelines/global_registration.html
     # ----------------------------------------------------------------------- 
     #Read Source and Target Meshs
-    source_mesh = o3d.io.read_triangle_mesh(str(mesh_r_path)); source_mesh_temp = copy.deepcopy(source_mesh)
-    target_mesh = o3d.io.read_triangle_mesh(str(mesh_gt_path))
+    source_mesh = o3d.io.read_triangle_mesh(str(mesh_r_path)); 
+    target_mesh = o3d.io.read_triangle_mesh(str(mesh_gt_path))  
+    source_mesh_temp = copy.deepcopy(source_mesh)
     # -----------------------------------------------------------------------   
     #Draw Source and Target Meshs
     if draw_registration > 3:
@@ -131,7 +134,7 @@ def GlobalMeshRegistration(mesh_r_path,mesh_gt_path,voxel_size,draw_registration
     target = target_mesh.sample_points_poisson_disk(number_of_points=10000) 
     # ----------------------------------------------------------------------- 
     # Automated global Registration
-    if AutomatedGlobalRegistration == True:
+    if ThreePointRegistration == False:
         # Draw Point clouds
         if draw_registration > 2:
             draw_registration_result(source, target, np.identity(4))
@@ -155,7 +158,7 @@ def GlobalMeshRegistration(mesh_r_path,mesh_gt_path,voxel_size,draw_registration
     # -----------------------------------------------------------------------    
     # Manual Registration by picking 3 unique points on both point clouds
     else:
-        T3 = Manual_Registration(source,target)
+        T3 = ThreePointGobalRegistration(source,target,source_mesh,target_mesh)
         if draw_registration > 0:
             draw_registration_result(source, target,T3)      
     # -----------------------------------------------------------------------         
