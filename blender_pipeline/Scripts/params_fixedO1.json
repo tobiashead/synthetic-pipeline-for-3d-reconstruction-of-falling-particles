@@ -1,11 +1,8 @@
 {
      "io": {
-          "name": "static_MS_20_2_30images",
-          "script_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\blender_pipeline\\Scripts",
-          "obj_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\objects\\MS_20_2\\centered\\MS_22_2_wR_schw_M.obj",
-          "base_output_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\blender_data",
-          "label_images": 1,
-          "output_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\blender_data\\static_MS_20_2_30images"
+          "name": "static_Dodekaeder_60cam",
+          "obj_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\objects\\Dodekaeder\\Mesh-Dateien\\Wuerfel_12s\\centered\\12s.obj",
+          "label_images": 1
      },
      "motion": {
           "s0": [
@@ -22,7 +19,7 @@
      "cam": {
           "even_dist": true,
           "pos_file_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\blender_pipeline\\Scripts\\camera_positions.json",
-          "number": 10,
+          "number": 20,
           "z_center": 1,
           "distance": 0.2,
           "vert_angle": [
@@ -64,7 +61,6 @@
           "resolution_percentage": 100
      },
      "exiftool": {
-          "path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\ExifTool\\exiftool",
           "mod": 2
      }
 }

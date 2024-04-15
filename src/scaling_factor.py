@@ -8,79 +8,33 @@ from scipy.spatial.distance import cdist
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-
-def scaling_factor(basebase_file_path_meshroom,base_file_path_blender,evaluation_path):
-
-    #-----------------------------------------------------------------------
-    # load camera data from Meshroom
-    base_file_path_meshroom = Path(basebase_file_path_meshroom) / 'MeshroomCache' / 'StructureFromMotion'
-    folder_name = os.listdir(base_file_path_meshroom)
-    sfm_data_path =  base_file_path_meshroom / folder_name[0] / "cameras.sfm"
-    with open(sfm_data_path, 'r') as file:
-        sfm_data = json.load(file)
-        # define a class reconstructed_camera to represent each reconstructed camera with attributes for the image file name, pose, and time step
-    class reconstructed_camera: 
-        def __init__(self, ImageFileName, Pose, TimeStep):
-            self.ImageFileName = ImageFileName
-            self.Pose = Pose
-            self.TimeStep = TimeStep
-        # save all camera objects in a list    
-    cam_pos_rec = []
-    n_img = len(sfm_data["views"])
-    n_pose = len(sfm_data["poses"])
-    for i in range(n_pose):
-        Pose = sfm_data["poses"][i]["pose"]["transform"]
-        poseId = sfm_data["poses"][i]["poseId"]
-        for j in range(n_img):
-            viewId = sfm_data["views"][j]["viewId"]
-            if poseId == viewId:
-                img_path = sfm_data["views"][j]["path"]
-                ImageFileName = os.path.basename(img_path)
-                break
-        cam = reconstructed_camera(ImageFileName,Pose,-1)
-        cam_pos_rec.append(cam)
-    #-----------------------------------------------------------------------
-    # load camera data from blender
-    cam_pos_file_path = Path(base_file_path_blender) / "CameraPositioningInMeters.csv"
-    cam_pos_blender = pd.read_csv(cam_pos_file_path)
-    cam_pos_blender["TimeStep"] -= cam_pos_blender["TimeStep"][0]-1 # Adjusts the time step --> starts from 1
-    #-----------------------------------------------------------------------
-    # match reconstructed cameras and the groud truth cameras
-    cam_match_matrix = np.ones([n_img,2])*(-1) # Initializes a matrix to store the match between reconstructed and real cameras based on the idices
-    for i in range(n_img):      # Iterates over all images (Ground Truth)
-        ImageFileName = cam_pos_blender.iloc[i]["ImageFileName"]
-        TimeStep = cam_pos_blender.iloc[i]["TimeStep"]
-        cam_match_matrix[i,0] = i
-        for j in range(n_pose):  # For each ground truth camera, finds the corresponding reconstructed camera using the image file name
-            if cam_pos_rec[j].ImageFileName == ImageFileName:
-                cam_match_matrix[i,1] = j
-                cam_pos_rec[j].TimeStep = TimeStep
-                break
+def scaling_factor(cams_rec,cams_ref,evaluation_path):
     #-----------------------------------------------------------------------
     # calculate distance between the reconstructed cameras within a timestep
-    n_cam = int(n_img/TimeStep)                 # Calculate the number of cameras per time step
-    factor_vec = []
-#    factor_vec = np.zeros(TimeStep*n_cam**2)    # Initialize an array to store scaling factors
-    ind_gt = 0                                  # Index for accessing camera positions
-    for i in range(TimeStep):                   # Iterate over all time steps
-        pos_matrix_gt = np.zeros([n_cam,3])     # Initialize a matrix to store ground truth camera positions within a time step
-        pos_matrix_r = np.zeros([n_cam,3])      # Initialize a matrix to store ground reconstructed camera positions within a time step
-        for j in range(n_cam):                  # Iterate over all cameras within this timestep
-            ind_r = int(cam_match_matrix[ind_gt,1])
-            if ind_r != -1:
-                pos_gt = cam_pos_blender.iloc[ind_gt]        # Get the ground truth camera position
-                x_gt = [pos_gt["PositionX"],pos_gt["PositionY"],pos_gt["PositionZ"]] # Extract XYZ coordinates (GT)
-                x_r = cam_pos_rec[ind_r].Pose["center"]         # Extract XYZ coordinates (reconstructed)
-                pos_matrix_gt[j,:] = x_gt; pos_matrix_r[j,:] = x_r                   # Store camera positions in a matrix  within a time step
-            ind_gt += 1                                                           # Update Index for accessing camera positions
-        pos_matrix_gt = pos_matrix_gt[~np.all(pos_matrix_gt == 0, axis=1)]
-        pos_matrix_r = pos_matrix_r[~np.all(pos_matrix_r == 0, axis=1)]
-        dist_matrix_gt = cdist(pos_matrix_gt,pos_matrix_gt,'euclidean') # Compute euklidean distance between each pair of the cameras (groud truth) --> Euclidean distance matrix
-        dist_matrix_r = cdist(pos_matrix_r,pos_matrix_r,'euclidean')    # Compute euklidean distance between each pair of the cameras (reconstructed) --> Euclidean distance matrix
-        factor_matrix = np.divide(dist_matrix_gt,dist_matrix_r)         # Calculate the scaling factors by the ratio of the distances between the cameras 
-#        factor_vec[i*n_cam**2:(i+1)*n_cam**2] = factor_matrix.flatten() # Flatten and store scaling factors
-        factor_vec.append(factor_matrix.flatten())
-    factor_vec = np.concatenate(factor_vec)
+    n_img = len(cams_ref)
+    n_TimeSteps = cams_ref[-1].TimeStep
+    n_cam = int(n_img/n_TimeSteps)                 # Calculate the number of cameras per time step
+    #factor_vec = []
+    factor_vec = np.zeros(n_TimeSteps*n_cam**2)       # Initialize an array to store scaling factors
+    ind_ref = 0                                      # Index for accessing camera positions
+    for i in range(n_TimeSteps):                    # Iterate over all time steps
+        pos_matrix_ref = np.zeros([n_cam,3])         # Initialize a matrix to store ground truth camera positions within a time step
+        pos_matrix_rec = np.zeros([n_cam,3])          # Initialize a matrix to store ground reconstructed camera positions within a time step
+        for j in range(n_cam):                      # Iterate over all cameras within this timestep
+            ind_rec = cams_ref[ind_ref].CorrespondigIndex
+            if ind_rec != None:
+                x_ref = cams_ref[ind_ref].Location         # Extract XYZ coordinates (reference camera)
+                x_rec = cams_rec[ind_rec].Location           # Extract XYZ coordinates (reconstructed camera)
+                pos_matrix_ref[j,:] = x_ref; pos_matrix_rec[j,:] = x_rec            # Store camera positions in a matrix  within a time step
+            ind_ref += 1                                                           # Update Index for accessing camera positions
+        pos_matrix_ref = pos_matrix_ref[~np.all(pos_matrix_ref == 0, axis=1)]
+        pos_matrix_rec = pos_matrix_rec[~np.all(pos_matrix_rec == 0, axis=1)]
+        dist_matrix_ref = cdist(pos_matrix_ref,pos_matrix_ref,'euclidean') # Compute euklidean distance between each pair of the cameras (groud truth) --> Euclidean distance matrix
+        dist_matrix_rec = cdist(pos_matrix_rec,pos_matrix_rec,'euclidean')    # Compute euklidean distance between each pair of the cameras (reconstructed) --> Euclidean distance matrix
+        factor_matrix = np.divide(dist_matrix_ref,dist_matrix_rec)         # Calculate the scaling factors by the ratio of the distances between the cameras 
+        factor_vec[i*n_cam**2:(i+1)*n_cam**2] = factor_matrix.flatten()     # Flatten and store scaling factors
+        #factor_vec.append(factor_matrix.flatten())
+    #factor_vec = np.concatenate(factor_vec)
     factor_vec = factor_vec[~np.isnan(factor_vec)]                      # Remove NaN values
     factor_mean = np.mean(factor_vec)                                   # Calculate mean scaling factor
     factor_median = np.median(factor_vec)                               # Calculate median scaling factor
@@ -127,4 +81,4 @@ def scaling_factor(basebase_file_path_meshroom,base_file_path_blender,evaluation
     fig.savefig(Path(evaluation_path) / 'scaling_factor.pdf',format='pdf',bbox_inches='tight')
     fig.savefig(Path(evaluation_path) / 'scaling_factor.eps',format='eps',bbox_inches='tight')
     
-    return factor_mean, factor_median, factor_std, cam_pos_rec, cam_pos_blender, fig
+    return factor_mean, factor_median, factor_std, fig

@@ -7,7 +7,8 @@ from scipy.spatial.transform import Rotation
 from pathlib import Path
 import importlib
 import sys
-from src.cam_TransMatrix import cam_TransMatrix_ExpBlender
+importlib.reload(sys.modules['src.TransMatrix_Utils']) if 'src.TransMatrix_Utils' in sys.modules else None
+from src.TransMatrix_Utils import Get_Location_Rotation3x3_Scale_from_Transformation4x4
 
 ###################################################################################
 # code is originally based on https://github.com/demul/extrinsic2pyramid, but has been modified
@@ -55,7 +56,10 @@ class CameraPoseVisualizer:
         self.ax.add_collection3d(
             Poly3DCollection(cube_faces, facecolors=color, linewidths=0.3, edgecolors=color, alpha=alpha))
 
-    def extrinsic2pyramid(self, extrinsic, color='r', focal_len=5, aspect_ratio=0.3,sensor_width=0.3,scale=1):
+    def extrinsic2pyramid(self, extrinsic, color='r', focal_len=5, aspect_ratio=0.3,sensor_width=0.3,scale_rel=1,alpha=0.35):
+        # Adaptation of the camera scaling due to the different scaling factor of the transformation matrices
+        scale_extrinsic = np.mean([np.linalg.norm(extrinsic[:, 0]),np.linalg.norm(extrinsic[:, 1]),np.linalg.norm(extrinsic[:, 2])])
+        scale = scale_rel/scale_extrinsic
         vertex_std = np.array([[0, 0, 0, 1],
                                [sensor_width*scale, - sensor_width/aspect_ratio*scale, focal_len*scale, 1],
                                [sensor_width*scale, sensor_width/aspect_ratio*scale, focal_len*scale, 1],
@@ -68,7 +72,7 @@ class CameraPoseVisualizer:
                             [vertex_transformed[0, :-1], vertex_transformed[4, :-1], vertex_transformed[1, :-1]],
                             [vertex_transformed[1, :-1], vertex_transformed[2, :-1], vertex_transformed[3, :-1], vertex_transformed[4, :-1]]]
         self.ax.add_collection3d(
-            Poly3DCollection(meshes, facecolors=color, linewidths=0.3, edgecolors=color, alpha=0.35))
+            Poly3DCollection(meshes, facecolors=color, linewidths=0.3, edgecolors=color, alpha=alpha))
 
     def customize_legend(self, list_label):
         list_handle = []
@@ -94,18 +98,27 @@ class CameraPoseVisualizer:
         plt.savefig(str(path) + ".pdf", format='pdf',bbox_inches='tight')
         plt.savefig(str(path) + ".svg", format='svg',bbox_inches='tight')
     
-    def load_cameras_blender(self,cam_pos_blender,focal_length,aspect_ratio,sensor_width,scale):
-        for i in range(len(cam_pos_blender)):
-            cam = cam_pos_blender.iloc[i]
-            if cam["TimeStep"] == 1:
-                x = cam["PositionX"]; y = cam["PositionY"]; z = cam["PositionZ"]
-                theta_x = cam["RotationEulerX"]; theta_y = cam["RotationEulerY"]; theta_z = cam["RotationEulerZ"]
-                T_cam =  cam_TransMatrix_ExpBlender(x,y,z,theta_x,theta_y,theta_z)
-                if z == 1:
-                    self.extrinsic2pyramid(T_cam, 'b', focal_length,aspect_ratio,sensor_width,scale)
-                elif z > 1:
-                    self.extrinsic2pyramid(T_cam, 'r', focal_length,aspect_ratio,sensor_width,scale)
+    def load_cameras(self,cams,focal_length,aspect_ratio,sensor_width,scale,alpha=0.35):
+        for i,cam in enumerate(cams):
+            if cam.TimeStep == 1:
+                location,_,_ = Get_Location_Rotation3x3_Scale_from_Transformation4x4(cam.Transformation)
+                if ((location[2] < 1.05) and (location[2]> 0.95)):
+                    self.extrinsic2pyramid(cam.Transformation, 'b', focal_length,aspect_ratio,sensor_width,scale,alpha)
+                elif location[2] > 1:
+                    self.extrinsic2pyramid(cam.Transformation, 'r', focal_length,aspect_ratio,sensor_width,scale,alpha)
                 else:
-                    self.extrinsic2pyramid(T_cam, 'g', focal_length,aspect_ratio,sensor_width,scale)
+                    self.extrinsic2pyramid(cam.Transformation, 'g', focal_length,aspect_ratio,sensor_width,scale,alpha)
             else: 
                 break
+    
+    def load_cube(self,cams_ref):
+            # dynamic case    
+        if cams_ref[-1].TimeStep != 1:      
+            self.create_cube(position=[0,0,1.2],size=0.03,color='k',alpha=0.4,rotation=[15,0,15])   # size=a=b=c
+            self.create_cube(position=[0,0,1.05],size=0.03,color='k',alpha=0.3,rotation=[30,0,30])
+            self.create_cube(position=[0,0,0.95],size=0.03,color='k',alpha=0.2,rotation=[45,0,45])
+            self.create_cube(position=[0,0,0.8],size=0.03,color='k',alpha=0.1,rotation=[60,0,-60])
+        # static case    
+        else:
+            self.create_cube(position=[0,0,1],size=0.03,color='k',alpha=0.3)
+                    
