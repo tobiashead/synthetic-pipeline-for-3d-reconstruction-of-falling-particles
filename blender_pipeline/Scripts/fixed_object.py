@@ -9,7 +9,7 @@ from pathlib import Path
 #                                Fixed-objects                                       #
 ######################################################################################
 # Are external parameters used or the parameters defined here
-ExternalParams = True
+ExternalParams = False
 
 ############################# Select Parameters ######################################
 if ExternalParams:
@@ -22,7 +22,7 @@ else:
     params = {
         # Input and output parameters
         "io": {
-            "name": 'text123',    # project name (e.g. 'Dodekaeder')
+            "name": '1cam',    # project name (e.g. 'Dodekaeder')
             "obj_path": r'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\objects\Dodekaeder\Mesh-Dateien\Wuerfel_12s\12S.obj',    # Path to the object file
             #"obj_path": Path("C:/Users/Tobias/Documents/Masterarbeit_lokal/synthetic_pipeline/blender_pipeline/3D_Dice/3D_Dice.obj")
             "label_images": 1               # how to label rendered images
@@ -39,13 +39,13 @@ else:
             "even_dist": True,  # are the cameras evenly distributed, True or False
             # only necessary if even_dist = False
             "pos_file_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\blender_pipeline\\Scripts\\camera_positions.json",
-            "number": 3,                  # number of cameras at one level
+            "number": 1,                  # number of cameras at one level
             "z_center": 1,                # [m] Height of the "cePnter point"
             "distance": 0.2,              # [m] Euclidean distance to the "center point"
-            "vert_angle": [-20,0],            # [°] Vertical angle from centre to camera position
+            "vert_angle": [0],            # [°] Vertical angle from centre to camera position
             # necessary, regardless of the value of even_dist 
-            "focal_length": 100,          # [mm] focal length of all cameras
-            "sensor_size": [32, 18],      # [mm,mm] sensor width and sensor height
+            "focal_length": 16,          # [mm] focal length of all cameras
+            "sensor_size": [7.12, 5.33],      # [mm,mm] sensor width and sensor height
         },
         # Light parameters
         "light": {
@@ -59,8 +59,8 @@ else:
             "format": 'JPEG',             # Select image format: 'JPEG' or 'PNG'
             "engine": 'BLENDER_EEVEE',     # select Render Engine: 'CYCLES' or 'BLENDER_EEVEE'
             # BLENDER_EEVEE is significantly faster (real-time), CYCLES is a ray-tracing renderer
-            "resolution_x": 1920,
-            "resolution_y": 1080,
+            "resolution_x": 2064,
+            "resolution_y": 1544,
             "resolution_percentage": 100
         },
         # Exiftool options

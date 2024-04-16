@@ -4,7 +4,8 @@ import importlib
 importlib.reload(sys.modules['src.TransMatrix_Utils']) if 'src.TransMatrix_Utils' in sys.modules else None
 from src.TransMatrix_Utils import rotation_matrix_x, \
                             TransMatrix_from_EulerAngle_and_Location, \
-                            Transformation4x4_from_Location3x1_and_Rotation3x3
+                            Transformation4x4_from_Location3x1_and_Rotation3x3, \
+                            rotation_matrix_z    
 
 class camera_reconstructed: 
     def __init__(self, ImageFileName, Pose, TimeStep=None, Transformation=None,CorrespondigIndex=None):
@@ -17,7 +18,7 @@ class camera_reconstructed:
         
     def Transformation2WorldCoordinateSystem(self,T):
         # -90°: transformation of Blender coordinates into global coordinates   
-        rot_x_blender4x4 = rotation_matrix_x(np.deg2rad(-90))
+        rot_x_blender4x4 = rotation_matrix_x(np.deg2rad(-90)) #aber warum -90 und nicht 90
         # Calculate 4x4 Transformation Matrix from the reconstructed Locations (3) and the 3x3 Rotation Matrix  
         trans_4x4_reconstructed = Transformation4x4_from_Location3x1_and_Rotation3x3(self.Rotation,self.Location)
         # Calculate a Translation, because the point of focus in blender is at x=0, y=0, z = 1, 

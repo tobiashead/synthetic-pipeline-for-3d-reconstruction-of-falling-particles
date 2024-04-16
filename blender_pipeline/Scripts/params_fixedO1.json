@@ -1,8 +1,11 @@
 {
      "io": {
-          "name": "static_Dodekaeder_60cam",
-          "obj_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\objects\\Dodekaeder\\Mesh-Dateien\\Wuerfel_12s\\centered\\12s.obj",
-          "label_images": 1
+          "name": "static_BP_02_60cam_15x4",
+          "script_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\blender_pipeline\\Scripts",
+          "obj_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\objects\\BP_02\\centered\\BP_2_Model.obj",
+          "base_output_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\blender_data",
+          "label_images": 1,
+          "output_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\blender_data\\static_MS_20_2_30images"
      },
      "motion": {
           "s0": [
@@ -19,13 +22,14 @@
      "cam": {
           "even_dist": true,
           "pos_file_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\blender_pipeline\\Scripts\\camera_positions.json",
-          "number": 20,
+          "number": 15,
           "z_center": 1,
           "distance": 0.2,
           "vert_angle": [
                -45,
                0,
-               45
+               45,
+               60
           ],
           "focal_length": 16,
           "sensor_size": [
@@ -61,6 +65,7 @@
           "resolution_percentage": 100
      },
      "exiftool": {
+          "path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\ExifTool\\exiftool",
           "mod": 2
      }
 }

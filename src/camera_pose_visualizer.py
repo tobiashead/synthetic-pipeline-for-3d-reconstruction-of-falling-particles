@@ -73,6 +73,15 @@ class CameraPoseVisualizer:
                             [vertex_transformed[1, :-1], vertex_transformed[2, :-1], vertex_transformed[3, :-1], vertex_transformed[4, :-1]]]
         self.ax.add_collection3d(
             Poly3DCollection(meshes, facecolors=color, linewidths=0.3, edgecolors=color, alpha=alpha))
+        
+        # Draw coordinate system
+        origin = np.array([0, 0, 0,1]) @ extrinsic.T;                   origin_transformed = origin[:3]
+        x_axis = np.array([focal_len*scale*.5, 0, 0,1]) @ extrinsic.T;  x_axis_transformed = x_axis[:3]
+        y_axis = np.array([0, focal_len*scale*.5, 0,1]) @ extrinsic.T;  y_axis_transformed = y_axis[:3]
+        z_axis = np.array([0, 0, focal_len*scale*.5,1]) @ extrinsic.T;  z_axis_transformed = z_axis[:3]
+        self.ax.quiver(*origin_transformed, *(x_axis_transformed-origin_transformed), color='r')
+        self.ax.quiver(*origin_transformed, *(y_axis_transformed-origin_transformed), color='g')
+        self.ax.quiver(*origin_transformed, *(z_axis_transformed-origin_transformed), color='b')
 
     def customize_legend(self, list_label):
         list_handle = []
