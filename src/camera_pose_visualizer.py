@@ -56,7 +56,7 @@ class CameraPoseVisualizer:
         self.ax.add_collection3d(
             Poly3DCollection(cube_faces, facecolors=color, linewidths=0.3, edgecolors=color, alpha=alpha))
 
-    def extrinsic2pyramid(self, extrinsic, color='r', focal_len=5, aspect_ratio=0.3,sensor_width=0.3,scale_rel=1,alpha=0.35):
+    def extrinsic2pyramid(self, extrinsic, color='r', focal_len=5, aspect_ratio=0.3,sensor_width=0.3,scale_rel=1,alpha=0.35,DrawCoordSystem=True):
         # Adaptation of the camera scaling due to the different scaling factor of the transformation matrices
         scale_extrinsic = np.mean([np.linalg.norm(extrinsic[:, 0]),np.linalg.norm(extrinsic[:, 1]),np.linalg.norm(extrinsic[:, 2])])
         scale = scale_rel/scale_extrinsic
@@ -72,16 +72,17 @@ class CameraPoseVisualizer:
                             [vertex_transformed[0, :-1], vertex_transformed[4, :-1], vertex_transformed[1, :-1]],
                             [vertex_transformed[1, :-1], vertex_transformed[2, :-1], vertex_transformed[3, :-1], vertex_transformed[4, :-1]]]
         self.ax.add_collection3d(
-            Poly3DCollection(meshes, facecolors=color, linewidths=0.3, edgecolors=color, alpha=alpha))
+            Poly3DCollection(meshes, facecolors=color, linewidths=0.5, edgecolors='k',alpha=alpha))
         
         # Draw coordinate system
-        origin = np.array([0, 0, 0,1]) @ extrinsic.T;                   origin_transformed = origin[:3]
-        x_axis = np.array([focal_len*scale*.5, 0, 0,1]) @ extrinsic.T;  x_axis_transformed = x_axis[:3]
-        y_axis = np.array([0, focal_len*scale*.5, 0,1]) @ extrinsic.T;  y_axis_transformed = y_axis[:3]
-        z_axis = np.array([0, 0, focal_len*scale*.5,1]) @ extrinsic.T;  z_axis_transformed = z_axis[:3]
-        self.ax.quiver(*origin_transformed, *(x_axis_transformed-origin_transformed), color='r')
-        self.ax.quiver(*origin_transformed, *(y_axis_transformed-origin_transformed), color='g')
-        self.ax.quiver(*origin_transformed, *(z_axis_transformed-origin_transformed), color='b')
+        if DrawCoordSystem == True:
+            origin = np.array([0, 0, 0,1]) @ extrinsic.T;                   origin_transformed = origin[:3]
+            x_axis = np.array([focal_len*scale*.5, 0, 0,1]) @ extrinsic.T;  x_axis_transformed = x_axis[:3]
+            y_axis = np.array([0, focal_len*scale*.5, 0,1]) @ extrinsic.T;  y_axis_transformed = y_axis[:3]
+            z_axis = np.array([0, 0, focal_len*scale*.5,1]) @ extrinsic.T;  z_axis_transformed = z_axis[:3]
+            self.ax.quiver(*origin_transformed, *(x_axis_transformed-origin_transformed), color='r')
+            self.ax.quiver(*origin_transformed, *(y_axis_transformed-origin_transformed), color='g')
+            self.ax.quiver(*origin_transformed, *(z_axis_transformed-origin_transformed), color='b')
 
     def customize_legend(self, list_label):
         list_handle = []
@@ -107,16 +108,25 @@ class CameraPoseVisualizer:
         plt.savefig(str(path) + ".pdf", format='pdf',bbox_inches='tight')
         plt.savefig(str(path) + ".svg", format='svg',bbox_inches='tight')
     
-    def load_cameras(self,cams,focal_length,aspect_ratio,sensor_width,scale,alpha=0.35):
+    def color_based_on_height(self,cam,alpha,colormap='viridis'):
+        import matplotlib.colors as mcolors
+        location,_,_ = Get_Location_Rotation3x3_Scale_from_Transformation4x4(cam.Transformation)
+        height = location[2]
+        cmap = plt.cm.get_cmap(colormap)  # Choose a colormap (e.g., 'viridis')
+        z_min = self.ax.get_zlim()[0]; z_max = self.ax.get_zlim()[1]
+        norm = mcolors.Normalize(vmin=z_min, vmax=z_max)  # Define the range of normalized height values (adjust as needed)
+        # Map normalized height to color using the colormap
+        color = cmap(norm(height))
+        # Adjust alpha channel
+        color_with_alpha = color[:3] + (alpha,)
+        # Calculation of the color value based on the height
+        return color_with_alpha 
+    
+    def load_cameras(self,cams,focal_length,aspect_ratio,sensor_width,scale,alpha=0.35,DrawCoordSystem=True,colormap='viridis'):
         for i,cam in enumerate(cams):
             if cam.TimeStep == 1:
-                location,_,_ = Get_Location_Rotation3x3_Scale_from_Transformation4x4(cam.Transformation)
-                if ((location[2] < 1.05) and (location[2]> 0.95)):
-                    self.extrinsic2pyramid(cam.Transformation, 'b', focal_length,aspect_ratio,sensor_width,scale,alpha)
-                elif location[2] > 1:
-                    self.extrinsic2pyramid(cam.Transformation, 'r', focal_length,aspect_ratio,sensor_width,scale,alpha)
-                else:
-                    self.extrinsic2pyramid(cam.Transformation, 'g', focal_length,aspect_ratio,sensor_width,scale,alpha)
+                color = self.color_based_on_height(cam,alpha,colormap)
+                self.extrinsic2pyramid(cam.Transformation, color, focal_length,aspect_ratio,sensor_width,scale,alpha,DrawCoordSystem)
             else: 
                 break
     
@@ -130,4 +140,5 @@ class CameraPoseVisualizer:
         # static case    
         else:
             self.create_cube(position=[0,0,1],size=0.03,color='k',alpha=0.3)
+        
                     
