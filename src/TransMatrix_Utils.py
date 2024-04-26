@@ -74,3 +74,11 @@ def Get_Location_Rotation3x3_Scale_from_Transformation4x4(T):
     scale = np.linalg.norm(rotation, axis=0)
     rotation /= scale
     return location, rotation, scale
+
+def RotationMatrix3x3_To_EulerAngles(rotation_matrix):
+    # Extract the angles theta_x, theta_y, theta_z
+    theta_x = np.arctan2(rotation_matrix[2, 1], rotation_matrix[2, 2])
+    theta_y = np.arctan2(-rotation_matrix[2, 0], np.sqrt(rotation_matrix[2, 1]**2 + rotation_matrix[2, 2]**2))
+    theta_z = np.arctan2(rotation_matrix[1, 0], rotation_matrix[0, 0])
+    # Return the Euler angles in ZYX (or XYZ) order
+    return theta_x, theta_y, theta_z

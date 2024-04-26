@@ -9,7 +9,7 @@ from pathlib import Path
 #                                Fixed-objects                                       #
 ######################################################################################
 # Are external parameters used or the parameters defined here
-ExternalParams = False
+ExternalParams = True
 
 ############################# Select Parameters ######################################
 if ExternalParams:
@@ -89,7 +89,8 @@ from functions import (
     save_blender_settings,
     print_warnings,
     save_camera_data,
-    create_not_evenly_distributed_cameras
+    create_not_evenly_distributed_cameras,
+    rotate_obj
     )
 ######################################################################################
          
@@ -103,7 +104,8 @@ bpy.ops.object.delete()
 bpy.ops.wm.obj_import(filepath=str(params["io"]["obj_path"]))   # Import the OBJ model
 obj = bpy.context.active_object                                 # Retrieve the last imported object (this is now the active object)
 bpy.ops.object.origin_set(type='ORIGIN_CENTER_OF_VOLUME', center='BOUNDS')  # Recalculate the object's bounding box to update its center of mass
-obj.location = (params["motion"]["s0"])                         #   Set the position of the object at t=0s
+obj.location = (params["motion"]["s0"])                                 # Set the position of the object at t=0s
+params["motion"]["omega"] = [0,0,0]; rotate_obj(0,params["motion"],obj) # Set the rotation of the object at t=0s
 #------------------------------------------------------------------------------------
 # Create Output-Path
 params["io"]["output_path"] = create_output_path(project_path,params["io"]["name"])

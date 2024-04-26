@@ -1,8 +1,8 @@
 {
      "io": {
-          "name": "static_BP_02_60cam_15x4",
+          "name": "fixed_dodecaeder_1cam",
           "script_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\blender_pipeline\\Scripts",
-          "obj_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\objects\\BP_02\\centered\\BP_2_Model.obj",
+          "obj_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\objects\\Dodekaeder\\Mesh-Dateien\\Wuerfel_12s\\centered\\12s.obj",
           "base_output_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\blender_data",
           "label_images": 1,
           "output_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\blender_data\\static_BP_02_60cam_15x4"
@@ -17,19 +17,21 @@
                3600,
                0,
                1800
+          ],
+          "a": [
+               0,
+               0,
+               -9.81
           ]
      },
      "cam": {
-          "even_dist": true,
+          "even_dist": false,
           "pos_file_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\blender_pipeline\\Scripts\\camera_positions.json",
-          "number": 15,
+          "number": 1,
           "z_center": 1,
           "distance": 0.2,
           "vert_angle": [
-               -45,
-               0,
-               45,
-               60
+               0
           ],
           "focal_length": 16,
           "sensor_size": [

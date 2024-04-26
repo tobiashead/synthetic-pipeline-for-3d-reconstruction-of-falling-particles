@@ -1,6 +1,6 @@
 {
      "io": {
-          "name": "moving_Dodekaeder_3cam",
+          "name": "moving_dodecaeder_1cam",
           "obj_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\objects\\Dodekaeder\\Mesh-Dateien\\Wuerfel_12s\\centered\\12s.obj",
           "label_images": 3
      },
@@ -30,7 +30,7 @@
      "cam": {
           "even_dist": true,
           "pos_file_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\blender_pipeline\\Scripts\\camera_positions.json",
-          "number": 3,
+          "number": 1,
           "z_center": 1,
           "distance": 0.2,
           "vert_angle": [

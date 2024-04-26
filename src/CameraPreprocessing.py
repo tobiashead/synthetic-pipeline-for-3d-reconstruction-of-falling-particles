@@ -5,8 +5,8 @@ import pandas as pd
 import numpy as np
 import importlib
 import sys
-importlib.reload(sys.modules['src.camera_classes']) if 'src.camera_classes' in sys.modules else None
-from src.camera_classes import camera_reconstructed, camera_reference
+importlib.reload(sys.modules['src.object_classes']) if 'src.object_classes' in sys.modules else None
+from src.object_classes import camera_reconstructed, camera_reference, object
 
 #-----------------------------------------------------------------------
 def read_camera_alignment_reconstruction(basebase_file_path_meshroom):
@@ -52,7 +52,24 @@ def read_camera_alignment_reference(base_file_path_blender):
         cam.Transformation2WorldCoordinateSystem()
         cams_ref.append(cam)
     return cams_ref
-    
+#-----------------------------------------------------------------------
+def read_object_alignment(base_file_path_blender):
+    objects = []
+    obj_positions = pd.read_csv(Path(base_file_path_blender) / "ObjectPositioningInMeters.csv")
+    obj_positions["TimeStep"] -= obj_positions["TimeStep"][1]-1 # Adjusts the time step --> starts from 1
+    obj_positions.at[0, "TimeStep"] = 0
+    for i in range(len(obj_positions)):
+        obj = obj_positions.iloc[i]
+        TimeStep = obj["TimeStep"]
+        Location = np.array([obj["PositionX"],obj["PositionY"],obj["PositionZ"]])
+        EulerAngle =  np.array([obj["RotationEulerX"],obj["RotationEulerY"],obj["RotationEulerZ"]])
+        obj = object(TimeStep,Location,EulerAngle)
+        if i!= 0:
+             obj.CorrespondingIndex = i+1  
+        obj.Transformation2WorldCoordinateSystem()
+        objects.append(obj) 
+    return objects[1:],object[0]
+
 #-----------------------------------------------------------------------   
 def match_cameras(cams_rec,cams_ref):
     for i, cam_ref in enumerate(cams_ref):      # Iterates over all images (reference)

@@ -43,13 +43,14 @@ class camera_reconstructed:
         
               
 class camera_reference: 
-    def __init__(self, ImageFileName, Location, EulerAngle, TimeStep, CorrespondigIndex=None, Transformation=None):
+    def __init__(self, ImageFileName, Location, EulerAngle, TimeStep, CorrespondigIndex=None, Transformation=None,TransformationStatic=None):
         self.ImageFileName = ImageFileName
         self.Location = Location
         self.EulerAngle = EulerAngle
         self.Transformation = Transformation
         self.TimeStep = TimeStep
         self.CorrespondigIndex = CorrespondigIndex
+        self.TransformationStatic = TransformationStatic
         
     def Transformation2WorldCoordinateSystem(self):
         x = self.Location[0]; y = self.Location[1]; z = self.Location[2]
@@ -61,4 +62,36 @@ class camera_reference:
         # Returning and saving the matrix
         self.Transformation = transformation_4x4
         return transformation_4x4
-                
+    
+    def Dynamic2StaticScene(self,T_obj,T_obj0):
+        # TODO Implement that this function can also be used for an object moving in x and y directions
+        # Get the transformation matrix of the camera of the dynamic scene 
+        T_cam = self.Transformation
+        # Relative position (translation in z-direction only) between camera and object at time t=0s (TODO)
+        T_cam2obj0_transl = np.eye(4)
+        T_cam2obj0_transl[2,3] = T_cam[2,3]-T_obj0[2,3]
+        # Change in position of the object between t0 and t  
+        T_obj_rel = T_obj @ np.linalg.inv(T_obj0)
+        # Inverted or reversed position change of the object 
+        T_obj_rel_inv = np.linalg.inv(T_obj_rel)
+        # Transformation rule between dynamic and static scene
+        T_Dyn2Static = T_cam2obj0_transl @ T_obj_rel_inv
+        # Calculate Transformation matrix in the static case
+        self.TransformationStatic = T_Dyn2Static @ T_cam
+
+    
+class object:
+    def __init__(self,TimeStep,Location,EulerAngle,Transformation=None,CorrespondingIndex=None):
+        self.TimeStep = TimeStep
+        self.Location = Location
+        self.EulerAngle = EulerAngle
+        self.Transformation = Transformation
+        self.CorrespondingIndex = CorrespondingIndex
+        
+    def Transformation2WorldCoordinateSystem(self):
+        x = self.Location[0]; y = self.Location[1]; z = self.Location[2]
+        theta_x = self.EulerAngle[0]; theta_y = self.EulerAngle[1]; theta_z = self.EulerAngle[2]
+        transformation_4x4 = TransMatrix_from_EulerAngle_and_Location(x, y, z, theta_x, theta_y, theta_z)
+        # Returning and saving the matrix
+        self.Transformation = transformation_4x4
+        return transformation_4x4           

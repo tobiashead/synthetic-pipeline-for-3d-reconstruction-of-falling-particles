@@ -122,13 +122,14 @@ class CameraPoseVisualizer:
         # Calculation of the color value based on the height
         return color_with_alpha 
     
-    def load_cameras(self,cams,focal_length,aspect_ratio,sensor_width,scale,alpha=0.35,DrawCoordSystem=True,colormap='viridis'):
+    def load_cameras(self,cams,focal_length=0.016,aspect_ratio=1.3358,sensor_width=0.00712,scale=2,alpha=0.35,DrawCoordSystem=True,colormap='viridis'):
         for i,cam in enumerate(cams):
-            if cam.TimeStep == 1:
+            if cams[-1].TimeStep == 1:
                 color = self.color_based_on_height(cam,alpha,colormap)
                 self.extrinsic2pyramid(cam.Transformation, color, focal_length,aspect_ratio,sensor_width,scale,alpha,DrawCoordSystem)
-            else: 
-                break
+            else:
+                color = 'r'
+                self.extrinsic2pyramid(cam.Transformation, color, focal_length,aspect_ratio,sensor_width,scale,alpha,DrawCoordSystem) 
     
     def load_cube(self,cams_ref):
             # dynamic case    

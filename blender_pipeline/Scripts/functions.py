@@ -170,7 +170,7 @@ def create_output_path(project_path,project_name):
 
 #------------------------------------------------------------------------------------ 
 # Storage of simulation and imaging data
-def save_blender_settings(params,camera_data):
+def save_blender_settings(params,camera_data,object_data=None):
     output_path = Path(params["io"]["output_path"])
 
     # write json-file with all selected parameters 
@@ -187,6 +187,14 @@ def save_blender_settings(params,camera_data):
                          'RotationEulerX', 'RotationEulerY', 'RotationEulerZ',
                          'DirectionX', 'DirectionY', 'DirectionZ'])
         writer.writerows(camera_data)
+    # write CSV data representing object position and orientation
+    if object_data != None:
+        path_ObjectData = output_path / ('ObjectPositioningInMeters.csv')
+        with open(str(path_ObjectData), mode='w', newline='') as file:
+            writer = csv.writer(file)    
+            writer.writerow(['TimeStep', 'PositionX', 'PositionY', 'PositionZ',
+                            'RotationEulerX', 'RotationEulerY', 'RotationEulerZ'])
+            writer.writerows(object_data)   
     # write cache file with location of the output folder
     cache_path = Path(params["io"]["script_path"]) / "cache.txt"
     with open(cache_path, "w") as txt_file:
@@ -211,15 +219,16 @@ def create_not_evenly_distributed_cameras(cam):
     # set up the cameras at the desired positions
     for j,camera in enumerate(cam["pos"].values()):
         camera_location = mathutils.Vector((camera["x_m"],camera["y_m"],camera["z_m"]))
-        target_location = mathutils.Vector((0, 0, z_center))
-        
-        # Calculate the direction vector and create the rotation quaternion
-        direction = -(target_location - camera_location).normalized()
-        rot_quat = direction.to_track_quat('Z', 'Y')
-        
-        # Create a new camera
-        bpy.ops.object.camera_add(location=camera_location, rotation=rot_quat.to_euler())
-        
+        if "theta_x" not in camera.keys():
+            target_location = mathutils.Vector((0, 0, z_center))
+            # Calculate the direction vector and create the rotation quaternion
+            direction = -(target_location - camera_location).normalized()
+            rot_quat = direction.to_track_quat('Z', 'Y')
+            # Create a new camera
+            bpy.ops.object.camera_add(location=camera_location, rotation=rot_quat.to_euler())
+        else:
+            euler_angle = mathutils.Vector((camera["theta_x"],camera["theta_y"],camera["theta_z"]))
+            bpy.ops.object.camera_add(location=camera_location, rotation=euler_angle)     
         # Adjust camera settings
         bpy.context.object.data.type = 'PERSP'
         bpy.context.object.data.lens = focal_length  # Adjust focal length
@@ -236,3 +245,10 @@ def save_camera_data(cam,camera_data,file_name,t_count):
                         rotation[0], rotation[1], rotation[2],
                         direction[0],direction[1],direction[2]])
     return camera_data
+#------------------------------------------------------------------------------------
+def save_obj_state(obj_motion,t_count,obj):
+    rotation = obj.rotation_euler
+    location = obj.location
+    obj_motion.append([t_count, location[0], location[1], location[2],
+                        rotation[0], rotation[1], rotation[2]])
+    return obj_motion

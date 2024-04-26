@@ -96,7 +96,8 @@ from functions import (
     save_blender_settings,
     print_warnings,
     save_camera_data,
-    create_not_evenly_distributed_cameras
+    create_not_evenly_distributed_cameras,
+    save_obj_state
     )
 # import modules from text-data block
 #sys.modules["functions"] = bpy.data.texts['functions.py'].as_module()
@@ -112,7 +113,8 @@ bpy.ops.object.delete()
 bpy.ops.wm.obj_import(filepath=str(params["io"]["obj_path"]))   # Import the OBJ model
 obj = bpy.context.active_object                                 # Retrieve the last imported object (this is now the active object)
 bpy.ops.object.origin_set(type='ORIGIN_CENTER_OF_VOLUME', center='BOUNDS')  # Recalculate the object's bounding box to update its center of mass
-obj.location = (params["motion"]["s0"])                         # Set the position of the object at t=0s
+params["motion"] = translate_obj(0,params["motion"],obj)        # Set the position of the object at t=0s
+rotate_obj(0,params["motion"],obj)                              # Set the rotation of the object at t=0s
 #------------------------------------------------------------------------------------
 # Create Output-Path
 params["io"]["output_path"] = create_output_path(project_path,params["io"]["name"])
@@ -135,13 +137,16 @@ z_min = params["cam"]["z_center"]-delta_h; z_max = params["cam"]["z_center"] + d
 time_vec = np.arange(0,params["motion"]["sim_time"],1/params["cam"]["fps"])
 
 # Start simulation
-image_count = 0; camera_data = []
+image_count = 0; camera_data = []; obj_state = []
+obj_state = save_obj_state(obj_state,0,obj)     # save initial object location and orientation
 for t_count, t in enumerate(time_vec):
     params["motion"] = translate_obj(t,params["motion"],obj) # translate image and get new position
     if params["motion"]['s'][2] <= z_max:    # check if the object is visible on the images
         if params["motion"]['s'][2]<z_min:   # check if the object is visible on the images
             break                           # if particle has already passed, then end simulation
         rotate_obj(t,params["motion"],obj)   # rotate particles (only when an image is created)
+        # Save Orientation and Position of the moving object
+        obj_state = save_obj_state(obj_state,t_count,obj)
         # Rendering of all cameras in the scene
         image_count,camera_data = renderCameras(params,t_count,image_count,camera_data)
 #------------------------------------------------------------------------------------ 
@@ -151,6 +156,6 @@ if params["exiftool"]["mod"] == 2:
 ######################################################################################
 
 ############################## Save data #############################################      
-save_blender_settings(params,camera_data)
+save_blender_settings(params,camera_data,obj_state)
 print_warnings(params)  # display warnings
 ######################################################################################
