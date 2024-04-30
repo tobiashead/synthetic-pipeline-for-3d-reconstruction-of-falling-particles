@@ -135,7 +135,7 @@ class CameraPoseVisualizer:
         color_with_alpha = color[:3] + (alpha,)
         return color_with_alpha,norm,cmap
     
-    def load_cameras(self,cams,focal_length=0.016,aspect_ratio=1.3358,sensor_width=0.00712,scale=2,alpha=0.35,DrawCoordSystem=True,colormap='viridis',static_scene = False, color ='r',colorbar=False):
+    def load_cameras(self,cams,focal_length=0.016,aspect_ratio=1.3358,sensor_width=0.00712,scale=2,alpha=0.35,DrawCoordSystem=True,colormap='viridis',static_scene = True, color ='r',colorbar=False):
         obj_moving = False if cams[-1].TimeStep == 1 else True
         TimeStep_max = max(item.TimeStep for item in cams)
         for i,cam in enumerate(cams):
@@ -143,9 +143,12 @@ class CameraPoseVisualizer:
                 if  hasattr(cam, 'TransformationStatic'):
                     Transformation = cam.TransformationStatic
                 else:
-                    print("Warning! Static transformation matrix unknown."); Transformation =  cam.Transformation
+                    print("Error! Static transformation matrix unknown.")
             else:
-                Transformation =  cam.Transformation
+                if  hasattr(cam, 'TransformationDynamic'):
+                    Transformation = cam.TransformationDynamic
+                else:
+                    print("Error! Dynamic transformation matrix unknown.")
             if obj_moving:  # object is not moving 
                 color,norm,cmap = self.color_based_on_timestep(cam.TimeStep,TimeStep_max,alpha,colormap)
                 self.extrinsic2pyramid(Transformation, color, focal_length,aspect_ratio,sensor_width,scale,alpha,DrawCoordSystem)

@@ -8,12 +8,13 @@ from src.TransMatrix_Utils import rotation_matrix_x, \
                             rotation_matrix_z    
 
 class camera_reconstructed: 
-    def __init__(self, ImageFileName, Pose, TimeStep=None, Transformation=None,CorrespondigIndex=None):
+    def __init__(self, ImageFileName, Pose, TimeStep=None, TransformationStatic=None,CorrespondigIndex=None,TransformationDynamic = None):
         self.ImageFileName = ImageFileName
         self.Location = np.longdouble(Pose["center"])
         self.Rotation = np.longdouble(Pose["rotation"])
         self.TimeStep = TimeStep
-        self.Transformation = Transformation
+        self.TransformationStatic = TransformationStatic
+        self.TransformationDynamic = TransformationDynamic
         self.CorrespondigIndex = CorrespondigIndex
         
     def Transformation2WorldCoordinateSystem(self,T):
@@ -34,16 +35,16 @@ class camera_reconstructed:
         # T_(rec->glob): T_(ref->glob) @ T_(rec->ref) --> Transformation from reconstructed coordinate system into global coordinate system
         transformation_4x4 = translation_4x4 @ T @ rot_x_meshroom_plot_cam @ trans_4x4_reconstructed
         # Returning and saving the matrix
-        self.Transformation = transformation_4x4
+        self.TransformationStatic = transformation_4x4
         return transformation_4x4
         
               
 class camera_reference: 
-    def __init__(self, ImageFileName, Location, EulerAngle, TimeStep, CorrespondigIndex=None, Transformation=None,TransformationStatic=None, CorrespondigIndexObject = None):
+    def __init__(self, ImageFileName, Location, EulerAngle, TimeStep, CorrespondigIndex=None, TransformationDynamic=None,TransformationStatic=None, CorrespondigIndexObject = None):
         self.ImageFileName = ImageFileName
         self.Location = Location
         self.EulerAngle = EulerAngle
-        self.Transformation = Transformation
+        self.TransformationDynamic = TransformationDynamic
         self.TimeStep = TimeStep
         self.CorrespondigIndex = CorrespondigIndex
         self.CorrespondigIndexObject = CorrespondigIndexObject 
@@ -56,14 +57,15 @@ class camera_reference:
         # but transformation of Blender camera coordinate convention into camera plot convention necesssary
         theta_x += np.deg2rad(180) 
         transformation_4x4 = TransMatrix_from_EulerAngle_and_Location(x, y, z, theta_x, theta_y, theta_z)
-        # Returning and saving the matrix
-        self.Transformation = transformation_4x4
+        # saving the matrix, could be dynamic or static case
+        self.TransformationDynamic = transformation_4x4
+        self.TransformationStatic = transformation_4x4
         return transformation_4x4
     
     def Dynamic2StaticScene(self,T_obj,T_obj0):
         # TODO Implement that this function can also be used for an object moving in x and y directions
         # Get the transformation matrix of the camera of the dynamic scene 
-        T_cam = self.Transformation
+        T_cam = self.TransformationDynamic
         # Relative position (translation in z-direction only) between camera and object at time t=0s (TODO)
         T_cam2obj0_transl = np.eye(4)
         T_cam2obj0_transl[2,3] = T_cam[2,3]-T_obj0[2,3]
@@ -75,6 +77,7 @@ class camera_reference:
         T_Dyn2Static = T_cam2obj0_transl @ T_obj_rel_inv
         # Calculate Transformation matrix in the static case
         self.TransformationStatic = T_Dyn2Static @ T_cam
+        return T_Dyn2Static
 
     
 class object:

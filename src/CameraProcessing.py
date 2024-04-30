@@ -84,7 +84,7 @@ def match_cameras(cams_rec,cams_ref):
 def ExportCameras2Blender(cams,evaluation_path, static_scene = True):
     data = {}
     for i,cam in enumerate(cams):
-        T = cam.TransformationStatic if static_scene else cam.Transformation
+        T = cam.TransformationStatic if static_scene else cam.TransformationDynamic
         location, rotation, scale = Get_Location_Rotation3x3_Scale_from_Transformation4x4(T)
         euler_angle = np.longdouble(RotationMatrix3x3_To_EulerAngles(rotation))
         # transformation of camera coordinate plot convention into Blender camera coordinate convention 
