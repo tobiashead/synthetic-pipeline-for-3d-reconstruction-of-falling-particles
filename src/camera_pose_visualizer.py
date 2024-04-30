@@ -8,7 +8,7 @@ from pathlib import Path
 import importlib
 import sys
 importlib.reload(sys.modules['src.TransMatrix_Utils']) if 'src.TransMatrix_Utils' in sys.modules else None
-from src.TransMatrix_Utils import Get_Location_Rotation3x3_Scale_from_Transformation4x4
+from src.TransMatrix_Utils import Get_Location_Rotation3x3_Scale_from_Transformation4x4, rotation_matrix_x
 
 ###################################################################################
 # code is originally based on https://github.com/demul/extrinsic2pyramid, but has been modified
@@ -92,10 +92,12 @@ class CameraPoseVisualizer:
             list_handle.append(patch)
         plt.legend(loc='right', bbox_to_anchor=(1.8, 0.5), handles=list_handle)
 
-    def colorbar(self, max_frame_length):
-        cmap = mpl.cm.rainbow
-        norm = mpl.colors.Normalize(vmin=0, vmax=max_frame_length)
-        self.fig.colorbar(mpl.cm.ScalarMappable(norm=norm, cmap=cmap), orientation='vertical', label='Frame Number')
+    def colorbar(self,norm,cmap,label):
+        fig = self.fig
+        ax = fig.gca()
+        scalar_mappable = plt.cm.ScalarMappable(norm=norm, cmap=cmap)
+        scalar_mappable.set_array([])
+        fig.colorbar(scalar_mappable, ax=ax, orientation='vertical', label=label)
 
     def show(self,title=None):
         if title is not None:
@@ -108,9 +110,9 @@ class CameraPoseVisualizer:
         plt.savefig(str(path) + ".pdf", format='pdf',bbox_inches='tight')
         plt.savefig(str(path) + ".svg", format='svg',bbox_inches='tight')
     
-    def color_based_on_height(self,cam,alpha,colormap='viridis'):
+    def color_based_on_height(self,Transformation,alpha,colormap='viridis'):
         import matplotlib.colors as mcolors
-        location,_,_ = Get_Location_Rotation3x3_Scale_from_Transformation4x4(cam.Transformation)
+        location,_,_ = Get_Location_Rotation3x3_Scale_from_Transformation4x4(Transformation)
         height = location[2]
         cmap = plt.cm.get_cmap(colormap)  # Choose a colormap (e.g., 'viridis')
         z_min = self.ax.get_zlim()[0]; z_max = self.ax.get_zlim()[1]
@@ -120,20 +122,43 @@ class CameraPoseVisualizer:
         # Adjust alpha channel
         color_with_alpha = color[:3] + (alpha,)
         # Calculation of the color value based on the height
-        return color_with_alpha 
+        return color_with_alpha,norm,cmap
     
-    def load_cameras(self,cams,focal_length=0.016,aspect_ratio=1.3358,sensor_width=0.00712,scale=2,alpha=0.35,DrawCoordSystem=True,colormap='viridis'):
+    def color_based_on_timestep(self,TimeStep,TimeStep_max,alpha,colormap='viridis'):
+        # Calculation of the color value based on timestep
+        import matplotlib.colors as mcolors
+        cmap = plt.cm.get_cmap(colormap)  # Choose a colormap (e.g., 'viridis')
+        norm = mcolors.Normalize(vmin=1, vmax=TimeStep_max)  # Define the range of normalized height values (adjust as needed)
+        # Map normalized height to color using the colormap
+        color = cmap(norm(TimeStep))
+        # Adjust alpha channel
+        color_with_alpha = color[:3] + (alpha,)
+        return color_with_alpha,norm,cmap
+    
+    def load_cameras(self,cams,focal_length=0.016,aspect_ratio=1.3358,sensor_width=0.00712,scale=2,alpha=0.35,DrawCoordSystem=True,colormap='viridis',static_scene = False, color ='r',colorbar=False):
+        obj_moving = False if cams[-1].TimeStep == 1 else True
+        TimeStep_max = max(item.TimeStep for item in cams)
         for i,cam in enumerate(cams):
-            if cams[-1].TimeStep == 1:
-                color = self.color_based_on_height(cam,alpha,colormap)
-                self.extrinsic2pyramid(cam.Transformation, color, focal_length,aspect_ratio,sensor_width,scale,alpha,DrawCoordSystem)
+            if static_scene:
+                if  hasattr(cam, 'TransformationStatic'):
+                    Transformation = cam.TransformationStatic
+                else:
+                    print("Warning! Static transformation matrix unknown."); Transformation =  cam.Transformation
             else:
-                color = 'r'
-                self.extrinsic2pyramid(cam.Transformation, color, focal_length,aspect_ratio,sensor_width,scale,alpha,DrawCoordSystem) 
-    
-    def load_cube(self,cams_ref):
+                Transformation =  cam.Transformation
+            if obj_moving:  # object is not moving 
+                color,norm,cmap = self.color_based_on_timestep(cam.TimeStep,TimeStep_max,alpha,colormap)
+                self.extrinsic2pyramid(Transformation, color, focal_length,aspect_ratio,sensor_width,scale,alpha,DrawCoordSystem)
+            else:
+                color,norm,cmap = self.color_based_on_height(Transformation,alpha,colormap)
+                self.extrinsic2pyramid(Transformation, color, focal_length,aspect_ratio,sensor_width,scale,alpha,DrawCoordSystem)
+        if colorbar:
+            label = "Time Step" if obj_moving else "Height in m" 
+            self.colorbar(norm,cmap,label)
+                     
+    def load_cube(self,cams_ref,static_scene = False):
             # dynamic case    
-        if cams_ref[-1].TimeStep != 1:      
+        if cams_ref[-1].TimeStep != 1 and static_scene == False:      
             self.create_cube(position=[0,0,1.2],size=0.03,color='k',alpha=0.4,rotation=[15,0,15])   # size=a=b=c
             self.create_cube(position=[0,0,1.05],size=0.03,color='k',alpha=0.3,rotation=[30,0,30])
             self.create_cube(position=[0,0,0.95],size=0.03,color='k',alpha=0.2,rotation=[45,0,45])
@@ -141,5 +166,3 @@ class CameraPoseVisualizer:
         # static case    
         else:
             self.create_cube(position=[0,0,1],size=0.03,color='k',alpha=0.3)
-        
-                    

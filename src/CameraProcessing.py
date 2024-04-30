@@ -5,12 +5,13 @@ import pandas as pd
 import numpy as np
 import importlib
 import sys
-importlib.reload(sys.modules['src.object_classes']) if 'src.object_classes' in sys.modules else None
-from src.object_classes import camera_reconstructed, camera_reference, object
+importlib.reload(sys.modules['src.classes']) if 'src.classes' in sys.modules else None
+from src.classes import camera_reconstructed, camera_reference, object
+importlib.reload(sys.modules['src.TransMatrix_Utils']) if 'src.TransMatrix_Utils' in sys.modules else None
+from src.TransMatrix_Utils import Get_Location_Rotation3x3_Scale_from_Transformation4x4, RotationMatrix3x3_To_EulerAngles
 
 #-----------------------------------------------------------------------
 def read_camera_alignment_reconstruction(basebase_file_path_meshroom):
-
     # load camera data from Meshroom
     base_file_path_meshroom = Path(basebase_file_path_meshroom) / 'MeshroomCache' / 'StructureFromMotion'
     folder_name = os.listdir(base_file_path_meshroom)
@@ -49,6 +50,7 @@ def read_camera_alignment_reference(base_file_path_blender):
         Location = [cam["PositionX"],cam["PositionY"],cam["PositionZ"]]
         EulerAngle = [cam["RotationEulerX"],cam["RotationEulerY"],cam["RotationEulerZ"]]
         cam = camera_reference(ImageFileName,Location,EulerAngle,TimeStep)
+        cam.CorrespondigIndexObject = TimeStep-1
         cam.Transformation2WorldCoordinateSystem()
         cams_ref.append(cam)
     return cams_ref
@@ -64,11 +66,9 @@ def read_object_alignment(base_file_path_blender):
         Location = np.array([obj["PositionX"],obj["PositionY"],obj["PositionZ"]])
         EulerAngle =  np.array([obj["RotationEulerX"],obj["RotationEulerY"],obj["RotationEulerZ"]])
         obj = object(TimeStep,Location,EulerAngle)
-        if i!= 0:
-             obj.CorrespondingIndex = i+1  
         obj.Transformation2WorldCoordinateSystem()
         objects.append(obj) 
-    return objects[1:],object[0]
+    return objects[1:],objects[0]
 
 #-----------------------------------------------------------------------   
 def match_cameras(cams_rec,cams_ref):
@@ -80,3 +80,26 @@ def match_cameras(cams_rec,cams_ref):
                 cams_ref[i] = cam_ref; cams_rec[j] = cam_rec;     
                 break
     return cams_rec, cams_ref  
+#-----------------------------------------------------------------------
+def ExportCameras2Blender(cams,evaluation_path, static_scene = True):
+    data = {}
+    for i,cam in enumerate(cams):
+        T = cam.TransformationStatic if static_scene else cam.Transformation
+        location, rotation, scale = Get_Location_Rotation3x3_Scale_from_Transformation4x4(T)
+        euler_angle = np.longdouble(RotationMatrix3x3_To_EulerAngles(rotation))
+        # transformation of camera coordinate plot convention into Blender camera coordinate convention 
+        euler_angle[0] += np.pi
+        key = "camera" + str(i+1)
+        data[key] = {
+            "name": key,
+            "x_m": float(location[0]),
+            "y_m": float(location[1]),
+            "z_m": float(location[2]),
+            "theta_x": float(euler_angle[0]),
+            "theta_y": float(euler_angle[1]),
+            "theta_z": float(euler_angle[2])
+        }
+    # Speichere die aktualisierten Daten in die JSON-Datei
+    json_path  = Path(evaluation_path) / "CamerasExtrinsicsStatic.json"
+    with open(json_path, 'w') as f:
+        json.dump(data, f, indent=4)
