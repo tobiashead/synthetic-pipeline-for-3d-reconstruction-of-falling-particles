@@ -1,13 +1,13 @@
 {
      "io": {
-          "name": "moving_MS_20_2_3cams",
+          "name": "wurfkurve_MS_20_2_15cams",
           "obj_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\objects\\MS_20_2\\centered\\MS_22_2_wR_schw_M.obj",
           "label_images": 3
      },
      "motion": {
           "s0": [
-               0,
-               0,
+               0.1,
+               0.1,
                1.1
           ],
           "v0": [
@@ -16,8 +16,8 @@
                0
           ],
           "a": [
-               0,
-               0,
+               -9.81,
+               -9.81,
                -9.81
           ],
           "omega": [
@@ -29,12 +29,18 @@
      },
      "cam": {
           "even_dist": true,
-          "pos_file_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\blender_pipeline\\Scripts\\camera_positions.json",
-          "number": 3,
-          "z_center": 1,
+          "pos_file_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\blender_pipeline\\Scripts\\CamerasExtrinsicsStatic.json",
+          "number": 5,
+          "focuspoint": [
+               0,
+               0,
+               1
+          ],
           "distance": 0.2,
           "vert_angle": [
-               0
+               -45,
+               0,
+               45
           ],
           "focal_length": 16,
           "sensor_size": [

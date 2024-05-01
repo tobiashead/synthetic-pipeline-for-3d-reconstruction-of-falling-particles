@@ -14,8 +14,8 @@ def scaling_factor(cams_rec,cams_ref,evaluation_path):
     n_img = len(cams_ref)
     n_TimeSteps = cams_ref[-1].TimeStep
     n_cam = int(n_img/n_TimeSteps)                 # Calculate the number of cameras per time step
-    #factor_vec = []
-    factor_vec = np.zeros(n_TimeSteps*n_cam**2)       # Initialize an array to store scaling factors
+    factor_vec = []
+    #factor_vec = np.zeros(n_TimeSteps*n_cam**2)       # Initialize an array to store scaling factors
     ind_ref = 0                                      # Index for accessing camera positions
     for i in range(n_TimeSteps):                    # Iterate over all time steps
         pos_matrix_ref = np.zeros([n_cam,3])         # Initialize a matrix to store ground truth camera positions within a time step
@@ -32,9 +32,9 @@ def scaling_factor(cams_rec,cams_ref,evaluation_path):
         dist_matrix_ref = cdist(pos_matrix_ref,pos_matrix_ref,'euclidean') # Compute euklidean distance between each pair of the cameras (groud truth) --> Euclidean distance matrix
         dist_matrix_rec = cdist(pos_matrix_rec,pos_matrix_rec,'euclidean')    # Compute euklidean distance between each pair of the cameras (reconstructed) --> Euclidean distance matrix
         factor_matrix = np.divide(dist_matrix_ref,dist_matrix_rec)         # Calculate the scaling factors by the ratio of the distances between the cameras 
-        factor_vec[i*n_cam**2:(i+1)*n_cam**2] = factor_matrix.flatten()     # Flatten and store scaling factors
-        #factor_vec.append(factor_matrix.flatten())
-    #factor_vec = np.concatenate(factor_vec)
+        #factor_vec[i*n_cam**2:(i+1)*n_cam**2] = factor_matrix.flatten()     # Flatten and store scaling factors
+        factor_vec.append(factor_matrix.flatten())
+    factor_vec = np.concatenate(factor_vec)
     factor_vec = factor_vec[~np.isnan(factor_vec)]                      # Remove NaN values
     factor_mean = np.mean(factor_vec)                                   # Calculate mean scaling factor
     factor_median = np.median(factor_vec)                               # Calculate median scaling factor

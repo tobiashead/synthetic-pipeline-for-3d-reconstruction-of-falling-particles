@@ -17,12 +17,12 @@ class camera_reconstructed:
         self.TransformationDynamic = TransformationDynamic
         self.CorrespondigIndex = CorrespondigIndex
         
-    def Transformation2WorldCoordinateSystem(self,T):
+    def Transformation2WorldCoordinateSystem(self,T,focuspoint):
         # Calculate 4x4 Transformation Matrix from the reconstructed Locations (3) and the 3x3 Rotation Matrix  
         trans_4x4_reconstructed = Transformation4x4_from_Location3x1_and_Rotation3x3(self.Rotation,self.Location)
         # Calculate a Translation, because the point of focus in blender is at x=0, y=0, z = 1, 
         # and the position of the reference object is at x=0,y=0,z=0
-        translation_4x4 = np.eye(4,4); translation_4x4[2,3] += 1
+        translation_4x4 = np.eye(4,4); translation_4x4[2,3] += focuspoint[2]
         # Meshroom's camera orientation is NOT consistent with the convention of our camera plot function
         # Transformation from Meshroom's camera orientation to the plot function camera orientation
         rot_x_meshroom_plot_cam =  rotation_matrix_x(np.deg2rad(180)) 
@@ -62,13 +62,12 @@ class camera_reference:
         self.TransformationStatic = transformation_4x4
         return transformation_4x4
     
-    def Dynamic2StaticScene(self,T_obj,T_obj0):
-        # TODO Implement that this function can also be used for an object moving in x and y directions
+    def Dynamic2StaticScene(self,T_obj,T_obj0,focuspoint):
         # Get the transformation matrix of the camera of the dynamic scene 
         T_cam = self.TransformationDynamic
         # Relative position (translation in z-direction only) between camera and object at time t=0s (TODO)
         T_cam2obj0_transl = np.eye(4)
-        T_cam2obj0_transl[2,3] = T_cam[2,3]-T_obj0[2,3]
+        T_cam2obj0_transl[:3,3] = focuspoint-T_obj0[:3,3]
         # Change in position of the object between t0 and t  
         T_obj_rel = T_obj @ np.linalg.inv(T_obj0)
         # Inverted or reversed position change of the object 

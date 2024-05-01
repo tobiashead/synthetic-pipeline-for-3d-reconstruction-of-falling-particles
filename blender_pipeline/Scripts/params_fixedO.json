@@ -28,7 +28,7 @@
           "even_dist": true,
           "pos_file_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\blender_pipeline\\Scripts\\CamerasExtrinsicsStatic.json",
           "number": 10,
-          "z_center": 1,
+          "focuspoint": [0,0,1],
           "distance": 0.2,
           "vert_angle": [
                -45,

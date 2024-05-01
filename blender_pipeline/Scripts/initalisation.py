@@ -26,7 +26,7 @@ params = {
         "pos_file_path": r'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_pipeline\Scripts\camera_positions.json', # path to the file containing the camera positions
         # only necessary if even_dist = True
         "number": 3,                  # number of cameras at one level
-        "z_center": 1,                # [m] Height of the "center point"
+        "focuspoint": [0,0,1],        # [m] Location of the point of focus
         "distance": 0.2,              # [m] Euclidean distance to the "center point"
         # necessary, regardless of the value of even_dist 
         "vert_angle": [0],            # [°] Vertical angle from centre to camera position
@@ -53,7 +53,8 @@ else:
 from functions import (
     create_evenly_distributed_cameras,
     create_lightsources,
-    create_not_evenly_distributed_cameras
+    create_not_evenly_distributed_cameras,
+    rotate_obj
 )
 # import modules from text-data block
 #sys.modules["functions"] = bpy.data.texts['functions.py'].as_module()
@@ -70,6 +71,7 @@ bpy.ops.wm.obj_import(filepath=str(params["io"]["obj_path"]))   # Import the OBJ
 obj = bpy.context.active_object                                 # Retrieve the last imported object (this is now the active object)
 bpy.ops.object.origin_set(type='ORIGIN_CENTER_OF_VOLUME', center='BOUNDS')  # Recalculate the object's bounding box to update its center of mass
 obj.location = (params["motion"]["s0"])                         #   Set the position of the object at t=0s
+params["motion"]["omega"] = [0,0,0]; rotate_obj(0,params["motion"],obj) # Set the rotation of the object at t=0s
 #------------------------------------------------------------------------------------
 # Create cameras
 create_evenly_distributed_cameras(params["cam"])

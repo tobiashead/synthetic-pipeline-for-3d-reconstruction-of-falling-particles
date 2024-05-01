@@ -13,12 +13,12 @@ import json
 #------------------------------------------------------------------------------------
 # Create cameras with evenly distributed angles
 def create_evenly_distributed_cameras(cam):
-    number_cameras = cam["number"]; z_center = cam["z_center"]; camera_distance = cam["distance"]
+    number_cameras = cam["number"]; focuspoint = cam["focuspoint"]; camera_distance = cam["distance"]
     vert_angle = cam["vert_angle"]; focal_length = cam["focal_length"]; sensor_size = cam["sensor_size"]
     camera_data = []; j = 0
     relative_angle = 360 / number_cameras
     for angle in vert_angle:
-        v_distance = math.sin(math.radians(angle))*camera_distance + z_center
+        v_distance = math.sin(math.radians(angle))*camera_distance + focuspoint[2]
         h_distance = math.cos(math.radians(angle))*camera_distance
         for i in range(number_cameras):
             
@@ -26,7 +26,7 @@ def create_evenly_distributed_cameras(cam):
             
             # Set the camera location and target location based on camera_angle
             camera_location = mathutils.Vector((h_distance * math.cos(math.radians(hori_angle)), h_distance * math.sin(math.radians(hori_angle)), v_distance))
-            target_location = mathutils.Vector((0, 0, z_center))
+            target_location = mathutils.Vector(focuspoint)
             
             # Calculate the direction vector and create the rotation quaternion
             direction = -(target_location - camera_location).normalized()
@@ -211,7 +211,7 @@ def print_warnings(params):
       f"from the ratio of the number of pixels over the width and height of the images")
 #------------------------------------------------------------------------------------
 def create_not_evenly_distributed_cameras(cam):
-    z_center = cam["z_center"]; pos_file_path = cam["pos_file_path"]
+    focuspoint = cam["focuspoint"]; pos_file_path = cam["pos_file_path"]
     focal_length = cam["focal_length"]; sensor_size = cam["sensor_size"]
     # load positions from position file
     with open(pos_file_path, 'r') as file:
@@ -220,7 +220,7 @@ def create_not_evenly_distributed_cameras(cam):
     for j,camera in enumerate(cam["pos"].values()):
         camera_location = mathutils.Vector((camera["x_m"],camera["y_m"],camera["z_m"]))
         if "theta_x" not in camera.keys():
-            target_location = mathutils.Vector((0, 0, z_center))
+            target_location = mathutils.Vector(focuspoint)
             # Calculate the direction vector and create the rotation quaternion
             direction = -(target_location - camera_location).normalized()
             rot_quat = direction.to_track_quat('Z', 'Y')

@@ -43,7 +43,7 @@ else:
             "pos_file_path": r'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_pipeline\Scripts\camera_positions.json', # path to the file containing the camera positions
             # only necessary if even_dist = True
             "number": 5,                  # number of cameras at one level
-            "z_center": 1,                # [m] Height of the "focus point"
+            "focuspoint": [0,0,1],        # [m] Location of the point of focus
             "distance": 0.3,              # [m] Euclidean distance to the "focus point"
             "vert_angle": [-30,0,30],            # [°] Vertical angle from centre to camera position
             # necessary, regardless of the value of even_dist 
@@ -131,7 +131,7 @@ create_lightsources(params["light"])
 # Translation and Rotate object in every time and render cameras
 # Find the maximum and minimum height at which objects are visible on the cameras, valid if displacement in x and y direction is not allowed
 delta_h = params["cam"]["sensor_size"][1] / params["cam"]["focal_length"] / 2 * params["cam"]["distance"]   # [m]
-z_min = params["cam"]["z_center"]-delta_h; z_max = params["cam"]["z_center"] + delta_h                      # [m]
+z_min = params["cam"]["focuspoint"][2]-delta_h; z_max = params["cam"]["focuspoint"][2] + delta_h                      # [m]
 
 # Create a time vector for the simulation
 time_vec = np.arange(0,params["motion"]["sim_time"],1/params["cam"]["fps"])

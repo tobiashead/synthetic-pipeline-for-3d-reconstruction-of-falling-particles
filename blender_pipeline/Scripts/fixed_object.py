@@ -40,7 +40,7 @@ else:
             # only necessary if even_dist = False
             "pos_file_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\blender_pipeline\\Scripts\\camera_positions.json",
             "number": 1,                  # number of cameras at one level
-            "z_center": 1,                # [m] Height of the "cePnter point"
+            "focuspoint": [0,0,1],        # [m] Location of the point of focus
             "distance": 0.2,              # [m] Euclidean distance to the "center point"
             "vert_angle": [0],            # [°] Vertical angle from centre to camera position
             # necessary, regardless of the value of even_dist 
