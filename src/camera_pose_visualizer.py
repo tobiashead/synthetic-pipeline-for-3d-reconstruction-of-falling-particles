@@ -135,9 +135,10 @@ class CameraPoseVisualizer:
         color_with_alpha = color[:3] + (alpha,)
         return color_with_alpha,norm,cmap
     
-    def load_cameras(self,cams,focal_length=0.016,aspect_ratio=1.3358,sensor_width=0.00712,scale=2,alpha=0.35,DrawCoordSystem=True,colormap='viridis',static_scene = True, color ='r',colorbar=False):
+    def load_cameras(self,cams,focal_length=0.016,aspect_ratio=1.3358,sensor_width=0.00712,scale=2,alpha=0.35,DrawCoordSystem=True,colormap='viridis',static_scene = True, select_color =None,colorbar=False,color_based_on_height = False):
         obj_moving = False if cams[-1].TimeStep == 1 else True
         TimeStep_max = max(item.TimeStep for item in cams)
+        skip_colorbar = False  
         for i,cam in enumerate(cams):
             if static_scene:
                 if  hasattr(cam, 'TransformationStatic'):
@@ -149,15 +150,22 @@ class CameraPoseVisualizer:
                     Transformation = cam.TransformationDynamic
                 else:
                     print("Error! Dynamic transformation matrix unknown.")
-            if obj_moving:  # object is not moving 
-                color,norm,cmap = self.color_based_on_timestep(cam.TimeStep,TimeStep_max,alpha,colormap)
-                self.extrinsic2pyramid(Transformation, color, focal_length,aspect_ratio,sensor_width,scale,alpha,DrawCoordSystem)
+            if select_color == None:    
+                if color_based_on_height == True: 
+                    color,norm,cmap = self.color_based_on_height(Transformation,alpha,colormap)
+                else:
+                    if obj_moving == True:
+                        color,norm,cmap = self.color_based_on_timestep(cam.TimeStep,TimeStep_max,alpha,colormap)
+                    else:
+                        color = 'r'
+                        print("Warning! Display of colors depending on the time step NOT possible. Only one time step exists.")
+                        skip_colorbar = True
             else:
-                color,norm,cmap = self.color_based_on_height(Transformation,alpha,colormap)
-                self.extrinsic2pyramid(Transformation, color, focal_length,aspect_ratio,sensor_width,scale,alpha,DrawCoordSystem)
-        if colorbar:
+                color = select_color
+            self.extrinsic2pyramid(Transformation, color, focal_length,aspect_ratio,sensor_width,scale,alpha,DrawCoordSystem)
+        if colorbar and skip_colorbar == False:
             label = "Time Step" if obj_moving else "Height in m" 
-            self.colorbar(norm,cmap,label)
+            self.colorbar(norm,cmap,label) 
                      
     def load_cube(self,cams_ref,static_scene = False):
             # dynamic case    

@@ -25,6 +25,7 @@ def CreateCameraDataSets(cams_rec,cams_ref):
     # filter x and y
     pos_x = np.delete(x, empty_rows, axis=0)
     pos_y = np.delete(y, empty_rows, axis=0)
+    print(f"{len(cams_rec)} cameras from {len(cams_ref)} cameras were reconstructed ({len(cams_rec)/len(cams_ref)*100} %)")
     return pos_x,pos_y,Rx,Ry
 
 def PlotAbsPositionError_for_xyz(pos_x,pos_y):
