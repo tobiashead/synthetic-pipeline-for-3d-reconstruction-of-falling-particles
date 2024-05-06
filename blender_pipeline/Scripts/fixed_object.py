@@ -22,9 +22,9 @@ else:
     params = {
         # Input and output parameters
         "io": {
-            "name": '1cam',    # project name (e.g. 'Dodekaeder')
-            "obj_path": r'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\objects\Dodekaeder\Mesh-Dateien\Wuerfel_12s\12S.obj',    # Path to the object file
-            #"obj_path": Path("C:/Users/Tobias/Documents/Masterarbeit_lokal/synthetic_pipeline/blender_pipeline/3D_Dice/3D_Dice.obj")
+            "name": '4cam',    # project name (e.g. 'Dodekaeder')
+            #"obj_path": r'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\objects\Dodekaeder\Mesh-Dateien\Wuerfel_12s\12S.obj',    # Path to the object file
+            "obj_path": Path("C:/Users/Tobias/Documents/Masterarbeit_lokal/synthetic_pipeline/blender_pipeline/3D_Dice/3D_Dice.obj"),
             "label_images": 1               # how to label rendered images
             # 1: "{project_name}_{image_count}"
             # 2: "{project_name}_{timestep_count}_{camera_number}"
@@ -39,7 +39,7 @@ else:
             "even_dist": True,  # are the cameras evenly distributed, True or False
             # only necessary if even_dist = False
             "pos_file_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\blender_pipeline\\Scripts\\camera_positions.json",
-            "number": 1,                  # number of cameras at one level
+            "number": 4,                  # number of cameras at one level
             "focuspoint": [0,0,1],        # [m] Location of the point of focus
             "distance": 0.2,              # [m] Euclidean distance to the "center point"
             "vert_angle": [0],            # [°] Vertical angle from centre to camera position

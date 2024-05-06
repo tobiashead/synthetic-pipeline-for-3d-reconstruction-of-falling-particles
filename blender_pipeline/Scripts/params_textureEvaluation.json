@@ -1,14 +1,15 @@
 {
      "io": {
-          "name": "Moving_MS_20_2_3cams",
-          "obj_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\objects\\MS_20_2\\centered\\MS_22_2_wR_schw_M.obj",
-          "label_images": 3
+          "name": "hello",
+          "obj_path": "c:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\meshroom_data\\Moving_MS_20_2_3cams_2\\Evaluation\\texturedMesh_TRANSFORMED.OBJ",
+          "label_images": 1,
+          "output_path": "c:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\meshroom_data\\Moving_MS_20_2_3cams_2\\Evaluation\\TextureReconstruction"
      },
      "motion": {
           "s0": [
                0,
                0,
-               1.1
+               1
           ],
           "v0": [
                0,
@@ -18,19 +19,13 @@
           "a": [
                0,
                0,
-               -9.81
-          ],
-          "omega": [
-               3600,
-               0,
-               1800
-          ],
-          "sim_time": 5
+               0
+          ]
      },
      "cam": {
           "even_dist": true,
           "pos_file_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\blender_pipeline\\Scripts\\CamerasExtrinsicsStatic.json",
-          "number": 3,
+          "number": 4,
           "focuspoint": [
                0,
                0,
@@ -38,14 +33,15 @@
           ],
           "distance": 0.2,
           "vert_angle": [
-               0
+               -45,
+               0,
+               45
           ],
           "focal_length": 16,
           "sensor_size": [
                7.12,
                5.33
-          ],
-          "fps": 218
+          ]
      },
      "light": {
           "z": [
@@ -74,6 +70,6 @@
           "resolution_percentage": 100
      },
      "exiftool": {
-          "mod": 2
+          "mod": 0
      }
 }

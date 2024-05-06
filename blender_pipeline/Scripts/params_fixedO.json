@@ -1,8 +1,8 @@
 {
      "io": {
-          "name": "static_MS_20_2_3cams",
+          "name": "Schotterpartikel_46_rocky_trail",
           "script_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\blender_pipeline\\Scripts",
-          "obj_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\objects\\MS_20_2\\centered\\MS_22_2_wR_schw_M.obj",
+          "obj_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\objects\\Schotterpartikel_46_rocky_trail\\Schotterpartikel_46_rocky_trail.obj",
           "base_output_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\blender_data",
           "label_images": 1,
           "output_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\blender_data\\static_BP_02_60cam_15x4"
@@ -28,7 +28,11 @@
           "even_dist": true,
           "pos_file_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\blender_pipeline\\Scripts\\CamerasExtrinsicsStatic.json",
           "number": 10,
-          "focuspoint": [0,0,1],
+          "focuspoint": [
+               0,
+               0,
+               1
+          ],
           "distance": 0.2,
           "vert_angle": [
                -45,
