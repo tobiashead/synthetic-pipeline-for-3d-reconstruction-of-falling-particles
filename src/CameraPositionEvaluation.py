@@ -41,23 +41,25 @@ def PlotAbsPositionError_for_xyz(pos_x,pos_y):
     axs[0].set_ylabel("absolute error in mm")
     plt.show()
     
-def PlotAbsPositionError(pos_x,pos_y):   
+def PlotAbsPositionError(pos_x,pos_y,outlier_criterion=0.005):   
     cam_pos_error_abs = np.linalg.norm(pos_x-pos_y,axis=1)
     fig = plt.figure(figsize=(5, 5))
     plt.hist(cam_pos_error_abs*1000, bins=15, color='skyblue', edgecolor='black')
-    plt.xlabel(r"Camera Position Error $||\mathrm{\vec{x}}_{c,rec}^g-\mathrm{\vec{x}}_{c,ref}^g||_2$ in mm")
+    plt.xlabel(r"Camera Position Error $||\mathbf{x}_{c,rec}^g-\mathbf{x}_{c,ref}^g||_2$ in mm")
     plt.ylabel("frequency")
     mean_error = np.mean(cam_pos_error_abs) 
     std_deviation = np.std(cam_pos_error_abs)
     # Counting the number of outliers
-    outlier_criterion = 1e-3
-    outliers_count = np.sum(cam_pos_error_abs > outlier_criterion)
+    cam_pos_error_rel = np.divide(cam_pos_error_abs,np.linalg.norm(pos_y,axis=1))
+    mean_error_rel = np.mean(cam_pos_error_rel) 
+    outliers_count = np.sum(cam_pos_error_rel > outlier_criterion)
     print(f"Mean absolute camera position error: {mean_error*1000:.2f} mm")
+    print(f"Mean relative camera position error: {mean_error_rel*100:.2f} %")
     print(f"Standard deviation: {std_deviation*1000:.2f} mm")
-    print(f"Number of Inliers: {len(cam_pos_error_abs)-outliers_count} (abs. error <= 1mm)")
-    print(f"Number of Outliers: {outliers_count} (abs. error > 1mm)")
+    print(f"Number of Inliers: {len(cam_pos_error_abs)-outliers_count} (rel. error <= {outlier_criterion*100}%)")
+    print(f"Number of Outliers: {outliers_count} (rel. error > {outlier_criterion*100}%)")
     
-def OrientationError(Rx,Ry):   
+def OrientationError(Rx,Ry,outlier_criterion_angle = 1):   
     from scipy.spatial.transform import Rotation
     angle_diff = np.zeros([len(Rx),1])
     for i in range (len(Rx)):
@@ -72,9 +74,8 @@ def OrientationError(Rx,Ry):
     mean_angle_error = np.mean(angle_diff) 
     std_angle_deviation = np.std(angle_diff)
     # Counting the number of outliers
-    outlier_criterion = 1 # °
-    outliers_count = np.sum(angle_diff > outlier_criterion)
+    outliers_count = np.sum(angle_diff > outlier_criterion_angle)
     print(f"Mean rotation difference: {mean_angle_error:.2f}°")
     print(f"Standard deviation: {std_angle_deviation:.2f}°")
-    print(f"Number of Inliers: {len(Rx)-outliers_count} (angle error <= 1°)")
-    print(f"Number of Outliers: {outliers_count} (angle error > 1°)")
+    print(f"Number of Inliers: {len(Rx)-outliers_count} (angle error <= {outlier_criterion_angle}°)")
+    print(f"Number of Outliers: {outliers_count} (angle error > {outlier_criterion_angle}°)")
