@@ -20,15 +20,19 @@ sns.set(style='white',font='Arial')
 
 #-----------------------------------------------------------------------
 
-def scaling_factor(cams_rec,cams_ref,evaluation_path,PreOutlierDetection=False,threshold = 0.025):
+def scaling_factor(cams_rec,cams_ref,evaluation_path,PreOutlierDetection=False,threshold = 0.025, criterion = "abs"):
     # calculate distance between the reconstructed cameras within a timestep for all timesteps (x)
     # calculate the same for the reference cameras (y)
     # Calculation of an information matrix containing the corresponding time steps and camera indices for all x and y values 
     y, x, cams_info = CalculateDistancesWithinOneTimeStep(cams_ref,cams_rec)
+    if len(y) == 0:
+        print("Error: No scaling factor could be determined because no two cameras could be reconstructed at the same time step.")
+        print("A scaling factor of 0.2 is chosen.")
+        return 0.2, 0.2, None, None
     # Detect and remove outliers that do not agree with the consistency rules
     if PreOutlierDetection:
         cams_info = np.vstack(cams_info)
-        y, x = ConsistencyBasedOutlierDetection(y,x,cams_info,threshold)
+        y, x = ConsistencyBasedOutlierDetection(y,x,cams_info,threshold,criterion)
     # calculate scaling factor and statistical measurements 
     factor_vec = np.divide(y,x)                     # Scaling factor = distance_ref / distance_rec     
     factor_mean = np.mean(factor_vec)               # Calculate mean scaling factor
@@ -40,19 +44,23 @@ def scaling_factor(cams_rec,cams_ref,evaluation_path,PreOutlierDetection=False,t
 
 #-----------------------------------------------------------------------
 
-def scaling_factor_RANSAC(cams_rec,cams_ref,evaluation_path,PreOutlierDetection,threshold = 0.025):
+def scaling_factor_RANSAC(cams_rec,cams_ref,evaluation_path,PreOutlierDetection,threshold = 0.025,criterion = "abs"):
     # calculate distance between the reconstructed cameras within a timestep for all timesteps (x)
     # calculate the same for the reference cameras (y)
     # Calculation of an information matrix containing the corresponding time steps and camera indices for all x and y values 
     y, x, cams_info = CalculateDistancesWithinOneTimeStep(cams_ref,cams_rec)
+    if len(y) == 0:
+        print("Error: No scaling factor could be determined because no two cameras could be reconstructed at the same time step.")
+        print("A scaling factor of 0.2 is chosen.")
+        return 0.2
     # Detect and remove outliers that do not agree with the consistency rules
     # n_img = len(cams_ref); n_TimeSteps = cams_ref[-1].TimeStep
     # n_cam = int(n_img/n_TimeSteps) 
     if  PreOutlierDetection:
         cams_info = np.vstack(cams_info)
-        y,x = ConsistencyBasedOutlierDetection(y,x,cams_info,threshold)
+        y,x = ConsistencyBasedOutlierDetection(y,x,cams_info,threshold,criterion)
     # allows a RANSAC solution in certain cases by introducing an artificial point at (0, 0)  
-    #y = np.append(y,0); x = np.append(x,0); 
+    y = np.append(y,0); x = np.append(x,0); 
     # Standardize features by removing the mean and scaling to unit variance (not necessary)
     #sc = StandardScaler(with_mean=False); X = sc.fit_transform(x.reshape(-1, 1))
     X = x.reshape(-1, 1)
@@ -72,8 +80,8 @@ def scaling_factor_RANSAC(cams_rec,cams_ref,evaluation_path,PreOutlierDetection,
     # plot and print results and return the solution found with RANSAC
     #if successful: fig = ransac_plot(lr,ransac,X[:-1],y[:-1],inlier_mask[:-1],outlier_mask[:-1],successful)
     #else: fig = ransac_plot(lr,ransac,X[:-1],y[:-1],1,1,successful)
-    if successful: fig = ransac_plot(lr,ransac,X,y,inlier_mask,outlier_mask,successful)
-    else: fig = ransac_plot(lr,ransac,X,y,1,1,successful)
+    #if successful: fig = ransac_plot(lr,ransac,X,y,inlier_mask,outlier_mask,successful)
+    #else: fig = ransac_plot(lr,ransac,X,y,1,1,successful)
     if successful: return ransac.estimator_.coef_[0]
     else: return lr.coef_[0]
     
@@ -152,7 +160,7 @@ def IndMatrix2CamInfoMatrix(IndMatrix,RecCams,Timestepm1):
 
 #-----------------------------------------------------------------------   
 
-def ConsistencyBasedOutlierDetection(y, x, cam_rec_info, threshold=0.025):
+def ConsistencyBasedOutlierDetection(y, x, cam_rec_info, threshold=0.025, criterion = "abs"):
     y_mean = np.mean(y)             # calculate the mean distance between two cameras (reference cams)
     x_mean = np.mean(x)             # calculate the mean distance between two cameras (reconstructed cams)
     if cam_rec_info[-1, 2] != 1:    # only works in a dynamic case (object is moving)
@@ -169,14 +177,22 @@ def ConsistencyBasedOutlierDetection(y, x, cam_rec_info, threshold=0.025):
                 for j in same_camera_indices:   # Iterate over the associated camera pairs
                     cam1_ind2, cam2_ind2, t_ind2  = cam_rec_info[j]
                     d_diff = x[i] - x[j]        # Calculate the deviation of the two distances
-                    if np.abs(d_diff) * (y_mean/x_mean) * (1/y[i]) <= threshold: # if the relative deviation is smaller than the threshold --> Inlier
+                    # Determine weight on the threshold
+                    if criterion == "rel": beta = x_mean / y_mean * y[i]
+                    elif criterion == "abs_norm": beta = y_mean/y[i]
+                    else: beta = 1
+                    # criterion 
+                    crit_fulfilled =  np.abs(d_diff) <= beta*threshold
+                    if crit_fulfilled: # if the relative deviation is smaller than the weighted threshold --> Inlier
                         IsInlier[i] = True                          # both distances are detected as inliers 
                         IsInlier[j] = True
                         inlier_cameras.add((t_ind1, cam1_ind1))     # all four corresponding cameras are detected as inliers 
                         inlier_cameras.add((t_ind1, cam2_ind1))
                         inlier_cameras.add((t_ind2, cam1_ind2))
                         inlier_cameras.add((t_ind2, cam2_ind2))
-        print(f"{n- np.sum(IsInlier)} of {n} measured distances between camera pairs were detected as outliers (threshold: {threshold*100}%)")
+        if criterion == "rel": print(f"{n- np.sum(IsInlier)} of {n} measured distances between camera pairs were detected as outliers (relative threshold: {threshold*100:.1f}%)")
+        elif criterion == "abs_norm": print(f"{n- np.sum(IsInlier)} of {n} measured distances between camera pairs were detected as outliers (absolute normalized threshold: {threshold*1000:.0f}mm)")
+        else:  print(f"{n- np.sum(IsInlier)} of {n} measured distances between camera pairs were detected as outliers (absolute threshold: {threshold*1000:.0f}mm)")
         outlier_cameras = set()                                     # define a class to save the outliers
         # first set all cameras as outliers and the remove the inliers from the outliers
         for i, (cam1, cam2, t) in enumerate(cam_rec_info):           
@@ -199,15 +215,15 @@ def ConsistencyBasedOutlierDetection(y, x, cam_rec_info, threshold=0.025):
 def scaling_factor_plot(factor_vec,factor_mean,factor_median,factor_std,evaluation_path):
     fig = plt.figure(figsize=(6.4,4.8))
     g = sns.histplot(data=pd.DataFrame(factor_vec),legend=False, kde=True,fill=False)
-    g.set_ylabel('Anzahl',fontsize=11)
-    g.set_xlabel('Skalierungsfaktor f',fontsize=11)
+    g.set_ylabel('Frequency',fontsize=11)
+    g.set_xlabel('Scaling factor f',fontsize=11)
     g.tick_params(labelsize=11)
     for p in g.patches:
         p.set_edgecolor('black')  # Change Color of the edgecolor
-    plt.axvline(factor_mean, color='red', linestyle='--', label='Mittelwert $\overline{{f}} = {:.4f}$'.format(factor_mean))
+    plt.axvline(factor_mean, color='red', linestyle='--', label='Mean $\overline{{f}} = {:.4f}$'.format(factor_mean))
     plt.axvline(factor_median, color='green', linestyle='--', label='Median $\widetilde{{f}} = {:.4f}$'.format(factor_median))
-    plt.legend(loc='upper left',fontsize=11)
-    plt.annotate('$\sigma = {:.3e}$'.format(factor_std),[60,240],xycoords='figure points', fontsize=11)
+    plt.legend(loc='upper right',fontsize=11)
+    plt.annotate('$\sigma = {:.3e}$'.format(factor_std),[270,240],xycoords='figure points', fontsize=11)
     plt.grid()   
     plt.show()
     fig.savefig(Path(evaluation_path) / 'scaling_factor.svg',format='svg',bbox_inches='tight')

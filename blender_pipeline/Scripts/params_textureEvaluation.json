@@ -1,9 +1,9 @@
 {
      "io": {
           "name": "hello",
-          "obj_path": "c:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\meshroom_data\\Moving_Dodekaeder_6cams_2\\Evaluation\\texturedMesh_TRANSFORMED.OBJ",
+          "obj_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\meshroom_data\\Moving_BP_02_4cams_2\\Evaluation\\texturedMesh_TRANSFORMED.OBJ",
           "label_images": 1,
-          "output_path": "c:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\meshroom_data\\Moving_Dodekaeder_6cams_2\\Evaluation\\TextureReconstruction"
+          "output_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\meshroom_data\\Moving_BP_02_4cams_2\\Evaluation\\TextureReconstruction"
      },
      "motion": {
           "s0": [

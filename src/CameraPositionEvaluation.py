@@ -50,12 +50,12 @@ def PlotAbsPositionError(pos_x,pos_y,outlier_criterion=0.005):
     mean_error = np.mean(cam_pos_error_abs) 
     std_deviation = np.std(cam_pos_error_abs)
     # Counting the number of outliers
-    cam_pos_error_rel = np.divide(cam_pos_error_abs,np.linalg.norm(pos_y,axis=1))
+    cam_pos_error_rel = np.divide(cam_pos_error_abs,np.linalg.norm(pos_y-[0,0,1],axis=1))
     mean_error_rel = np.mean(cam_pos_error_rel) 
     outliers_count = np.sum(cam_pos_error_rel > outlier_criterion)
-    print(f"Mean absolute camera position error: {mean_error*1000:.2f} mm")
-    print(f"Mean relative camera position error: {mean_error_rel*100:.2f} %")
-    print(f"Standard deviation: {std_deviation*1000:.2f} mm")
+    print(f"Mean absolute camera position error: {mean_error*1000:.2f}mm")
+    print(f"Mean relative camera position error: {mean_error_rel*100:.2f}%")
+    print(f"Standard deviation: {std_deviation*1000:.2f}mm")
     print(f"Number of Inliers: {len(cam_pos_error_abs)-outliers_count} (rel. error <= {outlier_criterion*100}%)")
     print(f"Number of Outliers: {outliers_count} (rel. error > {outlier_criterion*100}%)")
     

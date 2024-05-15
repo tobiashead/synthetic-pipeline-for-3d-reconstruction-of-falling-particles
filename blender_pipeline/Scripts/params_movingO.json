@@ -1,7 +1,7 @@
 {
      "io": {
-          "name": "Moving_Dodekaeder_6cams",
-          "obj_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\objects\\Dodekaeder\\Mesh-Dateien\\Wuerfel_12s\\centered\\12s.obj",
+          "name": "Moving_BP_02_3cams",
+          "obj_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\objects\\BP_02\\centered\\BP_2_Model.obj",
           "label_images": 3
      },
      "motion": {
@@ -30,7 +30,7 @@
      "cam": {
           "even_dist": true,
           "pos_file_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\blender_pipeline\\Scripts\\CamerasExtrinsicsStatic.json",
-          "number": 6,
+          "number": 3,
           "focuspoint": [
                0,
                0,
