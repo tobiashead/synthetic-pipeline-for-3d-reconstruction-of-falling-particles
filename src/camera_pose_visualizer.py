@@ -14,8 +14,8 @@ from src.TransMatrix_Utils import Get_Location_Rotation3x3_Scale_from_Transforma
 # code is originally based on https://github.com/demul/extrinsic2pyramid, but has been modified
 ###################################################################################
 class CameraPoseVisualizer:
-    def __init__(self, xlim, ylim, zlim):
-        self.fig = plt.figure(figsize=(18, 7))
+    def __init__(self, xlim, ylim, zlim, figsize = (18, 7)):
+        self.fig = plt.figure(figsize=figsize)
         self.ax = self.fig.add_subplot(111,projection='3d')
         self.ax.set_aspect("equal")
         self.ax.set_xlim(xlim)
@@ -92,23 +92,24 @@ class CameraPoseVisualizer:
             list_handle.append(patch)
         plt.legend(loc='right', bbox_to_anchor=(1.8, 0.5), handles=list_handle)
 
-    def colorbar(self,norm,cmap,label):
+    def colorbar(self,norm,cmap,label, orientation = 'vertical'):
         fig = self.fig
         ax = fig.gca()
         scalar_mappable = plt.cm.ScalarMappable(norm=norm, cmap=cmap)
         scalar_mappable.set_array([])
-        fig.colorbar(scalar_mappable, ax=ax, orientation='vertical', label=label)
+        fig.colorbar(scalar_mappable, ax=ax, orientation=orientation, label=label)
 
     def show(self,title=None):
         if title is not None:
             plt.title(title)
         plt.tight_layout()
         plt.show()
+
         
-    def save(self,path):
-        plt.savefig(str(path) + ".eps", format='eps',bbox_inches='tight')
-        plt.savefig(str(path) + ".pdf", format='pdf',bbox_inches='tight')
-        plt.savefig(str(path) + ".svg", format='svg',bbox_inches='tight')
+    def save(self,path, bbox_inches = 'tight',pad_inches=0.1):
+        plt.savefig(str(path) + ".eps", format='eps',bbox_inches= bbox_inches,pad_inches=pad_inches)
+        plt.savefig(str(path) + ".pdf", format='pdf',bbox_inches= bbox_inches,pad_inches=pad_inches)
+        plt.savefig(str(path) + ".svg", format='svg',bbox_inches= bbox_inches,pad_inches=pad_inches)
     
     def color_based_on_height(self,Transformation,alpha,colormap='viridis'):
         import matplotlib.colors as mcolors
@@ -135,7 +136,7 @@ class CameraPoseVisualizer:
         color_with_alpha = color[:3] + (alpha,)
         return color_with_alpha,norm,cmap
     
-    def load_cameras(self,cams,focal_length=0.016,aspect_ratio=1.3358,sensor_width=0.00712,scale=2,alpha=0.35,DrawCoordSystem=True,colormap='viridis',static_scene = True, select_color =None,colorbar=False,color_based_on_height = False):
+    def load_cameras(self,cams,focal_length=0.016,aspect_ratio=1.3358,sensor_width=0.00712,scale=2,alpha=0.35,DrawCoordSystem=True,colormap='viridis',static_scene = True, select_color =None,colorbar=False,color_based_on_height = False, colorbar_orientation = 'vertical'):
         obj_moving = False if cams[-1].TimeStep == 1 else True
         TimeStep_max = max(item.TimeStep for item in cams)
         skip_colorbar = False  
@@ -165,7 +166,7 @@ class CameraPoseVisualizer:
             self.extrinsic2pyramid(Transformation, color, focal_length,aspect_ratio,sensor_width,scale,alpha,DrawCoordSystem)
         if colorbar and skip_colorbar == False:
             label = "Time Step" if obj_moving else "Height in m" 
-            self.colorbar(norm,cmap,label) 
+            self.colorbar(norm,cmap,label,colorbar_orientation) 
                      
     def load_cube(self,cams_ref,static_scene = False):
             # dynamic case    

@@ -1,6 +1,6 @@
 {
      "io": {
-          "name": "Moving_BP_02_3cams",
+          "name": "Moving_BP_02_1cam",
           "obj_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\objects\\BP_02\\centered\\BP_2_Model.obj",
           "label_images": 3
      },
@@ -30,7 +30,7 @@
      "cam": {
           "even_dist": true,
           "pos_file_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\blender_pipeline\\Scripts\\CamerasExtrinsicsStatic.json",
-          "number": 3,
+          "number": 1,
           "focuspoint": [
                0,
                0,
