@@ -80,9 +80,9 @@ class CameraPoseVisualizer:
             x_axis = np.array([focal_len*scale*.5, 0, 0,1]) @ extrinsic.T;  x_axis_transformed = x_axis[:3]
             y_axis = np.array([0, focal_len*scale*.5, 0,1]) @ extrinsic.T;  y_axis_transformed = y_axis[:3]
             z_axis = np.array([0, 0, focal_len*scale*.5,1]) @ extrinsic.T;  z_axis_transformed = z_axis[:3]
-            self.ax.quiver(*origin_transformed, *(x_axis_transformed-origin_transformed), color='r')
-            self.ax.quiver(*origin_transformed, *(y_axis_transformed-origin_transformed), color='g')
-            self.ax.quiver(*origin_transformed, *(z_axis_transformed-origin_transformed), color='b')
+            self.ax.quiver(*origin_transformed, *(x_axis_transformed-origin_transformed), color='r',linewidth=0.8)
+            self.ax.quiver(*origin_transformed, *(y_axis_transformed-origin_transformed), color='g',linewidth=0.8)
+            self.ax.quiver(*origin_transformed, *(z_axis_transformed-origin_transformed), color='b',linewidth=0.8)
 
     def customize_legend(self, list_label):
         list_handle = []
@@ -168,13 +168,19 @@ class CameraPoseVisualizer:
             label = "Time Step" if obj_moving else "Height in m" 
             self.colorbar(norm,cmap,label,colorbar_orientation) 
                      
-    def load_cube(self,cams_ref,static_scene = False):
+    def load_cube(self,cams_ref,static_scene = False,alpha = None):
             # dynamic case    
-        if cams_ref[-1].TimeStep != 1 and static_scene == False:      
-            self.create_cube(position=[0,0,1.2],size=0.03,color='k',alpha=0.4,rotation=[15,0,15])   # size=a=b=c
-            self.create_cube(position=[0,0,1.05],size=0.03,color='k',alpha=0.3,rotation=[30,0,30])
-            self.create_cube(position=[0,0,0.95],size=0.03,color='k',alpha=0.2,rotation=[45,0,45])
-            self.create_cube(position=[0,0,0.8],size=0.03,color='k',alpha=0.1,rotation=[60,0,-60])
+        if cams_ref[-1].TimeStep != 1 and static_scene == False:
+            if alpha == None:      
+                self.create_cube(position=[0,0,1.2],size=0.03,color='k',alpha=0.4,rotation=[15,0,15])   # size=a=b=c
+                self.create_cube(position=[0,0,1.05],size=0.03,color='k',alpha=0.3,rotation=[30,0,30])
+                self.create_cube(position=[0,0,0.95],size=0.03,color='k',alpha=0.2,rotation=[45,0,45])
+                self.create_cube(position=[0,0,0.8],size=0.03,color='k',alpha=0.1,rotation=[60,0,-60])
+            else:
+                self.create_cube(position=[0,0,1.2],size=0.02,color='k',alpha=alpha,rotation=[15,0,15])   # size=a=b=c
+                self.create_cube(position=[0,0,1.05],size=0.02,color='k',alpha=alpha,rotation=[30,0,30])
+                self.create_cube(position=[0,0,0.95],size=0.02,color='k',alpha=alpha,rotation=[45,0,45])
+                self.create_cube(position=[0,0,0.8],size=0.02,color='k',alpha=alpha,rotation=[60,0,-60])
         # static case    
         else:
             self.create_cube(position=[0,0,1],size=0.03,color='k',alpha=0.3)

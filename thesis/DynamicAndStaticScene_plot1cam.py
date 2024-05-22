@@ -14,7 +14,7 @@ style_path = current_dir / 'thesis.mplstyle'
 plt.style.use(str(style_path))
 
 image_dir = r'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_data\Moving_BP_02_1cam'
-
+#image_dir = r'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic-pipeline-for-3d-reconstruction-of-falling-particles\blender_data\Moving_BP_02_1cam'
 cams_ref = read_camera_alignment_reference(image_dir)
 objs, obj0 = read_object_alignment(image_dir)   
 
@@ -31,8 +31,6 @@ aspect_ratio = params["cam"]["sensor_size"][0] / params["cam"]["sensor_size"][1]
 for cam in cams_ref:
     Tdynamic2static = cam.Dynamic2StaticScene(objs[cam.CorrespondigIndexObject].Transformation, obj0.Transformation,focuspoint)
 
-
-
 top=1.0
 bottom=0.015
 left=0.005
@@ -47,6 +45,7 @@ visualizer2.load_cameras(cams_ref,focal_length,aspect_ratio,sensor_width,scale=2
 visualizer2.load_cube(cams_ref,static_scene=True)   
 #visualizer2.fig.subplots_adjust(top=top, bottom=bottom, left=left, right=right, hspace=hspace,wspace=wspace)
 visualizer2.ax.view_init(elev=elev, azim=azim)
+cbar = visualizer2.fig.axes[1].set_xlabel("Zeitpunkt $k$")
 path = current_dir / "Extrinsics_cams_reference_static" 
 #visualizer2.save(path,bbox_inches=None)  
 visualizer2.show()
@@ -63,6 +62,7 @@ visualizer.load_cameras([cams_ref[0]],focal_length,aspect_ratio,sensor_width,sca
 visualizer.load_cube(cams_ref)
 visualizer.ax.view_init(elev=elev, azim=azim)
 visualizer.fig.subplots_adjust(top=top, bottom=bottom, left=left, right=right)
+cbar = visualizer.fig.axes[1].set_xlabel("Höhe in m")
 path = current_dir / "Extrinsics_cams_dynamic"
 #visualizer.save(path,bbox_inches=None,pad_inches=0)      
 visualizer.show()
