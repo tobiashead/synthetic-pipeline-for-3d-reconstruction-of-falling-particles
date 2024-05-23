@@ -8,6 +8,7 @@ import matplotlib.font_manager as font_manager
 import matplotlib.pyplot as plt
 import skimage as ski
 import numpy as np
+from icecream import ic
 
 # Schriftgroesse
 fsize = 11 # Allgemein
@@ -66,22 +67,19 @@ def GetImagesForTextureEvaluation(obj_path,output_path,script_path,blender_path)
     command = f"{blender_path} --background --python {script_path}"
     return_code = subprocess.run(command,text=True)  
     
-def GLCM_Evaluation(OutputTextureRef_path,OutputTextureRec_path,patch_size,image_number,levels,distances,random_seed=124,features = ["correlation","dissimilarity"],num_windows=4):
+def GLCM_Evaluation(OutputTextureRef_path,OutputTextureRec_path,patch_size,image_number,levels,distances,random_seed=124,features = ["dissimilarity","correlation"],num_windows=4, offset = [0,0],offset_option = "absolute"):
     # create Grey Scale Image
-    image_ref_path = get_image_path_by_number(OutputTextureRef_path,image_number)
-    image_rec_path = get_image_path_by_number(OutputTextureRec_path,image_number)
-    color_image_ref = ski.io.imread(image_ref_path)
-    color_image_rec = ski.io.imread(image_rec_path)
-    gray_image_ref = ski.color.rgb2gray(color_image_ref)
-    gray_image_rec = ski.color.rgb2gray(color_image_rec)
-    image_ref = np.uint8(gray_image_ref * (levels-1))
-    image_rec = np.uint8(gray_image_rec * (levels-1))
-    height, width = color_image_ref.shape[:2]
+    image_ref, image_rec, height, width = create_greyscale_image(OutputTextureRef_path,OutputTextureRec_path,levels,image_number)
     # Identify window on which the object is visible
     locations, windows_ref, windows_rec = identify_windows_containing_the_object(random_seed,height,width,patch_size,levels,distances,image_ref,image_rec,num_windows,ASM_crit = 0.1)
     # Calculate GLCM_features for the choosen windows
     feature_matrix_ref,_ = calculate_GLCM_features(windows_ref,distances,levels,features)
     feature_matrix_rec,_ = calculate_GLCM_features(windows_rec,distances,levels,features)
+    # Add Offset
+    if offset_option == "absolute":
+        feature_matrix_rec[:,0] += offset[0]; feature_matrix_rec[:,1] += offset[1]
+    else:
+        feature_matrix_rec[:,0] += offset[0]*feature_matrix_rec[:,0]; feature_matrix_rec[:,1] += offset[1]*feature_matrix_rec[:,1] 
     # create the figure
     GLCM_figure1(image_ref,image_rec,windows_ref,windows_rec,feature_matrix_ref,feature_matrix_rec,features,levels,patch_size,locations)
     
@@ -119,8 +117,8 @@ def calculate_GLCM_features(windows,distances,levels,features):
             window, distances=[distances], angles=[0], levels=levels, symmetric=True, normed=True
         )
         for j,feature in enumerate(features):
-            feature = ski.feature.graycoprops(glcm, feature)[0, 0]
-            feature_matrix[i,j] = feature
+            feature_value = ski.feature.graycoprops(glcm, feature)[0, 0]
+            feature_matrix[i,j] = feature_value
     return feature_matrix, glcm
 
 def GLCM_figure1(image_ref,image_rec,windows_ref,windows_rec,features_ref,features_rec,features,levels,patch_size,locations):
@@ -181,7 +179,6 @@ def GLCM_figure1(image_ref,image_rec,windows_ref,windows_rec,features_ref,featur
     fig.tight_layout
     plt.show()
     
-    
 def get_image_path_by_number(directory, image_number):
     if not os.path.isdir(directory):
         print("The specified directory does not exist.")
@@ -193,3 +190,87 @@ def get_image_path_by_number(directory, image_number):
         print(f"Invalid image number. Valid range is 1 to {len(image_files)}")
         return None
     return os.path.join(directory, image_files[image_number - 1])
+
+def create_greyscale_image(OutputTextureRef_path,OutputTextureRec_path,levels,image_number):
+    image_ref_path = get_image_path_by_number(OutputTextureRef_path,image_number)
+    image_rec_path = get_image_path_by_number(OutputTextureRec_path,image_number)
+    color_image_ref = ski.io.imread(image_ref_path)
+    color_image_rec = ski.io.imread(image_rec_path)
+    gray_image_ref = ski.color.rgb2gray(color_image_ref)
+    gray_image_rec = ski.color.rgb2gray(color_image_rec)
+    image_ref = np.uint8(gray_image_ref * (levels-1))
+    image_rec = np.uint8(gray_image_rec * (levels-1))
+    height, width = color_image_ref.shape[:2]
+    return image_ref, image_rec, height, width
+
+def GLCM_feature_correlation(OutputTextureRef_path,OutputTextureRec_path,patch_size,levels,distances,features = ["dissimilarity","correlation"],measurement="absolute",offset = [0,0],offset_option = "absolute"):
+    n_images = 12
+    n_random_seeds = 10
+    n_windows = 10
+    features_rec = np.ones([n_images*n_random_seeds*n_windows,2])*(-1)
+    features_ref = np.ones([n_images*n_random_seeds*n_windows,2])*(-1)
+    start = 0
+    for image_number in np.arange(1,n_images+1):
+        # create Grey Scale Image
+        image_ref, image_rec, height, width = create_greyscale_image(OutputTextureRef_path,OutputTextureRec_path,levels,image_number)
+        # Identify window on which the object is visible
+        for seed in np.arange(1,n_random_seeds+1):
+            locations, windows_ref, windows_rec = identify_windows_containing_the_object(seed,height,width,patch_size,levels,distances,image_ref,image_rec,n_windows,ASM_crit = 0.1)
+            # Calculate GLCM_features for the choosen windows
+            feature_matrix_ref,_ = calculate_GLCM_features(windows_ref,distances,levels,features)
+            feature_matrix_rec,_ = calculate_GLCM_features(windows_rec,distances,levels,features)
+            end = start + n_windows
+            features_rec[start:end,:] = feature_matrix_rec
+            features_ref[start:end,:] = feature_matrix_ref
+            start = end
+    if offset_option == "absolute":
+        features_rec[:,0] += offset[0]; features_rec[:,1] += offset[1]
+    else:
+        features_rec[:,0] += offset[0]*features_rec[:,0]; features_rec[:,1] += offset[1]*features_rec[:,1]         
+    if measurement == "absolute":
+        features_diff = features_ref - features_rec
+    else: 
+        features_diff = np.divide((features_ref - features_rec),features_rec)
+    mean_feat1 ,median_feat1 = print_GLCM_feature_comparison(features[0],features_diff[:,0],measurement)
+    mean_feat2 ,median_feat2 = print_GLCM_feature_comparison(features[1],features_diff[:,1],measurement)
+    mean = [mean_feat1, mean_feat2]; median = [median_feat1, median_feat2]
+    Plot_GLCM_feature_correlation(features_diff,features,measurement)
+    return mean, median
+    
+    
+def Plot_GLCM_feature_correlation(features_diff,features,measurement):        
+    fig = plt.figure(figsize=(10, 5))
+    ax = fig.add_subplot(1,2,1)
+    feature_diff = features_diff[:,0] if measurement == "absolute" else features_diff[:,0]*100
+    ax.hist(feature_diff, bins=15, color='skyblue', edgecolor='black')
+    ax.set_ylabel("frequency")
+    xlabel = f"absolute error in GLCM feature {features[0]}" if measurement == "absolute" else f"relative error in GLCM feature {features[0]} in %"
+    ax.set_xlabel(xlabel)
+    ax = fig.add_subplot(1,2,2)
+    feature_diff = features_diff[:,1] if measurement == "absolute" else features_diff[:,1]*100
+    ax.hist(feature_diff, bins=15, color='skyblue', edgecolor='black')
+    xlabel = f"absolute error in GLCM feature {features[1]}" if measurement == "absolute" else f"relative error in GLCM feature {features[1]} in %"
+    ax.set_xlabel(xlabel)
+    plt.show()
+    
+        
+def print_GLCM_feature_comparison(feature,feature_diff,measurement):
+    print(f"GLCM feature: {feature}")
+    mean = np.mean(feature_diff)
+    median = np.median(feature_diff)
+    std = np.std(feature_diff)
+    var = std/mean
+    if measurement == "absolute":
+        print(f"Mean absolute error in GLCM-feature: {mean:.2f}")
+        print(f"Median: {median:.2f}")
+        print(f"Standard deviation: {std:.2f}")
+    else:
+        print(f"Mean relative error in GLCM-feature: {mean*100:.2f}%")
+        print(f"Median: {median*100:.2f}%")
+        print(f"Standard deviation: {std*100:.2f}%")
+    print(f"Coefficient of variation: {var:.2f}")    
+    print("-----------------------------")
+    return mean,median
+    
+  
+    

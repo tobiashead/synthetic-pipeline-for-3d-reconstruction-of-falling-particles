@@ -58,7 +58,7 @@ print(f"Saved azimuth: {azim}, elevation: {elev}")
 # dynamic scene
 from src.camera_pose_visualizer import CameraPoseVisualizer
 visualizer = CameraPoseVisualizer([-0.15, 0.15], [-0.15, 0.15], [0.85, 1.15],figsize=(5.46/2, 3.7))
-visualizer.load_cameras([cams_ref[0]],focal_length,aspect_ratio,sensor_width,scale=2,alpha=0.3,DrawCoordSystem=True,colormap='gnuplot',static_scene=False,colorbar = True,color_based_on_height=True,colorbar_orientation='horizontal')
+visualizer.load_cameras([cams_ref[1]],focal_length,aspect_ratio,sensor_width,scale=2,alpha=0.3,DrawCoordSystem=True,colormap='gnuplot',static_scene=False,colorbar = True,color_based_on_height=True,colorbar_orientation='horizontal')
 visualizer.load_cube(cams_ref)
 visualizer.ax.view_init(elev=elev, azim=azim)
 visualizer.fig.subplots_adjust(top=top, bottom=bottom, left=left, right=right)
