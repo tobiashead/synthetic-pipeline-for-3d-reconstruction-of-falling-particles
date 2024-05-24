@@ -69,9 +69,10 @@ class camera_reference:
         T_cam2obj0_transl = np.eye(4)
         T_cam2obj0_transl[:3,3] = focuspoint-T_obj0[:3,3]
         # Change in position of the object between t0 and t  
-        T_obj_rel = T_obj @ np.linalg.inv(T_obj0)
+        #   T_obj_rel = T_obj @ inv(T_obj0)
         # Inverted or reversed position change of the object 
-        T_obj_rel_inv = np.linalg.inv(T_obj_rel)
+        #   T_obj_rel_inv = inv(T_obj_rel) = inv(T_obj @ inv(T_obj0)) =  T_obj0 @ inv(T_obj)
+        T_obj_rel_inv = T_obj0 @ np.linalg.inv(T_obj)
         # Transformation rule between dynamic and static scene
         T_Dyn2Static = T_cam2obj0_transl @ T_obj_rel_inv
         # Calculate Transformation matrix in the static case

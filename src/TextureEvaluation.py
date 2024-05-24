@@ -44,7 +44,6 @@ plt.rcParams['legend.handlelength'] = lhandle
 #fig_width = fig_width_pt*inches_per_pt  # width in inches
 #fig_height = fig_width*golden_mean      # height in inches
 
-
 def GetImagesForTextureEvaluation(obj_path,output_path,script_path,blender_path):
     # Parameter File Path
     TextureParams_path = Path(script_path) / "params_textureEvaluation.json"
@@ -67,7 +66,7 @@ def GetImagesForTextureEvaluation(obj_path,output_path,script_path,blender_path)
     command = f"{blender_path} --background --python {script_path}"
     return_code = subprocess.run(command,text=True)  
     
-def GLCM_Evaluation(OutputTextureRef_path,OutputTextureRec_path,patch_size,image_number,levels,distances,random_seed=124,features = ["dissimilarity","correlation"],num_windows=4, offset = [0,0],offset_option = "absolute"):
+def GLCM_Evaluation(OutputTextureRef_path,OutputTextureRec_path,patch_size,image_number,levels,distances,random_seed=124,features = ["dissimilarity","correlation"],num_windows=4, offset = [0,0], offset_method = "non-standardized"):
     # create Grey Scale Image
     image_ref, image_rec, height, width = create_greyscale_image(OutputTextureRef_path,OutputTextureRec_path,levels,image_number)
     # Identify window on which the object is visible
@@ -76,12 +75,12 @@ def GLCM_Evaluation(OutputTextureRef_path,OutputTextureRec_path,patch_size,image
     feature_matrix_ref,_ = calculate_GLCM_features(windows_ref,distances,levels,features)
     feature_matrix_rec,_ = calculate_GLCM_features(windows_rec,distances,levels,features)
     # Add Offset
-    if offset_option == "absolute":
+    if offset_method == "non-standardized":
         feature_matrix_rec[:,0] += offset[0]; feature_matrix_rec[:,1] += offset[1]
     else:
         feature_matrix_rec[:,0] += offset[0]*feature_matrix_rec[:,0]; feature_matrix_rec[:,1] += offset[1]*feature_matrix_rec[:,1] 
     # create the figure
-    GLCM_figure1(image_ref,image_rec,windows_ref,windows_rec,feature_matrix_ref,feature_matrix_rec,features,levels,patch_size,locations)
+    GLCM_figure1(image_ref,image_rec,windows_ref,windows_rec,feature_matrix_ref,feature_matrix_rec,features,levels,patch_size,locations,offset,offset_method)
     
 def identify_windows_containing_the_object(random_seed,height,width,patch_size,levels,distances,image_ref,image_rec=None,num_windows=4,ASM_crit = 0.01):
     locations = []
@@ -121,7 +120,7 @@ def calculate_GLCM_features(windows,distances,levels,features):
             feature_matrix[i,j] = feature_value
     return feature_matrix, glcm
 
-def GLCM_figure1(image_ref,image_rec,windows_ref,windows_rec,features_ref,features_rec,features,levels,patch_size,locations):
+def GLCM_figure1(image_ref,image_rec,windows_ref,windows_rec,features_ref,features_rec,features,levels,patch_size,locations,offset,offset_method):
     # create figure
     fig = plt.figure(layout='constrained',figsize=(5.44, 6))
     subfigs = fig.subfigures(2, 1, wspace=0.07) 
@@ -160,6 +159,12 @@ def GLCM_figure1(image_ref,image_rec,windows_ref,windows_rec,features_ref,featur
     ax.set_xlabel(features[0])
     ax.set_ylabel(features[1])
     ax.grid()
+    if offset != [0,0]:
+        if offset_method == "non-standardized":
+            annotation = f"Offset in (x,y): ({offset[0]:.2f},{offset[1]:.2f})"
+        else:
+            annotation = f"Adjustment factor (x,y): ({1+offset[0]:.2f},{1+offset[1]:.2f})"
+        ax.set_title(annotation, fontsize=11)
     # Create a legend subplot and plot the legend
     ax_legend = subfigs_top_right[1].add_subplot()
     ax_legend.axis('off')  # Turn off axes for the legend subplot
@@ -203,7 +208,7 @@ def create_greyscale_image(OutputTextureRef_path,OutputTextureRec_path,levels,im
     height, width = color_image_ref.shape[:2]
     return image_ref, image_rec, height, width
 
-def GLCM_feature_correlation(OutputTextureRef_path,OutputTextureRec_path,patch_size,levels,distances,features = ["dissimilarity","correlation"],measurement="absolute",offset = [0,0],offset_option = "absolute"):
+def GLCM_feature_correlation(OutputTextureRef_path,OutputTextureRec_path,patch_size,levels,distances,features = ["dissimilarity","correlation"], offset = [0,0], offset_method = "non-standardized"):
     n_images = 12
     n_random_seeds = 10
     n_windows = 10
@@ -223,54 +228,66 @@ def GLCM_feature_correlation(OutputTextureRef_path,OutputTextureRec_path,patch_s
             features_rec[start:end,:] = feature_matrix_rec
             features_ref[start:end,:] = feature_matrix_ref
             start = end
-    if offset_option == "absolute":
+    if offset_method == "non-standardized":
         features_rec[:,0] += offset[0]; features_rec[:,1] += offset[1]
     else:
         features_rec[:,0] += offset[0]*features_rec[:,0]; features_rec[:,1] += offset[1]*features_rec[:,1]         
-    if measurement == "absolute":
-        features_diff = features_ref - features_rec
-    else: 
-        features_diff = np.divide((features_ref - features_rec),features_rec)
-    mean_feat1 ,median_feat1 = print_GLCM_feature_comparison(features[0],features_diff[:,0],measurement)
-    mean_feat2 ,median_feat2 = print_GLCM_feature_comparison(features[1],features_diff[:,1],measurement)
+    features_diff = features_ref - features_rec 
+    mean_feat1 ,median_feat1 = print_GLCM_feature_comparison(features[0],features_diff[:,0],features_rec[:,0],offset[0],offset_method)
+    mean_feat2 ,median_feat2 = print_GLCM_feature_comparison(features[1],features_diff[:,1],features_rec[:,1],offset[1],offset_method)
     mean = [mean_feat1, mean_feat2]; median = [median_feat1, median_feat2]
-    Plot_GLCM_feature_correlation(features_diff,features,measurement)
+    Plot_GLCM_feature_correlation(features_diff,features,features_rec,offset,offset_method)
     return mean, median
     
-    
-def Plot_GLCM_feature_correlation(features_diff,features,measurement):        
+def Plot_GLCM_feature_correlation(features_diff,features,features_rec,offset,offset_method):        
     fig = plt.figure(figsize=(10, 5))
-    ax = fig.add_subplot(1,2,1)
-    feature_diff = features_diff[:,0] if measurement == "absolute" else features_diff[:,0]*100
-    ax.hist(feature_diff, bins=15, color='skyblue', edgecolor='black')
-    ax.set_ylabel("frequency")
-    xlabel = f"absolute error in GLCM feature {features[0]}" if measurement == "absolute" else f"relative error in GLCM feature {features[0]} in %"
-    ax.set_xlabel(xlabel)
-    ax = fig.add_subplot(1,2,2)
-    feature_diff = features_diff[:,1] if measurement == "absolute" else features_diff[:,1]*100
-    ax.hist(feature_diff, bins=15, color='skyblue', edgecolor='black')
-    xlabel = f"absolute error in GLCM feature {features[1]}" if measurement == "absolute" else f"relative error in GLCM feature {features[1]} in %"
-    ax.set_xlabel(xlabel)
-    plt.show()
-    
-        
-def print_GLCM_feature_comparison(feature,feature_diff,measurement):
+    for i in range(2):
+        ax = fig.add_subplot(1,2,i+1)
+        x = features_diff[:,i] if offset_method == "non-standardized" else np.divide(features_diff[:,i],features_rec[:,i])*100
+        ax.hist(x, bins=15, color='skyblue', edgecolor='black')
+        xlabel = f"deviation in GLCM-{features[i]}" if offset_method == "non-standardized" else f"relative deviation in GLCM-{features[i]} in %"
+        ax.set_xlabel(xlabel)
+        if offset[i] != 0:
+            if offset_method == "non-standardized":
+                annotation = f"Offset: {offset[i]:.2f}"
+            else:
+                annotation = f"Adjustment factor: {1+offset[i]:.2f}"
+            ax.set_title(annotation, fontsize=11)
+        if i == 0:
+            ax.set_ylabel('Frequency')
+    plt.show() 
+       
+def print_GLCM_feature_comparison(feature,feature_diff,feature_ref,offset,offset_method):
     print(f"GLCM feature: {feature}")
-    mean = np.mean(feature_diff)
-    median = np.median(feature_diff)
-    std = np.std(feature_diff)
-    var = std/mean
-    if measurement == "absolute":
-        print(f"Mean absolute error in GLCM-feature: {mean:.2f}")
-        print(f"Median: {median:.2f}")
-        print(f"Standard deviation: {std:.2f}")
+    feature_diff_rel = np.divide(feature_diff,feature_ref)
+    RMSE = np.sqrt(np.mean(feature_diff**2))
+    RRMSE = np.sqrt(np.mean((feature_diff_rel)**2))    
+    if offset_method == "non-standardized":
+        if offset != 0:
+            print(f"Offset: {offset:.2f}")
+        print(f"Root Mean Square Error (RMSE): {RMSE:.2f}"); print(f"Relative Root Mean Square Error (RRMSE): {RRMSE:.2f}")
+        mean = np.mean(feature_diff)
+        median = np.median(feature_diff)
+        std = np.std(feature_diff)
+        var = std/mean
+        print(f"Mean Error: {mean:.2f}")
+        print(f"Median Error: {median:.2f}")
+        print(f"Standard Deviation of Errors: {std:.2f}")
+        print(f"Coefficient of Variation of Errors: {var:.2f}")  
     else:
-        print(f"Mean relative error in GLCM-feature: {mean*100:.2f}%")
-        print(f"Median: {median*100:.2f}%")
-        print(f"Standard deviation: {std*100:.2f}%")
-    print(f"Coefficient of variation: {var:.2f}")    
+        if offset != 0:
+            print(f"Adjustment factor: {1+offset:.2f}")
+        print(f"Root Mean Square Error (RMSE): {RMSE:.2f}"); print(f"Relative Root Mean Square Error (RRMSE): {RRMSE:.2f}")
+        mean = np.mean(feature_diff_rel)
+        median = np.median(feature_diff_rel)
+        std = np.std(feature_diff_rel)
+        var = std/mean
+        print(f"Mean Relative Error: {mean*100:.2f}%")
+        print(f"Median Relative Error: {median*100:.2f}%")
+        print(f"Standard Deviation of Relative Errors: {std*100:.2f}%")
+        print(f"Coefficient of Variation of Relative Errors: {var:.2f}")    
     print("-----------------------------")
     return mean,median
-    
-  
+
+
     

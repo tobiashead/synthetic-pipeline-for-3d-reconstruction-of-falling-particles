@@ -45,7 +45,7 @@ def PlotAbsPositionError(pos_x,pos_y,outlier_criterion=0.005):
     cam_pos_error_abs = np.linalg.norm(pos_x-pos_y,axis=1)
     fig = plt.figure(figsize=(5, 5))
     plt.hist(cam_pos_error_abs*1000, bins=15, color='skyblue', edgecolor='black')
-    plt.xlabel(r"Camera Position Error $||\mathbf{x}_{c,rec}^g-\mathbf{x}_{c,ref}^g||_2$ in mm")
+    plt.xlabel(r"Camera Position Error $||\mathbf{x}_{c,rec}^{stat}-\mathbf{x}_{c,ref}^{stat}||_2$ in mm")
     plt.ylabel("frequency")
     mean_error = np.mean(cam_pos_error_abs) 
     std_deviation = np.std(cam_pos_error_abs)
@@ -58,7 +58,7 @@ def PlotAbsPositionError(pos_x,pos_y,outlier_criterion=0.005):
     print(f"Standard deviation: {std_deviation*1000:.2f}mm")
     print(f"Number of Inliers: {len(cam_pos_error_abs)-outliers_count} (rel. error <= {outlier_criterion*100}%)")
     print(f"Number of Outliers: {outliers_count} (rel. error > {outlier_criterion*100}%)")
-    
+    plt.show()
 def OrientationError(Rx,Ry,outlier_criterion_angle = 1):   
     from scipy.spatial.transform import Rotation
     angle_diff = np.zeros([len(Rx),1])
@@ -69,7 +69,7 @@ def OrientationError(Rx,Ry,outlier_criterion_angle = 1):
         angle_diff[i] = rot_diff.magnitude() * 180 / np.pi
     fig = plt.figure(figsize=(5, 5))
     plt.hist(angle_diff, bins=15, color='skyblue', edgecolor='black')
-    plt.xlabel(r"Rotation Difference $\alpha$ in °")
+    plt.xlabel(r"Rotation Difference $\alpha$ in $^\circ$")
     plt.ylabel("frequency")
     mean_angle_error = np.mean(angle_diff) 
     std_angle_deviation = np.std(angle_diff)
@@ -79,3 +79,4 @@ def OrientationError(Rx,Ry,outlier_criterion_angle = 1):
     print(f"Standard deviation: {std_angle_deviation:.2f}°")
     print(f"Number of Inliers: {len(Rx)-outliers_count} (angle error <= {outlier_criterion_angle}°)")
     print(f"Number of Outliers: {outliers_count} (angle error > {outlier_criterion_angle}°)")
+    plt.show()
