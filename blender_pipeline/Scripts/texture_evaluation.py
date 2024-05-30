@@ -93,4 +93,4 @@ create_lightsources(params["light"])
 # Rendering of all cameras in the scene
 image_count = 0; t_count = 0; camera_data = []
 params["exiftool"]["mod"] = 0
-image_count,camera_data = renderCameras(params,t_count,image_count,camera_data)
+image_count,camera_data,_ = renderCameras(params,t_count,image_count,camera_data)

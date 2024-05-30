@@ -65,7 +65,9 @@ else:
             # BLENDER_EEVEE is significantly faster (real-time), CYCLES is a ray-tracing renderer
             "resolution_x": 2064,
             "resolution_y": 1544,
-            "resolution_percentage": 100
+            "resolution_percentage": 100,
+            "mode": 'MAINLY_IN_VIEW',
+            "transparent": False
         },
         # Exiftool options
         "exiftool": {
@@ -97,7 +99,8 @@ from functions import (
     print_warnings,
     save_camera_data,
     create_not_evenly_distributed_cameras,
-    save_obj_state
+    save_obj_state,
+    is_object_in_camera_view
     )
 # import modules from text-data block
 #sys.modules["functions"] = bpy.data.texts['functions.py'].as_module()
@@ -122,17 +125,16 @@ params["io"]["output_path"] = create_output_path(project_path,params["io"]["name
 # Create cameras
 if params["cam"]["even_dist"] == True:
     create_evenly_distributed_cameras(params["cam"])
+    cam2fp_dis = params["cam"]["distance"] * np.ones([params["cam"]["number"]*params["cam"]["vert_angle"],1])
 else: 
-    create_not_evenly_distributed_cameras(params["cam"])
+    cam2fp_dis = create_not_evenly_distributed_cameras(params["cam"])
 #------------------------------------------------------------------------------------
 # Create light sources
 create_lightsources(params["light"])
 #------------------------------------------------------------------------------------
 # Translation and Rotate object in every time and render cameras
-# Find the maximum and minimum height at which objects are visible on the cameras, valid if displacement in x and y direction is not allowed
-delta_h = params["cam"]["sensor_size"][1] / params["cam"]["focal_length"] / 2 * params["cam"]["distance"]   # [m]
-z_min = params["cam"]["focuspoint"][2]-delta_h; z_max = params["cam"]["focuspoint"][2] + delta_h                      # [m]
-
+# Detect window (in z-cooridnate) in which the object is visible
+z_min,z_max = is_object_in_camera_view(obj,params,cam2fp_dis,params["render"]["mode"]) # mode: "ALYWAYS_IN_VIEW", "MAINLY_IN_VIEW","PARTIALLY_IN_VIEW", 
 # Create a time vector for the simulation
 time_vec = np.arange(0,params["motion"]["sim_time"],1/params["cam"]["fps"])
 
@@ -141,14 +143,14 @@ image_count = 0; camera_data = []; obj_state = []
 obj_state = save_obj_state(obj_state,0,obj)     # save initial object location and orientation
 for t_count, t in enumerate(time_vec):
     params["motion"] = translate_obj(t,params["motion"],obj) # translate image and get new position
-    if params["motion"]['s'][2] <= z_max:    # check if the object is visible on the images
-        if params["motion"]['s'][2]<z_min:   # check if the object is visible on the images
+    if params["motion"]['s'][2] <= np.max(z_max):    # check if the object is visible on the images
+        if params["motion"]['s'][2]<np.min(z_min):   # check if the object is visible on the images
             break                           # if particle has already passed, then end simulation
         rotate_obj(t,params["motion"],obj)   # rotate particles (only when an image is created)
         # Save Orientation and Position of the moving object
         obj_state = save_obj_state(obj_state,t_count,obj)
         # Rendering of all cameras in the scene
-        image_count,camera_data = renderCameras(params,t_count,image_count,camera_data)
+        image_count,camera_data,params = renderCameras(params,t_count,image_count,camera_data)
 #------------------------------------------------------------------------------------ 
 # Write Exif-Tags
 if params["exiftool"]["mod"] == 2:

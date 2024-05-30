@@ -70,7 +70,8 @@
           "engine": "BLENDER_EEVEE",
           "resolution_x": 2064,
           "resolution_y": 1544,
-          "resolution_percentage": 100
+          "resolution_percentage": 100,
+          "transparent": false 
      },
      "exiftool": {
           "path": "C://Users//Tobias//Documents//Masterarbeit_lokal//ExifTool//exiftool.exe",

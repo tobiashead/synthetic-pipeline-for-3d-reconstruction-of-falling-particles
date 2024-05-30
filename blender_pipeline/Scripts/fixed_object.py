@@ -61,7 +61,8 @@ else:
             # BLENDER_EEVEE is significantly faster (real-time), CYCLES is a ray-tracing renderer
             "resolution_x": 2064,
             "resolution_y": 1544,
-            "resolution_percentage": 100
+            "resolution_percentage": 100,
+            "transparent": False 
         },
         # Exiftool options
         "exiftool": {
@@ -121,7 +122,7 @@ create_lightsources(params["light"])
 #------------------------------------------------------------------------------------
 # Rendering of all cameras in the scene
 image_count = 0; t_count = 0; camera_data = []
-image_count,camera_data = renderCameras(params,t_count,image_count,camera_data)
+image_count,camera_data,params = renderCameras(params,t_count,image_count,camera_data)
 #------------------------------------------------------------------------------------        
 # Write Exif-Tags
 write_exif_tags(params["cam"],params["render"],params["io"]["output_path"],params["exiftool"])

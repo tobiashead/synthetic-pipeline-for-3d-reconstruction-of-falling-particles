@@ -62,9 +62,15 @@ def renderCameras(params,t_count,image_count,camera_data):
     output_path = Path(params["io"]["output_path"]); project_name = params["io"]["name"]; label_images = params["io"]["label_images"]
     image_format = params["render"]["format"]; render_engine = params["render"]["engine"]
     resolution_x = params["render"]["resolution_x"]; resolution_y = params["render"]["resolution_y"]
-    resolution_percentage = params["render"]["resolution_percentage"]
+    resolution_percentage = params["render"]["resolution_percentage"];  transparent = params["render"]["transparent"]
+    if transparent:
+        if image_format == "JPEG": 
+            image_format = "PNG"; params["render"]["format"] = image_format; 
+            print("Warning! JPEG format does not support transparency! Change image format from JPEG to PNG")
     # Render settings
     bpy.context.scene.render.image_settings.file_format = image_format
+    if transparent: bpy.context.scene.render.image_settings.color_mode = 'RGBA'
+    bpy.context.scene.render.film_transparent = transparent
     bpy.context.scene.render.engine = render_engine
     bpy.context.scene.render.resolution_x = resolution_x
     bpy.context.scene.render.resolution_y = resolution_y
@@ -96,7 +102,7 @@ def renderCameras(params,t_count,image_count,camera_data):
             # save camera position and rotation
             camera_data = save_camera_data(obj,camera_data,file_name,t_count)
 
-    return image_count, camera_data
+    return image_count, camera_data, params
 #------------------------------------------------------------------------------------
 # Translate the object
 def translate_obj(t,motion,obj):
@@ -213,6 +219,7 @@ def print_warnings(params):
 def create_not_evenly_distributed_cameras(cam):
     focuspoint = cam["focuspoint"]; pos_file_path = cam["pos_file_path"]
     focal_length = cam["focal_length"]; sensor_size = cam["sensor_size"]
+    cam2fp_dis = []
     # load positions from position file
     with open(pos_file_path, 'r') as file:
         cam["pos"] = json.load(file)
@@ -222,6 +229,7 @@ def create_not_evenly_distributed_cameras(cam):
         if "theta_x" not in camera.keys():
             target_location = mathutils.Vector(focuspoint)
             # Calculate the direction vector and create the rotation quaternion
+            cam2fp_dis.append(np.linalg.norm(target_location - camera_location))
             direction = -(target_location - camera_location).normalized()
             rot_quat = direction.to_track_quat('Z', 'Y')
             # Create a new camera
@@ -234,6 +242,7 @@ def create_not_evenly_distributed_cameras(cam):
         bpy.context.object.data.lens = focal_length  # Adjust focal length
         bpy.context.object.data.sensor_width = sensor_size[0]
         bpy.context.object.data.sensor_height = sensor_size[1] 
+    return np.array(cam2fp_dis)
 #------------------------------------------------------------------------------------
 def save_camera_data(cam,camera_data,file_name,t_count):
     rotation = cam.rotation_euler
@@ -252,3 +261,32 @@ def save_obj_state(obj_motion,t_count,obj):
     obj_motion.append([t_count, location[0], location[1], location[2],
                         rotation[0], rotation[1], rotation[2]])
     return obj_motion
+#------------------------------------------------------------------------------------
+# Detect window (in z-cooridnate) in which the object is visible
+def is_object_in_camera_view(obj,params,cam2fp_dis,mode="ALYWAYS_IN_VIEW"):
+    # Calculation of bounding box corners in world coordinates
+    bbox_corners = [obj.matrix_world @ mathutils.Vector(corner) for corner in obj.bound_box]
+    # Calculation of the center point of the bounding box
+    bbox_center = sum(bbox_corners, mathutils.Vector()) / 8
+    # Calculation of the maximum distance from the center point to the corners of the bounding box
+    if mode == "PARTIALLY_IN_VIEW":
+        r_obj = max((corner - bbox_center).length for corner in bbox_corners)
+    elif mode == "MAINLY_IN_VIEW":
+        face_midpoints = [
+            (bbox_corners[0] + bbox_corners[1] + bbox_corners[4] + bbox_corners[5]) / 4,
+            (bbox_corners[0] + bbox_corners[1] + bbox_corners[2] + bbox_corners[3]) / 4,
+            (bbox_corners[0] + bbox_corners[3] + bbox_corners[4] + bbox_corners[7]) / 4,
+            (bbox_corners[4] + bbox_corners[5] + bbox_corners[6] + bbox_corners[7]) / 4,
+            (bbox_corners[1] + bbox_corners[2] + bbox_corners[5] + bbox_corners[6]) / 4,
+            (bbox_corners[2] + bbox_corners[3] + bbox_corners[6] + bbox_corners[7]) / 4,
+        ]
+        distances = [(face_midpoint - bbox_center).length for face_midpoint in face_midpoints]
+        r_obj = np.mean(distances)
+    else: 
+        r_obj = 0
+    # Find the maximum and minimum height at which objects are visible on the cameras, valid if displacement in x and y direction is not allowed
+    delta_h = params["cam"]["sensor_size"][1] / params["cam"]["focal_length"] / 2 *  cam2fp_dis                            # [m] vector
+    z_min = params["cam"]["focuspoint"][2]-delta_h - r_obj; z_max = params["cam"]["focuspoint"][2] + delta_h + r_obj       # [m] vector
+    return z_min,z_max
+    
+    
