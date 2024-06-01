@@ -23,13 +23,12 @@ class camera_reconstructed:
         # Calculate a Translation, because the point of focus in blender is at x=0, y=0, z = 1, 
         # and the position of the reference object is at x=0,y=0,z=0
         translation_4x4 = np.eye(4,4); translation_4x4[2,3] += focuspoint[2]
-        # Meshroom's camera orientation is NOT consistent with the convention of our camera plot function
-        # Transformation from Meshroom's camera orientation to the plot function camera orientation
+        # Necessary to rotate Meshroom's exported camera to world matrix 180° around the global x-axis --> to invert the rotation made in Meshroom during export
         rot_x_meshroom_plot_cam =  rotation_matrix_x(np.deg2rad(180)) 
         # Merging all individual transformations into a transformation matrix that describes the position
         # and orientation of the cameras in relation to the world coordinate system
         # -------------------------------------------------------------------------
-        # T_(meshroom->rec): rot_x_meshroom_plot_cam @ trans_4x4_reconstructed --> Transformation from Meshroom's camera orientation to the plot function camera orientation 
+        # T_(meshroom->rec): rot_x_meshroom_plot_cam @ trans_4x4_reconstructed --> Transformation from meshroom coordinate system to the reconstruction coordinate system
         # T_(rec->ref):  T @ T_(meshroom->rec) --> Transformation from reconstructed coordinate system into  reference coordinate system
         # T_(ref->glob): translation_4x4 --> Transformation from reference coordinate system into global coordinate system
         # T_(rec->glob): T_(ref->glob) @ T_(rec->ref) --> Transformation from reconstructed coordinate system into global coordinate system

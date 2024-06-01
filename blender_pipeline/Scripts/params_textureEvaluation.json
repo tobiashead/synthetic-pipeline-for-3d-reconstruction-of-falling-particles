@@ -1,9 +1,9 @@
 {
      "io": {
           "name": "hello",
-          "obj_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic-pipeline-for-3d-reconstruction-of-falling-particles\\meshroom_data\\Moving_MS_20_2_3cams_6\\Evaluation\\texturedMesh_TRANSFORMED.OBJ",
+          "obj_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\meshroom_data\\Moving_BP_02_4cams_2\\Evaluation\\texturedMesh_TRANSFORMED.OBJ",
           "label_images": 1,
-          "output_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic-pipeline-for-3d-reconstruction-of-falling-particles\\meshroom_data\\Moving_MS_20_2_3cams_6\\Evaluation\\TextureReconstruction"
+          "output_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\meshroom_data\\Moving_BP_02_4cams_2\\Evaluation\\TextureReconstruction"
      },
      "motion": {
           "s0": [

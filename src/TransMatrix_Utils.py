@@ -46,7 +46,7 @@ def Transformation4x4_from_Location3x1_and_Rotation3x3(Rotation,Location):
         trans_4x4 = np.zeros((4, 4))
         trans_4x4[:3, :3] = rot_3x3
         trans_4x4[3, 3] = 1
-        trans_4x4[0:3,3] = Location
+        trans_4x4[:3,3] = Location
         return trans_4x4
     
 def Scale2Transformation4x4(scale):

@@ -248,7 +248,7 @@ def save_camera_data(cam,camera_data,file_name,t_count):
     rotation = cam.rotation_euler
     # Get the rotation of the camera and convert it to a matrix
     rotation_matrix = rotation.to_matrix()
-    # Calculate the camera's viewing direction by multiplying the rotation matrix with the unit vector along the Z-axis
+    # Calculate the camera's viewing direction by multiplying the rotation matrix with the unit vector along the negative Z-axis
     direction = rotation_matrix @ mathutils.Vector((0, 0, -1))   
     camera_data.append([file_name,t_count, cam.location[0], cam.location[1], cam.location[2],
                         rotation[0], rotation[1], rotation[2],
