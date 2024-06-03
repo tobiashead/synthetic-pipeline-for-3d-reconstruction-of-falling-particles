@@ -168,19 +168,19 @@ class CameraPoseVisualizer:
             label = "Time Step" if obj_moving else "Height in m" 
             self.colorbar(norm,cmap,label,colorbar_orientation) 
                      
-    def load_cube(self,cams_ref,static_scene = False,alpha = None):
+    def load_cube(self,cams_ref,static_scene = False,alpha = None,position = np.array([0,0,1])):
             # dynamic case    
         if cams_ref[-1].TimeStep != 1 and static_scene == False:
             if alpha == None:      
-                self.create_cube(position=[0,0,1.2],size=0.03,color='k',alpha=0.4,rotation=[15,0,15])   # size=a=b=c
-                self.create_cube(position=[0,0,1.05],size=0.03,color='k',alpha=0.3,rotation=[30,0,30])
-                self.create_cube(position=[0,0,0.95],size=0.03,color='k',alpha=0.2,rotation=[45,0,45])
-                self.create_cube(position=[0,0,0.8],size=0.03,color='k',alpha=0.1,rotation=[60,0,-60])
+                self.create_cube(position=position+np.array([0,0,0.2]),size=0.03,color='k',alpha=0.4,rotation=[15,0,15])   # size=a=b=c
+                self.create_cube(position=position+np.array([0,0,0.05]),size=0.03,color='k',alpha=0.3,rotation=[30,0,30])
+                self.create_cube(position=position-np.array([0,0,0.05]),size=0.03,color='k',alpha=0.2,rotation=[45,0,45])
+                self.create_cube(position=position-np.array([0,0,0.2]),size=0.03,color='k',alpha=0.1,rotation=[60,0,-60])
             else:
-                self.create_cube(position=[0,0,1.2],size=0.02,color='k',alpha=alpha,rotation=[15,0,15])   # size=a=b=c
-                self.create_cube(position=[0,0,1.05],size=0.02,color='k',alpha=alpha,rotation=[30,0,30])
-                self.create_cube(position=[0,0,0.95],size=0.02,color='k',alpha=alpha,rotation=[45,0,45])
-                self.create_cube(position=[0,0,0.8],size=0.02,color='k',alpha=alpha,rotation=[60,0,-60])
+                self.create_cube(position=position+np.array([0,0,0.2]),size=0.02,color='k',alpha=alpha,rotation=[15,0,15])   # size=a=b=c
+                self.create_cube(position=position+np.array([0,0,0.05]),size=0.02,color='k',alpha=alpha,rotation=[30,0,30])
+                self.create_cube(position=position-np.array([0,0,0.05]),size=0.02,color='k',alpha=alpha,rotation=[45,0,45])
+                self.create_cube(position=position-np.array([0,0,0.2]),size=0.02,color='k',alpha=alpha,rotation=[60,0,-60])
         # static case    
         else:
-            self.create_cube(position=[0,0,1],size=0.03,color='k',alpha=0.3)
+            self.create_cube(position=position,size=0.03,color='k',alpha=0.3)
