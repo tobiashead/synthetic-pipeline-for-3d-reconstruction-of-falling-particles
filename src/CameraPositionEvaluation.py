@@ -5,7 +5,7 @@ importlib.reload(sys.modules['src.TransMatrix_Utils']) if 'src.TransMatrix_Utils
 from src.TransMatrix_Utils import Get_Location_Rotation3x3_Scale_from_Transformation4x4
 import matplotlib.pyplot as plt
 
-def CreateCameraDataSets(cams_rec,cams_ref):
+def CreateCameraDataSets(cams_rec,cams_ref,scene = "dynamic"):
     x = np.ones([len(cams_rec),3])*(42)
     y = np.ones([len(cams_rec),3])*(42)
     Rx = []
@@ -15,8 +15,12 @@ def CreateCameraDataSets(cams_rec,cams_ref):
         ind_ref = cam_rec.CorrespondigIndex
         if ind_ref != None:
             cam_ref = cams_ref[ind_ref]
-            location_ref,rotation_ref,_ = Get_Location_Rotation3x3_Scale_from_Transformation4x4(cam_ref.TransformationStatic)
-            location_rec,rotation_rec,_ = Get_Location_Rotation3x3_Scale_from_Transformation4x4(cam_rec.TransformationStatic)
+            if scene == "dynamic":
+                cam_ref_T = cam_ref.TransformationDynamic; cam_rec_T = cam_rec.TransformationDynamic
+            else:
+                cam_ref_T = cam_ref.TransformationStatic; cam_rec_T = cam_rec.TransformationStatic
+            location_ref,rotation_ref,_ = Get_Location_Rotation3x3_Scale_from_Transformation4x4(cam_ref_T)
+            location_rec,rotation_rec,_ = Get_Location_Rotation3x3_Scale_from_Transformation4x4(cam_rec_T)
             x[i,:] = location_rec; Rx.append(rotation_rec)
             y[i,:] = location_ref; Ry.append(rotation_ref)
         else:
@@ -41,7 +45,7 @@ def PlotAbsPositionError_for_xyz(pos_x,pos_y):
     axs[0].set_ylabel("absolute error in mm")
     plt.show()
     
-def PlotAbsPositionError(pos_x,pos_y,outlier_criterion=0.005):   
+def PlotAbsPositionError(pos_x,pos_y,outlier_criterion=0.005, focuspoint =[0,0,1]):   
     cam_pos_error_abs = np.linalg.norm(pos_x-pos_y,axis=1)
     fig = plt.figure(figsize=(5, 5))
     plt.hist(cam_pos_error_abs*1000, bins=15, color='skyblue', edgecolor='black')
@@ -50,7 +54,7 @@ def PlotAbsPositionError(pos_x,pos_y,outlier_criterion=0.005):
     mean_error = np.mean(cam_pos_error_abs) 
     std_deviation = np.std(cam_pos_error_abs)
     # Counting the number of outliers
-    cam_pos_error_rel = np.divide(cam_pos_error_abs,np.linalg.norm(pos_y-[0,0,1],axis=1))
+    cam_pos_error_rel = np.divide(cam_pos_error_abs,np.linalg.norm(pos_y-focuspoint,axis=1))
     mean_error_rel = np.mean(cam_pos_error_rel) 
     outliers_count = np.sum(cam_pos_error_rel > outlier_criterion)
     print(f"Mean absolute camera position error: {mean_error*1000:.2f}mm")
@@ -59,6 +63,7 @@ def PlotAbsPositionError(pos_x,pos_y,outlier_criterion=0.005):
     print(f"Number of Inliers: {len(cam_pos_error_abs)-outliers_count} (rel. error <= {outlier_criterion*100}%)")
     print(f"Number of Outliers: {outliers_count} (rel. error > {outlier_criterion*100}%)")
     plt.show()
+    
 def OrientationError(Rx,Ry,outlier_criterion_angle = 1):   
     from scipy.spatial.transform import Rotation
     angle_diff = np.zeros([len(Rx),1])
