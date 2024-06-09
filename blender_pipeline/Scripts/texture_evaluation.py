@@ -51,7 +51,8 @@ with open(params_file_path, 'r') as file:
 #     # BLENDER_EEVEE is significantly faster (real-time), CYCLES is a ray-tracing renderer
 #     "resolution_x": 2064,
 #     "resolution_y": 1544,
-#     "resolution_percentage": 100
+#     "resolution_percentage": 100,
+#     "transparent": false
 # },
 # }
 ############################# Import functions #######################################
