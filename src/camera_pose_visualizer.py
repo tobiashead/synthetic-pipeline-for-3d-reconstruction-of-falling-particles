@@ -97,7 +97,7 @@ class CameraPoseVisualizer:
         ax = fig.gca()
         scalar_mappable = plt.cm.ScalarMappable(norm=norm, cmap=cmap)
         scalar_mappable.set_array([])
-        fig.colorbar(scalar_mappable, ax=ax, orientation=orientation, label=label)
+        fig.colorbar(scalar_mappable, ax=ax, orientation=orientation, label=label)  # shrink=0.9,pad=0.1
 
     def show(self,title=None):
         if title is not None:
@@ -129,7 +129,7 @@ class CameraPoseVisualizer:
         # Calculation of the color value based on timestep
         import matplotlib.colors as mcolors
         cmap = plt.cm.get_cmap(colormap)  # Choose a colormap (e.g., 'viridis')
-        norm = mcolors.Normalize(vmin=1, vmax=TimeStep_max)  # Define the range of normalized height values (adjust as needed)
+        norm = mcolors.Normalize(vmin=1, vmax=TimeStep_max)  # Define the range of normalized height values (adjust as needed), vmin=0
         # Map normalized height to color using the colormap
         color = cmap(norm(TimeStep))
         # Adjust alpha channel

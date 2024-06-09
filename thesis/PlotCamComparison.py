@@ -17,8 +17,8 @@ def PlotCamComparisonStatic(
 ) -> None:
     
     
-    # top=0.976,
-    # bottom=0.041,
+    # top=1,
+    # bottom=0.037,
     # left=0.0,
     # right=1.0,
     # hspace=0.2,
@@ -33,7 +33,7 @@ def PlotCamComparisonStatic(
     visualizer.load_cameras(cams_ref,focal_length,aspect_ratio,sensor_width,scale=1.5,alpha=0.5,DrawCoordSystem=False,static_scene=True)
     visualizer.load_cube(cams_ref,static_scene=True)
     visualizer.ax.view_init(elev=elev, azim=azim)
-    cbar = visualizer.fig.axes[1].set_ylabel("Zeitpunkt $k$")
+    cbar = visualizer.fig.axes[1].set_ylabel("Zeitpunkt k")
     visualizer.show() 
     azim = visualizer.ax.azim
     elev = visualizer.ax.elev

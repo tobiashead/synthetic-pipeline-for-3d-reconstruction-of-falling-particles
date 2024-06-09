@@ -32,9 +32,9 @@ for cam in cams_ref:
     Tdynamic2static = cam.Dynamic2StaticScene(objs[cam.CorrespondigIndexObject].Transformation, obj0.Transformation,focuspoint)
 
 top=1.0
-bottom=0.015
-left=0.005
-right=0.888
+bottom=0.02
+left=0
+right=0.89
 hspace=0.2
 wspace=0.2
 azim = 115; elev = 24
