@@ -103,3 +103,7 @@ def ExportCameras2Blender(cams,evaluation_path, static_scene = True):
     json_path  = Path(evaluation_path) / "CamerasExtrinsicsStatic.json"
     with open(json_path, 'w') as f:
         json.dump(data, f, indent=4)
+#-----------------------------------------------------------------------
+def read_light_alignment(base_file_path_blender):
+    lights = pd.read_csv(Path(base_file_path_blender) / "LightPositioningInMeters.csv")
+    return lights

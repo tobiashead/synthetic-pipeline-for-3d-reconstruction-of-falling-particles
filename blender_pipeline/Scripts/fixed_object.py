@@ -49,7 +49,7 @@ else:
         },
         # Light parameters
         "light": {
-            "z": [-1,1,2],                    # [m] height of the light sources
+            "z": [0,1,2],                    # [m] height of the light sources
             "hor_angle": [45,90,135,180,225,270,315,360],     # [°] Horizontal angle from centre to light position
             "distance": 1,               # [m] Horizontal Euclidean distance to the center point
             "intensity": 10             # [W] Light intensity
@@ -87,9 +87,8 @@ from functions import (
     renderCameras,
     write_exif_tags,
     create_output_path,
-    save_blender_settings,
+    save_BlenderSettingsAndConfiguration,
     print_warnings,
-    save_camera_data,
     create_not_evenly_distributed_cameras,
     rotate_obj
     )
@@ -119,7 +118,7 @@ else:
     create_not_evenly_distributed_cameras(params["cam"])
 #------------------------------------------------------------------------------------
 # Create light sources
-create_lightsources(params["light"],params["cam"]["focuspoint"])
+light_data = create_lightsources(params["light"],params["cam"]["focuspoint"])
 #------------------------------------------------------------------------------------
 # Rendering of all cameras in the scene
 image_count = 0; t_count = 0; camera_data = []
@@ -131,6 +130,6 @@ write_exif_tags(params["cam"],params["render"],params["io"]["output_path"],param
 
 ############################## Save data #############################################
 #------------------------------------------------------------------------------------        
-save_blender_settings(params,camera_data)
+save_BlenderSettingsAndConfiguration(params,camera_data,light_data)
 print_warnings(params)  # display warnings
 ######################################################################################

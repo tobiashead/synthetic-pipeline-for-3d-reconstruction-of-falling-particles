@@ -39,7 +39,7 @@ with open(params_file_path, 'r') as file:
 # },
 # # Light parameters
 # "light": {
-#     "z": [-1,1,2],                # [m] height of the light sources
+#     "z": [0,1,2],                # [m] height of the light sources
 #     "hor_angle": [45,90,135,180,225,270,315,360],     # [°] Horizontal angle from centre to light position
 #     "distance": 1,                # [m] Horizontal Euclidean distance to the center point
 #     "intensity": 10               # [W] Light intensity

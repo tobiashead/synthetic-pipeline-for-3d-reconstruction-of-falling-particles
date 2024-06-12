@@ -15,7 +15,6 @@ import json
 def create_evenly_distributed_cameras(cam):
     number_cameras = cam["number"]; focuspoint = cam["focuspoint"]; camera_distance = cam["distance"]
     vert_angle = cam["vert_angle"]; focal_length = cam["focal_length"]; sensor_size = cam["sensor_size"]
-    camera_data = []; j = 0
     relative_angle = 360 / number_cameras
     for angle in vert_angle:
         v_distance = math.sin(math.radians(angle))*camera_distance + focuspoint[2]
@@ -45,18 +44,19 @@ def create_evenly_distributed_cameras(cam):
 def create_lightsources(light,focuspoint = [0,0,1]):
     z_light = light["z"]; hori_angle = light["hor_angle"]
     light_distance = light["distance"]; light_intensity = light["intensity"]
+    light_data = []
     for h_angle in hori_angle:
-        for z in z_light:
-            
+        for z in z_light:      
             # Set the light source location
             light_location = mathutils.Vector((light_distance * math.cos(math.radians(h_angle))+focuspoint[0], light_distance * math.sin(math.radians(h_angle))+focuspoint[1], z))
-            
             # Create a new camera
             bpy.ops.object.light_add(type='POINT', location=light_location)
-            
             # Set light properties
             light = bpy.context.active_object
             light.data.energy = light_intensity  # Intensity of the light
+            # Save light properties
+            light_data.append([*light_location,light_intensity,light_distance])
+    return light_data            
 #------------------------------------------------------------------------------------
 def renderCameras(params,t_count,image_count,camera_data):
     output_path = Path(params["io"]["output_path"]); project_name = params["io"]["name"]; label_images = params["io"]["label_images"]
@@ -180,7 +180,7 @@ def create_output_path(project_path,project_name):
 
 #------------------------------------------------------------------------------------ 
 # Storage of simulation and imaging data
-def save_blender_settings(params,camera_data,object_data=None):
+def save_BlenderSettingsAndConfiguration(params,camera_data,object_data=None,light_data=None):
     output_path = Path(params["io"]["output_path"])
 
     # write json-file with all selected parameters 
@@ -204,7 +204,15 @@ def save_blender_settings(params,camera_data,object_data=None):
             writer = csv.writer(file)    
             writer.writerow(['TimeStep', 'PositionX', 'PositionY', 'PositionZ',
                             'RotationEulerX', 'RotationEulerY', 'RotationEulerZ'])
-            writer.writerows(object_data)   
+            writer.writerows(object_data) 
+    # write CSV data representing the positioning of the lightpoint
+    if light_data != None:
+        path_LightData = output_path / ('LightPositioningInMeters.csv')
+        with open(str(path_LightData), mode='w', newline='') as file:
+            writer = csv.writer(file)    
+            writer.writerow(['PositionX', 'PositionY', 'PositionZ',
+                            'IntensityInWatt','Distance'])
+            writer.writerows(light_data) 
     # write cache file with location of the output folder
     cache_path = Path(params["io"]["script_path"]) / "cache.txt"
     with open(cache_path, "w") as txt_file:
