@@ -130,7 +130,7 @@ else:
     cam2fp_dis = create_not_evenly_distributed_cameras(params["cam"])
 #------------------------------------------------------------------------------------
 # Create light sources
-create_lightsources(params["light"])
+create_lightsources(params["light"],params["cam"]["focuspoint"])
 #------------------------------------------------------------------------------------
 # Translation and Rotate object in every time and render cameras
 # Detect window (in z-cooridnate) in which the object is visible

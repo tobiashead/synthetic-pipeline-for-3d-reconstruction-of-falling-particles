@@ -54,5 +54,14 @@
 
 ## Author
 - **Tobias Kopf**
-- Date: Mai 5, 2024
+- Date: June 12, 2024
 - Email: tobias.kopf@tu-berlin.de
+
+## TODO
+- blender_pipeline:
+    - Adapting the positioning of the light sources
+        -  option to import from external file
+        -  more intuitive parameterization
+    -  rotation of the object
+        - no longer describe the rotation the with Euler angles
+        - instead use Axis-Angle

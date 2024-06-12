@@ -77,5 +77,5 @@ params["motion"]["omega"] = [0,0,0]; rotate_obj(0,params["motion"],obj) # Set th
 create_evenly_distributed_cameras(params["cam"])
 #------------------------------------------------------------------------------------
 # Create light sources
-create_lightsources(params["light"])
+create_lightsources(params["light"],params["cam"]["focuspoint"])
 ######################################################################################

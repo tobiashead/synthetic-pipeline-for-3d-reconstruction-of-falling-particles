@@ -42,14 +42,14 @@ def create_evenly_distributed_cameras(cam):
             bpy.context.object.data.sensor_height = sensor_size[1]
 #------------------------------------------------------------------------------------
 # Create light sources
-def create_lightsources(light):
+def create_lightsources(light,focuspoint = [0,0,1]):
     z_light = light["z"]; hori_angle = light["hor_angle"]
     light_distance = light["distance"]; light_intensity = light["intensity"]
     for h_angle in hori_angle:
         for z in z_light:
             
             # Set the light source location
-            light_location = mathutils.Vector((light_distance * math.cos(math.radians(h_angle)), light_distance * math.sin(math.radians(h_angle)), z))
+            light_location = mathutils.Vector((light_distance * math.cos(math.radians(h_angle))+focuspoint[0], light_distance * math.sin(math.radians(h_angle))+focuspoint[1], z))
             
             # Create a new camera
             bpy.ops.object.light_add(type='POINT', location=light_location)

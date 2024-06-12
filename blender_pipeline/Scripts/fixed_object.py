@@ -118,7 +118,7 @@ else:
     create_not_evenly_distributed_cameras(params["cam"])
 #------------------------------------------------------------------------------------
 # Create light sources
-create_lightsources(params["light"])
+create_lightsources(params["light"],params["cam"]["focuspoint"])
 #------------------------------------------------------------------------------------
 # Rendering of all cameras in the scene
 image_count = 0; t_count = 0; camera_data = []
