@@ -112,12 +112,16 @@ def translate_obj(t,motion,obj):
     obj.location = s; motion['s'] = list(s)
     return motion
 #------------------------------------------------------------------------------------  
-# Rotate the object    
+# Rotate the object: 
 def rotate_obj(t,motion,obj):
-    angle = [math.radians(omega*t) for omega in mathutils.Vector(motion['omega'])]
-    obj.rotation_euler[0] = angle[0]  # Rotate the object around its X-axis, angle phi_x=0 at t=0s
-    obj.rotation_euler[1] = angle[1]  # Rotate the object around its Y-axis, angle phi_y=0 at t=0s
-    obj.rotation_euler[2] = angle[2]  # Rotate the object around its Z-axis, angle phi_z=0 at t=0s
+    # using axis-angle-representation
+    e = motion['e']                 # [-,-,-] axis of rotation (normalized)
+    omega = motion['omega']         # [°/s] angular velocity
+    theta = math.radians(omega)*t   # [rad] rotation angle (omega(t=0s) = 0)
+    obj.rotation_axis_angle[0] = theta # set rotation angle
+    obj.rotation_axis_angle[1] = e[0]  # set x-component of the axis of rotation
+    obj.rotation_axis_angle[2] = e[1]  # set y-component of the axis of rotation
+    obj.rotation_axis_angle[3] = e[2]  # set z-component of the axis of rotation
 #------------------------------------------------------------------------------------
 # Write Exif-Tags
 def write_exif_tags(cam,render,image_path,exiftool):
@@ -256,10 +260,12 @@ def save_camera_data(cam,camera_data,file_name,t_count):
     return camera_data
 #------------------------------------------------------------------------------------
 def save_obj_state(obj_motion,t_count,obj):
-    rotation = obj.rotation_euler
+    rotation_axis_angle = obj.rotation_axis_angle
+    rotation_quat = mathutils.Quaternion(rotation_axis_angle[1:], rotation_axis_angle[0])
+    rotation_euler = rotation_quat.to_euler()
     location = obj.location
     obj_motion.append([t_count, location[0], location[1], location[2],
-                        rotation[0], rotation[1], rotation[2]])
+                        rotation_euler[0], rotation_euler[1], rotation_euler[2]])
     return obj_motion
 #------------------------------------------------------------------------------------
 # Detect window (in z-cooridnate) in which the object is visible

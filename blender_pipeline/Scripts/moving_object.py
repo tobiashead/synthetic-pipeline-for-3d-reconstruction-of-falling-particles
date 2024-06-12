@@ -21,8 +21,8 @@ else:
     params = {
         # Input and output parameters
         "io": {
-            "name": 'falling_dodekaeder_even_dist_15cam',    # project name (e.g. 'Dodekaeder')
-            "obj_path": r'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\objects\Dodekaeder\Mesh-Dateien\Wuerfel_12s\12S.obj',    # Path to the object file
+            "name": 'falling_dodekaeder_even_dist_3cam',    # project name (e.g. 'Dodekaeder')
+            "obj_path": r"C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_pipeline\3D_Dice\3D_Dice.obj",    # Path to the object file
             "label_images": 3               # how to label rendered images
             # 1: "{project_name}_{image_count}"
             # 2: "{project_name}_{timestep_count}_{camera_number}"
@@ -30,11 +30,12 @@ else:
         },
         # Position and movement of the object
         "motion": {
-            "s0": [0, 0, 1.5],            # [m] set x,y,z position of the object at t=0s
+            "s0": [0, 0, 1.1],            # [m] set x,y,z position of the object at t=0s
             "v0": [0, 0, 0],              # [m/s] velocity of the object at t=0s
             "a": [0, 0, -9.81],           # [m/s^2] acceleration of the object
-            "omega": [360*6, 0, 360*6],   # [°/s] angular velocity, rotation around x,y,z-axes (Euler-XYZ-Rotation) --> do not rotate the middle coordinate
-            "sim_time": 5                 # [s] Simulation time
+            "e": [1,0,0],                 # [-,-,-] axis of rotation --> will be normalized automatically to a unit vector
+            "omega": 360/0.092,           # [°/s] angular velocity around the unit vector e (axis of rotation) (full rotation 360/0.092)
+            "sim_time": 5                 # [s] (max) simulation time
         },
         # Camera parameters
         "cam": {
@@ -42,10 +43,10 @@ else:
             # only necessary if even_dist = False
             "pos_file_path": r'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_pipeline\Scripts\camera_positions.json', # path to the file containing the camera positions
             # only necessary if even_dist = True
-            "number": 5,                  # number of cameras at one level
+            "number": 3,                  # number of cameras at one level
             "focuspoint": [0,0,1],        # [m] Location of the point of focus
             "distance": 0.3,              # [m] Euclidean distance to the "focus point"
-            "vert_angle": [-30,0,30],            # [°] Vertical angle from centre to camera position
+            "vert_angle": [0],            # [°] Vertical angle from centre to camera position
             # necessary, regardless of the value of even_dist 
             "focal_length": 16,           # [mm] focal length of all cameras
             "sensor_size": [7.12, 5.33],  # [mm,mm] sensor width and sensor height
@@ -117,7 +118,8 @@ bpy.ops.wm.obj_import(filepath=str(params["io"]["obj_path"]))   # Import the OBJ
 obj = bpy.context.active_object                                 # Retrieve the last imported object (this is now the active object)
 bpy.ops.object.origin_set(type='ORIGIN_CENTER_OF_VOLUME', center='BOUNDS')  # Recalculate the object's bounding box to update its center of mass
 params["motion"] = translate_obj(0,params["motion"],obj)        # Set the position of the object at t=0s
-rotate_obj(0,params["motion"],obj)                              # Set the rotation of the object at t=0s
+params["motion"]["e"] = (np.array(params["motion"]["e"]) / np.linalg.norm(params["motion"]["e"])).tolist() # normalize rotation vector (not necessary, but good for clarity)
+obj.rotation_mode = "AXIS_ANGLE"; rotate_obj(0,params["motion"],obj)    # Set the rotation of the object at t=0s
 #------------------------------------------------------------------------------------
 # Create Output-Path
 params["io"]["output_path"] = create_output_path(project_path,params["io"]["name"])
@@ -125,7 +127,7 @@ params["io"]["output_path"] = create_output_path(project_path,params["io"]["name
 # Create cameras
 if params["cam"]["even_dist"] == True:
     create_evenly_distributed_cameras(params["cam"])
-    cam2fp_dis = params["cam"]["distance"] * np.ones([params["cam"]["number"]*params["cam"]["vert_angle"],1])
+    cam2fp_dis = params["cam"]["distance"] * np.ones([params["cam"]["number"]*len(params["cam"]["vert_angle"]),1]) # calculate the distances between the cameras and the point of focuse
 else: 
     cam2fp_dis = create_not_evenly_distributed_cameras(params["cam"])
 #------------------------------------------------------------------------------------

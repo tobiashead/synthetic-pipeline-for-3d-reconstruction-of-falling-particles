@@ -62,6 +62,13 @@
     - Adapting the positioning of the light sources
         -  option to import from external file
         -  more intuitive parameterization
+        -  export positioning of the lights
+- evaluation_pipeline:
+        - import positioning of the lights
+        - add a option for plotting also the lights in the camera plot (reference)
+
+## CHANGELOG
+- blender_pipeline:
     -  rotation of the object
         - no longer describe the rotation the with Euler angles
         - instead use Axis-Angle

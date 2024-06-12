@@ -80,6 +80,7 @@ bpy.ops.object.delete()
 bpy.ops.wm.obj_import(filepath=str(params["io"]["obj_path"]))   # Import the OBJ model
 obj = bpy.context.active_object                                 # Retrieve the last imported object (this is now the active object)
 bpy.ops.object.origin_set(type='ORIGIN_CENTER_OF_VOLUME', center='BOUNDS')  # Recalculate the object's bounding box to update its center of mass
+params["motion"]["a"] =[0,0,0]; params["motion"]["v0"] =[0,0,0]
 params["motion"] = translate_obj(0,params["motion"],obj)        # Set the position of the object at t=0s
 #------------------------------------------------------------------------------------
 # Create cameras
@@ -89,7 +90,7 @@ else:
     create_not_evenly_distributed_cameras(params["cam"])
 #------------------------------------------------------------------------------------
 # Create light sources
-create_lightsources(params["light"])
+create_lightsources(params["light"],params["cam"]["focuspoint"])
 #------------------------------------------------------------------------------------
 # Rendering of all cameras in the scene
 image_count = 0; t_count = 0; camera_data = []

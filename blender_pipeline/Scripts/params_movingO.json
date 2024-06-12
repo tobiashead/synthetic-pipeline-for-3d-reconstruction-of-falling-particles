@@ -1,14 +1,14 @@
 {
      "io": {
-          "name": "4sRotXY",
-          "obj_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\objects\\4S\\4S.obj",
+          "name": "Moving_MS_02_3cam",
+          "obj_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\objects\\MS_20_2\\centered\\MS_22_2_wR_schw_M.obj",
           "label_images": 3
      },
      "motion": {
           "s0": [
                0,
-               0.3,
-               0.1
+               0,
+               1.1
           ],
           "v0": [
                0,
@@ -20,21 +20,22 @@
                0,
                -9.81
           ],
-          "omega": [
-               5000,
-               5000,
-               0
+          "e": [
+               1,
+               0,
+               1
           ],
+          "omega": 3913.0434782608695,
           "sim_time": 5
      },
      "cam": {
-          "even_dist": false,
-          "pos_file_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\Base-case Datensatz\\CameraPositions_BaseCase.json",
-          "number": 1,
+          "even_dist": true,
+          "pos_file_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\blender_pipeline\\Scripts\\CamerasExtrinsicsStatic.json",
+          "number": 3,
           "focuspoint": [
                0,
-               0.3,
-               0
+               0,
+               1
           ],
           "distance": 0.2,
           "vert_angle": [
@@ -45,7 +46,7 @@
                7.12,
                5.33
           ],
-          "fps": 1000
+          "fps": 218
      },
      "light": {
           "z": [
@@ -72,8 +73,8 @@
           "resolution_x": 2064,
           "resolution_y": 1544,
           "resolution_percentage": 100,
-          "mode": "PARTIALLY_IN_VIEW",
-          "transparent": true
+          "mode": "MAINLY_IN_VIEW",
+          "transparent": false
      },
      "exiftool": {
           "mod": 2
