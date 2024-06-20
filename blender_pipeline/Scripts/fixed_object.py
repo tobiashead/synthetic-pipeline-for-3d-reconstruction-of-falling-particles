@@ -22,9 +22,9 @@ else:
     params = {
         # Input and output parameters
         "io": {
-            "name": '4cam',    # project name (e.g. 'Dodekaeder')
+            "name": 'test',    # project name (e.g. 'Dodekaeder')
             #"obj_path": r'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\objects\Dodekaeder\Mesh-Dateien\Wuerfel_12s\12S.obj',    # Path to the object file
-            "obj_path": Path("C:/Users/Tobias/Documents/Masterarbeit_lokal/synthetic_pipeline/blender_pipeline/3D_Dice/3D_Dice.obj"),
+            "obj_path": r"C:/Users/Tobias/Documents/Masterarbeit_lokal/synthetic_pipeline/blender_pipeline/3D_Dice/3D_Dice.obj",
             "label_images": 1               # how to label rendered images
             # 1: "{project_name}_{image_count}"
             # 2: "{project_name}_{timestep_count}_{camera_number}"
@@ -106,7 +106,7 @@ obj = bpy.context.active_object                                 # Retrieve the l
 bpy.ops.object.origin_set(type='ORIGIN_CENTER_OF_VOLUME', center='BOUNDS')  # Recalculate the object's bounding box to update its center of mass
 obj.location = (params["motion"]["s0"])                                 # Set the position of the object at t=0s
 params["motion"]["e"] = [0,0,0]; params["motion"]["omega"] = 0
-rotate_obj(0,params["motion"],obj) # Set the rotation of the object at t=0s
+obj.rotation_mode = "AXIS_ANGLE"; rotate_obj(0,params["motion"],obj) # Set the rotation of the object at t=0s
 #------------------------------------------------------------------------------------
 # Create Output-Path
 params["io"]["output_path"] = create_output_path(project_path,params["io"]["name"])

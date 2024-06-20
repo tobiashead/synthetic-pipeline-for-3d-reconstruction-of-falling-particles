@@ -13,8 +13,8 @@ from src.camera_pose_visualizer import CameraPoseVisualizer
 style_path = current_dir / 'thesis.mplstyle'
 plt.style.use(str(style_path))
 
-image_dir = r'C:\Users\Tobias\Downloads\4sRotXY\4sRotXY'
-#image_dir = r'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic-pipeline-for-3d-reconstruction-of-falling-particles\blender_data\Moving_BP_02_1cam'
+image_dir = r"C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_data\6sRotXY"
+#image_dir = r'C:\Users\Tobias\Nextcloud\Shared\MA Tobias Kopf\Base-case_Datensatz\6sRotXY'
 cams_ref = read_camera_alignment_reference(image_dir)
 objs, obj0 = read_object_alignment(image_dir)   
 
@@ -65,6 +65,8 @@ visualizer.fig.subplots_adjust(top=top, bottom=bottom, left=left, right=right)
 path = current_dir / "Extrinsics_cams_dynamic"
 #visualizer.save(path,bbox_inches=None,pad_inches=0)      
 visualizer.show()
-    
 
+#camera_export_path = Path(r'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_pipeline\Scripts')
+#from src.CameraProcessing import ExportCameras2Blender
+#ExportCameras2Blender(cams_ref,camera_export_path,static_scene=True)
 

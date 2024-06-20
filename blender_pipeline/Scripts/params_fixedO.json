@@ -1,8 +1,8 @@
 {
      "io": {
-          "name": "Schotterpartikel_46_rocky_trail",
+          "name": "6sRotXY_AxisAngle_static",
           "script_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\blender_pipeline\\Scripts",
-          "obj_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\objects\\Schotterpartikel_46_rocky_trail\\Schotterpartikel_46_rocky_trail.obj",
+          "obj_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\objects\\6S\\6S.obj",
           "base_output_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\blender_data",
           "label_images": 1,
           "output_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\blender_data\\static_BP_02_60cam_15x4"
@@ -10,18 +10,18 @@
      "motion": {
           "s0": [
                0,
-               0,
-               1
+               0.3,
+               0
           ]
      },
      "cam": {
-          "even_dist": true,
+          "even_dist": false,
           "pos_file_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\blender_pipeline\\Scripts\\CamerasExtrinsicsStatic.json",
           "number": 10,
           "focuspoint": [
                0,
-               0,
-               1
+               0.3,
+               0
           ],
           "distance": 0.2,
           "vert_angle": [
@@ -38,9 +38,9 @@
      },
      "light": {
           "z": [
+               -1,
                0,
-               1,
-               2
+               1
           ],
           "hor_angle": [
                45,
