@@ -67,7 +67,7 @@ else:
             "resolution_x": 2064,
             "resolution_y": 1544,
             "resolution_percentage": 100,
-            "mode": 'MAINLY_IN_VIEW',
+            "mode": 'MAINLY_IN_VIEW',   # "MAINLY_IN_VIEW", "PARTIALLY_IN_VIEW", "ALWAYS_IN_VIEW"
             "transparent": False
         },
         # Exiftool options
@@ -98,7 +98,6 @@ from functions import (
     create_output_path,
     save_BlenderSettingsAndConfiguration,
     print_warnings,
-    save_camera_data,
     create_not_evenly_distributed_cameras,
     save_obj_state,
     is_object_in_camera_view
@@ -135,24 +134,23 @@ else:
 light_data = create_lightsources(params["light"],params["cam"]["focuspoint"])
 #------------------------------------------------------------------------------------
 # Translation and Rotate object in every time and render cameras
-# Detect window (in z-cooridnate) in which the object is visible
-z_min,z_max = is_object_in_camera_view(obj,params,cam2fp_dis,params["render"]["mode"]) # mode: "ALYWAYS_IN_VIEW", "MAINLY_IN_VIEW","PARTIALLY_IN_VIEW", 
 # Create a time vector for the simulation
 time_vec = np.arange(0,params["motion"]["sim_time"],1/params["cam"]["fps"])
 
 # Start simulation
-image_count = 0; camera_data = []; obj_state = []
+image_count = 0; camera_data = []; obj_state = []; obj_in_window = False
 obj_state = save_obj_state(obj_state,0,obj)     # save initial object location and orientation
 for t_count, t in enumerate(time_vec):
     params["motion"] = translate_obj(t,params["motion"],obj) # translate image and get new position
-    if params["motion"]['s'][2] <= np.max(z_max):    # check if the object is visible on the images
-        if params["motion"]['s'][2]<np.min(z_min):   # check if the object is visible on the images
-            break                           # if particle has already passed, then end simulation
-        rotate_obj(t,params["motion"],obj)   # rotate particles (only when an image is created)
+    rotate_obj(t,params["motion"],obj)                       # rotate object
+    if is_object_in_camera_view(obj,mode = params["render"]["mode"]):   # check if the object is visible on the images
         # Save Orientation and Position of the moving object
         obj_state = save_obj_state(obj_state,t_count,obj)
         # Rendering of all cameras in the scene
         image_count,camera_data,params = renderCameras(params,t_count,image_count,camera_data)
+        obj_in_window = True
+    else:   
+        if obj_in_window == True: break     # In the case of a free fall (no initial velocity in positive z-direction), the object will not return to the field of view of the cameras
 #------------------------------------------------------------------------------------ 
 # Write Exif-Tags
 if params["exiftool"]["mod"] == 2:
