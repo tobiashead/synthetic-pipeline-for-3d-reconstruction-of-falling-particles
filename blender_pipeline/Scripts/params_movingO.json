@@ -73,7 +73,7 @@
           "resolution_x": 2064,
           "resolution_y": 1544,
           "resolution_percentage": 100,
-          "mode": "MAINLY_IN_VIEW",
+          "mode": "ALWAYS_IN_VIEW",
           "transparent": false
      },
      "exiftool": {

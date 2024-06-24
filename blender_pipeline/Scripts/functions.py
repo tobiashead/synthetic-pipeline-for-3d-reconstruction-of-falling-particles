@@ -277,50 +277,25 @@ def save_obj_state(obj_motion,t_count,obj):
                         rotation_euler[0], rotation_euler[1], rotation_euler[2]])
     return obj_motion
 #------------------------------------------------------------------------------------
-# Detect window (in z-cooridnate) in which the object is visible
-# def is_object_in_camera_view(obj,params,cam2fp_dis,mode="ALYWAYS_IN_VIEW"):
-#     # Calculation of bounding box corners in world coordinates
-#     bbox_corners = [obj.matrix_world @ mathutils.Vector(corner) for corner in obj.bound_box]
-#     # Calculation of the center point of the bounding box
-#     bbox_center = sum(bbox_corners, mathutils.Vector()) / 8
-#     # Calculation of the maximum distance from the center point to the corners of the bounding box
-#     if mode == "PARTIALLY_IN_VIEW":
-#         r_obj = max((corner - bbox_center).length for corner in bbox_corners)
-#     elif mode == "MAINLY_IN_VIEW":
-#         face_midpoints = [
-#             (bbox_corners[0] + bbox_corners[1] + bbox_corners[4] + bbox_corners[5]) / 4,
-#             (bbox_corners[0] + bbox_corners[1] + bbox_corners[2] + bbox_corners[3]) / 4,
-#             (bbox_corners[0] + bbox_corners[3] + bbox_corners[4] + bbox_corners[7]) / 4,
-#             (bbox_corners[4] + bbox_corners[5] + bbox_corners[6] + bbox_corners[7]) / 4,
-#             (bbox_corners[1] + bbox_corners[2] + bbox_corners[5] + bbox_corners[6]) / 4,
-#             (bbox_corners[2] + bbox_corners[3] + bbox_corners[6] + bbox_corners[7]) / 4,
-#         ]
-#         distances = [(face_midpoint - bbox_center).length for face_midpoint in face_midpoints]
-#         r_obj = np.mean(distances)
-#     else: 
-#         r_obj = 0
-#     # Find the maximum and minimum height at which objects are visible on the cameras, valid if displacement in x and y direction is not allowed
-#     delta_h = params["cam"]["sensor_size"][1] / params["cam"]["focal_length"] / 2 *  cam2fp_dis                            # [m] vector
-#     z_min = params["cam"]["focuspoint"][2]-delta_h - r_obj; z_max = params["cam"]["focuspoint"][2] + delta_h + r_obj       # [m] vector
-#     return z_min,z_max
-
-def is_object_in_camera_view(obj,mode="ALYWAYS_IN_VIEW"):
+# Detect whether the object is in the field of view of any camera
+def is_object_in_camera_view(obj,mode="ALWAYS_IN_VIEW"):
     # Centre of the object
     point = np.array(obj.location)
-    
     # Instead of the centre point a part of the bounding box should be in the field of view of the cameras
-    if mode == "ALYWAYS_IN_VIEW":
+    if mode == "ALWAYS_IN_VIEW":
         points = [point]
     else:
+        # Ensure the scene is updated to recalculate the matrix
+        bpy.context.view_layer.update()
         # Calculation of bounding box corners in world coordinates
         bbox_corners = [obj.matrix_world @ mathutils.Vector(corner) for corner in obj.bound_box]
         # Calculation of the center point of the bounding box
         bbox_center = sum(bbox_corners, mathutils.Vector()) / 8
         # Calculation of the maximum distance from the center point to the corners of the bounding box
         if mode == "PARTIALLY_IN_VIEW":
-            r_obj = max((corner - bbox_center).length for corner in bbox_corners)
+            points = bbox_corners
         elif mode == "MAINLY_IN_VIEW":
-            face_midpoints = [
+            points = [
                 (bbox_corners[0] + bbox_corners[1] + bbox_corners[4] + bbox_corners[5]) / 4,
                 (bbox_corners[0] + bbox_corners[1] + bbox_corners[2] + bbox_corners[3]) / 4,
                 (bbox_corners[0] + bbox_corners[3] + bbox_corners[4] + bbox_corners[7]) / 4,
@@ -328,13 +303,9 @@ def is_object_in_camera_view(obj,mode="ALYWAYS_IN_VIEW"):
                 (bbox_corners[1] + bbox_corners[2] + bbox_corners[5] + bbox_corners[6]) / 4,
                 (bbox_corners[2] + bbox_corners[3] + bbox_corners[6] + bbox_corners[7]) / 4,
             ]
-            distances = [(face_midpoint - bbox_center).length for face_midpoint in face_midpoints]
-            r_obj = np.mean(distances)
         else:
-            print(f"Warning: Mode {mode} does not exist! Switch to mode Always_In_View")
-            r_obj = 0
-        point1 = point + np.array([0,0,r_obj]); point2 = point - np.array([0,0,r_obj])
-        points = [point1,point2]
+            print(f"Warning: Mode {mode} does not exist! Switch to mode ALWAYS_IN_VIEW")
+            points = [point]
             
     # Check whether the object is at least in the field of view of one of the cameras
     for object in bpy.data.objects:
