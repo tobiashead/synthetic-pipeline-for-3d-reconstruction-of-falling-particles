@@ -9,7 +9,7 @@
 - [Python 3.11](https://www.python.org/downloads/release/python-3110/)
 
 ## Installation
-- Clone or download the repository:
+- Clone or download the repository: (Avoid spaces in the file path)
     ```bash
     git clone https://git.tu-berlin.de/tobias_kopf/synthetic-pipeline-for-3d-reconstruction-of-falling-particles.git
     ```
@@ -36,7 +36,7 @@
 - Set the path to the applications (Blender, Meshroom, ExifTool) inside the file `...\synthetic-pipeline-for-3d-reconstruction-of-falling-particles\path_settings.json`
 
 - Download objects and save them in `...\synthetic-pipeline-for-3d-reconstruction-of-falling-particles\objects`
-    - Objects available here:  `https://tubcloud.tu-berlin.de/s/wiRKPLnHtobbnMf`
+    - Objects available here:  `https://tubcloud.tu-berlin.de/s/Kd2C5DmpqppmJJC` (password: "8EPx4sYEZb")
     
 
 ## Usage
@@ -54,7 +54,7 @@
 
 ## Author
 - **Tobias Kopf**
-- Date: June 12, 2024
+- Date: June 26, 2024
 - Email: tobias.kopf@tu-berlin.de
 
 ## TODO
@@ -62,10 +62,15 @@
     - Adapting the positioning of the light sources
         -  option to import from external file
         -  more intuitive parameterization
-        -  export positioning of the lights
+    - Use of relative file paths when specifying the object path and the path of the camera position file ??
+    
 
 ## CHANGELOG
 - blender_pipeline:
+    - selection criterion: Is the object in the viewing window of the cameras?
+        - The new criterion is based on fewer simplifications.
+        - The 3D coordinates of the object are projected onto the image plane.
+	    - The system then checks whether the object is in the image-windows on the image plane.
     -  rotation of the object
         - no longer describe the rotation the with Euler angles
         - instead use Axis-Angle
