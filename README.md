@@ -6,6 +6,7 @@
 - [Meshroom2024-3.0 64-bit](https://alicevision.org/#meshroom)
 - [ExifTool by Phil Harvey](https://exiftool.org/) 
     - just download and unzip the archive, then rename "exiftool(-k).exe" to "exiftool.exe" for command-line use
+- [CloudCompare 'Unified' 64-bit](https://www.danielgm.net/cc/)
 - [Python 3.11](https://www.python.org/downloads/release/python-3110/)
 
 ## Installation
@@ -33,7 +34,7 @@
 - Select the kernel corresponding to the virtual environment in your chosen Python editor (e.g., VSCode, Jupyter Notebook, JupyterLab, Spyder, PyCharm):
     - Select the following file: `...\synthetic-pipeline-for-3d-reconstruction-of-falling-particles\venv_synthetic_311\Scripts\python.exe`
 
-- Set the path to the applications (Blender, Meshroom, ExifTool) inside the file `...\synthetic-pipeline-for-3d-reconstruction-of-falling-particles\path_settings.json`
+- Set the path to the applications (Blender, Meshroom, ExifTool, CloudCompare) inside the file `...\synthetic-pipeline-for-3d-reconstruction-of-falling-particles\path_settings.json`
 
 - Download objects and save them in `...\synthetic-pipeline-for-3d-reconstruction-of-falling-particles\objects`
     - Objects available here:  `https://tubcloud.tu-berlin.de/s/Kd2C5DmpqppmJJC` (password: "8EPx4sYEZb")
@@ -79,3 +80,4 @@
 - evaluation_pipeline:
         - import positioning of the lights
         - add a option for plotting also the lights in the camera plot (reference)
+-

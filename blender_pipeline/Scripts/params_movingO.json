@@ -22,8 +22,8 @@
           ],
           "e": [
                1,
-               1,
-               0
+               0,
+               1
           ],
           "omega": 3913.0434782608695,
           "sim_time": 5
@@ -73,7 +73,7 @@
           "resolution_x": 2064,
           "resolution_y": 1544,
           "resolution_percentage": 100,
-          "mode": "ALWAYS_IN_VIEW",
+          "mode": "MAINLY_IN_VIEW",
           "transparent": false
      },
      "exiftool": {

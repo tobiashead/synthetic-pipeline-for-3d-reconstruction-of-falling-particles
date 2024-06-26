@@ -3,14 +3,13 @@ from pathlib import Path
 import subprocess
 import numpy as np
 
-def FineMeshRegistration_and_MeshToMeshDistance(params_CC,evaluation_path,mesh_gt_path,mesh_r_path,output_format_mesh,InitialTrans_path):
+def FineMeshRegistration_and_MeshToMeshDistance(CC_path,params_CC,evaluation_path,mesh_gt_path,mesh_r_path,output_format_mesh,InitialTrans_path):
     silent = params_CC[0]; save_meshes_all_at_once = params_CC[1]; adjust_scale = params_CC[2]; output_format_mesh = params_CC[3]
-    # Create or load file paths
-    CloudCompare_path = r"C:\Program Files\CloudCompare\CloudCompare.exe"   # Path to CloudCompare executable
+    # Create Path to log file
     log_path = evaluation_path / "log_CloudCompare.txt"                     # Path to log file
     # Command for CloudCompare (https://www.cloudcompare.org/doc/wiki/index.php/Command_line_mode)
     command = [
-        CloudCompare_path,                                      # File path to CloudCompare.exe
+        CC_path,                                      # File path to CloudCompare.exe
         "-AUTO_SAVE", "OFF",                                    # prevents the saving of intermediate states and saving in the GroudTruth folder 
     #   {SILENT MODE}                                           # Activate silent mode, Command will be inserted here 
         "-LOG_FILE", log_path,                                  # write log_file, required to read the Cloud2Mesh distance

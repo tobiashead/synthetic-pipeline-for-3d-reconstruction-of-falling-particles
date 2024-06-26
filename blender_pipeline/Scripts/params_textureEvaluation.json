@@ -1,9 +1,9 @@
 {
      "io": {
           "name": "does not matter",
-          "obj_path": "c:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\meshroom_data\\Moving_MS_02_3cam_3\\Evaluation\\texturedMesh_TRANSFORMED.OBJ",
+          "obj_path": "c:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\meshroom_data\\Moving_MS_02_3cam_4\\Evaluation\\texturedMesh_TRANSFORMED.OBJ",
           "label_images": 1,
-          "output_path": "c:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\meshroom_data\\Moving_MS_02_3cam_3\\Evaluation\\TextureReconstruction"
+          "output_path": "c:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\meshroom_data\\Moving_MS_02_3cam_4\\Evaluation\\TextureReconstruction"
      },
      "motion": {
           "s0": [
