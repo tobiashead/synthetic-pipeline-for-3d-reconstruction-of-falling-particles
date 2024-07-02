@@ -1,14 +1,14 @@
 {
      "io": {
           "name": "Moving_MS_02_3cam",
-          "obj_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\objects\\MS_20_2\\centered\\MS_22_2_wR_schw_M.obj",
+          "obj_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\objects\\Dodekaeder\\Mesh-Dateien\\Wuerfel_12s\\centered\\12s.obj",
           "label_images": 3
      },
      "motion": {
           "s0": [
                0,
                0,
-               1.1
+               1
           ],
           "v0": [
                0,
