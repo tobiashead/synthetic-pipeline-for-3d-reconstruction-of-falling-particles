@@ -80,4 +80,5 @@
 - evaluation_pipeline:
         - import positioning of the lights
         - add a option for plotting also the lights in the camera plot (reference)
--
+- path_settings:
+    - add CloudComapre to path_settings
