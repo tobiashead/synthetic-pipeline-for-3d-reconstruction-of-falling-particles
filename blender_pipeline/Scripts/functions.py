@@ -278,11 +278,11 @@ def save_obj_state(obj_motion,t_count,obj):
     return obj_motion
 #------------------------------------------------------------------------------------
 # Detect whether the object is in the field of view of any camera
-def is_object_in_camera_view(obj,mode="ALWAYS_IN_VIEW"):
+def is_object_in_camera_view(obj,mode="OBJECT_CENTER"):
     # Centre of the object
     point = np.array(obj.location)
     # Instead of the centre point a part of the bounding box should be in the field of view of the cameras
-    if mode == "ALWAYS_IN_VIEW":
+    if mode == "OBJECT_CENTER":
         points = [point]
     else:
         # Ensure the scene is updated to recalculate the matrix
@@ -292,9 +292,9 @@ def is_object_in_camera_view(obj,mode="ALWAYS_IN_VIEW"):
         # Calculation of the center point of the bounding box
         bbox_center = sum(bbox_corners, mathutils.Vector()) / 8
         # Calculation of the maximum distance from the center point to the corners of the bounding box
-        if mode == "PARTIALLY_IN_VIEW":
+        if mode == "BBOX_CORNERS":
             points = bbox_corners
-        elif mode == "MAINLY_IN_VIEW":
+        elif mode == "BBOX_SURFACES_CENTERS":
             points = [
                 (bbox_corners[0] + bbox_corners[1] + bbox_corners[4] + bbox_corners[5]) / 4,
                 (bbox_corners[0] + bbox_corners[1] + bbox_corners[2] + bbox_corners[3]) / 4,

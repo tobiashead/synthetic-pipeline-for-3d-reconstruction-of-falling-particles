@@ -1,7 +1,7 @@
 {
      "io": {
-          "name": "12sRotXY",
-          "obj_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\objects\\12S\\12S.obj",
+          "name": "GRAU5RotY",
+          "obj_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\objects\\GRAU5\\GRAU5.obj",
           "label_images": 3
      },
      "motion": {
@@ -21,11 +21,11 @@
                -9.81
           ],
           "e": [
-               1,
+               0,
                1,
                0
           ],
-          "omega": 4500,
+          "omega": 1125,
           "sim_time": 5
      },
      "cam": {
@@ -73,7 +73,7 @@
           "resolution_x": 2064,
           "resolution_y": 1544,
           "resolution_percentage": 100,
-          "mode": "MAINLY_IN_VIEW",
+          "mode": "BBOX_CORNERS",
           "transparent": true
      },
      "exiftool": {

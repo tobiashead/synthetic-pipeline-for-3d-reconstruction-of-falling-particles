@@ -9,7 +9,7 @@ from pathlib import Path
 #                                Fixed-objects                                       #
 ######################################################################################
 # Are external parameters used or the parameters defined here
-ExternalParams = True
+ExternalParams = False
 
 ############################# Select Parameters ######################################
 if ExternalParams:
@@ -22,7 +22,7 @@ else:
     params = {
         # Input and output parameters
         "io": {
-            "name": 'test',    # project name (e.g. 'Dodekaeder')
+            "name": 'static5cams3layers',    # project name (e.g. 'Dodekaeder')
             #"obj_path": r'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\objects\Dodekaeder\Mesh-Dateien\Wuerfel_12s\12S.obj',    # Path to the object file
             "obj_path": r"C:/Users/Tobias/Documents/Masterarbeit_lokal/synthetic_pipeline/blender_pipeline/3D_Dice/3D_Dice.obj",
             "label_images": 1               # how to label rendered images
@@ -39,19 +39,19 @@ else:
             "even_dist": True,  # are the cameras evenly distributed, True or False
             # only necessary if even_dist = False
             "pos_file_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\blender_pipeline\\Scripts\\camera_positions.json",
-            "number": 4,                  # number of cameras at one level
+            "number": 10,                  # number of cameras at one level
             "focuspoint": [0,0,1],        # [m] Location of the point of focus
             "distance": 0.2,              # [m] Euclidean distance to the "center point"
-            "vert_angle": [0],            # [°] Vertical angle from centre to camera position
+            "vert_angle": [-45,0,45],            # [°] Vertical angle from centre to camera position
             # necessary, regardless of the value of even_dist 
             "focal_length": 16,          # [mm] focal length of all cameras
             "sensor_size": [7.12, 5.33],      # [mm,mm] sensor width and sensor height
         },
         # Light parameters
         "light": {
-            "z": [0,1,2],                    # [m] height of the light sources
-            "hor_angle": [45,90,135,180,225,270,315,360],     # [°] Horizontal angle from centre to light position
-            "distance": 1,               # [m] Horizontal Euclidean distance to the center point
+            "z": [0.8,1.2],                    # [m] height of the light sources
+            "hor_angle": [45,135,215,305],     # [°] Horizontal angle from centre to light position
+            "distance": 0.2,               # [m] Horizontal Euclidean distance to the center point
             "intensity": 10             # [W] Light intensity
         },
         # Render Settings
@@ -130,6 +130,6 @@ write_exif_tags(params["cam"],params["render"],params["io"]["output_path"],param
 
 ############################## Save data #############################################
 #------------------------------------------------------------------------------------        
-save_BlenderSettingsAndConfiguration(params,camera_data,light_data)
+save_BlenderSettingsAndConfiguration(params,camera_data,None,light_data)
 print_warnings(params)  # display warnings
 ######################################################################################

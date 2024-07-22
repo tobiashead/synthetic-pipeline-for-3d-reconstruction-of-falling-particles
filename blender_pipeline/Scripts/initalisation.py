@@ -17,16 +17,16 @@ params = {
     },
     # Position and movement of the object
     "motion": {
-        "s0": [0, 0, 1],            # [m] set x,y,z position of the object at t=0s
+        "s0": [0, 0.3, 0],            # [m] set x,y,z position of the object at t=0s
     },
     # Camera parameters
     "cam": {
-        "even_dist": True,            # are the cameras evenly distributed, True or False
+        "even_dist": False,            # are the cameras evenly distributed, True or False
         # only necessary if even_dist = False
-        "pos_file_path": r'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_pipeline\Scripts\camera_positions.json', # path to the file containing the camera positions
+        "pos_file_path": r"C:\Users\Tobias\Nextcloud\Shared\MA Tobias Kopf\Base-case_Datensatz\6sRotXY\CamerasExtrinsicsStatic.json", # path to the file containing the camera positions
         # only necessary if even_dist = True
         "number": 3,                  # number of cameras at one level
-        "focuspoint": [0,0,1],        # [m] Location of the point of focus
+        "focuspoint": [0,0.3,0],        # [m] Location of the point of focus
         "distance": 0.2,              # [m] Euclidean distance to the "center point"
         # necessary, regardless of the value of even_dist 
         "vert_angle": [0],            # [°] Vertical angle from centre to camera position
@@ -75,7 +75,10 @@ params["motion"]["e"] = [0,0,0]; params["motion"]["omega"] = 0
 rotate_obj(0,params["motion"],obj) # Set the rotation of the object at t=0s
 #------------------------------------------------------------------------------------
 # Create cameras
-create_evenly_distributed_cameras(params["cam"])
+if params["cam"]["even_dist"] == True:
+    create_evenly_distributed_cameras(params["cam"])
+else:
+    create_not_evenly_distributed_cameras(params["cam"]) 
 #------------------------------------------------------------------------------------
 # Create light sources
 create_lightsources(params["light"],params["cam"]["focuspoint"])

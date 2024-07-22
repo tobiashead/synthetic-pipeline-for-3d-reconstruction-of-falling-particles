@@ -92,6 +92,7 @@ def ExportCameras2Blender(cams,evaluation_path, static_scene = True):
         key = "camera" + str(i+1)
         data[key] = {
             "name": key,
+            "image": cam.ImageFileName, 
             "x_m": float(location[0]),
             "y_m": float(location[1]),
             "z_m": float(location[2]),
@@ -100,7 +101,10 @@ def ExportCameras2Blender(cams,evaluation_path, static_scene = True):
             "theta_z": float(euler_angle[2])
         }
     # Speichere die aktualisierten Daten in die JSON-Datei
-    json_path  = Path(evaluation_path) / "CamerasExtrinsicsStatic.json"
+    if static_scene:
+        json_path  = Path(evaluation_path) / "CamerasExtrinsicsStatic.json"
+    else:
+         json_path  = Path(evaluation_path) / "CamerasExtrinsicsDynamic.json"
     with open(json_path, 'w') as f:
         json.dump(data, f, indent=4)
 #-----------------------------------------------------------------------

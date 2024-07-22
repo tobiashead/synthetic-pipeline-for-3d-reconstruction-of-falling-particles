@@ -21,7 +21,7 @@ else:
     params = {
         # Input and output parameters
         "io": {
-            "name": 'falling_dodekaeder_even_dist_3cam',    # project name (e.g. 'Dodekaeder')
+            "name": 'Moving5cam',    # project name (e.g. 'Dodekaeder')
             "obj_path": r"C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_pipeline\3D_Dice\3D_Dice.obj",    # Path to the object file
             "label_images": 3               # how to label rendered images
             # 1: "{project_name}_{image_count}"
@@ -43,9 +43,9 @@ else:
             # only necessary if even_dist = False
             "pos_file_path": r'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_pipeline\Scripts\camera_positions.json', # path to the file containing the camera positions
             # only necessary if even_dist = True
-            "number": 3,                  # number of cameras at one level
+            "number": 5,                  # number of cameras at one level
             "focuspoint": [0,0,1],        # [m] Location of the point of focus
-            "distance": 0.3,              # [m] Euclidean distance to the "focus point"
+            "distance": 0.2,              # [m] Euclidean distance to the "focus point"
             "vert_angle": [0],            # [°] Vertical angle from centre to camera position
             # necessary, regardless of the value of even_dist 
             "focal_length": 16,           # [mm] focal length of all cameras
@@ -54,9 +54,9 @@ else:
         },
         # Light parameters
         "light": {
-            "z": [0,1,2],                # [m] height of the light sources
-            "hor_angle": [45,90,135,180,225,270,315,360],     # [°] Horizontal angle from centre to light position
-            "distance": 1,                # [m] Horizontal Euclidean distance to the center point
+            "z": [0.8,1.2],                # [m] height of the light sources
+            "hor_angle": [45,135,215,305],     # [°] Horizontal angle from centre to light position
+            "distance": 0.2,                # [m] Horizontal Euclidean distance to the center point
             "intensity": 10               # [W] Light intensity
         },
         # Render Settings
@@ -67,7 +67,8 @@ else:
             "resolution_x": 2064,
             "resolution_y": 1544,
             "resolution_percentage": 100,
-            "mode": 'MAINLY_IN_VIEW',   # "MAINLY_IN_VIEW", "PARTIALLY_IN_VIEW", "ALWAYS_IN_VIEW"
+            "mode": 'OBJECT_CENTER',   # "OBJECT_CENTER", "BBOX_SURFACES_CENTERS", "BBOX_CORNERS"
+            # --> OBJECT_CENTER = least images, BBOX_CORNERS = most images
             "transparent": False
         },
         # Exiftool options

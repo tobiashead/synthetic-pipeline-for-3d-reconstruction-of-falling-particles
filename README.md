@@ -1,4 +1,4 @@
-# Synthetic pipeline for 3D-reconstruction of falling particles
+# Synthetic pipeline for 3D-reconstruction of falling particles (Development-Branch)
 ## Requirements
 - Windows 10/11
 - NVIDIA CUDA-enabled GPU (for 3D-Reconstructing)
@@ -55,16 +55,15 @@
 
 ## Author
 - **Tobias Kopf**
-- Date: June 26, 2024
+- Date: July 22, 2024
 - Email: tobias.kopf@tu-berlin.de
 
 ## TODO
 - blender_pipeline:
     - Adapting the positioning of the light sources
         -  option to import from external file
-        -  more intuitive parameterization
-    - Use of relative file paths when specifying the object path and the path of the camera position file ??
-    
+        -  more intuitive parameterization    
+- create separate pipeline for evaluation (python file)  
 
 ## CHANGELOG
 - blender_pipeline:
@@ -72,6 +71,7 @@
         - The new criterion is based on fewer simplifications.
         - The 3D coordinates of the object are projected onto the image plane.
 	    - The system then checks whether the object is in the image-windows on the image plane.
+        - rename the selection criterions
     -  rotation of the object
         - no longer describe the rotation the with Euler angles
         - instead use Axis-Angle
@@ -82,3 +82,7 @@
         - add a option for plotting also the lights in the camera plot (reference)
 - path_settings:
     - add CloudComapre to path_settings
+- create subpipelines:
+    - pipeline only for data generation (can also be used as a function)
+    - pipeline only for the actual 3d-reconstruction (can also be used as a function)
+    - pipeline for parameter studies (including generation and 3d-reconstruction)

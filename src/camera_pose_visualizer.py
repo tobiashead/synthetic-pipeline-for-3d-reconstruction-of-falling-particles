@@ -185,10 +185,10 @@ class CameraPoseVisualizer:
         else:
             self.create_cube(position=position,size=0.03,color='k',alpha=0.3)
             
-    def load_lights(self,lights,color="orange", size=30):
+    def load_lights(self,lights,color="orange", size=30, alpha=0.8):
         for i in range(len(lights)):
             light = lights.iloc[i]
             x = light["PositionX"]; y = light["PositionY"]; z = light["PositionZ"]
-            self.ax.scatter(x,y,z,c=color,marker='o',s = size)
+            self.ax.scatter(x,y,z,c=color,marker='o',s = size,alpha=alpha)
             
     

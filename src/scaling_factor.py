@@ -20,7 +20,7 @@ sns.set(style='white',font='Arial')
 
 #-----------------------------------------------------------------------
 
-def scaling_factor(cams_rec,cams_ref,evaluation_path,PreOutlierDetection=False,threshold = 0.025, criterion = "abs"):
+def scaling_factor(cams_rec,cams_ref,evaluation_path,PreOutlierDetection=False,threshold = 0.025, criterion = "abs",plot=True):
     # calculate distance between the reconstructed cameras within a timestep for all timesteps (x)
     # calculate the same for the reference cameras (y)
     # Calculation of an information matrix containing the corresponding time steps and camera indices for all x and y values 
@@ -39,7 +39,9 @@ def scaling_factor(cams_rec,cams_ref,evaluation_path,PreOutlierDetection=False,t
     factor_median = np.median(factor_vec)           # Calculate median scaling factor
     factor_std = np.std(factor_vec)                 # Calculate standard deviation of scaling factors
     # plot and return
-    fig = scaling_factor_plot(factor_vec,factor_mean,factor_median,factor_std,evaluation_path)
+    if plot:
+        fig = scaling_factor_plot(factor_vec,factor_mean,factor_median,factor_std,evaluation_path)
+    else: fig = None
     return factor_mean, factor_median, factor_std, fig
 
 #-----------------------------------------------------------------------
