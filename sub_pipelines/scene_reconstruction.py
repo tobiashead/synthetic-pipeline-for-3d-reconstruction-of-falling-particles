@@ -35,7 +35,7 @@ if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 ################################################### Reconstruction Settings ########################################################################
 #------------------------------------------------- Adjustable parameters ---------------------------------------------------------------------------
-    image_dir = r"C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_data\GRAU5RotY_6"     # File path to the folder where the images are located
+    image_dir = r"C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_data\ParameterStudy1_0002"     # File path to the folder where the images are located
     params_rec = {
     "describerDensity": "normal",     # Control the ImageDescriber density (low,medium,normal,high,ultra) --> Use ultra only on small datasets
     "describerQuality": "normal",     # Control the ImageDescriber quality (low,medium,normal,high,ultra)
