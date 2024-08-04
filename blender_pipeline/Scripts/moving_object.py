@@ -102,7 +102,8 @@ from functions import (
     print_warnings,
     create_not_evenly_distributed_cameras,
     save_obj_state,
-    is_object_in_camera_view
+    is_object_in_camera_view,
+    SaveObjectInWorldCoordinateOrigin
     )
 # import modules from text-data block
 #sys.modules["functions"] = bpy.data.texts['functions.py'].as_module()
@@ -115,9 +116,10 @@ bpy.ops.object.select_all(action='SELECT')
 bpy.ops.object.delete()
 #------------------------------------------------------------------------------------
 # Load objects
-bpy.ops.wm.obj_import(filepath=str(params["io"]["obj_path"]))   # Import the OBJ model
+bpy.ops.wm.obj_import(filepath=params["io"]["obj_path"])   # Import the OBJ model
 obj = bpy.context.active_object                                 # Retrieve the last imported object (this is now the active object)
 bpy.ops.object.origin_set(type='ORIGIN_CENTER_OF_VOLUME', center='BOUNDS')  # Recalculate the object's bounding box to update its center of mass
+params["io"]["obj_path"] = SaveObjectInWorldCoordinateOrigin(obj,str(params["io"]["obj_path"]))  # Center object and save the centered object (if not already saved) 
 params["motion"] = translate_obj(0,params["motion"],obj)        # Set the position of the object at t=0s
 params["motion"]["e"] = (np.array(params["motion"]["e"]) / np.linalg.norm(params["motion"]["e"])).tolist() # normalize rotation vector (not necessary, but good for clarity)
 obj.rotation_mode = "AXIS_ANGLE"; rotate_obj(0,params["motion"],obj)    # Set the rotation of the object at t=0s

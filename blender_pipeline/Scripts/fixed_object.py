@@ -24,7 +24,7 @@ else:
         "io": {
             "name": 'static5cams3layers',    # project name (e.g. 'Dodekaeder')
             #"obj_path": r'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\objects\Dodekaeder\Mesh-Dateien\Wuerfel_12s\12S.obj',    # Path to the object file
-            "obj_path": r"C:/Users/Tobias/Documents/Masterarbeit_lokal/synthetic_pipeline/blender_pipeline/3D_Dice/3D_Dice.obj",
+            "obj_path": r"C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\objects\MS_20_2\centered\MS_22_2_wR_schw_M.obj",
             "label_images": 1               # how to label rendered images
             # 1: "{project_name}_{image_count}"
             # 2: "{project_name}_{timestep_count}_{camera_number}"
@@ -90,7 +90,8 @@ from functions import (
     save_BlenderSettingsAndConfiguration,
     print_warnings,
     create_not_evenly_distributed_cameras,
-    rotate_obj
+    rotate_obj,
+    SaveObjectInWorldCoordinateOrigin
     )
 ######################################################################################
          
@@ -104,6 +105,7 @@ bpy.ops.object.delete()
 bpy.ops.wm.obj_import(filepath=str(params["io"]["obj_path"]))   # Import the OBJ model
 obj = bpy.context.active_object                                 # Retrieve the last imported object (this is now the active object)
 bpy.ops.object.origin_set(type='ORIGIN_CENTER_OF_VOLUME', center='BOUNDS')  # Recalculate the object's bounding box to update its center of mass
+params["io"]["obj_path"] = SaveObjectInWorldCoordinateOrigin(obj,str(params["io"]["obj_path"]))  # Center object and save the centered object (if not already saved) 
 obj.location = (params["motion"]["s0"])                                 # Set the position of the object at t=0s
 params["motion"]["e"] = [0,0,0]; params["motion"]["omega"] = 0
 obj.rotation_mode = "AXIS_ANGLE"; rotate_obj(0,params["motion"],obj) # Set the rotation of the object at t=0s

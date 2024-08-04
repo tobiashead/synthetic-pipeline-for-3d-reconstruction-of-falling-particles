@@ -314,7 +314,7 @@ def is_object_in_camera_view(obj,mode="OBJECT_CENTER"):
                 if is_point_in_view(object,point):
                     return True
     return False
-    
+#------------------------------------------------------------------------------------   
 def is_point_in_view(camera,point):
     # projection into the image plane
     co_2d = bpy_extras.object_utils.world_to_camera_view(bpy.context.scene, camera, mathutils.Vector(point))
@@ -322,3 +322,25 @@ def is_point_in_view(camera,point):
     if (0.0 <= co_2d.x <= 1.0) and (0.0 <= co_2d.y <= 1.0) and (co_2d.z >= 0):
         return True
     return False  
+#------------------------------------------------------------------------------------
+# Place the object in the center of the coordinate system and save the object there
+def SaveObjectInWorldCoordinateOrigin(obj,obj_file_path):   
+    # If the object is already in the center point or is placed very close to the center point
+    #   --> accordingly do nothing
+    if (np.linalg.norm(np.array(obj.location)) < 10**(-5)) :
+        return obj_file_path
+    else:
+        original_obj_path = Path(obj_file_path)
+        directory = original_obj_path.parent
+        original_filename = original_obj_path.stem
+        extension = original_obj_path.suffix
+        new_filename = f"{original_filename}_centered{extension}"
+        new_obj_path = directory / new_filename
+        # If a centered object already exists, link to this
+        if new_obj_path.exists():
+            return str(new_obj_path)
+        else:
+            # center object and save the result
+            obj.location = mathutils.Vector([0,0,0])
+            bpy.ops.wm.obj_export(filepath=str(new_obj_path))
+            return str(new_obj_path)

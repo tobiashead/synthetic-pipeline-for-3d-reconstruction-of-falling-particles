@@ -1,7 +1,7 @@
 {
      "io": {
-          "name": "test",
-          "obj_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\objects\\GRAU5\\centered\\GRAU5.obj",
+          "name": "Moving_GRAU5_5cam",
+          "obj_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\objects\\GRAU5\\GRAU5.obj",
           "label_images": 3
      },
      "motion": {
@@ -31,13 +31,13 @@
      "cam": {
           "even_dist": true,
           "pos_file_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\blender_pipeline\\Scripts\\CamerasExtrinsicsStatic.json",
-          "number": 3,
+          "number": 5,
           "focuspoint": [
                0,
                0,
                1
           ],
-          "distance": 0.2,
+          "distance": 0.3,
           "vert_angle": [
                0
           ],

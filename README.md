@@ -77,6 +77,7 @@
         - instead use Axis-Angle
     - Adapting the positioning of the light sources
         - export positioning of the lights
+    - Save automatically a centered version of the input object, if it's not already centered
 - evaluation_pipeline:
         - import positioning of the lights
         - add a option for plotting also the lights in the camera plot (reference)
