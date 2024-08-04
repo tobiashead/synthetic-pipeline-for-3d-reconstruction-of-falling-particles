@@ -14,12 +14,12 @@ from src.pipeline_utils import (
     )
 
 ################################################### Data Generation Function ###########################################################################
-def SceneReconstruction(rec_params,scaling_params,image_dir,scaling=True):
+def SceneReconstruction(rec_params,scaling_params,image_dir,scaling=True,DebugMode=False):
     app_paths = LoadAppPaths()                                      # Load path to the applications
     ref_params = LoadSceneParameters(image_dir)
     rec_params, output_path = CreateMeshroomFolders(rec_params,ref_params)
     command = CreateMeshroomCommand(app_paths,image_dir,rec_params)
-    PhotogrammetryMeshroom(command,rec_params)
+    PhotogrammetryMeshroom(command,rec_params,DebugMode)
     if scaling == True:
         cams_rec, cams_ref = ImportCameras(rec_params,image_dir)
         scaling_factor = ScaleScene(cams_rec,cams_ref,rec_params,scaling_params)
@@ -36,6 +36,9 @@ if __name__ == "__main__":
 ################################################### Reconstruction Settings ########################################################################
 #------------------------------------------------- Adjustable parameters ---------------------------------------------------------------------------
     image_dir = r"C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_data\ParameterStudy1_0002"     # File path to the folder where the images are located
+    DebugMode  = False                  # Activate Debug Mode
+    scaling = True                     # Activate Scaling 
+    
     params_rec = {
     "describerDensity": "normal",     # Control the ImageDescriber density (low,medium,normal,high,ultra) --> Use ultra only on small datasets
     "describerQuality": "normal",     # Control the ImageDescriber quality (low,medium,normal,high,ultra)
@@ -52,5 +55,5 @@ if __name__ == "__main__":
         # relative criterion: threshold = 0.07 --> 7%,    absolute normed criterion: threshold: 0.1m   --> measured on the scale of the reconstruction program --> ca. 2cm (real scale)
         # absolute criterion: treshold: 0.1m
     }   
-    output_path, scaling_factor = SceneReconstruction(params_rec,scaling_params,image_dir)
+    output_path, scaling_factor = SceneReconstruction(params_rec,scaling_params,image_dir,scaling,DebugMode)
     print(f"output path: {output_path}")

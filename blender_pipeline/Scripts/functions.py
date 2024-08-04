@@ -87,9 +87,9 @@ def renderCameras(params,t_count,image_count,camera_data):
             camera_number += 1
             image_count += 1
             if label_images == 3:
-                file_name = f"{project_name}_c{camera_number:04d}_t{t_count}.{output_file_suffix}"
+                file_name = f"c{camera_number:03d}_t{t_count:04d}.{output_file_suffix}"
             elif label_images == 2:
-                file_name = f"{project_name}_t{t_count}_c{camera_number:04d}.{output_file_suffix}"
+                file_name = f"t{t_count::04d}_c{camera_number:03d}.{output_file_suffix}"
             else:
                 file_name = f"{image_count:04d}.{output_file_suffix}"
             image_path = str(output_path / file_name)
@@ -304,7 +304,7 @@ def is_object_in_camera_view(obj,mode="OBJECT_CENTER"):
                 (bbox_corners[2] + bbox_corners[3] + bbox_corners[6] + bbox_corners[7]) / 4,
             ]
         else:
-            print(f"Warning: Mode {mode} does not exist! Switch to mode ALWAYS_IN_VIEW")
+            print(f"Warning: Mode {mode} does not exist! Switch to mode OBJECT_CENTER")
             points = [point]
             
     # Check whether the object is at least in the field of view of one of the cameras

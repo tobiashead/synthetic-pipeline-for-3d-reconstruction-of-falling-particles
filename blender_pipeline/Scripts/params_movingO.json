@@ -1,6 +1,6 @@
 {
      "io": {
-          "name": "ParameterStudy1_0001",
+          "name": "test",
           "obj_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\objects\\GRAU5\\centered\\GRAU5.obj",
           "label_images": 3
      },
@@ -25,7 +25,7 @@
                1,
                1
           ],
-          "omega": 4500,
+          "omega": 3913.0434782608695,
           "sim_time": 5
      },
      "cam": {
@@ -37,7 +37,7 @@
                0,
                1
           ],
-          "distance": 0.3,
+          "distance": 0.2,
           "vert_angle": [
                0
           ],
@@ -50,9 +50,9 @@
      },
      "light": {
           "z": [
+               -1,
                0,
-               1,
-               2
+               1
           ],
           "hor_angle": [
                45,
@@ -73,9 +73,7 @@
           "resolution_x": 2064,
           "resolution_y": 1544,
           "resolution_percentage": 100,
-          "mode": [
-               "BBOX_CORNERS"
-          ],
+          "mode": "BBOX_CORNERS",
           "transparent": false
      },
      "exiftool": {

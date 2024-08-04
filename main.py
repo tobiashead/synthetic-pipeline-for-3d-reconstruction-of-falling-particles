@@ -37,7 +37,7 @@ if external_params == False:
     params["render"]["resolution_y"] = 1544
     params["render"]["format"] = 'JPEG'          # Select image format: 'JPEG' or 'PNG'
     params["render"]["transparent"] = False      # Remove Background ? works only with PNG-format
-    params["render"]["mode"] = 'BBOX_CORNERS',      # "OBJECT_CENTER", "BBOX_SURFACES_CENTERS", "BBOX_CORNERS"
+    params["render"]["mode"] = 'BBOX_CORNERS'    # "OBJECT_CENTER", "BBOX_SURFACES_CENTERS", "BBOX_CORNERS"
                                                     # --> OBJECT_CENTER = least images, BBOX_CORNERS = most images
     #-------------------------------------------------- DO NOT CHANGE ----------------------------------------------------------------------------------
     params["io"]["label_images"] = 3 if obj_moving else 1                               # how to label rendered images

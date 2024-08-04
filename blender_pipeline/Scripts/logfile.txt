@@ -1,0 +1,1896 @@
+Loaded image from: 'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\objects\GRAU5\centered\GRAU5.jpg'
+Blender 4.0.2 (hash 9be62e85b727 built 2023-12-05 13:01:12)
+Read prefs: "C:\Users\Tobias\AppData\Roaming\Blender Foundation\Blender\4.0\config\userpref.blend"
+OBJ import of 'GRAU5.obj' took 450.0 ms
+Fra:1 Mem:136.96M (Peak 156.36M) | Time:00:00.48 | Syncing GRAU5
+Fra:1 Mem:451.73M (Peak 649.00M) | Time:00:00.97 | Syncing Camera
+Fra:1 Mem:451.73M (Peak 649.00M) | Time:00:00.97 | Syncing Camera.001
+Fra:1 Mem:451.73M (Peak 649.00M) | Time:00:00.97 | Syncing Camera.002
+Fra:1 Mem:451.73M (Peak 649.00M) | Time:00:00.97 | Syncing Point
+Fra:1 Mem:451.73M (Peak 649.00M) | Time:00:00.97 | Syncing Point.001
+Fra:1 Mem:451.73M (Peak 649.00M) | Time:00:00.97 | Syncing Point.002
+Fra:1 Mem:451.73M (Peak 649.00M) | Time:00:00.97 | Syncing Point.003
+Fra:1 Mem:451.73M (Peak 649.00M) | Time:00:00.97 | Syncing Point.004
+Fra:1 Mem:451.73M (Peak 649.00M) | Time:00:00.97 | Syncing Point.005
+Fra:1 Mem:451.73M (Peak 649.00M) | Time:00:00.97 | Syncing Point.006
+Fra:1 Mem:451.73M (Peak 649.00M) | Time:00:00.97 | Syncing Point.007
+Fra:1 Mem:451.73M (Peak 649.00M) | Time:00:00.97 | Syncing Point.008
+Fra:1 Mem:451.73M (Peak 649.00M) | Time:00:00.97 | Syncing Point.009
+Fra:1 Mem:451.73M (Peak 649.00M) | Time:00:00.97 | Syncing Point.010
+Fra:1 Mem:451.73M (Peak 649.00M) | Time:00:00.97 | Syncing Point.011
+Fra:1 Mem:451.73M (Peak 649.00M) | Time:00:00.97 | Syncing Point.012
+Fra:1 Mem:451.73M (Peak 649.00M) | Time:00:00.97 | Syncing Point.013
+Fra:1 Mem:451.73M (Peak 649.00M) | Time:00:00.97 | Syncing Point.014
+Fra:1 Mem:451.73M (Peak 649.00M) | Time:00:00.97 | Syncing Point.015
+Fra:1 Mem:451.73M (Peak 649.00M) | Time:00:00.97 | Syncing Point.016
+Fra:1 Mem:451.73M (Peak 649.00M) | Time:00:00.97 | Syncing Point.017
+Fra:1 Mem:451.73M (Peak 649.00M) | Time:00:00.97 | Syncing Point.018
+Fra:1 Mem:451.73M (Peak 649.00M) | Time:00:00.97 | Syncing Point.019
+Fra:1 Mem:451.73M (Peak 649.00M) | Time:00:00.97 | Syncing Point.020
+Fra:1 Mem:451.73M (Peak 649.00M) | Time:00:00.97 | Syncing Point.021
+Fra:1 Mem:451.73M (Peak 649.00M) | Time:00:00.97 | Syncing Point.022
+Fra:1 Mem:451.73M (Peak 649.00M) | Time:00:00.97 | Syncing Point.023
+Fra:1 Mem:437.45M (Peak 649.00M) | Time:00:00.97 | Rendering 1 / 64 samples
+Fra:1 Mem:399.35M (Peak 649.00M) | Time:00:01.32 | Rendering 26 / 64 samples
+Fra:1 Mem:399.35M (Peak 649.00M) | Time:00:01.60 | Rendering 51 / 64 samples
+Fra:1 Mem:399.35M (Peak 649.00M) | Time:00:01.75 | Rendering 64 / 64 samples
+Saved: 'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_data\test\c001_t0022.jpg'
+Time: 00:02.04 (Saving: 00:00.26)
+
+Fra:1 Mem:399.35M (Peak 419.75M) | Time:00:00.06 | Syncing GRAU5
+Fra:1 Mem:451.73M (Peak 655.35M) | Time:00:00.25 | Syncing Camera
+Fra:1 Mem:451.73M (Peak 655.35M) | Time:00:00.25 | Syncing Camera.001
+Fra:1 Mem:451.73M (Peak 655.35M) | Time:00:00.25 | Syncing Camera.002
+Fra:1 Mem:451.73M (Peak 655.35M) | Time:00:00.25 | Syncing Point
+Fra:1 Mem:451.73M (Peak 655.35M) | Time:00:00.25 | Syncing Point.001
+Fra:1 Mem:451.73M (Peak 655.35M) | Time:00:00.25 | Syncing Point.002
+Fra:1 Mem:451.73M (Peak 655.35M) | Time:00:00.25 | Syncing Point.003
+Fra:1 Mem:451.73M (Peak 655.35M) | Time:00:00.25 | Syncing Point.004
+Fra:1 Mem:451.73M (Peak 655.35M) | Time:00:00.25 | Syncing Point.005
+Fra:1 Mem:451.73M (Peak 655.35M) | Time:00:00.25 | Syncing Point.006
+Fra:1 Mem:451.73M (Peak 655.35M) | Time:00:00.25 | Syncing Point.007
+Fra:1 Mem:451.73M (Peak 655.35M) | Time:00:00.25 | Syncing Point.008
+Fra:1 Mem:451.73M (Peak 655.35M) | Time:00:00.25 | Syncing Point.009
+Fra:1 Mem:451.73M (Peak 655.35M) | Time:00:00.25 | Syncing Point.010
+Fra:1 Mem:451.73M (Peak 655.35M) | Time:00:00.25 | Syncing Point.011
+Fra:1 Mem:451.73M (Peak 655.35M) | Time:00:00.25 | Syncing Point.012
+Fra:1 Mem:451.73M (Peak 655.35M) | Time:00:00.25 | Syncing Point.013
+Fra:1 Mem:451.73M (Peak 655.35M) | Time:00:00.25 | Syncing Point.014
+Fra:1 Mem:451.73M (Peak 655.35M) | Time:00:00.25 | Syncing Point.015
+Fra:1 Mem:451.73M (Peak 655.35M) | Time:00:00.25 | Syncing Point.016
+Fra:1 Mem:451.73M (Peak 655.35M) | Time:00:00.25 | Syncing Point.017
+Fra:1 Mem:451.73M (Peak 655.35M) | Time:00:00.25 | Syncing Point.018
+Fra:1 Mem:451.73M (Peak 655.35M) | Time:00:00.25 | Syncing Point.019
+Fra:1 Mem:451.73M (Peak 655.35M) | Time:00:00.25 | Syncing Point.020
+Fra:1 Mem:451.73M (Peak 655.35M) | Time:00:00.25 | Syncing Point.021
+Fra:1 Mem:451.73M (Peak 655.35M) | Time:00:00.25 | Syncing Point.022
+Fra:1 Mem:451.73M (Peak 655.35M) | Time:00:00.25 | Syncing Point.023
+Fra:1 Mem:437.45M (Peak 655.35M) | Time:00:00.26 | Rendering 1 / 64 samples
+Fra:1 Mem:399.35M (Peak 655.35M) | Time:00:00.55 | Rendering 26 / 64 samples
+Fra:1 Mem:399.35M (Peak 655.35M) | Time:00:00.81 | Rendering 51 / 64 samples
+Fra:1 Mem:399.35M (Peak 655.35M) | Time:00:00.94 | Rendering 64 / 64 samples
+Saved: 'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_data\test\c002_t0022.jpg'
+Time: 00:01.03 (Saving: 00:00.06)
+
+Fra:1 Mem:399.35M (Peak 419.75M) | Time:00:00.05 | Syncing GRAU5
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.003
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.004
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.005
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.006
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.007
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.008
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.009
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.010
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.011
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.012
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.013
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.014
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.015
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.016
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.017
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.018
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.019
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.020
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.021
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.022
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.023
+Fra:1 Mem:437.45M (Peak 483.54M) | Time:00:00.10 | Rendering 1 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.40 | Rendering 26 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.69 | Rendering 51 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.83 | Rendering 64 / 64 samples
+Saved: 'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_data\test\c003_t0022.jpg'
+Time: 00:00.93 (Saving: 00:00.07)
+
+Fra:1 Mem:399.35M (Peak 399.35M) | Time:00:00.05 | Syncing GRAU5
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.003
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.004
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.005
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.006
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.007
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.008
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.009
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.010
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.011
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.012
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.013
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.014
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.015
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.016
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.017
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.018
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.019
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.020
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.021
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.022
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.023
+Fra:1 Mem:437.45M (Peak 483.54M) | Time:00:00.11 | Rendering 1 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.44 | Rendering 26 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.74 | Rendering 51 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.89 | Rendering 64 / 64 samples
+Saved: 'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_data\test\c001_t0023.jpg'
+Time: 00:00.98 (Saving: 00:00.06)
+
+Fra:1 Mem:399.35M (Peak 419.75M) | Time:00:00.05 | Syncing GRAU5
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Camera
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Camera.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Camera.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.003
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.004
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.005
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.006
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.007
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.008
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.009
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.010
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.011
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.012
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.013
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.014
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.015
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.016
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.017
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.018
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.019
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.020
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.021
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.022
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.023
+Fra:1 Mem:437.45M (Peak 483.54M) | Time:00:00.09 | Rendering 1 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.42 | Rendering 26 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.71 | Rendering 51 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.87 | Rendering 64 / 64 samples
+Saved: 'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_data\test\c002_t0023.jpg'
+Time: 00:00.97 (Saving: 00:00.07)
+
+Fra:1 Mem:399.35M (Peak 419.75M) | Time:00:00.05 | Syncing GRAU5
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.003
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.004
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.005
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.006
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.007
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.008
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.009
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.010
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.011
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.012
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.013
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.014
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.015
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.016
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.017
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.018
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.019
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.020
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.021
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.022
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.023
+Fra:1 Mem:437.45M (Peak 483.54M) | Time:00:00.10 | Rendering 1 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.43 | Rendering 26 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.74 | Rendering 51 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.90 | Rendering 64 / 64 samples
+Saved: 'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_data\test\c003_t0023.jpg'
+Time: 00:00.99 (Saving: 00:00.07)
+
+Fra:1 Mem:399.35M (Peak 419.75M) | Time:00:00.05 | Syncing GRAU5
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Camera
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Camera.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Camera.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.003
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.004
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.005
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.006
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.007
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.008
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.009
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.010
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.011
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.012
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.013
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.014
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.015
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.016
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.017
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.018
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.019
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.020
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.021
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.022
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.023
+Fra:1 Mem:437.45M (Peak 483.54M) | Time:00:00.10 | Rendering 1 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.45 | Rendering 26 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.78 | Rendering 51 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.95 | Rendering 64 / 64 samples
+Saved: 'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_data\test\c001_t0024.jpg'
+Time: 00:01.04 (Saving: 00:00.06)
+
+Fra:1 Mem:399.35M (Peak 399.35M) | Time:00:00.05 | Syncing GRAU5
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Camera
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Camera.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Camera.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.003
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.004
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.005
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.006
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.007
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.008
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.009
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.010
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.011
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.012
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.013
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.014
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.015
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.016
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.017
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.018
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.019
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.020
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.021
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.022
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.023
+Fra:1 Mem:437.45M (Peak 483.54M) | Time:00:00.09 | Rendering 1 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.45 | Rendering 26 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.78 | Rendering 51 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.96 | Rendering 64 / 64 samples
+Saved: 'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_data\test\c002_t0024.jpg'
+Time: 00:01.06 (Saving: 00:00.07)
+
+Fra:1 Mem:399.35M (Peak 419.75M) | Time:00:00.05 | Syncing GRAU5
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Camera
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Camera.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Camera.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.003
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.004
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.005
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.006
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.007
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.008
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.009
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.010
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.011
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.012
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.013
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.014
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.015
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.016
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.017
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.018
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.019
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.020
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.021
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.022
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.023
+Fra:1 Mem:437.45M (Peak 483.54M) | Time:00:00.09 | Rendering 1 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.47 | Rendering 26 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.83 | Rendering 51 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:01.01 | Rendering 64 / 64 samples
+Saved: 'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_data\test\c003_t0024.jpg'
+Time: 00:01.11 (Saving: 00:00.07)
+
+Fra:1 Mem:399.35M (Peak 399.35M) | Time:00:00.06 | Syncing GRAU5
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.11 | Syncing Camera
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.11 | Syncing Camera.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.11 | Syncing Camera.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.11 | Syncing Point
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.11 | Syncing Point.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.11 | Syncing Point.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.11 | Syncing Point.003
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.11 | Syncing Point.004
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.11 | Syncing Point.005
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.11 | Syncing Point.006
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.11 | Syncing Point.007
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.11 | Syncing Point.008
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.11 | Syncing Point.009
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.11 | Syncing Point.010
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.11 | Syncing Point.011
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.11 | Syncing Point.012
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.11 | Syncing Point.013
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.11 | Syncing Point.014
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.11 | Syncing Point.015
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.11 | Syncing Point.016
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.11 | Syncing Point.017
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.11 | Syncing Point.018
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.11 | Syncing Point.019
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.11 | Syncing Point.020
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.11 | Syncing Point.021
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.11 | Syncing Point.022
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.11 | Syncing Point.023
+Fra:1 Mem:437.45M (Peak 483.54M) | Time:00:00.11 | Rendering 1 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.51 | Rendering 26 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.87 | Rendering 51 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:01.06 | Rendering 64 / 64 samples
+Saved: 'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_data\test\c001_t0025.jpg'
+Time: 00:01.16 (Saving: 00:00.07)
+
+Fra:1 Mem:399.35M (Peak 419.75M) | Time:00:00.05 | Syncing GRAU5
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.003
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.004
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.005
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.006
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.007
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.008
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.009
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.010
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.011
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.012
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.013
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.014
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.015
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.016
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.017
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.018
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.019
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.020
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.021
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.022
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.023
+Fra:1 Mem:437.45M (Peak 483.54M) | Time:00:00.10 | Rendering 1 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.50 | Rendering 26 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.87 | Rendering 51 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:01.06 | Rendering 64 / 64 samples
+Saved: 'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_data\test\c002_t0025.jpg'
+Time: 00:01.16 (Saving: 00:00.06)
+
+Fra:1 Mem:399.35M (Peak 419.75M) | Time:00:00.05 | Syncing GRAU5
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Camera
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Camera.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Camera.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.003
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.004
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.005
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.006
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.007
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.008
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.009
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.010
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.011
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.012
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.013
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.014
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.015
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.016
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.017
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.018
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.019
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.020
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.021
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.022
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.023
+Fra:1 Mem:437.45M (Peak 483.54M) | Time:00:00.10 | Rendering 1 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.54 | Rendering 26 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.94 | Rendering 51 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:01.16 | Rendering 64 / 64 samples
+Saved: 'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_data\test\c003_t0025.jpg'
+Time: 00:01.26 (Saving: 00:00.07)
+
+Fra:1 Mem:399.35M (Peak 419.75M) | Time:00:00.05 | Syncing GRAU5
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Camera
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Camera.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Camera.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.003
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.004
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.005
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.006
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.007
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.008
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.009
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.010
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.011
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.012
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.013
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.014
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.015
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.016
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.017
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.018
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.019
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.020
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.021
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.022
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.023
+Fra:1 Mem:437.45M (Peak 483.54M) | Time:00:00.09 | Rendering 1 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.51 | Rendering 26 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.91 | Rendering 51 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:01.12 | Rendering 64 / 64 samples
+Saved: 'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_data\test\c001_t0026.jpg'
+Time: 00:01.21 (Saving: 00:00.06)
+
+Fra:1 Mem:399.35M (Peak 419.75M) | Time:00:00.05 | Syncing GRAU5
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.003
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.004
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.005
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.006
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.007
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.008
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.009
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.010
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.011
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.012
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.013
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.014
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.015
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.016
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.017
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.018
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.019
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.020
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.021
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.022
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.023
+Fra:1 Mem:437.45M (Peak 483.54M) | Time:00:00.10 | Rendering 1 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.56 | Rendering 26 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.99 | Rendering 51 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:01.21 | Rendering 64 / 64 samples
+Saved: 'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_data\test\c002_t0026.jpg'
+Time: 00:01.32 (Saving: 00:00.07)
+
+Fra:1 Mem:399.35M (Peak 399.35M) | Time:00:00.05 | Syncing GRAU5
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.003
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.004
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.005
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.006
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.007
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.008
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.009
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.010
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.011
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.012
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.013
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.014
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.015
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.016
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.017
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.018
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.019
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.020
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.021
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.022
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.023
+Fra:1 Mem:437.45M (Peak 483.54M) | Time:00:00.10 | Rendering 1 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.60 | Rendering 26 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:01.07 | Rendering 51 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:01.31 | Rendering 64 / 64 samples
+Saved: 'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_data\test\c003_t0026.jpg'
+Time: 00:01.42 (Saving: 00:00.07)
+
+Fra:1 Mem:399.35M (Peak 399.35M) | Time:00:00.04 | Syncing GRAU5
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Camera
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Camera.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Camera.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.003
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.004
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.005
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.006
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.007
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.008
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.009
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.010
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.011
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.012
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.013
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.014
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.015
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.016
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.017
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.018
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.019
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.020
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.021
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.022
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.023
+Fra:1 Mem:437.45M (Peak 483.54M) | Time:00:00.09 | Rendering 1 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.54 | Rendering 26 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.98 | Rendering 51 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:01.21 | Rendering 64 / 64 samples
+Saved: 'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_data\test\c001_t0027.jpg'
+Time: 00:01.30 (Saving: 00:00.06)
+
+Fra:1 Mem:399.35M (Peak 399.35M) | Time:00:00.05 | Syncing GRAU5
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Camera
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Camera.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Camera.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.003
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.004
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.005
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.006
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.007
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.008
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.009
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.010
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.011
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.012
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.013
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.014
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.015
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.016
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.017
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.018
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.019
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.020
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.021
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.022
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.023
+Fra:1 Mem:437.45M (Peak 483.54M) | Time:00:00.10 | Rendering 1 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.64 | Rendering 26 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:01.13 | Rendering 51 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:01.39 | Rendering 64 / 64 samples
+Saved: 'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_data\test\c002_t0027.jpg'
+Time: 00:01.51 (Saving: 00:00.08)
+
+Fra:1 Mem:399.35M (Peak 399.35M) | Time:00:00.05 | Syncing GRAU5
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.003
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.004
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.005
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.006
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.007
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.008
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.009
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.010
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.011
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.012
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.013
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.014
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.015
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.016
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.017
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.018
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.019
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.020
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.021
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.022
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.023
+Fra:1 Mem:437.45M (Peak 483.54M) | Time:00:00.10 | Rendering 1 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.65 | Rendering 26 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:01.17 | Rendering 51 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:01.44 | Rendering 64 / 64 samples
+Saved: 'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_data\test\c003_t0027.jpg'
+Time: 00:01.54 (Saving: 00:00.06)
+
+Fra:1 Mem:399.35M (Peak 419.75M) | Time:00:00.05 | Syncing GRAU5
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Camera
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Camera.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Camera.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.003
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.004
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.005
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.006
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.007
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.008
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.009
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.010
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.011
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.012
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.013
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.014
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.015
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.016
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.017
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.018
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.019
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.020
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.021
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.022
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.023
+Fra:1 Mem:437.45M (Peak 483.54M) | Time:00:00.09 | Rendering 1 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.57 | Rendering 26 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:01.02 | Rendering 51 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:01.25 | Rendering 64 / 64 samples
+Saved: 'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_data\test\c001_t0028.jpg'
+Time: 00:01.35 (Saving: 00:00.06)
+
+Fra:1 Mem:399.35M (Peak 419.75M) | Time:00:00.05 | Syncing GRAU5
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.003
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.004
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.005
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.006
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.007
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.008
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.009
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.010
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.011
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.012
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.013
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.014
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.015
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.016
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.017
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.018
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.019
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.020
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.021
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.022
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.023
+Fra:1 Mem:437.45M (Peak 483.54M) | Time:00:00.10 | Rendering 1 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.68 | Rendering 26 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:01.23 | Rendering 51 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:01.51 | Rendering 64 / 64 samples
+Saved: 'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_data\test\c002_t0028.jpg'
+Time: 00:01.62 (Saving: 00:00.07)
+
+Fra:1 Mem:399.35M (Peak 419.75M) | Time:00:00.05 | Syncing GRAU5
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.003
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.004
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.005
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.006
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.007
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.008
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.009
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.010
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.011
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.012
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.013
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.014
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.015
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.016
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.017
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.018
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.019
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.020
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.021
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.022
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.023
+Fra:1 Mem:437.45M (Peak 483.54M) | Time:00:00.11 | Rendering 1 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.70 | Rendering 26 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:01.25 | Rendering 51 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:01.54 | Rendering 64 / 64 samples
+Saved: 'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_data\test\c003_t0028.jpg'
+Time: 00:01.64 (Saving: 00:00.06)
+
+Fra:1 Mem:399.35M (Peak 419.75M) | Time:00:00.05 | Syncing GRAU5
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.003
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.004
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.005
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.006
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.007
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.008
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.009
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.010
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.011
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.012
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.013
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.014
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.015
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.016
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.017
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.018
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.019
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.020
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.021
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.022
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.023
+Fra:1 Mem:437.45M (Peak 483.54M) | Time:00:00.10 | Rendering 1 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.56 | Rendering 26 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.99 | Rendering 51 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:01.22 | Rendering 64 / 64 samples
+Saved: 'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_data\test\c001_t0029.jpg'
+Time: 00:01.32 (Saving: 00:00.07)
+
+Fra:1 Mem:399.35M (Peak 399.35M) | Time:00:00.05 | Syncing GRAU5
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.003
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.004
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.005
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.006
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.007
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.008
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.009
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.010
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.011
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.012
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.013
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.014
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.015
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.016
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.017
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.018
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.019
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.020
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.021
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.022
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.023
+Fra:1 Mem:437.45M (Peak 483.54M) | Time:00:00.10 | Rendering 1 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.65 | Rendering 26 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:01.17 | Rendering 51 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:01.44 | Rendering 64 / 64 samples
+Saved: 'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_data\test\c002_t0029.jpg'
+Time: 00:01.54 (Saving: 00:00.06)
+
+Fra:1 Mem:399.35M (Peak 419.75M) | Time:00:00.05 | Syncing GRAU5
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.003
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.004
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.005
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.006
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.007
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.008
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.009
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.010
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.011
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.012
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.013
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.014
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.015
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.016
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.017
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.018
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.019
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.020
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.021
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.022
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.023
+Fra:1 Mem:437.45M (Peak 483.54M) | Time:00:00.10 | Rendering 1 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.66 | Rendering 26 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:01.20 | Rendering 51 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:01.47 | Rendering 64 / 64 samples
+Saved: 'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_data\test\c003_t0029.jpg'
+Time: 00:01.57 (Saving: 00:00.06)
+
+Fra:1 Mem:399.35M (Peak 419.75M) | Time:00:00.05 | Syncing GRAU5
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Camera
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Camera.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Camera.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.003
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.004
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.005
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.006
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.007
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.008
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.009
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.010
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.011
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.012
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.013
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.014
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.015
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.016
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.017
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.018
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.019
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.020
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.021
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.022
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.023
+Fra:1 Mem:437.45M (Peak 483.54M) | Time:00:00.09 | Rendering 1 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.52 | Rendering 26 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.93 | Rendering 51 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:01.14 | Rendering 64 / 64 samples
+Saved: 'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_data\test\c001_t0030.jpg'
+Time: 00:01.23 (Saving: 00:00.06)
+
+Fra:1 Mem:399.35M (Peak 419.75M) | Time:00:00.05 | Syncing GRAU5
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.003
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.004
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.005
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.006
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.007
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.008
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.009
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.010
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.011
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.012
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.013
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.014
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.015
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.016
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.017
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.018
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.019
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.020
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.021
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.022
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.023
+Fra:1 Mem:437.45M (Peak 483.54M) | Time:00:00.10 | Rendering 1 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.66 | Rendering 26 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:01.19 | Rendering 51 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:01.45 | Rendering 64 / 64 samples
+Saved: 'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_data\test\c002_t0030.jpg'
+Time: 00:01.56 (Saving: 00:00.07)
+
+Fra:1 Mem:399.35M (Peak 419.75M) | Time:00:00.05 | Syncing GRAU5
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.003
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.004
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.005
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.006
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.007
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.008
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.009
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.010
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.011
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.012
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.013
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.014
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.015
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.016
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.017
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.018
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.019
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.020
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.021
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.022
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.023
+Fra:1 Mem:437.45M (Peak 483.54M) | Time:00:00.10 | Rendering 1 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.63 | Rendering 26 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:01.13 | Rendering 51 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:01.39 | Rendering 64 / 64 samples
+Saved: 'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_data\test\c003_t0030.jpg'
+Time: 00:01.49 (Saving: 00:00.06)
+
+Fra:1 Mem:399.35M (Peak 419.75M) | Time:00:00.05 | Syncing GRAU5
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.003
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.004
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.005
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.006
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.007
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.008
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.009
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.010
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.011
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.012
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.013
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.014
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.015
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.016
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.017
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.018
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.019
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.020
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.021
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.022
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.023
+Fra:1 Mem:437.45M (Peak 483.54M) | Time:00:00.10 | Rendering 1 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.56 | Rendering 26 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.99 | Rendering 51 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:01.22 | Rendering 64 / 64 samples
+Saved: 'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_data\test\c001_t0031.jpg'
+Time: 00:01.32 (Saving: 00:00.07)
+
+Fra:1 Mem:399.35M (Peak 419.75M) | Time:00:00.05 | Syncing GRAU5
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.003
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.004
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.005
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.006
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.007
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.008
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.009
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.010
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.011
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.012
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.013
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.014
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.015
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.016
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.017
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.018
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.019
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.020
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.021
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.022
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.023
+Fra:1 Mem:437.45M (Peak 483.54M) | Time:00:00.10 | Rendering 1 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.65 | Rendering 26 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:01.16 | Rendering 51 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:01.43 | Rendering 64 / 64 samples
+Saved: 'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_data\test\c002_t0031.jpg'
+Time: 00:01.55 (Saving: 00:00.08)
+
+Fra:1 Mem:399.35M (Peak 419.75M) | Time:00:00.05 | Syncing GRAU5
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.003
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.004
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.005
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.006
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.007
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.008
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.009
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.010
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.011
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.012
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.013
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.014
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.015
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.016
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.017
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.018
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.019
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.020
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.021
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.022
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.023
+Fra:1 Mem:437.45M (Peak 483.54M) | Time:00:00.10 | Rendering 1 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.61 | Rendering 26 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:01.09 | Rendering 51 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:01.35 | Rendering 64 / 64 samples
+Saved: 'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_data\test\c003_t0031.jpg'
+Time: 00:01.45 (Saving: 00:00.07)
+
+Fra:1 Mem:399.35M (Peak 399.35M) | Time:00:00.05 | Syncing GRAU5
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Camera
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Camera.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Camera.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.003
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.004
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.005
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.006
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.007
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.008
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.009
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.010
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.011
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.012
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.013
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.014
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.015
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.016
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.017
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.018
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.019
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.020
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.021
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.022
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.023
+Fra:1 Mem:437.45M (Peak 483.54M) | Time:00:00.09 | Rendering 1 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.58 | Rendering 26 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:01.03 | Rendering 51 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:01.27 | Rendering 64 / 64 samples
+Saved: 'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_data\test\c001_t0032.jpg'
+Time: 00:01.37 (Saving: 00:00.06)
+
+Fra:1 Mem:399.35M (Peak 419.75M) | Time:00:00.05 | Syncing GRAU5
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.003
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.004
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.005
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.006
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.007
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.008
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.009
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.010
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.011
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.012
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.013
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.014
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.015
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.016
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.017
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.018
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.019
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.020
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.021
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.022
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.023
+Fra:1 Mem:437.45M (Peak 483.54M) | Time:00:00.10 | Rendering 1 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.62 | Rendering 26 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:01.11 | Rendering 51 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:01.37 | Rendering 64 / 64 samples
+Saved: 'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_data\test\c002_t0032.jpg'
+Time: 00:01.47 (Saving: 00:00.07)
+
+Fra:1 Mem:399.35M (Peak 399.35M) | Time:00:00.05 | Syncing GRAU5
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.003
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.004
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.005
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.006
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.007
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.008
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.009
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.010
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.011
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.012
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.013
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.014
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.015
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.016
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.017
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.018
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.019
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.020
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.021
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.022
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.023
+Fra:1 Mem:437.45M (Peak 483.54M) | Time:00:00.10 | Rendering 1 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.59 | Rendering 26 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:01.07 | Rendering 51 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:01.30 | Rendering 64 / 64 samples
+Saved: 'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_data\test\c003_t0032.jpg'
+Time: 00:01.40 (Saving: 00:00.06)
+
+Fra:1 Mem:399.35M (Peak 399.35M) | Time:00:00.05 | Syncing GRAU5
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Camera
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Camera.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Camera.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.003
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.004
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.005
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.006
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.007
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.008
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.009
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.010
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.011
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.012
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.013
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.014
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.015
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.016
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.017
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.018
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.019
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.020
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.021
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.022
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.023
+Fra:1 Mem:437.45M (Peak 483.54M) | Time:00:00.10 | Rendering 1 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.59 | Rendering 26 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:01.05 | Rendering 51 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:01.29 | Rendering 64 / 64 samples
+Saved: 'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_data\test\c001_t0033.jpg'
+Time: 00:01.40 (Saving: 00:00.07)
+
+Fra:1 Mem:399.35M (Peak 419.75M) | Time:00:00.05 | Syncing GRAU5
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.003
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.004
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.005
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.006
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.007
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.008
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.009
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.010
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.011
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.012
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.013
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.014
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.015
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.016
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.017
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.018
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.019
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.020
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.021
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.022
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.023
+Fra:1 Mem:437.45M (Peak 483.54M) | Time:00:00.10 | Rendering 1 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.65 | Rendering 26 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:01.14 | Rendering 51 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:01.40 | Rendering 64 / 64 samples
+Saved: 'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_data\test\c002_t0033.jpg'
+Time: 00:01.50 (Saving: 00:00.07)
+
+Fra:1 Mem:399.35M (Peak 419.75M) | Time:00:00.05 | Syncing GRAU5
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.003
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.004
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.005
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.006
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.007
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.008
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.009
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.010
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.011
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.012
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.013
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.014
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.015
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.016
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.017
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.018
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.019
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.020
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.021
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.022
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.023
+Fra:1 Mem:437.45M (Peak 483.54M) | Time:00:00.10 | Rendering 1 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.58 | Rendering 26 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:01.01 | Rendering 51 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:01.24 | Rendering 64 / 64 samples
+Saved: 'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_data\test\c003_t0033.jpg'
+Time: 00:01.34 (Saving: 00:00.06)
+
+Fra:1 Mem:399.35M (Peak 419.75M) | Time:00:00.04 | Syncing GRAU5
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Camera
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Camera.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Camera.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.003
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.004
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.005
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.006
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.007
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.008
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.009
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.010
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.011
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.012
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.013
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.014
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.015
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.016
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.017
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.018
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.019
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.020
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.021
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.022
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.023
+Fra:1 Mem:437.45M (Peak 483.54M) | Time:00:00.09 | Rendering 1 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.61 | Rendering 26 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:01.09 | Rendering 51 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:01.34 | Rendering 64 / 64 samples
+Saved: 'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_data\test\c001_t0034.jpg'
+Time: 00:01.45 (Saving: 00:00.07)
+
+Fra:1 Mem:399.35M (Peak 419.75M) | Time:00:00.05 | Syncing GRAU5
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Camera
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Camera.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Camera.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.003
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.004
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.005
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.006
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.007
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.008
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.009
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.010
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.011
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.012
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.013
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.014
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.015
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.016
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.017
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.018
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.019
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.020
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.021
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.022
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.023
+Fra:1 Mem:437.45M (Peak 483.54M) | Time:00:00.10 | Rendering 1 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.65 | Rendering 26 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:01.16 | Rendering 51 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:01.43 | Rendering 64 / 64 samples
+Saved: 'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_data\test\c002_t0034.jpg'
+Time: 00:01.53 (Saving: 00:00.07)
+
+Fra:1 Mem:399.35M (Peak 419.75M) | Time:00:00.05 | Syncing GRAU5
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.003
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.004
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.005
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.006
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.007
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.008
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.009
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.010
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.011
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.012
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.013
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.014
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.015
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.016
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.017
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.018
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.019
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.020
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.021
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.022
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.023
+Fra:1 Mem:437.45M (Peak 483.54M) | Time:00:00.10 | Rendering 1 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.56 | Rendering 26 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.99 | Rendering 51 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:01.21 | Rendering 64 / 64 samples
+Saved: 'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_data\test\c003_t0034.jpg'
+Time: 00:01.31 (Saving: 00:00.06)
+
+Fra:1 Mem:399.35M (Peak 419.75M) | Time:00:00.05 | Syncing GRAU5
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Camera
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Camera.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Camera.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.003
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.004
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.005
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.006
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.007
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.008
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.009
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.010
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.011
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.012
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.013
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.014
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.015
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.016
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.017
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.018
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.019
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.020
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.021
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.022
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.023
+Fra:1 Mem:437.45M (Peak 483.54M) | Time:00:00.09 | Rendering 1 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.57 | Rendering 26 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:01.01 | Rendering 51 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:01.24 | Rendering 64 / 64 samples
+Saved: 'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_data\test\c001_t0035.jpg'
+Time: 00:01.34 (Saving: 00:00.07)
+
+Fra:1 Mem:399.35M (Peak 419.75M) | Time:00:00.05 | Syncing GRAU5
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Camera
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Camera.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Camera.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.003
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.004
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.005
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.006
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.007
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.008
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.009
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.010
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.011
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.012
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.013
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.014
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.015
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.016
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.017
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.018
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.019
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.020
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.021
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.022
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.023
+Fra:1 Mem:437.45M (Peak 483.54M) | Time:00:00.09 | Rendering 1 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.59 | Rendering 26 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:01.07 | Rendering 51 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:01.31 | Rendering 64 / 64 samples
+Saved: 'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_data\test\c002_t0035.jpg'
+Time: 00:01.41 (Saving: 00:00.06)
+
+Fra:1 Mem:399.35M (Peak 419.75M) | Time:00:00.05 | Syncing GRAU5
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.003
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.004
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.005
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.006
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.007
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.008
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.009
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.010
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.011
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.012
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.013
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.014
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.015
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.016
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.017
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.018
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.019
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.020
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.021
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.022
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.023
+Fra:1 Mem:437.45M (Peak 483.54M) | Time:00:00.10 | Rendering 1 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.52 | Rendering 26 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.92 | Rendering 51 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:01.12 | Rendering 64 / 64 samples
+Saved: 'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_data\test\c003_t0035.jpg'
+Time: 00:01.22 (Saving: 00:00.06)
+
+Fra:1 Mem:399.35M (Peak 419.75M) | Time:00:00.05 | Syncing GRAU5
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Camera
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Camera.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Camera.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.003
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.004
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.005
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.006
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.007
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.008
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.009
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.010
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.011
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.012
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.013
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.014
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.015
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.016
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.017
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.018
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.019
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.020
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.021
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.022
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.023
+Fra:1 Mem:437.45M (Peak 483.54M) | Time:00:00.09 | Rendering 1 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.52 | Rendering 26 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.92 | Rendering 51 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:01.12 | Rendering 64 / 64 samples
+Saved: 'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_data\test\c001_t0036.jpg'
+Time: 00:01.23 (Saving: 00:00.07)
+
+Fra:1 Mem:399.35M (Peak 419.75M) | Time:00:00.05 | Syncing GRAU5
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.003
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.004
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.005
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.006
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.007
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.008
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.009
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.010
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.011
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.012
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.013
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.014
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.015
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.016
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.017
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.018
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.019
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.020
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.021
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.022
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.023
+Fra:1 Mem:437.45M (Peak 483.54M) | Time:00:00.10 | Rendering 1 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.50 | Rendering 26 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.87 | Rendering 51 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:01.06 | Rendering 64 / 64 samples
+Saved: 'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_data\test\c002_t0036.jpg'
+Time: 00:01.16 (Saving: 00:00.07)
+
+Fra:1 Mem:399.35M (Peak 399.35M) | Time:00:00.05 | Syncing GRAU5
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.003
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.004
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.005
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.006
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.007
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.008
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.009
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.010
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.011
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.012
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.013
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.014
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.015
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.016
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.017
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.018
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.019
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.020
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.021
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.022
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.023
+Fra:1 Mem:437.45M (Peak 483.54M) | Time:00:00.10 | Rendering 1 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.48 | Rendering 26 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.83 | Rendering 51 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:01.01 | Rendering 64 / 64 samples
+Saved: 'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_data\test\c003_t0036.jpg'
+Time: 00:01.10 (Saving: 00:00.07)
+
+Fra:1 Mem:399.35M (Peak 419.75M) | Time:00:00.05 | Syncing GRAU5
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.003
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.004
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.005
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.006
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.007
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.008
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.009
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.010
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.011
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.012
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.013
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.014
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.015
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.016
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.017
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.018
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.019
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.020
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.021
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.022
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.023
+Fra:1 Mem:437.45M (Peak 483.54M) | Time:00:00.10 | Rendering 1 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.45 | Rendering 26 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.77 | Rendering 51 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.93 | Rendering 64 / 64 samples
+Saved: 'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_data\test\c001_t0037.jpg'
+Time: 00:01.03 (Saving: 00:00.07)
+
+Fra:1 Mem:399.35M (Peak 419.75M) | Time:00:00.05 | Syncing GRAU5
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.003
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.004
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.005
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.006
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.007
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.008
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.009
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.010
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.011
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.012
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.013
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.014
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.015
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.016
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.017
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.018
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.019
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.020
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.021
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.022
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.023
+Fra:1 Mem:437.45M (Peak 483.54M) | Time:00:00.10 | Rendering 1 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.41 | Rendering 26 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.70 | Rendering 51 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.85 | Rendering 64 / 64 samples
+Saved: 'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_data\test\c002_t0037.jpg'
+Time: 00:00.96 (Saving: 00:00.07)
+
+Fra:1 Mem:399.35M (Peak 419.75M) | Time:00:00.05 | Syncing GRAU5
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Camera
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Camera.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Camera.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.003
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.004
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.005
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.006
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.007
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.008
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.009
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.010
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.011
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.012
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.013
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.014
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.015
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.016
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.017
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.018
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.019
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.020
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.021
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.022
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.023
+Fra:1 Mem:437.45M (Peak 483.54M) | Time:00:00.10 | Rendering 1 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.41 | Rendering 26 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.69 | Rendering 51 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.84 | Rendering 64 / 64 samples
+Saved: 'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_data\test\c003_t0037.jpg'
+Time: 00:00.94 (Saving: 00:00.07)
+
+Fra:1 Mem:399.35M (Peak 419.75M) | Time:00:00.05 | Syncing GRAU5
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.003
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.004
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.005
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.006
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.007
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.008
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.009
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.010
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.011
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.012
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.013
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.014
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.015
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.016
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.017
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.018
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.019
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.020
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.021
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.022
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.023
+Fra:1 Mem:437.45M (Peak 483.54M) | Time:00:00.10 | Rendering 1 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.39 | Rendering 26 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.64 | Rendering 51 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.77 | Rendering 64 / 64 samples
+Saved: 'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_data\test\c001_t0038.jpg'
+Time: 00:00.87 (Saving: 00:00.07)
+
+Fra:1 Mem:399.35M (Peak 419.75M) | Time:00:00.05 | Syncing GRAU5
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.003
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.004
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.005
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.006
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.007
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.008
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.009
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.010
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.011
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.012
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.013
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.014
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.015
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.016
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.017
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.018
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.019
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.020
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.021
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.022
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.023
+Fra:1 Mem:437.45M (Peak 483.54M) | Time:00:00.10 | Rendering 1 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.38 | Rendering 26 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.62 | Rendering 51 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.74 | Rendering 64 / 64 samples
+Saved: 'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_data\test\c002_t0038.jpg'
+Time: 00:00.85 (Saving: 00:00.08)
+
+Fra:1 Mem:399.35M (Peak 419.75M) | Time:00:00.05 | Syncing GRAU5
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.11 | Syncing Camera
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.11 | Syncing Camera.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.11 | Syncing Camera.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.11 | Syncing Point
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.11 | Syncing Point.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.11 | Syncing Point.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.11 | Syncing Point.003
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.11 | Syncing Point.004
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.11 | Syncing Point.005
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.11 | Syncing Point.006
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.11 | Syncing Point.007
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.11 | Syncing Point.008
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.11 | Syncing Point.009
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.11 | Syncing Point.010
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.11 | Syncing Point.011
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.11 | Syncing Point.012
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.11 | Syncing Point.013
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.11 | Syncing Point.014
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.11 | Syncing Point.015
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.11 | Syncing Point.016
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.11 | Syncing Point.017
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.11 | Syncing Point.018
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.11 | Syncing Point.019
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.11 | Syncing Point.020
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.11 | Syncing Point.021
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.11 | Syncing Point.022
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.11 | Syncing Point.023
+Fra:1 Mem:437.45M (Peak 483.54M) | Time:00:00.11 | Rendering 1 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.39 | Rendering 26 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.64 | Rendering 51 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.77 | Rendering 64 / 64 samples
+Saved: 'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_data\test\c003_t0038.jpg'
+Time: 00:00.86 (Saving: 00:00.07)
+
+Fra:1 Mem:399.35M (Peak 419.75M) | Time:00:00.05 | Syncing GRAU5
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Camera.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.003
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.004
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.005
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.006
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.007
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.008
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.009
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.010
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.011
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.012
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.013
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.014
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.015
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.016
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.017
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.018
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.019
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.020
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.021
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.022
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.10 | Syncing Point.023
+Fra:1 Mem:437.45M (Peak 483.54M) | Time:00:00.10 | Rendering 1 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.36 | Rendering 26 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.59 | Rendering 51 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.71 | Rendering 64 / 64 samples
+Saved: 'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_data\test\c001_t0039.jpg'
+Time: 00:00.80 (Saving: 00:00.06)
+
+Fra:1 Mem:399.35M (Peak 419.75M) | Time:00:00.05 | Syncing GRAU5
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Camera
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Camera.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Camera.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.003
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.004
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.005
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.006
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.007
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.008
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.009
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.010
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.011
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.012
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.013
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.014
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.015
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.016
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.017
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.018
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.019
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.020
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.021
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.022
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.09 | Syncing Point.023
+Fra:1 Mem:437.45M (Peak 483.54M) | Time:00:00.09 | Rendering 1 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.36 | Rendering 26 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.59 | Rendering 51 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.71 | Rendering 64 / 64 samples
+Saved: 'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_data\test\c002_t0039.jpg'
+Time: 00:00.80 (Saving: 00:00.07)
+
+Fra:1 Mem:399.35M (Peak 399.35M) | Time:00:00.05 | Syncing GRAU5
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.11 | Syncing Camera
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.11 | Syncing Camera.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.11 | Syncing Camera.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.11 | Syncing Point
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.11 | Syncing Point.001
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.11 | Syncing Point.002
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.11 | Syncing Point.003
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.11 | Syncing Point.004
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.11 | Syncing Point.005
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.11 | Syncing Point.006
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.11 | Syncing Point.007
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.11 | Syncing Point.008
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.11 | Syncing Point.009
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.11 | Syncing Point.010
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.11 | Syncing Point.011
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.11 | Syncing Point.012
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.11 | Syncing Point.013
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.11 | Syncing Point.014
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.11 | Syncing Point.015
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.11 | Syncing Point.016
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.11 | Syncing Point.017
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.11 | Syncing Point.018
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.11 | Syncing Point.019
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.11 | Syncing Point.020
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.11 | Syncing Point.021
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.11 | Syncing Point.022
+Fra:1 Mem:451.73M (Peak 483.54M) | Time:00:00.11 | Syncing Point.023
+Fra:1 Mem:437.45M (Peak 483.54M) | Time:00:00.11 | Rendering 1 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.38 | Rendering 26 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.61 | Rendering 51 / 64 samples
+Fra:1 Mem:399.35M (Peak 483.54M) | Time:00:00.74 | Rendering 64 / 64 samples
+Saved: 'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_data\test\c003_t0039.jpg'
+Time: 00:00.84 (Saving: 00:00.08)
+
+
+Blender quit

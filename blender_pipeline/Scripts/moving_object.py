@@ -4,6 +4,7 @@ import sys
 import importlib
 from pathlib import Path
 import json
+import bpy
 
 ######################################################################################
 #                                MOVING OBJECT                                       #

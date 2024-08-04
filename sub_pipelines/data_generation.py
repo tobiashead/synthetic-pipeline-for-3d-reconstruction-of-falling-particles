@@ -12,10 +12,10 @@ from src.pipeline_utils import (
     )
 
 ################################################### Data Generation Function ###########################################################################
-def DataGeneration(params,obj_moving):
+def DataGeneration(params,obj_moving, DebugMode = False):
     app_paths = LoadAppPaths()                                      # Load path to the applications
     SaveSceneParameters(params,obj_moving)                          # Save Scene Parameters into a json file
-    RenderImagesBlender(app_paths,obj_moving)  # Start the data generation process
+    RenderImagesBlender(app_paths,obj_moving,DebugMode)  # Start the data generation process
     image_dir = ImageDirFromCacheFile()                             # Get the image folder from the cache
     PrintStaticCameraPoses(image_dir,params,obj_moving)
     return image_dir
@@ -27,10 +27,11 @@ def DataGeneration(params,obj_moving):
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')   
     ################################################### General Information ############################################################################
-    project_name = 'hallo'  # What should be the name of the project ?
+    project_name = 'test'  # What should be the name of the project ?
     obj_moving = True                   # Does the object move?
-    external_params = False              # Use Params from external parameter file
+    external_params = False             # Use Params from external parameter file
     params_file_name = "params_movingO_BASECASE.JSON"    # default: None
+    DebugMode  = False                  # Activate Debug Mode
     ################################################### Scene Settings #################################################################################
     params = LoadDefaultSceneParameters(project_name,obj_moving,params_file_name) # Load standard parameters from json file
     if external_params == False:
@@ -39,8 +40,8 @@ if __name__ == "__main__":
         params["motion"]["s0"] = [0, 0, 1.1]               # [m] set x,y,z position of the object at t=0s, 
         params["motion"]["a"] = [0,0, -9.81]               # [m^2/s] acceleration
         params["motion"]["omega"] = 360/0.092              # [°/s] angular velocity around the unit vector e (axis of rotation)
-        params["motion"]["e"] = [1, 0, 1]                  # [-,-,-] axis of rotation 
-        params["io"]["obj_path"] = r"C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\objects\Dodekaeder\Mesh-Dateien\Wuerfel_12s\centered\12s.obj"
+        params["motion"]["e"] = [1, 1, 1]                  # [-,-,-] axis of rotation 
+        params["io"]["obj_path"] = r"C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\objects\GRAU5\centered\GRAU5.obj"
         # Camera
         params["cam"]["even_dist"] = True
         params["cam"]["pos_file_path"] = r"C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_pipeline\Scripts\CamerasExtrinsicsStatic.json"
@@ -56,10 +57,10 @@ if __name__ == "__main__":
         params["render"]["resolution_y"] = 1544
         params["render"]["format"] = 'JPEG'          # Select image format: 'JPEG' or 'PNG'
         params["render"]["transparent"] = False      # Remove Background ? works only with PNG-format
-        params["render"]["mode"] = 'BBOX_CORNERS',   # "OBJECT_CENTER", "BBOX_SURFACES_CENTERS", "BBOX_CORNERS"
+        params["render"]["mode"] = 'BBOX_CORNERS'   # "OBJECT_CENTER", "BBOX_SURFACES_CENTERS", "BBOX_CORNERS"
                                                     # --> OBJECT_CENTER = least images, BBOX_CORNERS = most images
         #-------------------------------------------------- DO NOT CHANGE ----------------------------------------------------------------------------------
         params["io"]["label_images"] = 3 if obj_moving else 1                               # how to label rendered images
         if obj_moving == False: params["motion"]["s0"] = params["cam"]["focuspoint"]    # override the location at t=0s in case of a static scene
     # Run data generation        
-    DataGeneration(params,obj_moving)
+    DataGeneration(params,obj_moving,DebugMode)

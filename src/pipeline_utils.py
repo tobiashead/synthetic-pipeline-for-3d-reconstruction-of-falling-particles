@@ -3,7 +3,7 @@ import json
 import subprocess
 import os
 import logging
-
+import sys
 def LoadDefaultSceneParameters(project_name,obj_moving,params_file_name=None):
     logging.info(f"Running 3D-Reconstruction pipeline: project name = {project_name}, moving object = {obj_moving}")
     logging.info('Load the default parameter set for the scene')
@@ -24,16 +24,22 @@ def SaveSceneParameters(params,obj_moving):
     with open(params_file_path, "w") as json_file:
         json.dump(params, json_file, indent=5)  
         
-def RenderImagesBlender(app_paths,obj_moving):
+def RenderImagesBlender(app_paths,obj_moving,ConsoleOutput=False):
     blender_path = app_paths["blender_exe"]
     script_name = 'moving_object.py' if obj_moving else 'fixed_object.py'
     script_folder = Path.cwd() / "blender_pipeline" / "Scripts" # base file path of the script files
     script_path = Path(script_folder) / script_name
-    command = f"{blender_path} --background --python {script_path}"
+    command = f"{blender_path} --background --python {script_path} --log-level -1"
     logging.info('Running the simulation and rendering of the scene in Blender')
-    return_code = subprocess.run(command,text=True,stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    log_file = Path(script_folder) / 'logfile.txt'
+    with log_file.open('w') as f, subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True) as proc:
+        for line in proc.stdout:
+            if ConsoleOutput:
+                print(line, end='')
+            f.write(line); f.flush()
+    proc.wait()
     logging.info('Completed simulation and rendering of the scene in Blender')
-    return return_code
+    return proc.returncode
     
 def ImageDirFromCacheFile():
     script_folder = Path.cwd() / "blender_pipeline" / "Scripts" # base file path of the script files
@@ -86,13 +92,17 @@ def CreateMeshroomCommand(app_paths,image_dir,params):
     ]
     return command
 
-def PhotogrammetryMeshroom(command,params):
+def PhotogrammetryMeshroom(command,params,ConsoleOutput):
     logging.info('Start the Meshroom-Photogrammetry-Pipeline')
     log_file = Path(params["output_path"]) / 'logfile.txt'
-    f = open(log_file, 'w')
-    return_code = subprocess.run(command, text=True, stdout=f, stderr=subprocess.PIPE)
+    with log_file.open('w') as f, subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True) as proc:
+        for line in proc.stdout:
+            if ConsoleOutput:
+                print(line, end='')
+            f.write(line); f.flush()
+    proc.wait()
     logging.info('Finished the Meshroom-Photogrammetry-Pipeline')
-    return return_code
+    return proc.returncode
 
 def WriteCacheForSubsequentEvaluation(scene_params,rec_params,image_dir):
     # Write a cache file in the evaluation folder so that the evaluation can be repeated at a later time.

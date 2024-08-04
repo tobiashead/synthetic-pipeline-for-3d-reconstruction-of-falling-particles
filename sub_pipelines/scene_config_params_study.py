@@ -47,7 +47,7 @@ if external_params == False:
     params["render"]["resolution_y"] = 1544
     params["render"]["format"] = 'JPEG'             # Select image format: 'JPEG' or 'PNG'
     params["render"]["transparent"] = False         # Remove Background ? works only with PNG-format
-    params["render"]["mode"] = 'BBOX_CORNERS',      # "OBJECT_CENTER", "BBOX_SURFACES_CENTERS", "BBOX_CORNERS"
+    params["render"]["mode"] = 'BBOX_CORNERS'       # "OBJECT_CENTER", "BBOX_SURFACES_CENTERS", "BBOX_CORNERS"
                                                     # --> OBJECT_CENTER = least images, BBOX_CORNERS = most images
     #-------------------------------------------------- DO NOT CHANGE ----------------------------------------------------------------------------------
     params["io"]["label_images"] = 3 if obj_moving else 1                               # how to label rendered images
@@ -126,7 +126,7 @@ for i, com in enumerate(combinations):
     params["motion"]["omega"] = var4
     params["motion"]["s0"] = var5
     params["io"]["obj_path"] = var6["path"]
-    params["io"]["name"] = project_name + "_" + str(i+1).zfill(4)
+    params["io"]["name"] = project_name + "_" + str(i+1)
     
     start_time_iteration = time.time()
     image_dir = DataGeneration(params,obj_moving)
