@@ -217,7 +217,8 @@ def save_BlenderSettingsAndConfiguration(params,camera_data,object_data=None,lig
     # write cache file with location of the output folder
     cache_path = Path(params["io"]["script_path"]) / "cache.txt"
     with open(cache_path, "w") as txt_file:
-        txt_file.write(params["io"]["output_path"])
+        txt_file.write(params["io"]["output_path"] + "\n")
+        txt_file.write(params["io"]["obj_path"])
 #------------------------------------------------------------------------------------
 # Display warnings
 def print_warnings(params):

@@ -9,7 +9,7 @@ from pathlib import Path
 #                                Fixed-objects                                       #
 ######################################################################################
 # Are external parameters used or the parameters defined here
-ExternalParams = False
+ExternalParams = True
 
 ############################# Select Parameters ######################################
 if ExternalParams:

@@ -15,8 +15,12 @@
     git clone https://git.tu-berlin.de/tobias_kopf/synthetic-pipeline-for-3d-reconstruction-of-falling-particles.git
     ```
     - Authentication: Log in with TU account
-
-- Install packages:
+- Rename the Repository: e.g. "synthetic_pipeline" (Shortest possible name, as Windows limits the file path)
+    - Windows Terminal / PowerShell
+        ```bash
+        ren .\synthetic-pipeline-for-3d-reconstruction-of-falling-particles\ synthetic_pipeline
+        ```
+- Install packages: (Commands for use in Windows PowerShell)
     - Create virtual environment using the **venv** module: (working with **virtualenv** is also possible)
         ```bash
         cd synthetic-pipeline-for-3d-reconstruction-of-falling-particles/venv_synthetic_311
@@ -55,7 +59,7 @@
 
 ## Author
 - **Tobias Kopf**
-- Date: July 22, 2024
+- Date: August 05, 2024
 - Email: tobias.kopf@tu-berlin.de
 
 ## TODO

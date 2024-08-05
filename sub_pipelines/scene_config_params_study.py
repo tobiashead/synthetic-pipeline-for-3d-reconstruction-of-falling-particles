@@ -20,7 +20,7 @@ obj_moving = True                   # Does the object move?
 external_params = False             # Use Params from external parameter file
 params_file_name = None             # default: None
 
-ParameterStudy_OutputPath = r"C:\Users\Tobias\Desktop\ParameterStudy1"
+ParameterStudy_OutputPath = r"C:\Users\Tobias\Documents\Masterarbeit_lokal\ParamStudies\2"
 
 ################################################### Scene Settings #################################################################################
 params = LoadDefaultSceneParameters(project_name,obj_moving,params_file_name) # Load standard parameters from json file
@@ -89,7 +89,7 @@ rotation_axis = [[1,1,1]]
 omega = [4500]
 s0 = [[0,0,1.1]]
 objects = [
-     {"name": "GRAU5", "path": r"C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\objects\GRAU5\centered\GRAU5.obj"}
+     {"name": "GRAU5", "path": r"C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\objects\GRAU5\GRAU5.obj"}
 ] 
 reps = [1,2,3]
 
@@ -106,7 +106,7 @@ csv_file_path = Path(ParameterStudy_OutputPath) / csv_file_name
 file_exists = os.path.isfile(csv_file_path)
 # Open CSV-file
 if not file_exists:
-    with open(csv_file_path, 'a', newline='') as file: csv.writer(file).writerow(variable_names + ["output_dir", "image_dir"])
+    with open(csv_file_path, 'a', newline='') as file: csv.writer(file).writerow(variable_names + ["output_dir", "image_dir","obj_path"])
 # Save paths of the output folder in a list         
 output_paths = []
 # Create a runtime vector
@@ -134,7 +134,7 @@ for i, com in enumerate(combinations):
     runtime_vector.append(time.time() - start_time_iteration)
     
     with open(csv_file_path, 'a', newline='') as file: 
-        csv.writer(file).writerow([var1, var2, var3, var4, var5, var6["name"], var7, output_dir, image_dir])
+        csv.writer(file).writerow([var1, var2, var3, var4, var5, var6["name"], var7, output_dir, image_dir, var6["path"]])
     output_paths.append(output_dir)
     total_remaining_running_time = np.median(np.array(runtime_vector))*(n_combinations-(i+1))
     print("-------------------------------------------------")

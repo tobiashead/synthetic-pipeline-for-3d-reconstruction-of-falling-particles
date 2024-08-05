@@ -17,12 +17,12 @@ from src.pipeline_utils import (
 def SceneReconstruction(rec_params,scaling_params,image_dir,scaling=True,DebugMode=False):
     app_paths = LoadAppPaths()                                      # Load path to the applications
     ref_params = LoadSceneParameters(image_dir)
-    rec_params, output_path = CreateMeshroomFolders(rec_params,ref_params)
+    rec_params, output_path, evaluation_path = CreateMeshroomFolders(rec_params,ref_params)
     command = CreateMeshroomCommand(app_paths,image_dir,rec_params)
     PhotogrammetryMeshroom(command,rec_params,DebugMode)
     if scaling == True:
-        cams_rec, cams_ref = ImportCameras(rec_params,image_dir)
-        scaling_factor = ScaleScene(cams_rec,cams_ref,rec_params,scaling_params)
+        cams_rec, cams_ref = ImportCameras(output_path,image_dir)
+        scaling_factor = ScaleScene(cams_rec,cams_ref,evaluation_path,scaling_params)
     else: scaling_factor = None
     WriteCacheForSubsequentEvaluation(ref_params,rec_params,image_dir)
     return output_path, scaling_factor

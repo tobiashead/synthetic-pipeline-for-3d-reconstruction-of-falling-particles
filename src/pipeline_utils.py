@@ -44,8 +44,8 @@ def RenderImagesBlender(app_paths,obj_moving,ConsoleOutput=False):
 def ImageDirFromCacheFile():
     script_folder = Path.cwd() / "blender_pipeline" / "Scripts" # base file path of the script files
     cache_file_path = Path(script_folder) / "cache.txt"
-    with open(cache_file_path) as cache_file:
-        image_dir = cache_file.read()
+    with open(cache_file_path, "r") as txt_file:
+        image_dir = txt_file.readline().strip()
     return image_dir
 
 def CreateMeshroomFolders(params,scene_params):
@@ -68,7 +68,7 @@ def CreateMeshroomFolders(params,scene_params):
     params["cache_path"] = cache_path; params["project_path"] = project_path
     params["evaluation_path"] = evaluation_path; params["output_path"] = output_path
     logging.info(f"Creating output folder for reconstruction: {output_path}")
-    return params, output_path
+    return params, output_path, evaluation_path
 
 def CreateMeshroomCommand(app_paths,image_dir,params):
     meshroom_path = Path(app_paths["meshroom_folder"])
@@ -120,12 +120,11 @@ def LoadAppPaths():
         app_paths = json.load(data)
     return app_paths
 
-def ImportCameras(rec_params,image_dir):
+def ImportCameras(output_path,image_dir):
     from src.CameraProcessing import read_camera_alignment_reconstruction, read_camera_alignment_reference, match_cameras
     cams_ref = read_camera_alignment_reference(image_dir)
     logging.info('Imported reference cameras')
     try:
-        output_path = rec_params["output_path"]
         cams_rec = read_camera_alignment_reconstruction(output_path)
         logging.info('Imported reconstructed cameras')
         cams_rec, cams_ref  = match_cameras(cams_rec,cams_ref)
@@ -134,8 +133,13 @@ def ImportCameras(rec_params,image_dir):
         logging.exception('Error when loading or matching the reconstructed cameras. Check if Structure From Motion step was successful')
     return cams_rec, cams_ref
 
-def ScaleScene(cams_rec,cams_ref,rec_params,scaling_params):
-    evaluation_path = rec_params["evaluation_path"]
+def ImportObject(image_dir):
+    from src.CameraProcessing import read_object_alignment
+    objs,obj0 = read_object_alignment(image_dir)
+    logging.info('Imported object')
+    return objs, obj0
+
+def ScaleScene(cams_rec,cams_ref,evaluation_path,scaling_params):
     from src.scaling_factor import scaling_factor
     logging.info('Calculate scaling factor')
     print(f"{len(cams_rec)} of {len(cams_ref)} cameras could be reconstructed!")
@@ -144,9 +148,9 @@ def ScaleScene(cams_rec,cams_ref,rec_params,scaling_params):
     print(f"Scaling factor: {scaling}")
     return scaling
 
-def PlotReconstructedObject(project_name,rec_params):
-    from plot_mesh_vedo import plot_mesh_vedo
-    fig,screenshot_path = plot_mesh_vedo(project_name,rec_params["evaluation_path"])
+def PlotReconstructedObject(project_name,evaluation_path):
+    from src.plot_mesh_vedo import plot_mesh_vedo
+    fig,screenshot_path = plot_mesh_vedo(project_name,evaluation_path)
     
 def PrintStaticCameraPoses(image_dir,params,obj_moving):
     from src.CameraProcessing import read_camera_alignment_reference, read_object_alignment, ExportCameras2Blender
@@ -174,3 +178,24 @@ def LoadSceneParameters(image_dir):
     except FileNotFoundError as e:
         logging.error(e)
         raise
+    
+def GetEvaluationAndImageDirAndObjPath(output_path,imageANDobject_path):
+    evaluation_dir = Path(output_path) / "Evaluation"
+    if not imageANDobject_path == None:
+        image_dir, obj_path = imageANDobject_path
+    else:
+        # Get image_dir from the cache file
+        variables = {}
+        # Open the cache.txt file located in the evaluation_path directory in read mode
+        with open((evaluation_dir / "cache.txt"), 'r') as cache_file:
+            # Iterate through each line in the file
+            for line in cache_file:
+                # Split each line by the colon ':' to separate variable name and value
+                name, value = line.strip().split(":", 1)
+                # Add the variable name and value pair to the variables dictionary after stripping whitespace
+                variables[name.strip()] = value.strip()
+        image_dir = variables.get("image_dir", "")
+        obj_path = variables.get("obj_path", "")
+    return evaluation_dir, image_dir, obj_path
+    
+        
