@@ -3,7 +3,9 @@ import json
 import subprocess
 import os
 import logging
-import sys
+import numpy as np
+import matplotlib.pyplot as plt
+
 def LoadDefaultSceneParameters(project_name,obj_moving,params_file_name=None):
     logging.info(f"Running 3D-Reconstruction pipeline: project name = {project_name}, moving object = {obj_moving}")
     logging.info('Load the default parameter set for the scene')
@@ -136,21 +138,26 @@ def ImportCameras(output_path,image_dir):
 def ImportObject(image_dir):
     from src.CameraProcessing import read_object_alignment
     objs,obj0 = read_object_alignment(image_dir)
-    logging.info('Imported object')
-    return objs, obj0
+    if objs == None:
+        logging.info('Static scene detected')
+        obj_moving = False
+    else:
+        logging.info('Dynamic scene detected. Import object movmenet')
+        obj_moving = True
+    return obj_moving, objs, obj0
 
-def ScaleScene(cams_rec,cams_ref,evaluation_path,scaling_params):
+def ScaleScene(cams_rec,cams_ref,evaluation_path,scaling_params,DisplayAllPlots=False):
     from src.scaling_factor import scaling_factor
     logging.info('Calculate scaling factor')
     print(f"{len(cams_rec)} of {len(cams_ref)} cameras could be reconstructed!")
-    factor_mean, factor_median, factor_std, fig = scaling_factor(cams_rec,cams_ref,evaluation_path,scaling_params["PreOutlierDetection"],scaling_params["threshold"],scaling_params["criterion"],plot=False) 
+    factor_mean, factor_median, factor_std, fig = scaling_factor(cams_rec,cams_ref,evaluation_path,scaling_params["PreOutlierDetection"],scaling_params["threshold"],scaling_params["criterion"],True,DisplayAllPlots) 
     scaling = factor_median
     print(f"Scaling factor: {scaling}")
     return scaling
 
-def PlotReconstructedObject(project_name,evaluation_path):
+def PlotReconstructedObject(project_name,evaluation_path,DisplayPlots):
     from src.plot_mesh_vedo import plot_mesh_vedo
-    fig,screenshot_path = plot_mesh_vedo(project_name,evaluation_path)
+    fig,screenshot_path = plot_mesh_vedo(project_name,evaluation_path,DisplayPlots)
     
 def PrintStaticCameraPoses(image_dir,params,obj_moving):
     from src.CameraProcessing import read_camera_alignment_reference, read_object_alignment, ExportCameras2Blender
@@ -197,5 +204,120 @@ def GetEvaluationAndImageDirAndObjPath(output_path,imageANDobject_path):
         image_dir = variables.get("image_dir", "")
         obj_path = variables.get("obj_path", "")
     return evaluation_dir, image_dir, obj_path
+
+
+def GlobalMeshRegistration(evaluation_dir,obj_path,params_MeshRegis,scaling_factor,DebugMode=False):
+    ManualRegistration = params_MeshRegis["ManualGlobalRegistration"]      
+    ThreePointRegistration = params_MeshRegis["ThreePointRegistration"]
+    Recalculation = params_MeshRegis["Recalculation"]
     
+    T_global_path = evaluation_dir / 'GlobalTransformationMatrix.txt'    # Define the file path for the saved transformation matrix
+    if not ((ManualRegistration or Recalculation==False) and T_global_path.exists()):
+        from src.TransMatrix_Utils import Scale2Transformation4x4
+        T_scale = Scale2Transformation4x4(scaling_factor)
+        from src.GlobalMeshRegistration import GlobalMeshRegistration
+        mesh_r_path = evaluation_dir / 'texturedMesh.obj'       
+        voxel_size = 1*10**(-3)
+        if DebugMode: draw_registration = 4
+        else: draw_registration = 0 # choose 0,1,2,3,4 --> 0 = no plot appears --> 4 = all plots appears 
+        T_global = GlobalMeshRegistration(mesh_r_path,obj_path,voxel_size,draw_registration,
+                                    T_scale,ThreePointRegistration)
+        np.savetxt(T_global_path,T_global)
+    else:
+        T_global = np.loadtxt(T_global_path)   
+    return T_global
+    
+def FineMeshRegistration(evaluation_dir,obj_path,app_paths,params_MeshRegis,DebugMode=False): 
+    Recalculation = params_MeshRegis["Recalculation"]
+    log_path = evaluation_dir / "log_CloudCompare.txt"                     # Path to log file
+    T_path = evaluation_dir / "TransformationMatrix.txt"
+    if not (Recalculation==False and (log_path.exists() and T_path.exists())):
+        cc_path = app_paths["cloudcompare_exe"]
+        T_global_path = evaluation_dir / 'GlobalTransformationMatrix.txt'
+        mesh_r_path = evaluation_dir / 'texturedMesh.obj'     
+        # Set parameters
+        save_meshes_all_at_once = False                 # Save the transformed reconstructed mesh with the Groud_truth mesh in a single file (uses a lot of hard disk space)
+        silent = True                                   # No GUI pops up and no clicks necessary
+        adjust_scale = True                             # Alignment of the Mesh with SCALING
+        output_format_mesh = "OBJ"                      # Format can be one of the following: BIN, OBJ, PLY, STL, VTK, MA, FBX.
+        # Function to align the reconstruected mesh and to calculate the Mesh to Mesh distance
+        from src.FineMeshRegistration_and_MeshToMeshDistance import FineMeshRegistration_and_MeshToMeshDistance
+        params_CC = [silent,save_meshes_all_at_once,adjust_scale,output_format_mesh]
+        T,T_ICP,mesh_r_trans_path,log_path = FineMeshRegistration_and_MeshToMeshDistance(cc_path,params_CC,evaluation_dir,obj_path,mesh_r_path,output_format_mesh,T_global_path,DebugMode)
+    else:
+        T = np.loadtxt(T_path)   # load transformation matrix
+    return T
         
+def EvaluateRecMesh(evaluation_dir):
+    # read mean distance and standard deviation from the log file
+    from src.read_c2m_distance_from_log import read_c2m_distance_from_log
+    log_path = evaluation_dir / "log_CloudCompare.txt"
+    mean_distance, std_deviation = read_c2m_distance_from_log(log_path)
+    M2M_Distance = [mean_distance, std_deviation]
+    return M2M_Distance
+
+def EvaluateSizeProperties(evaluation_path,object_path,T,T_global):
+    from src.EvaluateVolumeSurfaceArea import EvaluateVolumeSurfaceArea
+    EvaluateVolumeSurfaceArea(evaluation_path,object_path,T_global,T)    
+    
+def EvaluateCameraPoses(obj_moving,cams_rec,cams_ref,objs,obj0,T,scene_params,evaluation_dir,DisplayPlots=False):
+    focuspoint = scene_params["cam"]["focuspoint"]
+    # Calculate camera parameters in relation to the global coordinate system
+    for i, cam in enumerate(cams_rec): cam.Transformation2WorldCoordinateSystem(T,focuspoint)
+    # Calculate camera positions in the dynamic (object is moving) and the static case (object is fixed)
+    for cam in cams_ref:
+        if obj_moving: 
+            Tdynamic2static = cam.Dynamic2StaticScene(objs[cam.CorrespondigIndexObject].Transformation, obj0.Transformation,focuspoint)
+            if cam.CorrespondigIndex != None:
+                cam_rec = cams_rec[cam.CorrespondigIndex]
+                cam_rec.TransformationDynamic = np.linalg.inv(Tdynamic2static) @ cam_rec.TransformationStatic
+        else:
+            cam.TransformationDynamic = None    # delete Transformation Matrix of the dynamic case if the object is not moving 
+    # Visual Evaluation
+    PlotCameraPoses(cams_ref,cams_rec,scene_params,obj_moving,evaluation_dir,DisplayPlots)
+    # Quantitativ evaluation of the reconstructed camera positions
+    from src.CameraPositionEvaluation import CreateCameraDataSets
+    pos_x,pos_y,Rx,Ry = CreateCameraDataSets(cams_rec,cams_ref)
+    from src.CameraPositionEvaluation import PlotAbsPositionError_for_xyz, PlotAbsPositionError
+    PlotAbsPositionError_for_xyz(pos_x,pos_y,DisplayPlots) 
+    PlotAbsPositionError(pos_x,pos_y,outlier_criterion=0.005,DisplayPlots=DisplayPlots)
+    
+def PlotCameraPoses(cams_ref,cams_rec,scene_params,obj_moving,evaluation_dir,DisplayPlots):
+    from src.camera_pose_visualizer import CameraPoseVisualizer
+    focal_length = scene_params["cam"]["focal_length"]*10**(-3)
+    aspect_ratio = scene_params["cam"]["sensor_size"][0] / scene_params["cam"]["sensor_size"][1]
+    sensor_width = scene_params["cam"]["sensor_size"][0]*10**(-3)
+    # Plot dynamic scene / reference
+    if obj_moving: 
+        visualizer1 = CameraPoseVisualizer([-0.2, 0.2], [-0.2, 0.2], [0.8, 1.2])
+        visualizer1.load_cameras(cams_ref,focal_length,aspect_ratio,sensor_width,scale=2,alpha=0.05,DrawCoordSystem=True,colormap='gnuplot',static_scene=False,color_based_on_height=True)
+        visualizer1.load_cube(cams_ref)
+        path = evaluation_dir / "CamsExtrinsicsRefDynamic"
+        visualizer1.save(path)
+        visualizer1.show(show=DisplayPlots) 
+    # Plot static scene / reference
+    visualizer2 = CameraPoseVisualizer([-0.2, 0.2], [-0.2, 0.2], [0.8, 1.2])
+    visualizer2.load_cameras(cams_ref,focal_length,aspect_ratio,sensor_width,scale=2,alpha=0.3,DrawCoordSystem=True,static_scene=True,colorbar=True) 
+    visualizer2.load_cube(cams_ref,static_scene=True)      
+    path = evaluation_dir / "CamsExtrinsicsRefStatic"
+    visualizer2.save(path)
+    visualizer2.show(show=DisplayPlots)
+    # Comparison between reference and reconstructed cameras
+    # static scene
+    visualizer3 = CameraPoseVisualizer([-0.2, 0.2], [-0.2, 0.2], [0.8, 1.2])
+    visualizer3.load_cameras(cams_rec,focal_length,aspect_ratio,sensor_width,scale=2,alpha=0.3,DrawCoordSystem=True,colorbar = True,static_scene=True)
+    visualizer3.load_cameras(cams_ref,focal_length,aspect_ratio,sensor_width,scale=1.5,alpha=0.5,DrawCoordSystem=True,static_scene=True)
+    visualizer3.load_cube(cams_ref,static_scene=True)
+    path = evaluation_dir / "CamsExtrinsicsCompareStatic"
+    visualizer3.save(path)
+    visualizer3.show(show=DisplayPlots)
+    # Comparison between reference and reconstructed cameras
+    # dynamic scene
+    if obj_moving:
+        visualizer4 = CameraPoseVisualizer([-0.2, 0.2], [-0.2, 0.2], [0.8, 1.2])
+        visualizer4.load_cameras(cams_rec,focal_length,aspect_ratio,sensor_width,scale=2,alpha=0.05,DrawCoordSystem=True,static_scene=False,color_based_on_height=True)
+        visualizer4.load_cameras(cams_ref,focal_length,aspect_ratio,sensor_width,scale=1.5,alpha=0.1,DrawCoordSystem=True,static_scene=False,color_based_on_height=True)
+        visualizer4.load_cube(cams_ref,static_scene=False)
+        path = evaluation_dir / "CamsExtrinsicsCompareDynamic"
+        visualizer4.save(path)
+        visualizer4.show(show=DisplayPlots)

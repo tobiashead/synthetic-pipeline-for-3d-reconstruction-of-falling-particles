@@ -2,10 +2,9 @@ import numpy as np
 from pathlib import Path
 import vedo
 vedo.settings.default_backend = 'vtk'
-def plot_mesh_vedo(project_name,output_path):
+def plot_mesh_vedo(project_name,output_path,DisplayPlots = False):
     mesh_path = str(Path(output_path) / 'texturedMesh.obj')
     texture_path = str(Path(output_path) /'texture_1001.png')
-
     mesh_vedo = vedo.Mesh(mesh_path).texture(texture_path)
 
     # List of planes
@@ -33,6 +32,7 @@ def plot_mesh_vedo(project_name,output_path):
     # Generating a screenshot path based on the output directory and project name
     screenshot_path = Path(output_path) / (project_name + '.png')
     # Capturing a screenshot of the current plot and saving it to the generated screenshot path
+    if DisplayPlots: plt.show(interactive = True)
     vedo.screenshot(screenshot_path).close()
     
     return plt, screenshot_path

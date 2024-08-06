@@ -20,7 +20,7 @@ sns.set(style='white',font='Arial')
 
 #-----------------------------------------------------------------------
 
-def scaling_factor(cams_rec,cams_ref,evaluation_path,PreOutlierDetection=False,threshold = 0.025, criterion = "abs",plot=True):
+def scaling_factor(cams_rec,cams_ref,evaluation_path,PreOutlierDetection=False,threshold = 0.025, criterion = "abs",plot=True,DisplayAllPlots=True):
     # calculate distance between the reconstructed cameras within a timestep for all timesteps (x)
     # calculate the same for the reference cameras (y)
     # Calculation of an information matrix containing the corresponding time steps and camera indices for all x and y values 
@@ -40,7 +40,7 @@ def scaling_factor(cams_rec,cams_ref,evaluation_path,PreOutlierDetection=False,t
     factor_std = np.std(factor_vec)                 # Calculate standard deviation of scaling factors
     # plot and return
     if plot:
-        fig = scaling_factor_plot(factor_vec,factor_mean,factor_median,factor_std,evaluation_path)
+        fig = scaling_factor_plot(factor_vec,factor_mean,factor_median,factor_std,evaluation_path,DisplayAllPlots)
     else: fig = None
     return factor_mean, factor_median, factor_std, fig
 
@@ -214,7 +214,7 @@ def ConsistencyBasedOutlierDetection(y, x, cam_rec_info, threshold=0.025, criter
 
 #-----------------------------------------------------------------------   
 
-def scaling_factor_plot(factor_vec,factor_mean,factor_median,factor_std,evaluation_path):
+def scaling_factor_plot(factor_vec,factor_mean,factor_median,factor_std,evaluation_path,DisplayAllPlots=True):
     fig = plt.figure(figsize=(6.4,4.8))
     g = sns.histplot(data=pd.DataFrame(factor_vec),legend=False, kde=True,fill=False)
     g.set_ylabel('Frequency',fontsize=11)
@@ -227,10 +227,11 @@ def scaling_factor_plot(factor_vec,factor_mean,factor_median,factor_std,evaluati
     plt.legend(loc='upper right',fontsize=11)
     plt.annotate('$\sigma = {:.3e}$'.format(factor_std),[270,240],xycoords='figure points', fontsize=11)
     plt.grid()   
-    plt.show()
+    if DisplayAllPlots: plt.show()
     fig.savefig(Path(evaluation_path) / 'scaling_factor.svg',format='svg',bbox_inches='tight')
     fig.savefig(Path(evaluation_path) / 'scaling_factor.pdf',format='pdf',bbox_inches='tight')
-    fig.savefig(Path(evaluation_path) / 'scaling_factor.eps',format='eps',bbox_inches='tight')
+    #fig.savefig(Path(evaluation_path) / 'scaling_factor.eps',format='eps',bbox_inches='tight')
+    
     return fig
 
 #-----------------------------------------------------------------------   

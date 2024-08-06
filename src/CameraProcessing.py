@@ -57,19 +57,23 @@ def read_camera_alignment_reference(base_file_path_blender):
 #-----------------------------------------------------------------------
 def read_object_alignment(base_file_path_blender):
     objects = []
-    obj_positions = pd.read_csv(Path(base_file_path_blender) / "ObjectPositioningInMeters.csv")
-    obj_positions["TimeStep"] -= obj_positions["TimeStep"][1]-1 # Adjusts the time step --> starts from 1
-    obj_positions.at[0, "TimeStep"] = 0
-    for i in range(len(obj_positions)):
-        obj = obj_positions.iloc[i]
-        TimeStep = obj["TimeStep"]
-        Location = np.array([obj["PositionX"],obj["PositionY"],obj["PositionZ"]])
-        EulerAngle =  np.array([obj["RotationEulerX"],obj["RotationEulerY"],obj["RotationEulerZ"]])
-        obj = object(TimeStep,Location,EulerAngle)
-        obj.Transformation2WorldCoordinateSystem()
-        objects.append(obj) 
-    return objects[1:],objects[0]
-
+    path = Path(base_file_path_blender) / "ObjectPositioningInMeters.csv"
+    if path.exists():
+        obj_positions = pd.read_csv(path)
+        obj_positions["TimeStep"] -= obj_positions["TimeStep"][1]-1 # Adjusts the time step --> starts from 1
+        obj_positions.at[0, "TimeStep"] = 0
+        for i in range(len(obj_positions)):
+            obj = obj_positions.iloc[i]
+            TimeStep = obj["TimeStep"]
+            Location = np.array([obj["PositionX"],obj["PositionY"],obj["PositionZ"]])
+            EulerAngle =  np.array([obj["RotationEulerX"],obj["RotationEulerY"],obj["RotationEulerZ"]])
+            obj = object(TimeStep,Location,EulerAngle)
+            obj.Transformation2WorldCoordinateSystem()
+            objects.append(obj)
+        return objects[1:],objects[0]    
+    else: 
+        return None,None 
+    
 #-----------------------------------------------------------------------   
 def match_cameras(cams_rec,cams_ref):
     for i, cam_ref in enumerate(cams_ref):      # Iterates over all images (reference)

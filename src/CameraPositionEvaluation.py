@@ -32,7 +32,7 @@ def CreateCameraDataSets(cams_rec,cams_ref,scene = "dynamic"):
     print(f"{len(cams_rec)} cameras from {len(cams_ref)} cameras were reconstructed ({len(cams_rec)/len(cams_ref)*100} %)")
     return pos_x,pos_y,Rx,Ry
 
-def PlotAbsPositionError_for_xyz(pos_x,pos_y):
+def PlotAbsPositionError_for_xyz(pos_x,pos_y, DisplayPlots=False):
     fig, axs = plt.subplots(1, 3, figsize=(15, 5))
 
     axs[0].plot((pos_x[:, 0]-pos_y[:, 0])*1000, label=r'$\Delta x$', color='blue', alpha=0.5, marker='o',linestyle='None')
@@ -43,9 +43,9 @@ def PlotAbsPositionError_for_xyz(pos_x,pos_y):
         ax.legend()
         ax.set_xlabel("camera index")
     axs[0].set_ylabel("absolute error in mm")
-    plt.show()
+    if DisplayPlots: plt.show()
     
-def PlotAbsPositionError(pos_x,pos_y,outlier_criterion=0.005, focuspoint =[0,0,1]):   
+def PlotAbsPositionError(pos_x,pos_y,outlier_criterion=0.005, focuspoint =[0,0,1],DisplayPlots = False):   
     cam_pos_error_abs = np.linalg.norm(pos_x-pos_y,axis=1)
     fig = plt.figure(figsize=(5, 5))
     plt.hist(cam_pos_error_abs*1000, bins=15, color='skyblue', edgecolor='black')
@@ -62,7 +62,7 @@ def PlotAbsPositionError(pos_x,pos_y,outlier_criterion=0.005, focuspoint =[0,0,1
     print(f"Standard deviation: {std_deviation*1000:.2f}mm")
     print(f"Number of Inliers: {len(cam_pos_error_abs)-outliers_count} (rel. error <= {outlier_criterion*100}%)")
     print(f"Number of Outliers: {outliers_count} (rel. error > {outlier_criterion*100}%)")
-    plt.show()
+    if DisplayPlots: plt.show()
     
 def OrientationError(Rx,Ry,outlier_criterion_angle = 1):   
     from scipy.spatial.transform import Rotation

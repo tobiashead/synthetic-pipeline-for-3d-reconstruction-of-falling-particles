@@ -41,7 +41,7 @@ if __name__ == "__main__":
         params["motion"]["a"] = [0,0, -9.81]               # [m^2/s] acceleration
         params["motion"]["omega"] = 360/0.092              # [°/s] angular velocity around the unit vector e (axis of rotation)
         params["motion"]["e"] = [1, 1, 1]                  # [-,-,-] axis of rotation 
-        params["io"]["obj_path"] = r"C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\objects\GRAU5\centered\GRAU5.obj"
+        params["io"]["obj_path"] = r"C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\objects\GRAU5\GRAU5_centered.obj"
         # Camera
         params["cam"]["even_dist"] = True
         params["cam"]["pos_file_path"] = r"C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_pipeline\Scripts\CamerasExtrinsicsStatic.json"

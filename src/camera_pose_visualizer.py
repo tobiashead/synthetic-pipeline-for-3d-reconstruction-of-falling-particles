@@ -1,14 +1,12 @@
 import numpy as np
-import matplotlib as mpl
 import matplotlib.pyplot as plt
 from matplotlib.patches import Patch
 from mpl_toolkits.mplot3d.art3d import Poly3DCollection
 from scipy.spatial.transform import Rotation
-from pathlib import Path
 import importlib
 import sys
 importlib.reload(sys.modules['src.TransMatrix_Utils']) if 'src.TransMatrix_Utils' in sys.modules else None
-from src.TransMatrix_Utils import Get_Location_Rotation3x3_Scale_from_Transformation4x4, rotation_matrix_x
+from src.TransMatrix_Utils import Get_Location_Rotation3x3_Scale_from_Transformation4x4
 
 ###################################################################################
 # code is originally based on https://github.com/demul/extrinsic2pyramid, but has been modified
@@ -99,15 +97,15 @@ class CameraPoseVisualizer:
         scalar_mappable.set_array([])
         fig.colorbar(scalar_mappable, ax=ax, orientation=orientation, label=label)  # shrink=0.9,pad=0.1
 
-    def show(self,title=None):
+    def show(self,title=None,show=True):
         if title is not None:
             plt.title(title)
         plt.tight_layout()
-        plt.show()
+        if show: plt.show()
 
         
     def save(self,path, bbox_inches = 'tight',pad_inches=0.1):
-        plt.savefig(str(path) + ".eps", format='eps',bbox_inches= bbox_inches,pad_inches=pad_inches)
+        #plt.savefig(str(path) + ".eps", format='eps',bbox_inches= bbox_inches,pad_inches=pad_inches)
         plt.savefig(str(path) + ".pdf", format='pdf',bbox_inches= bbox_inches,pad_inches=pad_inches)
         plt.savefig(str(path) + ".svg", format='svg',bbox_inches= bbox_inches,pad_inches=pad_inches)
     
