@@ -5,6 +5,7 @@ import os
 import logging
 import numpy as np
 import matplotlib.pyplot as plt
+import shutil
 
 def LoadDefaultSceneParameters(project_name,obj_moving,params_file_name=None):
     logging.info(f"Running 3D-Reconstruction pipeline: project name = {project_name}, moving object = {obj_moving}")
@@ -339,3 +340,46 @@ def TextureEvaluation(evaluation_dir,obj_path,app_paths,evaluation_params,DebugM
     patch_size = text_params["patch_size"]; image_number = text_params["image_number"]; levels = text_params["levels"]; 
     distances = text_params["distances"]; features = text_params["features"]
     GLCM_Evaluation(evaluation_dir,OutputTextureRef_path,OutputTextureRec_path,patch_size,image_number,levels,distances,random_seed=124,features = features,num_windows=4,DisplayPlots=DisplayPlots)
+    
+def CopyDataToCaseStudyFolder(study_output_dir,output_dir,image_dir,obj_path):
+    # Copy the data from the data generation and the 3D reconstruction together into a folder in the case study folder
+    logging.info(f'Copy all data togehter into the case study subfolder: {study_output_dir}')
+    output_dir_destination = Path(study_output_dir) / Path(output_dir).name
+    shutil.copytree(output_dir, output_dir_destination)
+    image_dir_destination = output_dir_destination / "Images"
+    shutil.copytree(image_dir,image_dir_destination)
+    destination_obj_dir = output_dir_destination / "InputObject"
+    destination_obj_dir.mkdir(parents=True, exist_ok=True)
+    obj_path_destination = CopyObjWithAssets(obj_path,destination_obj_dir)
+    logging.info('Copying of the data completed')
+    return output_dir_destination, image_dir_destination, obj_path_destination
+
+def CopyObjWithAssets(obj_path, target_dir):
+    obj_path = Path(obj_path)
+    mtl_path = obj_path.with_suffix('.mtl')
+    target_dir = Path(target_dir)
+    # Ensure target directory exists
+    target_dir.mkdir(parents=True, exist_ok=True)
+    # Copy the .obj file
+    obj_destination_path = target_dir / obj_path.name
+    shutil.copy(obj_path, obj_destination_path)
+    # Copy the .mtl file if it exists
+    if mtl_path.exists():
+        shutil.copy(mtl_path, target_dir / mtl_path.name)
+        # Extract texture file paths from the .mtl file
+        with open(mtl_path, 'r') as mtl_file:
+            lines = mtl_file.readlines()
+        texture_keywords = ['map_Kd', 'map_Ks', 'map_Ns', 'map_Bump', 'bump', 'map_d', 'disp', 'decal']
+        for line in lines:
+            for keyword in texture_keywords:
+                if line.startswith(keyword):
+                    texture_file = line.split()[1]
+                    texture_path = obj_path.parent / texture_file
+                    # Copy the texture file if it exists
+                    if texture_path.exists():
+                        shutil.copy(texture_path, target_dir / texture_path.name)
+                    else:
+                        print(f"Texture file {texture_path} not found.")
+    else:
+        print(f".mtl file {mtl_path} not found.")
+    return obj_destination_path
