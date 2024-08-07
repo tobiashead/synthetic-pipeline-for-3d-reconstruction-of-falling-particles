@@ -30,6 +30,7 @@ plt.rcParams['font.size'] = fsize
 plt.rcParams['legend.fontsize'] = tsize
 plt.rcParams['xtick.direction'] = tdir
 plt.rcParams['ytick.direction'] = tdir
+plt.rcParams['axes.formatter.use_mathtext']=True
 plt.rcParams['xtick.major.size'] = major
 plt.rcParams['xtick.minor.size'] = minor
 plt.rcParams['ytick.major.size'] = major
@@ -74,7 +75,8 @@ def GetImagesForTextureEvaluation(obj_path,output_path,script_path,blender_path,
     return proc.returncode
   
     
-def GLCM_Evaluation(OutputTextureRef_path,OutputTextureRec_path,patch_size,image_number,levels,distances,random_seed=124,features = ["dissimilarity","correlation"],num_windows=4, offset = [0,0], offset_method = "non-standardized"):
+def GLCM_Evaluation(evaluation_dir,OutputTextureRef_path,OutputTextureRec_path,patch_size,image_number,levels,distances,random_seed=124,
+                    features = ["dissimilarity","correlation"],num_windows=4, offset = [0,0], offset_method = "non-standardized",DisplayPlots=True):
     # create Grey Scale Image
     image_ref, image_rec, height, width = create_greyscale_image(OutputTextureRef_path,OutputTextureRec_path,levels,image_number)
     # Identify window on which the object is visible
@@ -88,7 +90,7 @@ def GLCM_Evaluation(OutputTextureRef_path,OutputTextureRec_path,patch_size,image
     else:
         feature_matrix_rec[:,0] += offset[0]*feature_matrix_rec[:,0]; feature_matrix_rec[:,1] += offset[1]*feature_matrix_rec[:,1] 
     # create the figure
-    GLCM_figure1(image_ref,image_rec,windows_ref,windows_rec,feature_matrix_ref,feature_matrix_rec,features,levels,patch_size,locations,offset,offset_method)
+    GLCM_figure1(evaluation_dir,image_ref,image_rec,windows_ref,windows_rec,feature_matrix_ref,feature_matrix_rec,features,levels,patch_size,locations,offset,offset_method,DisplayPlots)
     
 def identify_windows_containing_the_object(random_seed,height,width,patch_size,levels,distances,image_ref,image_rec=None,num_windows=4,ASM_crit = 0.01):
     locations = []
@@ -128,7 +130,7 @@ def calculate_GLCM_features(windows,distances,levels,features):
             feature_matrix[i,j] = feature_value
     return feature_matrix, glcm
 
-def GLCM_figure1(image_ref,image_rec,windows_ref,windows_rec,features_ref,features_rec,features,levels,patch_size,locations,offset,offset_method):
+def GLCM_figure1(evaluation_dir,image_ref,image_rec,windows_ref,windows_rec,features_ref,features_rec,features,levels,patch_size,locations,offset,offset_method,DisplayPlots = True):
     # create figure
     fig = plt.figure(layout='constrained',figsize=(5.44, 6))
     subfigs = fig.subfigures(2, 1, wspace=0.07) 
@@ -190,7 +192,10 @@ def GLCM_figure1(image_ref,image_rec,windows_ref,windows_rec,features_ref,featur
         ax.set_xlabel(f"Window {i+1} (Rec.)")
     fig.suptitle('Grey level co-occurrence matrix features', fontsize=11, y=1.05)
     fig.tight_layout
-    plt.show()
+    fig.savefig(Path(evaluation_dir) / 'GLCM.svg',format='svg',bbox_inches='tight')
+    fig.savefig(Path(evaluation_dir) / 'GLCM.pdf',format='pdf',bbox_inches='tight')
+    if DisplayPlots: plt.show()
+   
     
 def get_image_path_by_number(directory, image_number):
     if not os.path.isdir(directory):

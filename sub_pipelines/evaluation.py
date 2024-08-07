@@ -15,7 +15,7 @@ from src.pipeline_utils import (
     EvaluateRecMesh,
     EvaluateSizeProperties,
     EvaluateCameraPoses,
-    GenerateDataForTextureEvaluation
+    TextureEvaluation
     )
 
 ################################################### Evaluate the Reconstruction ########################################################################
@@ -32,8 +32,8 @@ def EvaluateReconstruction(output_dir,evaluation_params,scaling_params,DebugMode
     M2M_Distance = EvaluateRecMesh(evaluation_dir)
     EvaluateSizeProperties(evaluation_dir,obj_path,T,T_global)
     EvaluateCameraPoses(obj_moving,cams_rec,cams_ref,objs,obj0,T,scene_params,evaluation_dir,DisplayPlots)
-    GenerateDataForTextureEvaluation(evaluation_dir,obj_path,app_paths,DebugMode)   
-    
+    TextureEvaluation(evaluation_dir,obj_path,app_paths,evaluation_params,DebugMode,DisplayPlots)
+        
 ########################################################################################################################################################
 
 
@@ -57,7 +57,12 @@ if __name__ == "__main__":
                 "Recalculation":            False
             },
         "TextureEvaluation": {
-            ""
+            "Recalculation": False,
+            "patch_size": 21,
+            "levels": 256,
+            "distances": 5,
+            "image_number": 2,
+            "features":  ["dissimilarity","correlation"]    # "contrast", "dissimilarity", "homogeneity", "ASM", "energy", "correlation"
         }        
     }
     scaling_params = {        
@@ -83,4 +88,7 @@ if __name__ == "__main__":
     #         df.iloc[ind]["obj_path"]   
     #     ]
     #     EvaluateReconstruction(output_dir,evaluation_params,scaling_params,DebugMode,DisplayPlots,imageANDobject_path)
+    
+    #import matplotlib.pyplot as plt
+    #plt.show()   
    
