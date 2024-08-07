@@ -321,3 +321,13 @@ def PlotCameraPoses(cams_ref,cams_rec,scene_params,obj_moving,evaluation_dir,Dis
         path = evaluation_dir / "CamsExtrinsicsCompareDynamic"
         visualizer4.save(path)
         visualizer4.show(show=DisplayPlots)
+        
+def GenerateDataForTextureEvaluation(evaluation_dir,obj_path,app_paths,DebugMode):
+    blender_path = app_paths["blender_exe"]
+    script_path = Path(__file__).resolve().parent.parent / "blender_pipeline/Scripts"
+    mesh_r_trans_path = evaluation_dir / "texturedMesh_TRANSFORMED.obj"
+    from src.TextureEvaluation import GetImagesForTextureEvaluation
+    OutputTextureRef_path = evaluation_dir / "TextureReference"
+    OutputTextureRec_path = evaluation_dir / "TextureReconstruction"
+    GetImagesForTextureEvaluation(obj_path,OutputTextureRef_path,script_path,blender_path,DebugMode)
+    GetImagesForTextureEvaluation(mesh_r_trans_path,OutputTextureRec_path,script_path,blender_path,DebugMode)

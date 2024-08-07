@@ -14,7 +14,8 @@ from src.pipeline_utils import (
     FineMeshRegistration,
     EvaluateRecMesh,
     EvaluateSizeProperties,
-    EvaluateCameraPoses
+    EvaluateCameraPoses,
+    GenerateDataForTextureEvaluation
     )
 
 ################################################### Evaluate the Reconstruction ########################################################################
@@ -31,7 +32,7 @@ def EvaluateReconstruction(output_dir,evaluation_params,scaling_params,DebugMode
     M2M_Distance = EvaluateRecMesh(evaluation_dir)
     EvaluateSizeProperties(evaluation_dir,obj_path,T,T_global)
     EvaluateCameraPoses(obj_moving,cams_rec,cams_ref,objs,obj0,T,scene_params,evaluation_dir,DisplayPlots)
-    #EvaluateTexture()   
+    GenerateDataForTextureEvaluation(evaluation_dir,obj_path,app_paths,DebugMode)   
     
 ########################################################################################################################################################
 
@@ -54,7 +55,10 @@ if __name__ == "__main__":
                 "ManualGlobalRegistration": False,
                 "ThreePointRegistration":   False,
                 "Recalculation":            False
-            }        
+            },
+        "TextureEvaluation": {
+            ""
+        }        
     }
     scaling_params = {        
         "PreOutlierDetection": True,
@@ -65,12 +69,18 @@ if __name__ == "__main__":
     }   
     import pandas as pd
     df = pd.read_csv(r"C:\Users\Tobias\Documents\Masterarbeit_lokal\ParamStudies\2\ParameterSet_1.csv")
-     #ind = 0
-    for ind in range (len(df)):
-        output_dir = df.iloc[ind]["output_dir"]
-        imageANDobject_path = [
-            df.iloc[ind]["image_dir"],
-            df.iloc[ind]["obj_path"]   
-        ]
-        EvaluateReconstruction(output_dir,evaluation_params,scaling_params,DebugMode,DisplayPlots,imageANDobject_path)
+    ind = 0
+    output_dir = df.iloc[ind]["output_dir"]
+    imageANDobject_path = [
+        df.iloc[ind]["image_dir"],
+        df.iloc[ind]["obj_path"]
+    ]
+    EvaluateReconstruction(output_dir,evaluation_params,scaling_params,DebugMode,DisplayPlots,imageANDobject_path)   
+    # for ind in range (len(df)):
+    #     output_dir = df.iloc[ind]["output_dir"]
+    #     imageANDobject_path = [
+    #         df.iloc[ind]["image_dir"],
+    #         df.iloc[ind]["obj_path"]   
+    #     ]
+    #     EvaluateReconstruction(output_dir,evaluation_params,scaling_params,DebugMode,DisplayPlots,imageANDobject_path)
    

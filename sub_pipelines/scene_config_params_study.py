@@ -15,12 +15,12 @@ from sub_pipelines.data_generation import DataGeneration
 from sub_pipelines.scene_reconstruction import SceneReconstruction
 
 ################################################### General Information ############################################################################
-project_name = 'ParameterStudy1'  # What should be the name of the project ?
+project_name = 'ParameterStudy'  # What should be the name of the project ?
 obj_moving = True                   # Does the object move?
 external_params = False             # Use Params from external parameter file
 params_file_name = None             # default: None
 
-ParameterStudy_OutputPath = r"C:\Users\Tobias\Documents\Masterarbeit_lokal\ParamStudies\2"
+ParameterStudy_OutputPath = r"C:\Users\Tobias\Documents\Masterarbeit_lokal\ParamStudies\3"
 
 ################################################### Scene Settings #################################################################################
 params = LoadDefaultSceneParameters(project_name,obj_moving,params_file_name) # Load standard parameters from json file
@@ -106,7 +106,7 @@ csv_file_path = Path(ParameterStudy_OutputPath) / csv_file_name
 file_exists = os.path.isfile(csv_file_path)
 # Open CSV-file
 if not file_exists:
-    with open(csv_file_path, 'a', newline='') as file: csv.writer(file).writerow(variable_names + ["output_dir", "image_dir","obj_path"])
+    with open(csv_file_path, 'a', newline='') as file: csv.writer(file).writerow(variable_names + ["time rec [s]","output_dir", "image_dir","obj_path"])
 # Save paths of the output folder in a list         
 output_paths = []
 # Create a runtime vector
@@ -130,11 +130,13 @@ for i, com in enumerate(combinations):
     
     start_time_iteration = time.time()
     image_dir = DataGeneration(params,obj_moving)
+    start_time_rec = time.time()
     output_dir, scaling_factor = SceneReconstruction(rec_params,None,image_dir,scaling=False)
+    duration_rec = time.time()-start_time_rec
     runtime_vector.append(time.time() - start_time_iteration)
     
     with open(csv_file_path, 'a', newline='') as file: 
-        csv.writer(file).writerow([var1, var2, var3, var4, var5, var6["name"], var7, output_dir, image_dir, var6["path"]])
+        csv.writer(file).writerow([var1, var2, var3, var4, var5, var6["name"], var7, duration_rec ,output_dir, image_dir, var6["path"]])
     output_paths.append(output_dir)
     total_remaining_running_time = np.median(np.array(runtime_vector))*(n_combinations-(i+1))
     print("-------------------------------------------------")

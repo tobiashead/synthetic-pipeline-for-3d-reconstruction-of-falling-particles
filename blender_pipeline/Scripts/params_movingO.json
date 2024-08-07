@@ -1,7 +1,7 @@
 {
      "io": {
-          "name": "test",
-          "obj_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\objects\\GRAU5\\GRAU5_centered.obj",
+          "name": "ParameterStudy_6",
+          "obj_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\objects\\GRAU5\\GRAU5.obj",
           "label_images": 3
      },
      "motion": {
@@ -25,19 +25,19 @@
                1,
                1
           ],
-          "omega": 3913.0434782608695,
+          "omega": 4500,
           "sim_time": 5
      },
      "cam": {
           "even_dist": true,
           "pos_file_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\blender_pipeline\\Scripts\\CamerasExtrinsicsStatic.json",
-          "number": 3,
+          "number": 4,
           "focuspoint": [
                0,
                0,
                1
           ],
-          "distance": 0.2,
+          "distance": 0.3,
           "vert_angle": [
                0
           ],
@@ -50,9 +50,9 @@
      },
      "light": {
           "z": [
-               -1,
                0,
-               1
+               1,
+               2
           ],
           "hor_angle": [
                45,

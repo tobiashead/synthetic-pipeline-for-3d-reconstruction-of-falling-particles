@@ -44,7 +44,7 @@ plt.rcParams['legend.handlelength'] = lhandle
 #fig_width = fig_width_pt*inches_per_pt  # width in inches
 #fig_height = fig_width*golden_mean      # height in inches
 
-def GetImagesForTextureEvaluation(obj_path,output_path,script_path,blender_path):
+def GetImagesForTextureEvaluation(obj_path,output_path,script_path,blender_path,DebugMode=False):
     # Parameter File Path
     TextureParams_path = Path(script_path) / "params_textureEvaluation.json"
     # Load Parameter from json file
@@ -64,7 +64,15 @@ def GetImagesForTextureEvaluation(obj_path,output_path,script_path,blender_path)
     # render images in blender
     script_path = Path(script_path) / "texture_evaluation.py"
     command = f"{blender_path} --background --python {script_path}"
-    return_code = subprocess.run(command,text=True)  
+    log_file = Path(script_path).parent / 'logfile.txt'
+    with log_file.open('w') as f, subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True) as proc:
+        for line in proc.stdout:
+            if DebugMode:
+                print(line, end='')
+            f.write(line); f.flush()
+    proc.wait()
+    return proc.returncode
+  
     
 def GLCM_Evaluation(OutputTextureRef_path,OutputTextureRec_path,patch_size,image_number,levels,distances,random_seed=124,features = ["dissimilarity","correlation"],num_windows=4, offset = [0,0], offset_method = "non-standardized"):
     # create Grey Scale Image
