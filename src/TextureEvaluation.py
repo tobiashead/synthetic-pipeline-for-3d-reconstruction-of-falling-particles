@@ -72,7 +72,6 @@ def GetImagesForTextureEvaluation(obj_path,output_path,script_path,blender_path,
                 print(line, end='')
             f.write(line); f.flush()
     proc.wait()
-    return proc.returncode
   
     
 def GLCM_Evaluation(evaluation_dir,OutputTextureRef_path,OutputTextureRec_path,patch_size,image_number,levels,distances,random_seed=124,

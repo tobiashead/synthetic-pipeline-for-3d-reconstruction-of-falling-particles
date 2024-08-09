@@ -1,6 +1,6 @@
 {
      "io": {
-          "name": "ParameterStudy_2",
+          "name": "Moving_GRAU5_5cam",
           "obj_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\objects\\GRAU5\\GRAU5.obj",
           "label_images": 3
      },
@@ -25,7 +25,7 @@
                1,
                1
           ],
-          "omega": 4500,
+          "omega": 3913.0434782608695,
           "sim_time": 5
      },
      "cam": {
@@ -73,7 +73,7 @@
           "resolution_x": 2064,
           "resolution_y": 1544,
           "resolution_percentage": 100,
-          "mode": "BBOX_CORNERS",
+          "mode": "BBOX_SURFACES_CENTERS",
           "transparent": false
      },
      "exiftool": {

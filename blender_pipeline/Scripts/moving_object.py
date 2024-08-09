@@ -23,7 +23,7 @@ else:
         # Input and output parameters
         "io": {
             "name": 'Moving5cam',    # project name (e.g. 'Dodekaeder')
-            "obj_path": r"C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_pipeline\3D_Dice\3D_Dice.obj",    # Path to the object file
+            "obj_path": r"C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\objects\MS_20_2\MS_22_2_wR_schw_M.obj",    # Path to the object file
             "label_images": 3               # how to label rendered images
             # 1: "{project_name}_{image_count}"
             # 2: "{project_name}_{timestep_count}_{camera_number}"

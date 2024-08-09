@@ -44,12 +44,13 @@ def RenderImagesBlender(app_paths,obj_moving,ConsoleOutput=False):
     logging.info('Completed simulation and rendering of the scene in Blender')
     return proc.returncode
     
-def ImageDirFromCacheFile():
+def ImageDirObjectPathFromCacheFile():
     script_folder = Path.cwd() / "blender_pipeline" / "Scripts" # base file path of the script files
     cache_file_path = Path(script_folder) / "cache.txt"
     with open(cache_file_path, "r") as txt_file:
         image_dir = txt_file.readline().strip()
-    return image_dir
+        obj_path = txt_file.readline().strip()
+    return image_dir,obj_path
 
 def CreateMeshroomFolders(params,scene_params):
     project_name = scene_params["io"]["name"]
@@ -352,7 +353,11 @@ def CopyDataToCaseStudyFolder(study_output_dir,output_dir,image_dir,obj_path):
     destination_obj_dir.mkdir(parents=True, exist_ok=True)
     obj_path_destination = CopyObjWithAssets(obj_path,destination_obj_dir)
     logging.info('Copying of the data completed')
-    return output_dir_destination, image_dir_destination, obj_path_destination
+    # return the relative paths
+    output_dir_rel = Path(*output_dir_destination.parts[-1:])
+    image_dir_rel = Path(*image_dir_destination.parts[-2:])
+    obj_path_rel = Path(*obj_path_destination.parts[-3:])
+    return output_dir_rel, image_dir_rel, obj_path_rel
 
 def CopyObjWithAssets(obj_path, target_dir):
     obj_path = Path(obj_path)

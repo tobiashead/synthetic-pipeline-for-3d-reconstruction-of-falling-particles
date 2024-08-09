@@ -6,8 +6,8 @@ from pathlib import Path
 import time
 import numpy as np
 import sys
-import shutil
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+
+#logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from src.pipeline_utils import (
     LoadDefaultSceneParameters,
@@ -113,6 +113,12 @@ file_exists = os.path.isfile(csv_file_path)
 # Open CSV-file
 if not file_exists:
     with open(csv_file_path, 'a', newline='') as file: csv.writer(file).writerow(variable_names + ["rec_time","output_dir", "image_dir","obj_path"])
+    initial_case = 0
+else:
+    with open(csv_file_path, 'r') as csv_datei:
+        reader = csv.reader(csv_datei)
+        line_number = sum(1 for row in reader)
+        initial_case = line_number - 1  
 # Save paths of the output folder in a list         
 output_paths = []
 # Create a runtime vector
@@ -123,7 +129,8 @@ total_remaining_running_time = -1*3600
 print("########################################################")
 print(f"Start simulation with {n_combinations} parameter sets")
 start_time_overall = time.time()
-for i, com in enumerate(combinations):
+for i in range(initial_case,n_combinations):
+    com = combinations[i]
     print(f"Start simulation with parameter set {i+1}/{n_combinations}. Estimated remaining total running time: {total_remaining_running_time/3600:.2f} hours")
     var1,var2,var3,var4,var5,var6,var7 = com
     params["cam"]["distance"] = var1
@@ -135,17 +142,16 @@ for i, com in enumerate(combinations):
     params["io"]["name"] = project_name + "_" + str(i+1)
     
     start_time_iteration = time.time()
-    image_dir = DataGeneration(params,obj_moving)
+    image_dir, obj_path = DataGeneration(params,obj_moving)
     start_time_rec = time.time()
     output_dir, scaling_factor = SceneReconstruction(rec_params,None,image_dir,scaling=False)
     duration_rec = time.time()-start_time_rec
     
-    output_dir_destination, image_dir_destination, obj_path_destination = CopyDataToCaseStudyFolder(study_output_dir,output_dir,image_dir,params["io"]["obj_path"])
-    
+    output_dir_rel, image_dir_rel, obj_path_rel = CopyDataToCaseStudyFolder(study_output_dir,output_dir,image_dir,obj_path)
     runtime_vector.append(time.time() - start_time_iteration)
     
     with open(csv_file_path, 'a', newline='') as file: 
-        csv.writer(file).writerow([var1, var2, var3, var4, var5, var6["name"], var7, duration_rec ,output_dir_destination, image_dir_destination, obj_path_destination])
+        csv.writer(file).writerow([var1, var2, var3, var4, var5, var6["name"], var7, duration_rec ,output_dir_rel, image_dir_rel, obj_path_rel])
     output_paths.append(output_dir)
     total_remaining_running_time = np.median(np.array(runtime_vector))*(n_combinations-(i+1))
     print("-------------------------------------------------")

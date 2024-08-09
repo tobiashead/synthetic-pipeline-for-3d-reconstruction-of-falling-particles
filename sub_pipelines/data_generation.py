@@ -7,7 +7,7 @@ from src.pipeline_utils import (
     LoadAppPaths,
     SaveSceneParameters,
     RenderImagesBlender,
-    ImageDirFromCacheFile,
+    ImageDirObjectPathFromCacheFile,
     PrintStaticCameraPoses
     )
 
@@ -16,9 +16,9 @@ def DataGeneration(params,obj_moving, DebugMode = False):
     app_paths = LoadAppPaths()                                      # Load path to the applications
     SaveSceneParameters(params,obj_moving)                          # Save Scene Parameters into a json file
     RenderImagesBlender(app_paths,obj_moving,DebugMode)  # Start the data generation process
-    image_dir = ImageDirFromCacheFile()                             # Get the image folder from the cache
+    image_dir, obj_path = ImageDirObjectPathFromCacheFile()                             # Get the image folder from the cache
     PrintStaticCameraPoses(image_dir,params,obj_moving)
-    return image_dir
+    return image_dir, obj_path
 ########################################################################################################################################################
 
 
@@ -41,7 +41,7 @@ if __name__ == "__main__":
         params["motion"]["a"] = [0,0, -9.81]               # [m^2/s] acceleration
         params["motion"]["omega"] = 360/0.092              # [°/s] angular velocity around the unit vector e (axis of rotation)
         params["motion"]["e"] = [1, 1, 1]                  # [-,-,-] axis of rotation 
-        params["io"]["obj_path"] = r"C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\objects\GRAU5\GRAU5_centered.obj"
+        params["io"]["obj_path"] = r"C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\objects\GRAU5\GRAU5.obj"
         # Camera
         params["cam"]["even_dist"] = True
         params["cam"]["pos_file_path"] = r"C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_pipeline\Scripts\CamerasExtrinsicsStatic.json"

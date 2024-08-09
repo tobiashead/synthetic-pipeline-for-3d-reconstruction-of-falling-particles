@@ -19,9 +19,9 @@ from src.pipeline_utils import (
     )
 
 ################################################### Evaluate the Reconstruction ########################################################################
-def EvaluateReconstruction(output_dir,evaluation_params,scaling_params,DebugMode=False,DisplayPlots=False,imageANDobject_path = None):
+def EvaluateReconstruction(output_dir,evaluation_params,scaling_params,DebugMode=False,DisplayPlots=False,ImageObjectPathList = None):
     app_paths = LoadAppPaths()       # Load path to the applications
-    evaluation_dir, image_dir, obj_path = GetEvaluationAndImageDirAndObjPath(output_dir,imageANDobject_path)             
+    evaluation_dir, image_dir, obj_path = GetEvaluationAndImageDirAndObjPath(output_dir,ImageObjectPathList)             
     scene_params = LoadSceneParameters(image_dir)
     PlotReconstructedObject(scene_params["io"]["name"],evaluation_dir,DisplayPlots)
     cams_rec, cams_ref = ImportCameras(output_dir,image_dir)
@@ -43,18 +43,21 @@ if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 ################################################### Reconstruction Settings ########################################################################
 #------------------------------------------------- Adjustable parameters ---------------------------------------------------------------------------
-    #output_dir = r"C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_data\ParameterStudy1_0002"     # File path to the folder where the images are located
-    #imageANDobject_path  = [
-    #    r"C:\Users\Tobias\Documents\Masterarbeit_lokal\ParamStudies\1\blender_data\ParameterStudy1_0001_2",
-    #    r"C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\objects\GRAU5\GRAU5_centered.obj"
-    #]
+    output_dir = r"C:\Users\Tobias\Documents\Masterarbeit_lokal\ParamStudies\1\ParameterStudy_1"     # File path to the folder where the images are located
+    ImageObjectPathList  = [
+        r"C:\Users\Tobias\Documents\Masterarbeit_lokal\ParamStudies\1\ParameterStudy_1\Images",
+        #r"C:\Users\Tobias\Documents\Masterarbeit_lokal\ParamStudies\1\ParameterStudy_1\InputObject\GRAU5_centered.obj"
+        r"C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\objects\GRAU5\GRAU5_centered.obj"
+    ]
+#---------------------------------------------------------------------------------------------------------------------------------------------------    
     DebugMode  = False                  # Activate Debug Mode
     DisplayPlots = False 
+ #---------------------------------------------------------------------------------------------------------------------------------------------------       
     evaluation_params = {
         "MeshRegistration": {
                 "ManualGlobalRegistration": False,
                 "ThreePointRegistration":   False,
-                "Recalculation":            False
+                "Recalculation":            True
             },
         "TextureEvaluation": {
             "Recalculation": False,
@@ -65,30 +68,17 @@ if __name__ == "__main__":
             "features":  ["dissimilarity","correlation"]    # "contrast", "dissimilarity", "homogeneity", "ASM", "energy", "correlation"
         }        
     }
+#---------------------------------------------------------------------------------------------------------------------------------------------------    
     scaling_params = {        
         "PreOutlierDetection": True,
         "threshold": 0.05,
         "criterion": "rel"      # criterion="abs","abs_norm" or "rel",
         # relative criterion: threshold = 0.07 --> 7%,    absolute normed criterion: threshold: 0.1m   --> measured on the scale of the reconstruction program --> ca. 2cm (real scale)
         # absolute criterion: treshold: 0.1m
-    }   
-    import pandas as pd
-    df = pd.read_csv(r"C:\Users\Tobias\Documents\Masterarbeit_lokal\ParamStudies\2\ParameterSet_1.csv")
-    ind = 0
-    output_dir = df.iloc[ind]["output_dir"]
-    imageANDobject_path = [
-        df.iloc[ind]["image_dir"],
-        df.iloc[ind]["obj_path"]
-    ]
-    EvaluateReconstruction(output_dir,evaluation_params,scaling_params,DebugMode,DisplayPlots,imageANDobject_path)   
-    # for ind in range (len(df)):
-    #     output_dir = df.iloc[ind]["output_dir"]
-    #     imageANDobject_path = [
-    #         df.iloc[ind]["image_dir"],
-    #         df.iloc[ind]["obj_path"]   
-    #     ]
-    #     EvaluateReconstruction(output_dir,evaluation_params,scaling_params,DebugMode,DisplayPlots,imageANDobject_path)
-    
-    #import matplotlib.pyplot as plt
-    #plt.show()   
+    }
+#---------------------------------------------------------------------------------------------------------------------------------------------------       
+    EvaluateReconstruction(output_dir,evaluation_params,scaling_params,DebugMode,DisplayPlots,ImageObjectPathList)
+#---------------------------------------------------------------------------------------------------------------------------------------------------    
+    import matplotlib.pyplot as plt
+    plt.show()   
    
