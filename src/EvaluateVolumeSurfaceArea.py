@@ -2,6 +2,7 @@ import trimesh
 import copy
 from tabulate import tabulate
 import numpy as np
+import pandas as pd
 
 def EvaluateVolumeSurfaceArea(evaluation_path,mesh_gt_path,T_global,T):
     # Load reconstructed mesh and apply transformation (scaling factor)
@@ -41,5 +42,8 @@ def EvaluateVolumeSurfaceArea(evaluation_path,mesh_gt_path,T_global,T):
     ]
     # Define the headers with units
     headers = ["Object", f"Volume (m^3)", f"Surface Area (m^2)", f"Sauter Diameter (mm)","Specific Surface Area (m^2/m^3)","Sphericity [-]"]
-    # Print the data as a table
-    print(tabulate(data, headers=headers))
+    # Print the data as a tabled
+    dataframe = pd.DataFrame(data, columns=headers)
+    print(tabulate(dataframe, headers='keys', tablefmt='pretty', showindex=False))
+
+    return dataframe

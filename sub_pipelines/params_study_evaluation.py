@@ -29,15 +29,19 @@ evaluation_params = {
         "distances": 5,
         "image_number": 2,
         "features":  ["dissimilarity","correlation"]    # "contrast", "dissimilarity", "homogeneity", "ASM", "energy", "correlation"
-    }        
+    },
+    "CameraPositioning": {
+        "threshold": 0.005 # outlier criterion: error > treshold*(actual distance from the camera to the center of the scene)
+    }       
 }
+#---------------------------------------------------------------------------------------------------------------------------------------------------    
 scaling_params = {        
     "PreOutlierDetection": True,
     "threshold": 0.05,
     "criterion": "rel"      # criterion="abs","abs_norm" or "rel",
     # relative criterion: threshold = 0.07 --> 7%,    absolute normed criterion: threshold: 0.1m   --> measured on the scale of the reconstruction program --> ca. 2cm (real scale)
     # absolute criterion: treshold: 0.1m
-}   
+}
 
 ############################################################# Loop #################################################################################
 if DebugMode: logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')

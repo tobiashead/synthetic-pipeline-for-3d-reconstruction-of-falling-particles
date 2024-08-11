@@ -33,7 +33,6 @@ if external_params == False:
     params["motion"]["a"] = [0,0, -9.81]               # [m^2/s] acceleration
     params["motion"]["omega"] = 360/0.092              # [°/s] angular velocity around the unit vector e (axis of rotation)
     params["motion"]["e"] = [1, 0, 1]                  # [-,-,-] axis of rotation 
-    params["io"]["obj_path"] = r"C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\objects\Dodekaeder\Mesh-Dateien\Wuerfel_12s\centered\12s.obj"
     # Camera
     params["cam"]["even_dist"] = True
     params["cam"]["pos_file_path"] = r"C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_pipeline\Scripts\CamerasExtrinsicsStatic.json"
@@ -118,9 +117,7 @@ else:
     with open(csv_file_path, 'r') as csv_datei:
         reader = csv.reader(csv_datei)
         line_number = sum(1 for row in reader)
-        initial_case = line_number - 1  
-# Save paths of the output folder in a list         
-output_paths = []
+        initial_case = line_number - 1        
 # Create a runtime vector
 runtime_vector = []
 total_remaining_running_time = -1*3600
@@ -152,12 +149,7 @@ for i in range(initial_case,n_combinations):
     
     with open(csv_file_path, 'a', newline='') as file: 
         csv.writer(file).writerow([var1, var2, var3, var4, var5, var6["name"], var7, duration_rec ,output_dir_rel, image_dir_rel, obj_path_rel])
-    output_paths.append(output_dir)
     total_remaining_running_time = np.median(np.array(runtime_vector))*(n_combinations-(i+1))
     print("-------------------------------------------------")
 print(f"End simulation with {n_combinations} parameter sets. Total running time: {((time.time()-start_time_overall)/3600):.2f} hours")
 #----------------------------------------------------------------------------------------------------------------------------------
-# Save paths of the output folders in a txt-file  
-with open(Path(study_output_dir) / "OutputPaths.txt", "w") as file:
-    for path in output_paths:
-        file.write(str(path) + "\n")

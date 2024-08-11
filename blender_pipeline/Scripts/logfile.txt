@@ -1,534 +1,534 @@
+Loaded image from: 'C:\Users\Tobias\Documents\Masterarbeit_lokal\ParamStudies\1\ParameterStudy_23\Evaluation\texture_1001.png'
 Blender 4.0.2 (hash 9be62e85b727 built 2023-12-05 13:01:12)
 Read prefs: "C:\Users\Tobias\AppData\Roaming\Blender Foundation\Blender\4.0\config\userpref.blend"
-Loaded image from: 'c:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\meshroom_data\Moving_GRAU5_5cam\Evaluation\texture_1001.png'
-OBJ import of 'texturedMesh_TRANSFORMED.OBJ' took 33.2 ms
-Fra:1 Mem:29.03M (Peak 30.11M) | Time:00:00.27 | Syncing texturedMesh_TRANSFORMED
-Fra:1 Mem:1057.73M (Peak 2077.07M) | Time:00:03.43 | Syncing Camera
-Fra:1 Mem:1057.73M (Peak 2077.07M) | Time:00:03.43 | Syncing Camera.001
-Fra:1 Mem:1057.73M (Peak 2077.07M) | Time:00:03.43 | Syncing Camera.002
-Fra:1 Mem:1057.73M (Peak 2077.07M) | Time:00:03.43 | Syncing Camera.003
-Fra:1 Mem:1057.73M (Peak 2077.07M) | Time:00:03.43 | Syncing Camera.004
-Fra:1 Mem:1057.73M (Peak 2077.07M) | Time:00:03.43 | Syncing Camera.005
-Fra:1 Mem:1057.73M (Peak 2077.07M) | Time:00:03.43 | Syncing Camera.006
-Fra:1 Mem:1057.73M (Peak 2077.07M) | Time:00:03.43 | Syncing Camera.007
-Fra:1 Mem:1057.73M (Peak 2077.07M) | Time:00:03.43 | Syncing Camera.008
-Fra:1 Mem:1057.73M (Peak 2077.07M) | Time:00:03.43 | Syncing Camera.009
-Fra:1 Mem:1057.73M (Peak 2077.07M) | Time:00:03.43 | Syncing Camera.010
-Fra:1 Mem:1057.73M (Peak 2077.07M) | Time:00:03.43 | Syncing Camera.011
-Fra:1 Mem:1057.73M (Peak 2077.07M) | Time:00:03.43 | Syncing Point
-Fra:1 Mem:1057.73M (Peak 2077.07M) | Time:00:03.43 | Syncing Point.001
-Fra:1 Mem:1057.73M (Peak 2077.07M) | Time:00:03.43 | Syncing Point.002
-Fra:1 Mem:1057.73M (Peak 2077.07M) | Time:00:03.43 | Syncing Point.003
-Fra:1 Mem:1057.73M (Peak 2077.07M) | Time:00:03.43 | Syncing Point.004
-Fra:1 Mem:1057.73M (Peak 2077.07M) | Time:00:03.43 | Syncing Point.005
-Fra:1 Mem:1057.73M (Peak 2077.07M) | Time:00:03.43 | Syncing Point.006
-Fra:1 Mem:1057.73M (Peak 2077.07M) | Time:00:03.43 | Syncing Point.007
-Fra:1 Mem:1057.73M (Peak 2077.07M) | Time:00:03.43 | Syncing Point.008
-Fra:1 Mem:1057.73M (Peak 2077.07M) | Time:00:03.43 | Syncing Point.009
-Fra:1 Mem:1057.73M (Peak 2077.07M) | Time:00:03.43 | Syncing Point.010
-Fra:1 Mem:1057.73M (Peak 2077.07M) | Time:00:03.43 | Syncing Point.011
-Fra:1 Mem:1057.73M (Peak 2077.07M) | Time:00:03.43 | Syncing Point.012
-Fra:1 Mem:1057.73M (Peak 2077.07M) | Time:00:03.43 | Syncing Point.013
-Fra:1 Mem:1057.73M (Peak 2077.07M) | Time:00:03.43 | Syncing Point.014
-Fra:1 Mem:1057.73M (Peak 2077.07M) | Time:00:03.43 | Syncing Point.015
-Fra:1 Mem:1057.73M (Peak 2077.07M) | Time:00:03.43 | Syncing Point.016
-Fra:1 Mem:1057.73M (Peak 2077.07M) | Time:00:03.43 | Syncing Point.017
-Fra:1 Mem:1057.73M (Peak 2077.07M) | Time:00:03.43 | Syncing Point.018
-Fra:1 Mem:1057.73M (Peak 2077.07M) | Time:00:03.43 | Syncing Point.019
-Fra:1 Mem:1057.73M (Peak 2077.07M) | Time:00:03.43 | Syncing Point.020
-Fra:1 Mem:1057.73M (Peak 2077.07M) | Time:00:03.43 | Syncing Point.021
-Fra:1 Mem:1057.73M (Peak 2077.07M) | Time:00:03.43 | Syncing Point.022
-Fra:1 Mem:1057.73M (Peak 2077.07M) | Time:00:03.43 | Syncing Point.023
-Fra:1 Mem:1057.73M (Peak 2077.07M) | Time:00:03.43 | Rendering 1 / 64 samples
-Fra:1 Mem:1053.74M (Peak 2077.07M) | Time:00:03.64 | Rendering 26 / 64 samples
-Fra:1 Mem:1053.74M (Peak 2077.07M) | Time:00:03.81 | Rendering 51 / 64 samples
-Fra:1 Mem:1053.74M (Peak 2077.07M) | Time:00:03.89 | Rendering 64 / 64 samples
-Saved: 'c:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\meshroom_data\Moving_GRAU5_5cam\Evaluation\TextureReconstruction\0001.jpg'
-Time: 00:04.10 (Saving: 00:00.19)
+OBJ import of 'texturedMesh_TRANSFORMED.obj' took 10.7 ms
+Fra:1 Mem:27.34M (Peak 28.42M) | Time:00:00.28 | Syncing texturedMesh_TRANSFORMED
+Fra:1 Mem:94.00M (Peak 155.38M) | Time:00:00.51 | Syncing Camera
+Fra:1 Mem:94.00M (Peak 155.38M) | Time:00:00.51 | Syncing Camera.001
+Fra:1 Mem:94.00M (Peak 155.38M) | Time:00:00.51 | Syncing Camera.002
+Fra:1 Mem:94.00M (Peak 155.38M) | Time:00:00.51 | Syncing Camera.003
+Fra:1 Mem:94.00M (Peak 155.38M) | Time:00:00.51 | Syncing Camera.004
+Fra:1 Mem:94.00M (Peak 155.38M) | Time:00:00.51 | Syncing Camera.005
+Fra:1 Mem:94.00M (Peak 155.38M) | Time:00:00.51 | Syncing Camera.006
+Fra:1 Mem:94.00M (Peak 155.38M) | Time:00:00.51 | Syncing Camera.007
+Fra:1 Mem:94.00M (Peak 155.38M) | Time:00:00.51 | Syncing Camera.008
+Fra:1 Mem:94.00M (Peak 155.38M) | Time:00:00.51 | Syncing Camera.009
+Fra:1 Mem:94.00M (Peak 155.38M) | Time:00:00.51 | Syncing Camera.010
+Fra:1 Mem:94.00M (Peak 155.38M) | Time:00:00.51 | Syncing Camera.011
+Fra:1 Mem:94.00M (Peak 155.38M) | Time:00:00.51 | Syncing Point
+Fra:1 Mem:94.00M (Peak 155.38M) | Time:00:00.51 | Syncing Point.001
+Fra:1 Mem:94.00M (Peak 155.38M) | Time:00:00.51 | Syncing Point.002
+Fra:1 Mem:94.00M (Peak 155.38M) | Time:00:00.51 | Syncing Point.003
+Fra:1 Mem:94.00M (Peak 155.38M) | Time:00:00.51 | Syncing Point.004
+Fra:1 Mem:94.00M (Peak 155.38M) | Time:00:00.51 | Syncing Point.005
+Fra:1 Mem:94.00M (Peak 155.38M) | Time:00:00.51 | Syncing Point.006
+Fra:1 Mem:94.00M (Peak 155.38M) | Time:00:00.51 | Syncing Point.007
+Fra:1 Mem:94.00M (Peak 155.38M) | Time:00:00.51 | Syncing Point.008
+Fra:1 Mem:94.00M (Peak 155.38M) | Time:00:00.51 | Syncing Point.009
+Fra:1 Mem:94.00M (Peak 155.38M) | Time:00:00.51 | Syncing Point.010
+Fra:1 Mem:94.00M (Peak 155.38M) | Time:00:00.51 | Syncing Point.011
+Fra:1 Mem:94.00M (Peak 155.38M) | Time:00:00.51 | Syncing Point.012
+Fra:1 Mem:94.00M (Peak 155.38M) | Time:00:00.51 | Syncing Point.013
+Fra:1 Mem:94.00M (Peak 155.38M) | Time:00:00.51 | Syncing Point.014
+Fra:1 Mem:94.00M (Peak 155.38M) | Time:00:00.51 | Syncing Point.015
+Fra:1 Mem:94.00M (Peak 155.38M) | Time:00:00.51 | Syncing Point.016
+Fra:1 Mem:94.00M (Peak 155.38M) | Time:00:00.51 | Syncing Point.017
+Fra:1 Mem:94.00M (Peak 155.38M) | Time:00:00.51 | Syncing Point.018
+Fra:1 Mem:94.00M (Peak 155.38M) | Time:00:00.51 | Syncing Point.019
+Fra:1 Mem:94.00M (Peak 155.38M) | Time:00:00.51 | Syncing Point.020
+Fra:1 Mem:94.00M (Peak 155.38M) | Time:00:00.51 | Syncing Point.021
+Fra:1 Mem:94.00M (Peak 155.38M) | Time:00:00.51 | Syncing Point.022
+Fra:1 Mem:94.00M (Peak 155.38M) | Time:00:00.51 | Syncing Point.023
+Fra:1 Mem:94.00M (Peak 155.38M) | Time:00:00.51 | Rendering 1 / 64 samples
+Fra:1 Mem:91.76M (Peak 155.38M) | Time:00:00.71 | Rendering 26 / 64 samples
+Fra:1 Mem:91.76M (Peak 155.38M) | Time:00:00.86 | Rendering 51 / 64 samples
+Fra:1 Mem:91.76M (Peak 155.38M) | Time:00:00.94 | Rendering 64 / 64 samples
+Saved: 'C:\Users\Tobias\Documents\Masterarbeit_lokal\ParamStudies\1\ParameterStudy_23\Evaluation\TextureReconstruction\0001.jpg'
+Time: 00:01.16 (Saving: 00:00.20)
 
-Fra:1 Mem:1053.73M (Peak 1053.73M) | Time:00:00.00 | Syncing texturedMesh_TRANSFORMED
-Fra:1 Mem:1057.73M (Peak 2077.74M) | Time:00:00.62 | Syncing Camera
-Fra:1 Mem:1057.73M (Peak 2077.74M) | Time:00:00.62 | Syncing Camera.001
-Fra:1 Mem:1057.73M (Peak 2077.74M) | Time:00:00.62 | Syncing Camera.002
-Fra:1 Mem:1057.73M (Peak 2077.74M) | Time:00:00.62 | Syncing Camera.003
-Fra:1 Mem:1057.73M (Peak 2077.74M) | Time:00:00.62 | Syncing Camera.004
-Fra:1 Mem:1057.73M (Peak 2077.74M) | Time:00:00.62 | Syncing Camera.005
-Fra:1 Mem:1057.73M (Peak 2077.74M) | Time:00:00.62 | Syncing Camera.006
-Fra:1 Mem:1057.73M (Peak 2077.74M) | Time:00:00.62 | Syncing Camera.007
-Fra:1 Mem:1057.73M (Peak 2077.74M) | Time:00:00.62 | Syncing Camera.008
-Fra:1 Mem:1057.73M (Peak 2077.74M) | Time:00:00.62 | Syncing Camera.009
-Fra:1 Mem:1057.73M (Peak 2077.74M) | Time:00:00.62 | Syncing Camera.010
-Fra:1 Mem:1057.73M (Peak 2077.74M) | Time:00:00.62 | Syncing Camera.011
-Fra:1 Mem:1057.73M (Peak 2077.74M) | Time:00:00.62 | Syncing Point
-Fra:1 Mem:1057.73M (Peak 2077.74M) | Time:00:00.62 | Syncing Point.001
-Fra:1 Mem:1057.73M (Peak 2077.74M) | Time:00:00.62 | Syncing Point.002
-Fra:1 Mem:1057.73M (Peak 2077.74M) | Time:00:00.62 | Syncing Point.003
-Fra:1 Mem:1057.73M (Peak 2077.74M) | Time:00:00.62 | Syncing Point.004
-Fra:1 Mem:1057.73M (Peak 2077.74M) | Time:00:00.62 | Syncing Point.005
-Fra:1 Mem:1057.73M (Peak 2077.74M) | Time:00:00.62 | Syncing Point.006
-Fra:1 Mem:1057.73M (Peak 2077.74M) | Time:00:00.62 | Syncing Point.007
-Fra:1 Mem:1057.73M (Peak 2077.74M) | Time:00:00.62 | Syncing Point.008
-Fra:1 Mem:1057.73M (Peak 2077.74M) | Time:00:00.62 | Syncing Point.009
-Fra:1 Mem:1057.73M (Peak 2077.74M) | Time:00:00.62 | Syncing Point.010
-Fra:1 Mem:1057.73M (Peak 2077.74M) | Time:00:00.62 | Syncing Point.011
-Fra:1 Mem:1057.73M (Peak 2077.74M) | Time:00:00.62 | Syncing Point.012
-Fra:1 Mem:1057.73M (Peak 2077.74M) | Time:00:00.62 | Syncing Point.013
-Fra:1 Mem:1057.73M (Peak 2077.74M) | Time:00:00.62 | Syncing Point.014
-Fra:1 Mem:1057.73M (Peak 2077.74M) | Time:00:00.62 | Syncing Point.015
-Fra:1 Mem:1057.73M (Peak 2077.74M) | Time:00:00.62 | Syncing Point.016
-Fra:1 Mem:1057.73M (Peak 2077.74M) | Time:00:00.62 | Syncing Point.017
-Fra:1 Mem:1057.73M (Peak 2077.74M) | Time:00:00.62 | Syncing Point.018
-Fra:1 Mem:1057.73M (Peak 2077.74M) | Time:00:00.62 | Syncing Point.019
-Fra:1 Mem:1057.73M (Peak 2077.74M) | Time:00:00.62 | Syncing Point.020
-Fra:1 Mem:1057.73M (Peak 2077.74M) | Time:00:00.62 | Syncing Point.021
-Fra:1 Mem:1057.73M (Peak 2077.74M) | Time:00:00.62 | Syncing Point.022
-Fra:1 Mem:1057.73M (Peak 2077.74M) | Time:00:00.62 | Syncing Point.023
-Fra:1 Mem:1057.73M (Peak 2077.74M) | Time:00:00.62 | Rendering 1 / 64 samples
-Fra:1 Mem:1053.74M (Peak 2077.74M) | Time:00:00.79 | Rendering 26 / 64 samples
-Fra:1 Mem:1053.74M (Peak 2077.74M) | Time:00:00.95 | Rendering 51 / 64 samples
-Fra:1 Mem:1053.74M (Peak 2077.74M) | Time:00:01.02 | Rendering 64 / 64 samples
-Saved: 'c:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\meshroom_data\Moving_GRAU5_5cam\Evaluation\TextureReconstruction\0002.jpg'
-Time: 00:01.05 (Saving: 00:00.01)
+Fra:1 Mem:91.75M (Peak 91.75M) | Time:00:00.00 | Syncing texturedMesh_TRANSFORMED
+Fra:1 Mem:94.00M (Peak 155.75M) | Time:00:00.04 | Syncing Camera
+Fra:1 Mem:94.00M (Peak 155.75M) | Time:00:00.04 | Syncing Camera.001
+Fra:1 Mem:94.00M (Peak 155.75M) | Time:00:00.04 | Syncing Camera.002
+Fra:1 Mem:94.00M (Peak 155.75M) | Time:00:00.04 | Syncing Camera.003
+Fra:1 Mem:94.00M (Peak 155.75M) | Time:00:00.04 | Syncing Camera.004
+Fra:1 Mem:94.00M (Peak 155.75M) | Time:00:00.04 | Syncing Camera.005
+Fra:1 Mem:94.00M (Peak 155.75M) | Time:00:00.04 | Syncing Camera.006
+Fra:1 Mem:94.00M (Peak 155.75M) | Time:00:00.04 | Syncing Camera.007
+Fra:1 Mem:94.00M (Peak 155.75M) | Time:00:00.04 | Syncing Camera.008
+Fra:1 Mem:94.00M (Peak 155.75M) | Time:00:00.04 | Syncing Camera.009
+Fra:1 Mem:94.00M (Peak 155.75M) | Time:00:00.04 | Syncing Camera.010
+Fra:1 Mem:94.00M (Peak 155.75M) | Time:00:00.04 | Syncing Camera.011
+Fra:1 Mem:94.00M (Peak 155.75M) | Time:00:00.04 | Syncing Point
+Fra:1 Mem:94.00M (Peak 155.75M) | Time:00:00.04 | Syncing Point.001
+Fra:1 Mem:94.00M (Peak 155.75M) | Time:00:00.04 | Syncing Point.002
+Fra:1 Mem:94.00M (Peak 155.75M) | Time:00:00.04 | Syncing Point.003
+Fra:1 Mem:94.00M (Peak 155.75M) | Time:00:00.04 | Syncing Point.004
+Fra:1 Mem:94.00M (Peak 155.75M) | Time:00:00.04 | Syncing Point.005
+Fra:1 Mem:94.00M (Peak 155.75M) | Time:00:00.04 | Syncing Point.006
+Fra:1 Mem:94.00M (Peak 155.75M) | Time:00:00.04 | Syncing Point.007
+Fra:1 Mem:94.00M (Peak 155.75M) | Time:00:00.04 | Syncing Point.008
+Fra:1 Mem:94.00M (Peak 155.75M) | Time:00:00.04 | Syncing Point.009
+Fra:1 Mem:94.00M (Peak 155.75M) | Time:00:00.04 | Syncing Point.010
+Fra:1 Mem:94.00M (Peak 155.75M) | Time:00:00.04 | Syncing Point.011
+Fra:1 Mem:94.00M (Peak 155.75M) | Time:00:00.04 | Syncing Point.012
+Fra:1 Mem:94.00M (Peak 155.75M) | Time:00:00.04 | Syncing Point.013
+Fra:1 Mem:94.00M (Peak 155.75M) | Time:00:00.04 | Syncing Point.014
+Fra:1 Mem:94.00M (Peak 155.75M) | Time:00:00.04 | Syncing Point.015
+Fra:1 Mem:94.00M (Peak 155.75M) | Time:00:00.04 | Syncing Point.016
+Fra:1 Mem:94.00M (Peak 155.75M) | Time:00:00.04 | Syncing Point.017
+Fra:1 Mem:94.00M (Peak 155.75M) | Time:00:00.04 | Syncing Point.018
+Fra:1 Mem:94.00M (Peak 155.75M) | Time:00:00.04 | Syncing Point.019
+Fra:1 Mem:94.01M (Peak 155.75M) | Time:00:00.04 | Syncing Point.020
+Fra:1 Mem:94.01M (Peak 155.75M) | Time:00:00.04 | Syncing Point.021
+Fra:1 Mem:94.01M (Peak 155.75M) | Time:00:00.04 | Syncing Point.022
+Fra:1 Mem:94.01M (Peak 155.75M) | Time:00:00.04 | Syncing Point.023
+Fra:1 Mem:94.01M (Peak 155.75M) | Time:00:00.04 | Rendering 1 / 64 samples
+Fra:1 Mem:91.76M (Peak 155.75M) | Time:00:00.18 | Rendering 26 / 64 samples
+Fra:1 Mem:91.76M (Peak 155.75M) | Time:00:00.32 | Rendering 51 / 64 samples
+Fra:1 Mem:91.76M (Peak 155.75M) | Time:00:00.38 | Rendering 64 / 64 samples
+Saved: 'C:\Users\Tobias\Documents\Masterarbeit_lokal\ParamStudies\1\ParameterStudy_23\Evaluation\TextureReconstruction\0002.jpg'
+Time: 00:00.41 (Saving: 00:00.01)
 
-Fra:1 Mem:1053.73M (Peak 1053.73M) | Time:00:00.00 | Syncing texturedMesh_TRANSFORMED
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.001
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.002
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.003
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.004
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.005
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.006
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.007
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.008
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.009
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.010
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.011
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.001
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.002
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.003
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.004
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.005
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.006
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.007
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.008
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.009
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.010
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.011
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.012
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.013
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.014
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.015
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.016
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.017
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.018
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.019
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.020
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.021
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.022
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.023
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.01 | Rendering 1 / 64 samples
-Fra:1 Mem:1053.74M (Peak 1057.90M) | Time:00:00.23 | Rendering 26 / 64 samples
-Fra:1 Mem:1053.74M (Peak 1057.90M) | Time:00:00.44 | Rendering 51 / 64 samples
-Fra:1 Mem:1053.74M (Peak 1057.90M) | Time:00:00.55 | Rendering 64 / 64 samples
-Saved: 'c:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\meshroom_data\Moving_GRAU5_5cam\Evaluation\TextureReconstruction\0003.jpg'
-Time: 00:00.58 (Saving: 00:00.01)
+Fra:1 Mem:91.75M (Peak 91.75M) | Time:00:00.00 | Syncing texturedMesh_TRANSFORMED
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.001
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.002
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.003
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.004
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.005
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.006
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.007
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.008
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.009
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.010
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.011
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.001
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.002
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.003
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.004
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.005
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.006
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.007
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.008
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.009
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.010
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.011
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.012
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.013
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.014
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.015
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.016
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.017
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.018
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.019
+Fra:1 Mem:94.01M (Peak 94.01M) | Time:00:00.00 | Syncing Point.020
+Fra:1 Mem:94.01M (Peak 94.01M) | Time:00:00.00 | Syncing Point.021
+Fra:1 Mem:94.01M (Peak 94.01M) | Time:00:00.00 | Syncing Point.022
+Fra:1 Mem:94.01M (Peak 94.01M) | Time:00:00.00 | Syncing Point.023
+Fra:1 Mem:94.01M (Peak 94.01M) | Time:00:00.00 | Rendering 1 / 64 samples
+Fra:1 Mem:91.76M (Peak 94.01M) | Time:00:00.20 | Rendering 26 / 64 samples
+Fra:1 Mem:91.76M (Peak 94.01M) | Time:00:00.39 | Rendering 51 / 64 samples
+Fra:1 Mem:91.76M (Peak 94.01M) | Time:00:00.49 | Rendering 64 / 64 samples
+Saved: 'C:\Users\Tobias\Documents\Masterarbeit_lokal\ParamStudies\1\ParameterStudy_23\Evaluation\TextureReconstruction\0003.jpg'
+Time: 00:00.52 (Saving: 00:00.01)
 
-Fra:1 Mem:1053.73M (Peak 1053.73M) | Time:00:00.00 | Syncing texturedMesh_TRANSFORMED
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.001
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.002
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.003
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.004
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.005
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.006
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.007
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.008
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.009
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.010
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.011
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.001
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.002
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.003
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.004
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.005
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.006
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.007
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.008
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.009
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.010
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.011
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.012
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.013
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.014
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.015
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.016
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.017
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.018
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.019
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.020
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.021
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.022
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.023
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.01 | Rendering 1 / 64 samples
-Fra:1 Mem:1053.74M (Peak 1057.90M) | Time:00:00.19 | Rendering 26 / 64 samples
-Fra:1 Mem:1053.74M (Peak 1057.90M) | Time:00:00.36 | Rendering 51 / 64 samples
-Fra:1 Mem:1053.74M (Peak 1057.90M) | Time:00:00.44 | Rendering 64 / 64 samples
-Saved: 'c:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\meshroom_data\Moving_GRAU5_5cam\Evaluation\TextureReconstruction\0004.jpg'
-Time: 00:00.47 (Saving: 00:00.01)
-
-Fra:1 Mem:1053.73M (Peak 1053.73M) | Time:00:00.00 | Syncing texturedMesh_TRANSFORMED
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.001
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.002
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.003
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.004
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.005
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.006
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.007
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.008
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.009
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.010
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.011
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.001
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.002
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.003
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.004
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.005
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.006
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.007
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.008
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.009
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.010
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.011
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.012
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.013
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.014
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.015
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.016
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.017
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.018
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.019
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.020
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.021
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.022
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.023
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.01 | Rendering 1 / 64 samples
-Fra:1 Mem:1053.74M (Peak 1057.90M) | Time:00:00.25 | Rendering 26 / 64 samples
-Fra:1 Mem:1053.74M (Peak 1057.90M) | Time:00:00.47 | Rendering 51 / 64 samples
-Fra:1 Mem:1053.74M (Peak 1057.90M) | Time:00:00.59 | Rendering 64 / 64 samples
-Saved: 'c:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\meshroom_data\Moving_GRAU5_5cam\Evaluation\TextureReconstruction\0005.jpg'
-Time: 00:00.62 (Saving: 00:00.01)
-
-Fra:1 Mem:1053.73M (Peak 1053.73M) | Time:00:00.00 | Syncing texturedMesh_TRANSFORMED
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.001
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.002
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.003
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.004
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.005
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.006
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.007
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.008
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.009
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.010
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.011
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.001
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.002
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.003
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.004
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.005
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.006
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.007
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.008
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.009
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.010
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.011
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.012
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.013
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.014
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.015
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.016
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.017
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.018
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.019
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.020
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.021
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.022
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.023
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Rendering 1 / 64 samples
-Fra:1 Mem:1053.74M (Peak 1057.90M) | Time:00:00.17 | Rendering 26 / 64 samples
-Fra:1 Mem:1053.74M (Peak 1057.90M) | Time:00:00.33 | Rendering 51 / 64 samples
-Fra:1 Mem:1053.74M (Peak 1057.90M) | Time:00:00.40 | Rendering 64 / 64 samples
-Saved: 'c:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\meshroom_data\Moving_GRAU5_5cam\Evaluation\TextureReconstruction\0006.jpg'
-Time: 00:00.43 (Saving: 00:00.01)
-
-Fra:1 Mem:1053.73M (Peak 1053.73M) | Time:00:00.00 | Syncing texturedMesh_TRANSFORMED
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.001
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.002
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.003
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.004
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.005
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.006
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.007
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.008
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.009
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.010
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.011
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.001
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.002
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.003
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.004
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.005
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.006
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.007
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.008
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.009
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.010
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.011
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.012
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.013
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.014
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.015
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.016
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.017
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.018
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.019
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.020
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.021
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.022
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.023
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Rendering 1 / 64 samples
-Fra:1 Mem:1053.74M (Peak 1057.90M) | Time:00:00.22 | Rendering 26 / 64 samples
-Fra:1 Mem:1053.74M (Peak 1057.90M) | Time:00:00.42 | Rendering 51 / 64 samples
-Fra:1 Mem:1053.74M (Peak 1057.90M) | Time:00:00.53 | Rendering 64 / 64 samples
-Saved: 'c:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\meshroom_data\Moving_GRAU5_5cam\Evaluation\TextureReconstruction\0007.jpg'
-Time: 00:00.56 (Saving: 00:00.01)
-
-Fra:1 Mem:1053.73M (Peak 1053.73M) | Time:00:00.00 | Syncing texturedMesh_TRANSFORMED
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.001
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.002
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.003
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.004
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.005
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.006
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.007
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.008
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.009
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.010
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.011
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.001
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.002
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.003
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.004
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.005
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.006
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.007
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.008
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.009
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.010
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.011
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.012
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.013
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.014
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.015
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.016
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.017
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.018
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.019
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.020
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.021
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.022
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.023
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Rendering 1 / 64 samples
-Fra:1 Mem:1053.74M (Peak 1057.90M) | Time:00:00.17 | Rendering 26 / 64 samples
-Fra:1 Mem:1053.74M (Peak 1057.90M) | Time:00:00.32 | Rendering 51 / 64 samples
-Fra:1 Mem:1053.74M (Peak 1057.90M) | Time:00:00.39 | Rendering 64 / 64 samples
-Saved: 'c:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\meshroom_data\Moving_GRAU5_5cam\Evaluation\TextureReconstruction\0008.jpg'
+Fra:1 Mem:91.75M (Peak 91.75M) | Time:00:00.00 | Syncing texturedMesh_TRANSFORMED
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.001
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.002
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.003
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.004
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.005
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.006
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.007
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.008
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.009
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.010
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.011
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.001
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.002
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.003
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.004
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.005
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.006
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.007
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.008
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.009
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.010
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.011
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.012
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.013
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.014
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.015
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.016
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.017
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.018
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.019
+Fra:1 Mem:94.01M (Peak 94.01M) | Time:00:00.00 | Syncing Point.020
+Fra:1 Mem:94.01M (Peak 94.01M) | Time:00:00.00 | Syncing Point.021
+Fra:1 Mem:94.01M (Peak 94.01M) | Time:00:00.00 | Syncing Point.022
+Fra:1 Mem:94.01M (Peak 94.01M) | Time:00:00.00 | Syncing Point.023
+Fra:1 Mem:94.01M (Peak 94.01M) | Time:00:00.00 | Rendering 1 / 64 samples
+Fra:1 Mem:91.76M (Peak 94.01M) | Time:00:00.16 | Rendering 26 / 64 samples
+Fra:1 Mem:91.76M (Peak 94.01M) | Time:00:00.31 | Rendering 51 / 64 samples
+Fra:1 Mem:91.76M (Peak 94.01M) | Time:00:00.39 | Rendering 64 / 64 samples
+Saved: 'C:\Users\Tobias\Documents\Masterarbeit_lokal\ParamStudies\1\ParameterStudy_23\Evaluation\TextureReconstruction\0004.jpg'
 Time: 00:00.42 (Saving: 00:00.01)
 
-Fra:1 Mem:1053.73M (Peak 1053.73M) | Time:00:00.00 | Syncing texturedMesh_TRANSFORMED
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.001
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.002
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.003
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.004
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.005
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.006
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.007
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.008
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.009
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.010
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.011
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.001
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.002
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.003
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.004
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.005
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.006
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.007
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.008
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.009
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.010
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.011
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.012
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.013
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.014
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.015
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.016
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.017
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.018
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.019
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.020
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.021
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.022
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.023
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Rendering 1 / 64 samples
-Fra:1 Mem:1053.74M (Peak 1057.90M) | Time:00:00.23 | Rendering 26 / 64 samples
-Fra:1 Mem:1053.74M (Peak 1057.90M) | Time:00:00.44 | Rendering 51 / 64 samples
-Fra:1 Mem:1053.74M (Peak 1057.90M) | Time:00:00.54 | Rendering 64 / 64 samples
-Saved: 'c:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\meshroom_data\Moving_GRAU5_5cam\Evaluation\TextureReconstruction\0009.jpg'
-Time: 00:00.58 (Saving: 00:00.02)
+Fra:1 Mem:91.75M (Peak 91.75M) | Time:00:00.00 | Syncing texturedMesh_TRANSFORMED
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.001
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.002
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.003
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.004
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.005
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.006
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.007
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.008
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.009
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.010
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.011
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.001
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.002
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.003
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.004
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.005
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.006
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.007
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.008
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.009
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.010
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.011
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.012
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.013
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.014
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.015
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.016
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.017
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.018
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.019
+Fra:1 Mem:94.01M (Peak 94.01M) | Time:00:00.00 | Syncing Point.020
+Fra:1 Mem:94.01M (Peak 94.01M) | Time:00:00.00 | Syncing Point.021
+Fra:1 Mem:94.01M (Peak 94.01M) | Time:00:00.00 | Syncing Point.022
+Fra:1 Mem:94.01M (Peak 94.01M) | Time:00:00.00 | Syncing Point.023
+Fra:1 Mem:94.01M (Peak 94.01M) | Time:00:00.00 | Rendering 1 / 64 samples
+Fra:1 Mem:91.76M (Peak 94.01M) | Time:00:00.22 | Rendering 26 / 64 samples
+Fra:1 Mem:91.76M (Peak 94.01M) | Time:00:00.43 | Rendering 51 / 64 samples
+Fra:1 Mem:91.76M (Peak 94.01M) | Time:00:00.54 | Rendering 64 / 64 samples
+Saved: 'C:\Users\Tobias\Documents\Masterarbeit_lokal\ParamStudies\1\ParameterStudy_23\Evaluation\TextureReconstruction\0005.jpg'
+Time: 00:00.57 (Saving: 00:00.01)
 
-Fra:1 Mem:1053.73M (Peak 1053.73M) | Time:00:00.00 | Syncing texturedMesh_TRANSFORMED
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.001
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.002
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.003
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.004
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.005
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.006
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.007
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.008
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.009
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.010
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.011
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.001
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.002
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.003
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.004
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.005
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.006
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.007
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.008
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.009
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.010
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.011
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.012
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.013
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.014
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.015
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.016
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.017
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.018
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.019
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.020
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.021
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.022
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.023
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Rendering 1 / 64 samples
-Fra:1 Mem:1053.74M (Peak 1057.90M) | Time:00:00.18 | Rendering 26 / 64 samples
-Fra:1 Mem:1053.74M (Peak 1057.90M) | Time:00:00.34 | Rendering 51 / 64 samples
-Fra:1 Mem:1053.74M (Peak 1057.90M) | Time:00:00.43 | Rendering 64 / 64 samples
-Saved: 'c:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\meshroom_data\Moving_GRAU5_5cam\Evaluation\TextureReconstruction\0010.jpg'
-Time: 00:00.46 (Saving: 00:00.02)
+Fra:1 Mem:91.75M (Peak 91.75M) | Time:00:00.00 | Syncing texturedMesh_TRANSFORMED
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.001
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.002
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.003
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.004
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.005
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.006
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.007
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.008
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.009
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.010
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.011
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.001
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.002
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.003
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.004
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.005
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.006
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.007
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.008
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.009
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.010
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.011
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.012
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.013
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.014
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.015
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.016
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.017
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.018
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.019
+Fra:1 Mem:94.01M (Peak 94.01M) | Time:00:00.00 | Syncing Point.020
+Fra:1 Mem:94.01M (Peak 94.01M) | Time:00:00.00 | Syncing Point.021
+Fra:1 Mem:94.01M (Peak 94.01M) | Time:00:00.00 | Syncing Point.022
+Fra:1 Mem:94.01M (Peak 94.01M) | Time:00:00.00 | Syncing Point.023
+Fra:1 Mem:94.01M (Peak 94.01M) | Time:00:00.00 | Rendering 1 / 64 samples
+Fra:1 Mem:91.76M (Peak 94.01M) | Time:00:00.15 | Rendering 26 / 64 samples
+Fra:1 Mem:91.76M (Peak 94.01M) | Time:00:00.29 | Rendering 51 / 64 samples
+Fra:1 Mem:91.76M (Peak 94.01M) | Time:00:00.36 | Rendering 64 / 64 samples
+Saved: 'C:\Users\Tobias\Documents\Masterarbeit_lokal\ParamStudies\1\ParameterStudy_23\Evaluation\TextureReconstruction\0006.jpg'
+Time: 00:00.39 (Saving: 00:00.01)
 
-Fra:1 Mem:1053.73M (Peak 1053.73M) | Time:00:00.00 | Syncing texturedMesh_TRANSFORMED
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.001
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.002
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.003
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.004
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.005
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.006
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.007
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.008
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.009
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.010
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.011
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.001
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.002
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.003
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.004
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.005
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.006
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.007
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.008
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.009
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.010
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.011
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.012
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.013
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.014
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.015
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.016
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.017
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.018
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.019
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.020
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.021
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.022
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.023
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.01 | Rendering 1 / 64 samples
-Fra:1 Mem:1053.74M (Peak 1057.90M) | Time:00:00.18 | Rendering 26 / 64 samples
-Fra:1 Mem:1053.74M (Peak 1057.90M) | Time:00:00.34 | Rendering 51 / 64 samples
-Fra:1 Mem:1053.74M (Peak 1057.90M) | Time:00:00.43 | Rendering 64 / 64 samples
-Saved: 'c:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\meshroom_data\Moving_GRAU5_5cam\Evaluation\TextureReconstruction\0011.jpg'
-Time: 00:00.45 (Saving: 00:00.01)
+Fra:1 Mem:91.75M (Peak 91.75M) | Time:00:00.00 | Syncing texturedMesh_TRANSFORMED
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.001
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.002
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.003
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.004
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.005
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.006
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.007
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.008
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.009
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.010
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.011
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.001
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.002
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.003
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.004
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.005
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.006
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.007
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.008
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.009
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.010
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.011
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.012
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.013
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.014
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.015
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.016
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.017
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.018
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.019
+Fra:1 Mem:94.01M (Peak 94.01M) | Time:00:00.00 | Syncing Point.020
+Fra:1 Mem:94.01M (Peak 94.01M) | Time:00:00.00 | Syncing Point.021
+Fra:1 Mem:94.01M (Peak 94.01M) | Time:00:00.00 | Syncing Point.022
+Fra:1 Mem:94.01M (Peak 94.01M) | Time:00:00.00 | Syncing Point.023
+Fra:1 Mem:94.01M (Peak 94.01M) | Time:00:00.00 | Rendering 1 / 64 samples
+Fra:1 Mem:91.76M (Peak 94.01M) | Time:00:00.21 | Rendering 26 / 64 samples
+Fra:1 Mem:91.76M (Peak 94.01M) | Time:00:00.39 | Rendering 51 / 64 samples
+Fra:1 Mem:91.76M (Peak 94.01M) | Time:00:00.49 | Rendering 64 / 64 samples
+Saved: 'C:\Users\Tobias\Documents\Masterarbeit_lokal\ParamStudies\1\ParameterStudy_23\Evaluation\TextureReconstruction\0007.jpg'
+Time: 00:00.52 (Saving: 00:00.01)
 
-Fra:1 Mem:1053.73M (Peak 1053.73M) | Time:00:00.00 | Syncing texturedMesh_TRANSFORMED
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.001
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.002
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.003
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.004
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.005
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.006
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.007
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.008
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.009
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.010
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Camera.011
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.001
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.002
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.003
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.004
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.005
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.006
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.007
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.008
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.009
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.010
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.011
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.012
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.013
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.014
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.015
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.016
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.017
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.018
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.019
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.020
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.021
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.022
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Syncing Point.023
-Fra:1 Mem:1057.73M (Peak 1057.90M) | Time:00:00.00 | Rendering 1 / 64 samples
-Fra:1 Mem:1053.74M (Peak 1057.90M) | Time:00:00.16 | Rendering 26 / 64 samples
-Fra:1 Mem:1053.74M (Peak 1057.90M) | Time:00:00.31 | Rendering 51 / 64 samples
-Fra:1 Mem:1053.74M (Peak 1057.90M) | Time:00:00.38 | Rendering 64 / 64 samples
-Saved: 'c:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\meshroom_data\Moving_GRAU5_5cam\Evaluation\TextureReconstruction\0012.jpg'
-Time: 00:00.41 (Saving: 00:00.01)
+Fra:1 Mem:91.75M (Peak 91.75M) | Time:00:00.00 | Syncing texturedMesh_TRANSFORMED
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.001
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.002
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.003
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.004
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.005
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.006
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.007
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.008
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.009
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.010
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.011
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.001
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.002
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.003
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.004
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.005
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.006
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.007
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.008
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.009
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.010
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.011
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.012
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.013
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.014
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.015
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.016
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.017
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.018
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.019
+Fra:1 Mem:94.01M (Peak 94.01M) | Time:00:00.00 | Syncing Point.020
+Fra:1 Mem:94.01M (Peak 94.01M) | Time:00:00.00 | Syncing Point.021
+Fra:1 Mem:94.01M (Peak 94.01M) | Time:00:00.00 | Syncing Point.022
+Fra:1 Mem:94.01M (Peak 94.01M) | Time:00:00.00 | Syncing Point.023
+Fra:1 Mem:94.01M (Peak 94.01M) | Time:00:00.00 | Rendering 1 / 64 samples
+Fra:1 Mem:91.76M (Peak 94.01M) | Time:00:00.14 | Rendering 26 / 64 samples
+Fra:1 Mem:91.76M (Peak 94.01M) | Time:00:00.27 | Rendering 51 / 64 samples
+Fra:1 Mem:91.76M (Peak 94.01M) | Time:00:00.34 | Rendering 64 / 64 samples
+Saved: 'C:\Users\Tobias\Documents\Masterarbeit_lokal\ParamStudies\1\ParameterStudy_23\Evaluation\TextureReconstruction\0008.jpg'
+Time: 00:00.37 (Saving: 00:00.02)
+
+Fra:1 Mem:91.75M (Peak 91.75M) | Time:00:00.00 | Syncing texturedMesh_TRANSFORMED
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.001
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.002
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.003
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.004
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.005
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.006
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.007
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.008
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.009
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.010
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.011
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.001
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.002
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.003
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.004
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.005
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.006
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.007
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.008
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.009
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.010
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.011
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.012
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.013
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.014
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.015
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.016
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.017
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.018
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.019
+Fra:1 Mem:94.01M (Peak 94.01M) | Time:00:00.00 | Syncing Point.020
+Fra:1 Mem:94.01M (Peak 94.01M) | Time:00:00.00 | Syncing Point.021
+Fra:1 Mem:94.01M (Peak 94.01M) | Time:00:00.00 | Syncing Point.022
+Fra:1 Mem:94.01M (Peak 94.01M) | Time:00:00.00 | Syncing Point.023
+Fra:1 Mem:94.01M (Peak 94.01M) | Time:00:00.00 | Rendering 1 / 64 samples
+Fra:1 Mem:91.76M (Peak 94.01M) | Time:00:00.20 | Rendering 26 / 64 samples
+Fra:1 Mem:91.76M (Peak 94.01M) | Time:00:00.39 | Rendering 51 / 64 samples
+Fra:1 Mem:91.76M (Peak 94.01M) | Time:00:00.48 | Rendering 64 / 64 samples
+Saved: 'C:\Users\Tobias\Documents\Masterarbeit_lokal\ParamStudies\1\ParameterStudy_23\Evaluation\TextureReconstruction\0009.jpg'
+Time: 00:00.51 (Saving: 00:00.01)
+
+Fra:1 Mem:91.75M (Peak 91.75M) | Time:00:00.00 | Syncing texturedMesh_TRANSFORMED
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.001
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.002
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.003
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.004
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.005
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.006
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.007
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.008
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.009
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.010
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.011
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.001
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.002
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.003
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.004
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.005
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.006
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.007
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.008
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.009
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.010
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.011
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.012
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.013
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.014
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.015
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.016
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.017
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.018
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.019
+Fra:1 Mem:94.01M (Peak 94.01M) | Time:00:00.00 | Syncing Point.020
+Fra:1 Mem:94.01M (Peak 94.01M) | Time:00:00.00 | Syncing Point.021
+Fra:1 Mem:94.01M (Peak 94.01M) | Time:00:00.00 | Syncing Point.022
+Fra:1 Mem:94.01M (Peak 94.01M) | Time:00:00.00 | Syncing Point.023
+Fra:1 Mem:94.01M (Peak 94.01M) | Time:00:00.00 | Rendering 1 / 64 samples
+Fra:1 Mem:91.76M (Peak 94.01M) | Time:00:00.16 | Rendering 26 / 64 samples
+Fra:1 Mem:91.76M (Peak 94.01M) | Time:00:00.30 | Rendering 51 / 64 samples
+Fra:1 Mem:91.76M (Peak 94.01M) | Time:00:00.37 | Rendering 64 / 64 samples
+Saved: 'C:\Users\Tobias\Documents\Masterarbeit_lokal\ParamStudies\1\ParameterStudy_23\Evaluation\TextureReconstruction\0010.jpg'
+Time: 00:00.40 (Saving: 00:00.01)
+
+Fra:1 Mem:91.75M (Peak 91.75M) | Time:00:00.00 | Syncing texturedMesh_TRANSFORMED
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.001
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.002
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.003
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.004
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.005
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.006
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.007
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.008
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.009
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.010
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.011
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.001
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.002
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.003
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.004
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.005
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.006
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.007
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.008
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.009
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.010
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.011
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.012
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.013
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.014
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.015
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.016
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.017
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.018
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.019
+Fra:1 Mem:94.01M (Peak 94.01M) | Time:00:00.00 | Syncing Point.020
+Fra:1 Mem:94.01M (Peak 94.01M) | Time:00:00.00 | Syncing Point.021
+Fra:1 Mem:94.01M (Peak 94.01M) | Time:00:00.00 | Syncing Point.022
+Fra:1 Mem:94.01M (Peak 94.01M) | Time:00:00.00 | Syncing Point.023
+Fra:1 Mem:94.01M (Peak 94.01M) | Time:00:00.00 | Rendering 1 / 64 samples
+Fra:1 Mem:91.76M (Peak 94.01M) | Time:00:00.16 | Rendering 26 / 64 samples
+Fra:1 Mem:91.76M (Peak 94.01M) | Time:00:00.31 | Rendering 51 / 64 samples
+Fra:1 Mem:91.76M (Peak 94.01M) | Time:00:00.39 | Rendering 64 / 64 samples
+Saved: 'C:\Users\Tobias\Documents\Masterarbeit_lokal\ParamStudies\1\ParameterStudy_23\Evaluation\TextureReconstruction\0011.jpg'
+Time: 00:00.42 (Saving: 00:00.01)
+
+Fra:1 Mem:91.75M (Peak 91.75M) | Time:00:00.00 | Syncing texturedMesh_TRANSFORMED
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.001
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.002
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.003
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.004
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.005
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.006
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.007
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.008
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.009
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.010
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Camera.011
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.001
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.002
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.003
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.004
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.005
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.006
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.007
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.008
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.009
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.010
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.011
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.012
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.013
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.014
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.015
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.016
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.017
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.018
+Fra:1 Mem:94.00M (Peak 94.00M) | Time:00:00.00 | Syncing Point.019
+Fra:1 Mem:94.01M (Peak 94.01M) | Time:00:00.00 | Syncing Point.020
+Fra:1 Mem:94.01M (Peak 94.01M) | Time:00:00.00 | Syncing Point.021
+Fra:1 Mem:94.01M (Peak 94.01M) | Time:00:00.00 | Syncing Point.022
+Fra:1 Mem:94.01M (Peak 94.01M) | Time:00:00.00 | Syncing Point.023
+Fra:1 Mem:94.01M (Peak 94.01M) | Time:00:00.00 | Rendering 1 / 64 samples
+Fra:1 Mem:91.76M (Peak 94.01M) | Time:00:00.15 | Rendering 26 / 64 samples
+Fra:1 Mem:91.76M (Peak 94.01M) | Time:00:00.28 | Rendering 51 / 64 samples
+Fra:1 Mem:91.76M (Peak 94.01M) | Time:00:00.35 | Rendering 64 / 64 samples
+Saved: 'C:\Users\Tobias\Documents\Masterarbeit_lokal\ParamStudies\1\ParameterStudy_23\Evaluation\TextureReconstruction\0012.jpg'
+Time: 00:00.37 (Saving: 00:00.01)
 
 
 Blender quit

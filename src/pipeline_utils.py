@@ -6,6 +6,7 @@ import logging
 import numpy as np
 import matplotlib.pyplot as plt
 import shutil
+import pandas as pd
 
 def LoadDefaultSceneParameters(project_name,obj_moving,params_file_name=None):
     logging.info(f"Running 3D-Reconstruction pipeline: project name = {project_name}, moving object = {obj_moving}")
@@ -152,10 +153,11 @@ def ScaleScene(cams_rec,cams_ref,evaluation_path,scaling_params,DisplayAllPlots=
     from src.scaling_factor import scaling_factor
     logging.info('Calculate scaling factor')
     print(f"{len(cams_rec)} of {len(cams_ref)} cameras could be reconstructed!")
-    factor_mean, factor_median, factor_std, fig = scaling_factor(cams_rec,cams_ref,evaluation_path,scaling_params["PreOutlierDetection"],scaling_params["threshold"],scaling_params["criterion"],True,DisplayAllPlots) 
+    factor_mean, factor_median, factor_std, _, number_inliers, number_outliers  = scaling_factor(cams_rec,cams_ref,evaluation_path,scaling_params["PreOutlierDetection"],scaling_params["threshold"],scaling_params["criterion"],True,DisplayAllPlots) 
     scaling = factor_median
     print(f"Scaling factor: {scaling}")
-    return scaling
+    dict_scaling = {"median": factor_median, "mean": factor_mean, "std": factor_std, "number_inliers": number_inliers, "number_outliers": number_outliers} 
+    return scaling, dict_scaling
 
 def PlotReconstructedObject(project_name,evaluation_path,DisplayPlots):
     from src.plot_mesh_vedo import plot_mesh_vedo
@@ -255,14 +257,20 @@ def EvaluateRecMesh(evaluation_dir):
     from src.read_c2m_distance_from_log import read_c2m_distance_from_log
     log_path = evaluation_dir / "log_CloudCompare.txt"
     mean_distance, std_deviation = read_c2m_distance_from_log(log_path)
-    M2M_Distance = [mean_distance, std_deviation]
-    return M2M_Distance
+    dict_M2M = {"mean": mean_distance[1], "std": std_deviation[1]}
+    return dict_M2M
 
 def EvaluateSizeProperties(evaluation_path,object_path,T,T_global):
     from src.EvaluateVolumeSurfaceArea import EvaluateVolumeSurfaceArea
-    EvaluateVolumeSurfaceArea(evaluation_path,object_path,T_global,T)    
+    df = EvaluateVolumeSurfaceArea(evaluation_path,object_path,T_global,T)
+    dict_morphology = {
+        "ref": {"volume": df.iloc[2,1], "surface": df.iloc[2,2], "surf2vol": df.iloc[2,4], "sphericity": df.iloc[2,5]},
+        "rec": {"volume": df.iloc[0,1], "surface": df.iloc[0,2], "surf2vol": df.iloc[0,4], "sphericity": df.iloc[0,5]},
+        "rec_CC": {"volume": df.iloc[1,1]}
+    }
+    return dict_morphology
     
-def EvaluateCameraPoses(obj_moving,cams_rec,cams_ref,objs,obj0,T,scene_params,evaluation_dir,DisplayPlots=False):
+def EvaluateCameraPoses(obj_moving,cams_rec,cams_ref,objs,obj0,T,scene_params,evaluation_dir,CamEvalParams,DisplayPlots=False):
     focuspoint = scene_params["cam"]["focuspoint"]
     # Calculate camera parameters in relation to the global coordinate system
     for i, cam in enumerate(cams_rec): cam.Transformation2WorldCoordinateSystem(T,focuspoint)
@@ -280,9 +288,14 @@ def EvaluateCameraPoses(obj_moving,cams_rec,cams_ref,objs,obj0,T,scene_params,ev
     # Quantitativ evaluation of the reconstructed camera positions
     from src.CameraPositionEvaluation import CreateCameraDataSets
     pos_x,pos_y,Rx,Ry = CreateCameraDataSets(cams_rec,cams_ref)
-    from src.CameraPositionEvaluation import PlotAbsPositionError_for_xyz, PlotAbsPositionError
-    PlotAbsPositionError_for_xyz(pos_x,pos_y,DisplayPlots) 
-    PlotAbsPositionError(pos_x,pos_y,outlier_criterion=0.005,DisplayPlots=DisplayPlots)
+    from src.CameraPositionEvaluation import PlotAbsPositionError_for_xyz, AbsPositionError
+    PlotAbsPositionError_for_xyz(pos_x,pos_y,DisplayPlots)
+    threshold = CamEvalParams["threshold"] 
+    mean_error, std_deviation, mean_error_rel, outliers_count = AbsPositionError(pos_x,pos_y,outlier_criterion=threshold,DisplayPlots=DisplayPlots)
+    # return results in an dict
+    dict_camera = {"mean_abs_error": mean_error, "std_abs_error": std_deviation, "mean_rel_error": mean_error_rel, 
+                   "images": len(cams_ref), "rec_cams": len(cams_rec), "outliers": outliers_count}
+    return dict_camera
     
 def PlotCameraPoses(cams_ref,cams_rec,scene_params,obj_moving,evaluation_dir,DisplayPlots):
     from src.camera_pose_visualizer import CameraPoseVisualizer
@@ -388,3 +401,33 @@ def CopyObjWithAssets(obj_path, target_dir):
     else:
         print(f".mtl file {mtl_path} not found.")
     return obj_destination_path
+
+def SaveQuantitativeEvaluationData(evaluation_dir,evaluation_dict):
+  file_path = Path(evaluation_dir) / "QuantiativeEvaluationData.JSON"
+  with open(file_path, "w") as json_file:
+    json.dump(evaluation_dict, json_file, indent=5)  
+    
+def QuantitativeEvaluationData2DataFrame(data):
+
+    scaling_rel_error = ((data["Morphology"]["rec"]["volume"]**(1/3)-data["Morphology"]["rec_CC"]["volume"]**(1/3)) / data["Morphology"]["rec_CC"]["volume"]**(1/3))*100
+    df_data = {
+        "Scaling_median": [data["ScalingFactor"]["median"]],
+        "Scaling_std": [data["ScalingFactor"]["std"]],
+        "Scaling_error_percent": [scaling_rel_error],
+        "Mesh2MeshDist_mean": [data["Mesh2MeshDistance"]["mean"]],
+        "Mesh2MeshDist_std": [data["Mesh2MeshDistance"]["std"]],
+        "volume_ref": [data["Morphology"]["ref"]["volume"]],
+        "volume_rec": [data["Morphology"]["rec"]["volume"]],
+        "surface_ref": [data["Morphology"]["ref"]["surface"]],
+        "surface_rec": [data["Morphology"]["rec"]["surface"]],
+        "sphericity_ref": [data["Morphology"]["ref"]["sphericity"]],
+        "sphericity_rec": [data["Morphology"]["rec"]["sphericity"]],
+        "cam_mean_abs_error": [data["Camera"]["mean_abs_error"]],
+        "cam_std_abs_error": [data["Camera"]["std_abs_error"]],
+        "cam_outliers": [data["Camera"]["outliers"]],
+        "cam_threshold": [data["ParamsEvo"]["CameraPositioning"]["threshold"]],
+        "rec_cams": [data["Camera"]["rec_cams"]],
+        "images": [data["Camera"]["images"]]
+    }
+    df = pd.DataFrame(df_data)
+    return df

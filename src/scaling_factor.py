@@ -32,7 +32,10 @@ def scaling_factor(cams_rec,cams_ref,evaluation_path,PreOutlierDetection=False,t
     # Detect and remove outliers that do not agree with the consistency rules
     if PreOutlierDetection:
         cams_info = np.vstack(cams_info)
+        total_number = len(y)
         y, x = ConsistencyBasedOutlierDetection(y,x,cams_info,threshold,criterion)
+        number_inliers = len(y);     number_outliers = total_number - number_inliers; 
+    else: number_outliers = None; number_inliers = len(y)
     # calculate scaling factor and statistical measurements 
     factor_vec = np.divide(y,x)                     # Scaling factor = distance_ref / distance_rec     
     factor_mean = np.mean(factor_vec)               # Calculate mean scaling factor
@@ -42,7 +45,7 @@ def scaling_factor(cams_rec,cams_ref,evaluation_path,PreOutlierDetection=False,t
     if plot:
         fig = scaling_factor_plot(factor_vec,factor_mean,factor_median,factor_std,evaluation_path,DisplayAllPlots)
     else: fig = None
-    return factor_mean, factor_median, factor_std, fig
+    return factor_mean, factor_median, factor_std, fig, number_inliers, number_outliers 
 
 #-----------------------------------------------------------------------
 
@@ -192,9 +195,10 @@ def ConsistencyBasedOutlierDetection(y, x, cam_rec_info, threshold=0.025, criter
                         inlier_cameras.add((t_ind1, cam2_ind1))
                         inlier_cameras.add((t_ind2, cam1_ind2))
                         inlier_cameras.add((t_ind2, cam2_ind2))
-        if criterion == "rel": print(f"{n- np.sum(IsInlier)} of {n} measured distances between camera pairs were detected as outliers (relative threshold: {threshold*100:.1f}%)")
-        elif criterion == "abs_norm": print(f"{n- np.sum(IsInlier)} of {n} measured distances between camera pairs were detected as outliers (absolute normalized threshold: {threshold*1000:.0f}mm)")
-        else:  print(f"{n- np.sum(IsInlier)} of {n} measured distances between camera pairs were detected as outliers (absolute threshold: {threshold*1000:.0f}mm)")
+        number_outlier = n - np.sum(IsInlier)
+        if criterion == "rel": print(f"{number_outlier} of {n} measured distances between camera pairs were detected as outliers (relative threshold: {threshold*100:.1f}%)")
+        elif criterion == "abs_norm": print(f"{number_outlier} of {n} measured distances between camera pairs were detected as outliers (absolute normalized threshold: {threshold*1000:.0f}mm)")
+        else:  print(f"{number_outlier} of {n} measured distances between camera pairs were detected as outliers (absolute threshold: {threshold*1000:.0f}mm)")
         outlier_cameras = set()                                     # define a class to save the outliers
         # first set all cameras as outliers and the remove the inliers from the outliers
         for i, (cam1, cam2, t) in enumerate(cam_rec_info):           
@@ -210,7 +214,8 @@ def ConsistencyBasedOutlierDetection(y, x, cam_rec_info, threshold=0.025, criter
         # only return the distances marked as inliers
         y = y[IsInlier]
         x = x[IsInlier]
-    return y, x
+        
+    return y, x 
 
 #-----------------------------------------------------------------------   
 
