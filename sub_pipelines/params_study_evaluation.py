@@ -47,8 +47,14 @@ scaling_params = {
 if DebugMode: logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 params_study_dir = Path(params_study_dir)
 ParameterSetsFile = params_study_dir / "ParameterSet.csv"
+result_filepath = params_study_dir / "EvaluationParameterStudy.csv"
 ParameterSets = pd.read_csv(ParameterSetsFile)
 for i,ParameterSet in ParameterSets.iterrows():
     output_dir = Path(params_study_dir) / ParameterSet["output_dir"]
     ImageObjectPathList = [params_study_dir / ParameterSet["image_dir"], params_study_dir / ParameterSet["obj_path"]]
-    EvaluateReconstruction(output_dir,evaluation_params,scaling_params,DebugMode,DisplayPlots,ImageObjectPathList)
+    data = EvaluateReconstruction(output_dir,evaluation_params,scaling_params,DebugMode,DisplayPlots,ImageObjectPathList)
+    if i == 0:
+        df_params_study = data
+    else:
+        df_params_study = pd.concat([df_params_study, data], ignore_index=True)
+    df_params_study.to_csv(result_filepath, index=False)

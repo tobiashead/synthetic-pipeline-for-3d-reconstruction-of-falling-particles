@@ -2,4 +2,7 @@
 dev/
 # ignore cache.txt
 cache.txt
+logfile.txt
 params_textureEvaluation.json
+params_movingO.json
+params_fixedO.json

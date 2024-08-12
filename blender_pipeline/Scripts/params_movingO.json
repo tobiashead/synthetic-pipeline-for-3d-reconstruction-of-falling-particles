@@ -1,6 +1,6 @@
 {
      "io": {
-          "name": "ParameterStudy_24",
+          "name": "ParameterStudy_36",
           "obj_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\objects\\GRAU5\\GRAU5.obj",
           "label_images": 3
      },
@@ -37,7 +37,7 @@
                0,
                1
           ],
-          "distance": 0.4,
+          "distance": 0.5,
           "vert_angle": [
                0
           ],
