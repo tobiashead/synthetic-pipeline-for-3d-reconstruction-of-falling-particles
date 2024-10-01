@@ -13,7 +13,7 @@ from src.camera_pose_visualizer import CameraPoseVisualizer
 style_path = current_dir / 'thesis.mplstyle'
 plt.style.use(str(style_path))
 
-image_dir = r"C:\Users\Tobias\Nextcloud\Shared\MA Tobias Kopf\Base-case_Datensatz\12sRotY"
+image_dir = r"C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_data\GRAU5_NoRot_3cams"
 cams_ref = read_camera_alignment_reference(image_dir)
 objs, obj0 = read_object_alignment(image_dir)   
 

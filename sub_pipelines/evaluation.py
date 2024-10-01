@@ -1,6 +1,7 @@
 import sys
 import os
 import logging
+from pathlib import Path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from src.pipeline_utils import (
     LoadAppPaths,
@@ -57,14 +58,14 @@ if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 ################################################### Reconstruction Settings ########################################################################
 #------------------------------------------------- Adjustable parameters ---------------------------------------------------------------------------
-    output_dir = r"C:\Users\Tobias\Documents\Masterarbeit_lokal\ParamStudies\1\ParameterStudy_1_1"     # File path to the folder where the images are located
+    output_dir = r"C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\meshroom_data\test"    # File path to the folder where the images are located
     ImageObjectPathList  = [
-        r"C:\Users\Tobias\Documents\Masterarbeit_lokal\ParamStudies\1\ParameterStudy_1_1\Images",
-        r"C:\Users\Tobias\Documents\Masterarbeit_lokal\ParamStudies\1\ParameterStudy_1_1\InputObject\GRAU5_centered.obj"
+        Path(output_dir) / "Images",
+        Path(output_dir) / r"InputObject\GRAU5_centered.obj"
     ]
 #---------------------------------------------------------------------------------------------------------------------------------------------------    
     DebugMode  = False                  # Activate Debug Mode
-    DisplayPlots = False 
+    DisplayPlots = True 
  #---------------------------------------------------------------------------------------------------------------------------------------------------       
     evaluation_params = {
         "MeshRegistration": {
@@ -93,7 +94,8 @@ if __name__ == "__main__":
         # absolute criterion: treshold: 0.1m
     }
 #---------------------------------------------------------------------------------------------------------------------------------------------------       
-    data = EvaluateReconstruction(output_dir,evaluation_params,scaling_params,DebugMode,DisplayPlots,ImageObjectPathList)
+    #data = EvaluateReconstruction(output_dir,evaluation_params,scaling_params,DebugMode,DisplayPlots,ImageObjectPathList)
+    data = EvaluateReconstruction(output_dir,evaluation_params,scaling_params,DebugMode,DisplayPlots)
 #---------------------------------------------------------------------------------------------------------------------------------------------------    
     import matplotlib.pyplot as plt
     plt.show()   

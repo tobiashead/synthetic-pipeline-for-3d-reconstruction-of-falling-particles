@@ -8,7 +8,7 @@ from sub_pipelines.data_generation import DataGeneration
 from sub_pipelines.scene_reconstruction import SceneReconstruction
 
 ################################################### General Information ############################################################################
-project_name = 'GRAU5RotY'  # What should be the name of the project ?
+project_name = 'test'  # What should be the name of the project ?
 obj_moving = True                   # Does the object move?
 external_params = False             # Use Params from external parameter file
 params_file_name = None             # default: None
@@ -17,18 +17,18 @@ params = LoadDefaultSceneParameters(project_name,obj_moving,params_file_name) # 
 if external_params == False:
 #--------------------------------------------------Adjustable parameters ---------------------------------------------------------------------------
     # Object and Movement
-    params["motion"]["s0"] = [0, 0, 1.1]               # [m] set x,y,z position of the object at t=0s, 
+    params["motion"]["s0"] = [0, 0, 0.1]             # [m] set x,y,z position of the object at t=0s, 
     params["motion"]["a"] = [0,0, -9.81]               # [m^2/s] acceleration
-    params["motion"]["omega"] = 360/0.092              # [°/s] angular velocity around the unit vector e (axis of rotation)
-    params["motion"]["e"] = [1, 0, 1]                  # [-,-,-] axis of rotation 
-    params["io"]["obj_path"] = r"C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\objects\Dodekaeder\Mesh-Dateien\Wuerfel_12s\centered\12s.obj"
+    params["motion"]["omega"] = 2900                   # [°/s] angular velocity around the unit vector e (axis of rotation)
+    params["motion"]["e"] = [0, 1, 1]                  # [-,-,-] axis of rotation 
+    params["io"]["obj_path"] = r"C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\objects\GRAU5\GRAU5_centered.obj"
     # Camera
     params["cam"]["even_dist"] = True
-    params["cam"]["pos_file_path"] = r"C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_pipeline\Scripts\CamerasExtrinsicsStatic.json"
+    params["cam"]["pos_file_path"] = r"C:\Users\Tobias\Documents\Masterarbeit_lokal\Base-case Datensatz\CameraPositions_BaseCase.json"
     params["cam"]["number"] = 3
-    params["cam"]["distance"] = 0.2     # m
+    params["cam"]["distance"] = 0.3     # m
     params["cam"]["vert_angle"] = [0]
-    params["cam"]["focuspoint"] = [0,0,1]        
+    params["cam"]["focuspoint"] = [0,0,0]        
     params["cam"]["fps"] = 218
     params["cam"]["sensor_size"] = [7.12, 5.33]  # [mm,mm] sensor width and sensor height
     params["cam"]["focal_length"] = 16           # [mm] focal length of all cameras
@@ -36,8 +36,8 @@ if external_params == False:
     params["render"]["resolution_x"] = 2064
     params["render"]["resolution_y"] = 1544
     params["render"]["format"] = 'JPEG'          # Select image format: 'JPEG' or 'PNG'
-    params["render"]["transparent"] = False      # Remove Background ? works only with PNG-format
-    params["render"]["mode"] = 'BBOX_CORNERS'    # "OBJECT_CENTER", "BBOX_SURFACES_CENTERS", "BBOX_CORNERS"
+    params["render"]["transparent"] = True      # Remove Background ? works only with PNG-format
+    params["render"]["mode"] = 'OBJECT_CENTER'    # "OBJECT_CENTER", "BBOX_SURFACES_CENTERS", "BBOX_CORNERS"
                                                     # --> OBJECT_CENTER = least images, BBOX_CORNERS = most images
     #-------------------------------------------------- DO NOT CHANGE ----------------------------------------------------------------------------------
     params["io"]["label_images"] = 3 if obj_moving else 1                               # how to label rendered images
@@ -68,20 +68,10 @@ scaling_params = {
 ########################################################### ROUTINE ################################################################################
 
 ################################################### 1.) Data Generation ############################################################################
-image_dir = DataGeneration(params,obj_moving)
+image_dir, obj_path = DataGeneration(params,obj_moving)
 ################################################### 2.) 3D-Reconstruction with Scaling #############################################################
 output_path, scaling_factor = SceneReconstruction(rec_params,scaling_params,image_dir,scaling=False)
 ################################################### 3.) Evaluation #################################################################################
 
-#PlotReconstructedObject(project_name,rec_params)
 
-#GlobalAlignment()
-#FineAlignment()
-
-#Camera2WorldCoordinateS()
-#CameraAlignmentEvaluation()
-
-#Mesh2MeshDistance()
-
-#TextureEvaluation()
 

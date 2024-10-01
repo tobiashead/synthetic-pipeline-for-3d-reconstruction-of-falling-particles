@@ -8,10 +8,10 @@ import matplotlib.pyplot as plt
 import shutil
 import pandas as pd
 
-def LoadDefaultSceneParameters(project_name,obj_moving,params_file_name=None):
+def LoadDefaultSceneParameters(project_name,obj_moving,params_file_name=None,external_params = False):
     logging.info(f"Running 3D-Reconstruction pipeline: project name = {project_name}, moving object = {obj_moving}")
     logging.info('Load the default parameter set for the scene')
-    if params_file_name == None:
+    if params_file_name == None or external_params == False:
         params_file_name = "params_movingO_default.json" if obj_moving else "params_fixedO_default.json"
     script_folder = Path.cwd() / "blender_pipeline" / "Scripts" # base file path of the script files
     params_file_path = Path(script_folder) / params_file_name
@@ -174,7 +174,7 @@ def PrintStaticCameraPoses(image_dir,params,obj_moving):
             cam.Dynamic2StaticScene(objs[cam.CorrespondigIndexObject].Transformation, obj0.Transformation,focuspoint)   
     ExportCameras2Blender(cams_ref,image_dir, static_scene = True)
     logging.info("Export static camera poses")
-    
+       
 def LoadSceneParameters(image_dir):
     logging.info('Start the actual photogrammetry-pipeline:')
     image_dir = Path(image_dir)
@@ -289,9 +289,9 @@ def EvaluateCameraPoses(obj_moving,cams_rec,cams_ref,objs,obj0,T,scene_params,ev
     from src.CameraPositionEvaluation import CreateCameraDataSets
     pos_x,pos_y,Rx,Ry = CreateCameraDataSets(cams_rec,cams_ref)
     from src.CameraPositionEvaluation import PlotAbsPositionError_for_xyz, AbsPositionError
-    PlotAbsPositionError_for_xyz(pos_x,pos_y,DisplayPlots)
+    PlotAbsPositionError_for_xyz(evaluation_dir,pos_x,pos_y,DisplayPlots)
     threshold = CamEvalParams["threshold"] 
-    mean_error, std_deviation, mean_error_rel, outliers_count = AbsPositionError(pos_x,pos_y,outlier_criterion=threshold,DisplayPlots=DisplayPlots)
+    mean_error, std_deviation, mean_error_rel, outliers_count = AbsPositionError(evaluation_dir,pos_x,pos_y,outlier_criterion=threshold,DisplayPlots=DisplayPlots)
     # return results in an dict
     dict_camera = {"mean_abs_error": mean_error, "std_abs_error": std_deviation, "mean_rel_error": mean_error_rel, 
                    "images": len(cams_ref), "rec_cams": len(cams_rec), "outliers": outliers_count}
@@ -302,37 +302,40 @@ def PlotCameraPoses(cams_ref,cams_rec,scene_params,obj_moving,evaluation_dir,Dis
     focal_length = scene_params["cam"]["focal_length"]*10**(-3)
     aspect_ratio = scene_params["cam"]["sensor_size"][0] / scene_params["cam"]["sensor_size"][1]
     sensor_width = scene_params["cam"]["sensor_size"][0]*10**(-3)
+    distance = scene_params["cam"]["distance"]
+    focuspoint = scene_params["cam"]["focuspoint"]
     # Plot dynamic scene / reference
     if obj_moving: 
-        visualizer1 = CameraPoseVisualizer([-0.2, 0.2], [-0.2, 0.2], [0.8, 1.2])
+        visual_offset= 0.05
+        visualizer1 = CameraPoseVisualizer([focuspoint[0]-(distance-visual_offset), focuspoint[0]+(distance-visual_offset)], [focuspoint[1]-(distance-visual_offset), focuspoint[1]+(distance-visual_offset)], [focuspoint[2]-(distance-visual_offset), focuspoint[2]+(distance-visual_offset)])
         visualizer1.load_cameras(cams_ref,focal_length,aspect_ratio,sensor_width,scale=2,alpha=0.05,DrawCoordSystem=True,colormap='gnuplot',static_scene=False,color_based_on_height=True)
-        visualizer1.load_cube(cams_ref)
+        visualizer1.load_cube(cams_ref,position=focuspoint)
         path = evaluation_dir / "CamsExtrinsicsRefDynamic"
         visualizer1.save(path)
         visualizer1.show(show=DisplayPlots) 
     # Plot static scene / reference
-    visualizer2 = CameraPoseVisualizer([-0.2, 0.2], [-0.2, 0.2], [0.8, 1.2])
+    visualizer2 = CameraPoseVisualizer([focuspoint[0]-(distance-visual_offset), focuspoint[0]+(distance-visual_offset)], [focuspoint[1]-(distance-visual_offset), focuspoint[1]+(distance-visual_offset)], [focuspoint[2]-(distance-visual_offset), focuspoint[2]+(distance-visual_offset)])
     visualizer2.load_cameras(cams_ref,focal_length,aspect_ratio,sensor_width,scale=2,alpha=0.3,DrawCoordSystem=True,static_scene=True,colorbar=True) 
-    visualizer2.load_cube(cams_ref,static_scene=True)      
+    visualizer2.load_cube(cams_ref,static_scene=True,position=focuspoint)      
     path = evaluation_dir / "CamsExtrinsicsRefStatic"
     visualizer2.save(path)
     visualizer2.show(show=DisplayPlots)
     # Comparison between reference and reconstructed cameras
     # static scene
-    visualizer3 = CameraPoseVisualizer([-0.2, 0.2], [-0.2, 0.2], [0.8, 1.2])
+    visualizer3 = CameraPoseVisualizer([focuspoint[0]-(distance-visual_offset), focuspoint[0]+(distance-visual_offset)], [focuspoint[1]-(distance-visual_offset), focuspoint[1]+(distance-visual_offset)], [focuspoint[2]-(distance-visual_offset), focuspoint[2]+(distance-visual_offset)])
     visualizer3.load_cameras(cams_rec,focal_length,aspect_ratio,sensor_width,scale=2,alpha=0.3,DrawCoordSystem=True,colorbar = True,static_scene=True)
     visualizer3.load_cameras(cams_ref,focal_length,aspect_ratio,sensor_width,scale=1.5,alpha=0.5,DrawCoordSystem=True,static_scene=True)
-    visualizer3.load_cube(cams_ref,static_scene=True)
+    visualizer3.load_cube(cams_ref,static_scene=True,position=focuspoint)
     path = evaluation_dir / "CamsExtrinsicsCompareStatic"
     visualizer3.save(path)
     visualizer3.show(show=DisplayPlots)
     # Comparison between reference and reconstructed cameras
     # dynamic scene
     if obj_moving:
-        visualizer4 = CameraPoseVisualizer([-0.2, 0.2], [-0.2, 0.2], [0.8, 1.2])
+        visualizer4 = CameraPoseVisualizer([focuspoint[0]-(distance-visual_offset), focuspoint[0]+(distance-visual_offset)], [focuspoint[1]-(distance-visual_offset), focuspoint[1]+(distance-visual_offset)], [focuspoint[2]-(distance-visual_offset), focuspoint[2]+(distance-visual_offset)])
         visualizer4.load_cameras(cams_rec,focal_length,aspect_ratio,sensor_width,scale=2,alpha=0.05,DrawCoordSystem=True,static_scene=False,color_based_on_height=True)
         visualizer4.load_cameras(cams_ref,focal_length,aspect_ratio,sensor_width,scale=1.5,alpha=0.1,DrawCoordSystem=True,static_scene=False,color_based_on_height=True)
-        visualizer4.load_cube(cams_ref,static_scene=False)
+        visualizer4.load_cube(cams_ref,static_scene=False,position=focuspoint)
         path = evaluation_dir / "CamsExtrinsicsCompareDynamic"
         visualizer4.save(path)
         visualizer4.show(show=DisplayPlots)

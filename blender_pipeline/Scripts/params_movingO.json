@@ -1,8 +1,8 @@
 {
      "io": {
-          "name": "ParameterStudy_36",
+          "name": "Dynamic2Static_Test_Moving",
           "obj_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\objects\\GRAU5\\GRAU5.obj",
-          "label_images": 3
+          "label_images": 1
      },
      "motion": {
           "s0": [
@@ -25,19 +25,19 @@
                1,
                1
           ],
-          "omega": 4500,
+          "omega": 3913.0434782608695,
           "sim_time": 5
      },
      "cam": {
           "even_dist": true,
-          "pos_file_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\blender_pipeline\\Scripts\\CamerasExtrinsicsStatic.json",
-          "number": 6,
+          "pos_file_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\blender_data\\test_1\\CamerasExtrinsicsStatic.json",
+          "number": 3,
           "focuspoint": [
                0,
                0,
                1
           ],
-          "distance": 0.5,
+          "distance": 0.2,
           "vert_angle": [
                0
           ],

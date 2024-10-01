@@ -22,9 +22,9 @@ else:
     params = {
         # Input and output parameters
         "io": {
-            "name": 'static5cams3layers',    # project name (e.g. 'Dodekaeder')
+            "name": 'test',    # project name (e.g. 'Dodekaeder')
             #"obj_path": r'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\objects\Dodekaeder\Mesh-Dateien\Wuerfel_12s\12S.obj',    # Path to the object file
-            "obj_path": r"C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\objects\MS_20_2\centered\MS_22_2_wR_schw_M.obj",
+            "obj_path": r"C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\objects\GRAU5\GRAU5.obj",
             "label_images": 1               # how to label rendered images
             # 1: "{project_name}_{image_count}"
             # 2: "{project_name}_{timestep_count}_{camera_number}"
@@ -36,9 +36,9 @@ else:
         },
         # Camera parameters
         "cam": {
-            "even_dist": True,  # are the cameras evenly distributed, True or False
+            "even_dist": False,  # are the cameras evenly distributed, True or False
             # only necessary if even_dist = False
-            "pos_file_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\blender_pipeline\\Scripts\\camera_positions.json",
+            "pos_file_path": r"C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_data\Dynamic2Static_Test_Moving\CamerasExtrinsicsStatic.json",
             "number": 10,                  # number of cameras at one level
             "focuspoint": [0,0,1],        # [m] Location of the point of focus
             "distance": 0.2,              # [m] Euclidean distance to the "center point"

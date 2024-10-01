@@ -1,33 +1,39 @@
 {
      "io": {
-          "name": "6sRotXY_AxisAngle_static",
-          "script_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\blender_pipeline\\Scripts",
-          "obj_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\objects\\6S\\6S.obj",
-          "base_output_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\blender_data",
-          "label_images": 1,
-          "output_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\blender_data\\static_BP_02_60cam_15x4"
+          "name": "Dynamic2Static_Test_Moving",
+          "obj_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\objects\\GRAU5\\GRAU5.obj",
+          "label_images": 1
      },
      "motion": {
           "s0": [
                0,
-               0.3,
-               0
+               0,
+               1
+          ],
+          "a": [
+               0,
+               0,
+               -9.81
+          ],
+          "omega": 3913.0434782608695,
+          "e": [
+               1,
+               1,
+               1
           ]
      },
      "cam": {
           "even_dist": false,
-          "pos_file_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\blender_pipeline\\Scripts\\CamerasExtrinsicsStatic.json",
-          "number": 10,
+          "pos_file_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\blender_data\\Dynamic2Static_Test_Moving\\CamerasExtrinsicsStatic.json",
+          "number": 3,
           "focuspoint": [
                0,
-               0.3,
-               0
+               0,
+               1
           ],
           "distance": 0.2,
           "vert_angle": [
-               -45,
-               0,
-               45
+               0
           ],
           "focal_length": 16,
           "sensor_size": [
@@ -38,9 +44,9 @@
      },
      "light": {
           "z": [
-               -1,
                0,
-               1
+               1,
+               2
           ],
           "hor_angle": [
                45,
@@ -61,10 +67,10 @@
           "resolution_x": 2064,
           "resolution_y": 1544,
           "resolution_percentage": 100,
-          "transparent": false 
+          "transparent": false,
+          "mode": "BBOX_CORNERS"
      },
      "exiftool": {
-          "path": "C://Users//Tobias//Documents//Masterarbeit_lokal//ExifTool//exiftool.exe",
           "mod": 2
      }
 }

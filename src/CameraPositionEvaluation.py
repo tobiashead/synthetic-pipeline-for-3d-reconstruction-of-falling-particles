@@ -4,6 +4,7 @@ import importlib
 importlib.reload(sys.modules['src.TransMatrix_Utils']) if 'src.TransMatrix_Utils' in sys.modules else None
 from src.TransMatrix_Utils import Get_Location_Rotation3x3_Scale_from_Transformation4x4
 import matplotlib.pyplot as plt
+from pathlib import Path
 
 def CreateCameraDataSets(cams_rec,cams_ref,scene = "dynamic"):
     x = np.ones([len(cams_rec),3])*(42)
@@ -32,7 +33,7 @@ def CreateCameraDataSets(cams_rec,cams_ref,scene = "dynamic"):
     print(f"{len(cams_rec)} cameras from {len(cams_ref)} cameras were reconstructed ({len(cams_rec)/len(cams_ref)*100} %)")
     return pos_x,pos_y,Rx,Ry
 
-def PlotAbsPositionError_for_xyz(pos_x,pos_y, DisplayPlots=False):
+def PlotAbsPositionError_for_xyz(evaluation_path,pos_x,pos_y, DisplayPlots=False):
     fig, axs = plt.subplots(1, 3, figsize=(15, 5))
 
     axs[0].plot((pos_x[:, 0]-pos_y[:, 0])*1000, label=r'$\Delta x$', color='blue', alpha=0.5, marker='o',linestyle='None')
@@ -44,8 +45,10 @@ def PlotAbsPositionError_for_xyz(pos_x,pos_y, DisplayPlots=False):
         ax.set_xlabel("camera index")
     axs[0].set_ylabel("absolute error in mm")
     if DisplayPlots: plt.show()
+    fig.savefig(Path(evaluation_path) / 'CamPositionErrorXYZ.svg',format='svg',bbox_inches='tight')
+    fig.savefig(Path(evaluation_path) / 'CamPositionErrorXYZ.pdf',format='pdf',bbox_inches='tight')
     
-def AbsPositionError(pos_x,pos_y,outlier_criterion=0.005, focuspoint =[0,0,1],DisplayPlots = False):   
+def AbsPositionError(evaluation_path,pos_x,pos_y,outlier_criterion=0.005, focuspoint =[0,0,1],DisplayPlots = False):   
     cam_pos_error_abs = np.linalg.norm(pos_x-pos_y,axis=1)
     fig = plt.figure(figsize=(5, 5))
     plt.hist(cam_pos_error_abs*1000, bins=15, color='skyblue', edgecolor='black')
@@ -63,6 +66,8 @@ def AbsPositionError(pos_x,pos_y,outlier_criterion=0.005, focuspoint =[0,0,1],Di
     print(f"Number of Inliers: {len(cam_pos_error_abs)-outliers_count} (rel. error <= {outlier_criterion*100}%)")
     print(f"Number of Outliers: {outliers_count} (rel. error > {outlier_criterion*100}%)")
     if DisplayPlots: plt.show()
+    fig.savefig(Path(evaluation_path) / 'CamPositionError.svg',format='svg',bbox_inches='tight')
+    fig.savefig(Path(evaluation_path) / 'CamPositionError.pdf',format='pdf',bbox_inches='tight')
     return mean_error, std_deviation, mean_error_rel, outliers_count
     
 def OrientationError(Rx,Ry,outlier_criterion_angle = 1):   
