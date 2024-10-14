@@ -58,7 +58,7 @@ if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 ################################################### Reconstruction Settings ########################################################################
 #------------------------------------------------- Adjustable parameters ---------------------------------------------------------------------------
-    output_dir = r"C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\meshroom_data\test"    # File path to the folder where the images are located
+    output_dir = r"C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_data\ThesisSkalierungsgrafik"    # File path to the folder where the images are located
     ImageObjectPathList  = [
         Path(output_dir) / "Images",
         Path(output_dir) / r"InputObject\GRAU5_centered.obj"

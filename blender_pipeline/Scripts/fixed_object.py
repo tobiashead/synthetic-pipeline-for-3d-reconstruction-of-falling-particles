@@ -91,7 +91,8 @@ from functions import (
     print_warnings,
     create_not_evenly_distributed_cameras,
     rotate_obj,
-    SaveObjectInWorldCoordinateOrigin
+    SaveObjectInWorldCoordinateOrigin,
+    set_render_settings
     )
 ######################################################################################
          
@@ -118,6 +119,8 @@ if params["cam"]["even_dist"] == True:
     create_evenly_distributed_cameras(params["cam"])
 else: 
     create_not_evenly_distributed_cameras(params["cam"])
+# Set render settings
+set_render_settings(params["render"]) 
 #------------------------------------------------------------------------------------
 # Create light sources
 light_data = create_lightsources(params["light"],params["cam"]["focuspoint"])

@@ -103,7 +103,8 @@ from functions import (
     create_not_evenly_distributed_cameras,
     save_obj_state,
     is_object_in_camera_view,
-    SaveObjectInWorldCoordinateOrigin
+    SaveObjectInWorldCoordinateOrigin,
+    set_render_settings
     )
 # import modules from text-data block
 #sys.modules["functions"] = bpy.data.texts['functions.py'].as_module()
@@ -133,6 +134,8 @@ if params["cam"]["even_dist"] == True:
     cam2fp_dis = params["cam"]["distance"] * np.ones([params["cam"]["number"]*len(params["cam"]["vert_angle"]),1]) # calculate the distances between the cameras and the point of focuse
 else: 
     cam2fp_dis = create_not_evenly_distributed_cameras(params["cam"])
+# Set render settings
+set_render_settings(params["render"])    
 #------------------------------------------------------------------------------------
 # Create light sources
 light_data = create_lightsources(params["light"],params["cam"]["focuspoint"])
@@ -145,7 +148,7 @@ time_vec = np.arange(0,params["motion"]["sim_time"],1/params["cam"]["fps"])
 image_count = 0; camera_data = []; obj_state = []; obj_in_window = False
 obj_state = save_obj_state(obj_state,0,obj)     # save initial object location and orientation
 for t_count, t in enumerate(time_vec):
-    params["motion"] = translate_obj(t,params["motion"],obj) # translate image and get new position
+    translate_obj(t,params["motion"],obj) # translate image and get new position
     rotate_obj(t,params["motion"],obj)                       # rotate object
     if is_object_in_camera_view(obj,mode = params["render"]["mode"]):   # check if the object is visible on the images
         # Save Orientation and Position of the moving object

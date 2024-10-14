@@ -59,16 +59,15 @@ def create_lightsources(light,focuspoint = [0,0,1]):
             light_data.append([*light_location,light_intensity,light_distance])
     return light_data            
 #------------------------------------------------------------------------------------
-def renderCameras(params,t_count,image_count,camera_data):
-    output_path = Path(params["io"]["output_path"]); project_name = params["io"]["name"]; label_images = params["io"]["label_images"]
-    image_format = params["render"]["format"]; render_engine = params["render"]["engine"]
-    resolution_x = params["render"]["resolution_x"]; resolution_y = params["render"]["resolution_y"]
-    resolution_percentage = params["render"]["resolution_percentage"];  transparent = params["render"]["transparent"]
+def set_render_settings(render):
+    # Render settings
+    image_format = render["format"]; render_engine = render["engine"]
+    resolution_x = render["resolution_x"]; resolution_y = render["resolution_y"]
+    resolution_percentage = render["resolution_percentage"];  transparent = render["transparent"]
     if transparent:
         if image_format == "JPEG": 
-            image_format = "PNG"; params["render"]["format"] = image_format; 
+            image_format = "PNG"; render["format"] = image_format; 
             print("Warning! JPEG format does not support transparency! Change image format from JPEG to PNG")
-    # Render settings
     bpy.context.scene.render.image_settings.file_format = image_format
     if transparent: bpy.context.scene.render.image_settings.color_mode = 'RGBA'
     bpy.context.scene.render.film_transparent = transparent
@@ -76,7 +75,11 @@ def renderCameras(params,t_count,image_count,camera_data):
     bpy.context.scene.render.resolution_x = resolution_x
     bpy.context.scene.render.resolution_y = resolution_y
     bpy.context.scene.render.resolution_percentage = resolution_percentage
-    
+
+#------------------------------------------------------------------------------------    
+def renderCameras(params,t_count,image_count,camera_data):
+    output_path = Path(params["io"]["output_path"]); label_images = params["io"]["label_images"]
+    image_format = params["render"]["format"];  
     # Iterate through all cameras and render
     camera_number = 0
     for obj in bpy.data.objects:
@@ -111,7 +114,6 @@ def translate_obj(t,motion,obj):
     s0 = mathutils.Vector(motion['s0'])
     s = a / 2 * t**2 + v0 * t + s0
     obj.location = s; motion['s'] = list(s)
-    return motion
 #------------------------------------------------------------------------------------  
 # Rotate the object: 
 def rotate_obj(t,motion,obj):
@@ -178,7 +180,6 @@ def create_output_path(project_path,project_name):
             # Increment counter for the next attempt
             counter += 1
     return str(output_path)
-
 #------------------------------------------------------------------------------------ 
 # Storage of simulation and imaging data
 def save_BlenderSettingsAndConfiguration(params,camera_data,object_data=None,light_data=None):
