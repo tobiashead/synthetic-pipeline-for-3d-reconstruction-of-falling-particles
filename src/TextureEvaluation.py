@@ -47,15 +47,16 @@ plt.rcParams['legend.handlelength'] = lhandle
 
 def GetImagesForTextureEvaluation(obj_path,output_path,script_path,blender_path,DebugMode=False):
     # Parameter File Path
-    TextureParams_path = Path(script_path) / "params_textureEvaluation.json"
+    TextureParams_path_input = Path(script_path) / "params_textureEvaluation_default.json"
     # Load Parameter from json file
-    with open(TextureParams_path, 'r') as file:
+    with open(TextureParams_path_input, 'r') as file:
         params_texture = json.load(file)
     # Change parameters. In this case, object path and output path
     params_texture["io"]["obj_path"] = str(obj_path)
     params_texture["io"]["output_path"] = str(output_path)
     # Update Json File
-    with open(TextureParams_path, "w") as json_file:
+    TextureParams_path_output = Path(script_path) / "params_textureEvaluation.json"
+    with open(TextureParams_path_output, "w") as json_file:
         json.dump(params_texture, json_file, indent=5) 
     # delete output folder if already exist 
     if os.path.exists(output_path):
