@@ -1,6 +1,6 @@
 {
      "io": {
-          "name": "TestNoRotation_ConstVelocity_1cam",
+          "name": "TestNoRotation_ConstVelocity_3cam",
           "obj_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\objects\\GRAU5\\GRAU5.obj",
           "label_images": 3
      },
@@ -31,7 +31,7 @@
      "cam": {
           "even_dist": true,
           "pos_file_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\blender_data\\Dynamic2Static_Test_Moving\\CamerasExtrinsicsStatic.json",
-          "number": 1,
+          "number": 3,
           "focuspoint": [
                0,
                0,

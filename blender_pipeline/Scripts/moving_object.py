@@ -121,7 +121,7 @@ bpy.ops.wm.obj_import(filepath=params["io"]["obj_path"])   # Import the OBJ mode
 obj = bpy.context.active_object                                 # Retrieve the last imported object (this is now the active object)
 bpy.ops.object.origin_set(type='ORIGIN_CENTER_OF_VOLUME', center='BOUNDS')  # Recalculate the object's bounding box to update its center of mass
 params["io"]["obj_path"] = SaveObjectInWorldCoordinateOrigin(obj,str(params["io"]["obj_path"]))  # Center object and save the centered object (if not already saved) 
-params["motion"] = translate_obj(0,params["motion"],obj)        # Set the position of the object at t=0s
+translate_obj(0,params["motion"],obj)        # Set the position of the object at t=0s
 params["motion"]["e"] = (np.array(params["motion"]["e"]) / np.linalg.norm(params["motion"]["e"])).tolist() # normalize rotation vector (not necessary, but good for clarity)
 obj.rotation_mode = "AXIS_ANGLE"; rotate_obj(0,params["motion"],obj)    # Set the rotation of the object at t=0s
 #------------------------------------------------------------------------------------

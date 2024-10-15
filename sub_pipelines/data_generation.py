@@ -27,11 +27,11 @@ def DataGeneration(params,obj_moving, DebugMode = False):
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')   
     ################################################### General Information ############################################################################
-    project_name = 'TestNoRotation_ConstVelocity_1cam'  # What should be the name of the project ?
-    obj_moving = True                  # Does the object move?
+    project_name = 'StaticTestNoRotation_ConstVelocity_3cam'  # What should be the name of the project ?
+    obj_moving = False                  # Does the object move?
     external_params = False             # Use Params from external parameter file
     params_file_name = "params_movingO_BASECASE.JSON"    # default: None
-    DebugMode  = False                  # Activate Debug Mode
+    DebugMode  = True                  # Activate Debug Mode
     ################################################### Scene Settings #################################################################################
     params = LoadDefaultSceneParameters(project_name,obj_moving,params_file_name,external_params) # Load standard parameters from json file
     if external_params == False:
@@ -46,9 +46,9 @@ if __name__ == "__main__":
         params["motion"]["e"] = [1, 1, 1]                   # [-,-,-] axis of rotation 
         params["io"]["obj_path"] = r"C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\objects\GRAU5\GRAU5.obj"
         # Camera
-        params["cam"]["even_dist"] = True
-        params["cam"]["pos_file_path"] = r"C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_data\Dynamic2Static_Test_Moving\CamerasExtrinsicsStatic.json"
-        params["cam"]["number"] = 1
+        params["cam"]["even_dist"] = False
+        params["cam"]["pos_file_path"] = r"C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_data\TestNoRotation_ConstVelocity_3cam\CamerasExtrinsicsStatic.json"
+        params["cam"]["number"] = 3
         params["cam"]["distance"] = 0.3     # m
         params["cam"]["vert_angle"] = [0]
         params["cam"]["focuspoint"] = [0,0,1]        

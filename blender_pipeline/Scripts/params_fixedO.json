@@ -1,6 +1,6 @@
 {
      "io": {
-          "name": "Static_30cams_transparent",
+          "name": "StaticTestNoRotation_ConstVelocity_3cam",
           "obj_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\objects\\GRAU5\\GRAU5.obj",
           "label_images": 3
      },
@@ -28,9 +28,9 @@
           ]
      },
      "cam": {
-          "even_dist": true,
-          "pos_file_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\blender_data\\Dynamic2Static_Test_Moving\\CamerasExtrinsicsStatic.json",
-          "number": 10,
+          "even_dist": false,
+          "pos_file_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\blender_data\\TestNoRotation_ConstVelocity_3cam\\CamerasExtrinsicsStatic.json",
+          "number": 3,
           "focuspoint": [
                0,
                0,
@@ -38,9 +38,7 @@
           ],
           "distance": 0.3,
           "vert_angle": [
-               -45,
-               0,
-               45
+               0
           ],
           "focal_length": 16,
           "sensor_size": [
