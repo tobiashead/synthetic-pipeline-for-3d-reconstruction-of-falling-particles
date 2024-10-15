@@ -69,6 +69,7 @@ from functions import (
     renderCameras,
     translate_obj,
     create_not_evenly_distributed_cameras,
+    set_render_settings
     )        
 ############################# Simulation routine #####################################
 #------------------------------------------------------------------------------------
@@ -88,6 +89,8 @@ if params["cam"]["even_dist"] == True:
     create_evenly_distributed_cameras(params["cam"])
 else: 
     create_not_evenly_distributed_cameras(params["cam"])
+# Set render settings
+set_render_settings(params["render"]) 
 #------------------------------------------------------------------------------------
 # Create light sources
 create_lightsources(params["light"],params["cam"]["focuspoint"])

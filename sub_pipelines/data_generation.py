@@ -31,7 +31,7 @@ if __name__ == "__main__":
     obj_moving = True                  # Does the object move?
     external_params = False             # Use Params from external parameter file
     params_file_name = "params_movingO_BASECASE.JSON"    # default: None
-    DebugMode  = True                  # Activate Debug Mode
+    DebugMode  = False                  # Activate Debug Mode
     ################################################### Scene Settings #################################################################################
     params = LoadDefaultSceneParameters(project_name,obj_moving,params_file_name,external_params) # Load standard parameters from json file
     if external_params == False:

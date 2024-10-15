@@ -3,7 +3,7 @@ import sys
 import importlib
 
 ######################################################################################
-#                                Initialisation                                      #
+#                                Initialisation         --> MUST BE UPDATED          #
 ######################################################################################
 
 ############################# Select Parameters ######################################
@@ -11,8 +11,8 @@ import importlib
 params = {
     # Input and output parameters
     "io": {
-        "script_path": r'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_pipeline\Scripts',                    # Path of the script files
-        "obj_path": r'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\objects\Dodekaeder\Mesh-Dateien\Wuerfel_12s\12S.obj',    # Path to the object file
+        "script_path": r'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_pipeline',                    # Path of the script files
+        "obj_path": r"C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\objects\MS_20_2\MS_22_2_wR_schw_M.obj",    # Path to the object file
         #"obj_path": Path("C:/Users/Tobias/Documents/Masterarbeit_lokal/synthetic_pipeline/blender_pipeline/3D_Dice/3D_Dice.obj")
     },
     # Position and movement of the object
@@ -21,7 +21,7 @@ params = {
     },
     # Camera parameters
     "cam": {
-        "even_dist": False,            # are the cameras evenly distributed, True or False
+        "even_dist": True,            # are the cameras evenly distributed, True or False
         # only necessary if even_dist = False
         "pos_file_path": r"C:\Users\Tobias\Nextcloud\Shared\MA Tobias Kopf\Base-case_Datensatz\6sRotXY\CamerasExtrinsicsStatic.json", # path to the file containing the camera positions
         # only necessary if even_dist = True

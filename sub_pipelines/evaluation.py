@@ -58,14 +58,14 @@ if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 ################################################### Reconstruction Settings ########################################################################
 #------------------------------------------------- Adjustable parameters ---------------------------------------------------------------------------
-    output_dir = r"C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_data\ThesisSkalierungsgrafik"    # File path to the folder where the images are located
-    ImageObjectPathList  = [
-        Path(output_dir) / "Images",
-        Path(output_dir) / r"InputObject\GRAU5_centered.obj"
-    ]
+    output_dir = r"C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\meshroom_data\TestBaseCase2_3"    # File path to the folder where the meshroom data is located
+    #ImageObjectPathList  = [
+    #    Path(output_dir) / "Images",
+    #    Path(output_dir) / r"InputObject\GRAU5_centered.obj"
+    #]
 #---------------------------------------------------------------------------------------------------------------------------------------------------    
     DebugMode  = False                  # Activate Debug Mode
-    DisplayPlots = True 
+    DisplayPlots = False 
  #---------------------------------------------------------------------------------------------------------------------------------------------------       
     evaluation_params = {
         "MeshRegistration": {
@@ -74,7 +74,7 @@ if __name__ == "__main__":
                 "Recalculation":            False
             },
         "TextureEvaluation": {
-            "Recalculation": False,
+            "Recalculation": True,
             "patch_size": 21,
             "levels": 256,
             "distances": 5,
