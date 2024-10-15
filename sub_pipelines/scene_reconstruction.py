@@ -37,7 +37,7 @@ if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 ################################################### Reconstruction Settings ########################################################################
 #------------------------------------------------- Adjustable parameters ---------------------------------------------------------------------------
-    image_dir = r"C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_data\TestBaseCased09MS22_2"     # File path to the folder where the images are located
+    image_dir = r"C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_data\TestBaseCased09MS22_3"     # File path to the folder where the images are located
     DebugMode  = False                  # Activate Debug Mode
     scaling = True                      # Activate Scaling 
     

@@ -56,7 +56,7 @@ for i,ParameterSet in ParameterSets.iterrows():
     print(f"Start evaluation with parameter set {i+1}/{len(ParameterSets)}")
     output_dir = Path(params_study_dir) / ParameterSet["output_dir"]
     ImageObjectPathList = [params_study_dir / ParameterSet["image_dir"], params_study_dir / ParameterSet["obj_path"]]
-    data = EvaluateReconstruction(output_dir,evaluation_params,scaling_params,DebugMode,DisplayPlots,ImageObjectPathList)
+    data,_ = EvaluateReconstruction(output_dir,evaluation_params,scaling_params,DebugMode,DisplayPlots,ImageObjectPathList)
     if i == 0:
         df_params_study = data
     else:

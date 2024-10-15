@@ -49,7 +49,7 @@ if __name__ == "__main__":
         params["cam"]["even_dist"] = True
         params["cam"]["pos_file_path"] = r"C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_data\TestNoRotation_ConstVelocity_3cam\CamerasExtrinsicsStatic.json"
         params["cam"]["number"] = 3
-        params["cam"]["distance"] = 0.8              # m
+        params["cam"]["distance"] = 0.2              # m
         params["cam"]["vert_angle"] = [0]
         params["cam"]["focuspoint"] = [0,0,1]        
         params["cam"]["fps"] = 218

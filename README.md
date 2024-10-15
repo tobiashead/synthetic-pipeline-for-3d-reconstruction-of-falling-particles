@@ -59,15 +59,16 @@
 
 ## Author
 - **Tobias Kopf**
-- Date: August 05, 2024
+- Date: October 10, 2024
 - Email: tobias.kopf@tu-berlin.de
 
 ## TODO
 - blender_pipeline:
     - Adapting the positioning of the light sources
         -  option to import from external file
-        -  more intuitive parameterization    
-- create separate pipeline for evaluation (python file)  
+        -  more intuitive parameterization
+    - selection criterion: ???
+        - Check whether the object is in the viewing window for each image individually   
 
 ## CHANGELOG
 - blender_pipeline:
@@ -82,12 +83,17 @@
     - Adapting the positioning of the light sources
         - export positioning of the lights
     - Save automatically a centered version of the input object, if it's not already centered
+    - Define the render parameters at the beginning of the function for all cameras and not individually for each render call
+    - New folder structure
 - evaluation_pipeline:
         - import positioning of the lights
         - add a option for plotting also the lights in the camera plot (reference)
 - path_settings:
     - add CloudComapre to path_settings
+- create end-end-pipeline
 - create subpipelines:
     - pipeline only for data generation (can also be used as a function)
     - pipeline only for the actual 3d-reconstruction (can also be used as a function)
     - pipeline for parameter studies (including generation and 3d-reconstruction)
+    - pipeline for evaluation
+    - pipeline for evaluation parameter studies
