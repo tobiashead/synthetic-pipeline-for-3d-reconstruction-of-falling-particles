@@ -70,12 +70,12 @@ else:
         }
     }
 ############################# Import functions #######################################
-project_path = (Path(__file__).resolve()).parent.parent.parent
+project_path = (Path(__file__).resolve()).parent.parent
 with open(project_path / "path_settings.json", 'r') as file:
     app_paths = json.load(file)
 params["exiftool"]["path"] = app_paths["exiftool_exe"]
 # import functions from external script-folder
-params["io"]["script_path"] = str(project_path / "blender_pipeline" / "Scripts")
+params["io"]["script_path"] = str(project_path / "blender_pipeline")
 if params["io"]["script_path"] not in sys.path:
     sys.path.append(params["io"]["script_path"])
 else:

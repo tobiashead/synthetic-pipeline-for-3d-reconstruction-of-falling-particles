@@ -27,8 +27,8 @@ def DataGeneration(params,obj_moving, DebugMode = False):
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')   
     ################################################### General Information ############################################################################
-    project_name = 'StaticTestNoRotation_ConstVelocity_3cam'  # What should be the name of the project ?
-    obj_moving = False                  # Does the object move?
+    project_name = 'TestBaseCased09MS22'  # What should be the name of the project ?
+    obj_moving = True                  # Does the object move?
     external_params = False             # Use Params from external parameter file
     params_file_name = "params_movingO_BASECASE.JSON"    # default: None
     DebugMode  = True                  # Activate Debug Mode
@@ -38,18 +38,18 @@ if __name__ == "__main__":
     #--------------------------------------------------Adjustable parameters ---------------------------------------------------------------------------
         # Object and Movement
         params["motion"]["s0"] = [0, 0, 1.1]                  # [m] set x,y,z position of the object at t=0s, 
-        #params["motion"]["a"] = [0,0, -9.81]               # [m^2/s] acceleration
-        params["motion"]["a"] = [0,0,0]
-        params["motion"]["v0"] = [0,0,-1.5]                 # [m/s] initial velocity
-        #params["motion"]["omega"] = 360/0.092              # [°/s] angular velocity around the unit vector e (axis of rotation)
-        params["motion"]["omega"] = 0                       # [°/s] angular velocity around the unit vector e (axis of rotation)
+        params["motion"]["a"] = [0,0, -9.81]               # [m^2/s] acceleration
+        #params["motion"]["a"] = [0,0,0]
+        #params["motion"]["v0"] = [0,0,-1.5]                 # [m/s] initial velocity
+        params["motion"]["omega"] = 360/0.092              # [°/s] angular velocity around the unit vector e (axis of rotation)
+        #params["motion"]["omega"] = 0                       # [°/s] angular velocity around the unit vector e (axis of rotation)
         params["motion"]["e"] = [1, 1, 1]                   # [-,-,-] axis of rotation 
-        params["io"]["obj_path"] = r"C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\objects\GRAU5\GRAU5.obj"
+        params["io"]["obj_path"] = r"C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\objects\MS_20_2\MS_22_2_wR_schw_M.obj"
         # Camera
-        params["cam"]["even_dist"] = False
+        params["cam"]["even_dist"] = True
         params["cam"]["pos_file_path"] = r"C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_data\TestNoRotation_ConstVelocity_3cam\CamerasExtrinsicsStatic.json"
         params["cam"]["number"] = 3
-        params["cam"]["distance"] = 0.3     # m
+        params["cam"]["distance"] = 0.9              # m
         params["cam"]["vert_angle"] = [0]
         params["cam"]["focuspoint"] = [0,0,1]        
         params["cam"]["fps"] = 218
@@ -59,8 +59,8 @@ if __name__ == "__main__":
         params["render"]["resolution_x"] = 2064
         params["render"]["resolution_y"] = 1544
         params["render"]["format"] = 'JPEG'          # Select image format: 'JPEG' or 'PNG'
-        params["render"]["transparent"] = True      # Remove Background ? works only with PNG-format
-        params["render"]["mode"] = 'OBJECT_CENTER'   # "OBJECT_CENTER", "BBOX_SURFACES_CENTERS", "BBOX_CORNERS"
+        params["render"]["transparent"] = False      # Remove Background ? works only with PNG-format
+        params["render"]["mode"] = 'BBOX_CORNERS'   # "OBJECT_CENTER", "BBOX_SURFACES_CENTERS", "BBOX_CORNERS"
                                                     # --> OBJECT_CENTER = least images, BBOX_CORNERS = most images
         #-------------------------------------------------- DO NOT CHANGE ----------------------------------------------------------------------------------
         params["io"]["label_images"] = 3 if obj_moving else 1       

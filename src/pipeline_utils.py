@@ -13,7 +13,7 @@ def LoadDefaultSceneParameters(project_name,obj_moving,params_file_name=None,ext
     logging.info('Load the default parameter set for the scene')
     if params_file_name == None or external_params == False:
         params_file_name = "params_movingO_default.json" if obj_moving else "params_fixedO_default.json"
-    script_folder = Path.cwd() / "blender_pipeline" / "Scripts" # base file path of the script files
+    script_folder = Path.cwd() / "blender_pipeline"     # base file path of the script files
     params_file_path = Path(script_folder) / params_file_name
     with open(params_file_path, 'r') as file:
         params = json.load(file)
@@ -23,7 +23,7 @@ def LoadDefaultSceneParameters(project_name,obj_moving,params_file_name=None,ext
 def SaveSceneParameters(params,obj_moving):
     logging.info('Saves the current parameter set for the scene')
     params_file_name = "params_movingO.json" if obj_moving else "params_fixedO.json"
-    script_folder = Path.cwd() / "blender_pipeline" / "Scripts" # base file path of the script files
+    script_folder = Path.cwd() / "blender_pipeline" # base file path of the script files
     params_file_path = Path(script_folder) / params_file_name
     with open(params_file_path, "w") as json_file:
         json.dump(params, json_file, indent=5)  
@@ -31,7 +31,7 @@ def SaveSceneParameters(params,obj_moving):
 def RenderImagesBlender(app_paths,obj_moving,ConsoleOutput=False):
     blender_path = app_paths["blender_exe"]
     script_name = 'moving_object.py' if obj_moving else 'fixed_object.py'
-    script_folder = Path.cwd() / "blender_pipeline" / "Scripts" # base file path of the script files
+    script_folder = Path.cwd() / "blender_pipeline"  # base file path of the script files
     script_path = Path(script_folder) / script_name
     command = f"{blender_path} --background --python {script_path} --log-level -1"
     logging.info('Running the simulation and rendering of the scene in Blender')
@@ -46,7 +46,7 @@ def RenderImagesBlender(app_paths,obj_moving,ConsoleOutput=False):
     return proc.returncode
     
 def ImageDirObjectPathFromCacheFile():
-    script_folder = Path.cwd() / "blender_pipeline" / "Scripts" # base file path of the script files
+    script_folder = Path.cwd() / "blender_pipeline"  # base file path of the script files
     cache_file_path = Path(script_folder) / "cache.txt"
     with open(cache_file_path, "r") as txt_file:
         image_dir = txt_file.readline().strip()
@@ -346,7 +346,7 @@ def TextureEvaluation(evaluation_dir,obj_path,app_paths,evaluation_params,DebugM
     # Generate Data for Texture Evaluation
     Recalculation = text_params["Recalculation"]
     blender_path = app_paths["blender_exe"]
-    script_path = Path(__file__).resolve().parent.parent / "blender_pipeline/Scripts"
+    script_path = Path(__file__).resolve().parent.parent / "blender_pipeline"
     mesh_r_trans_path = evaluation_dir / "texturedMesh_TRANSFORMED.obj"
     OutputTextureRef_path = evaluation_dir / "TextureReference"
     OutputTextureRec_path = evaluation_dir / "TextureReconstruction"

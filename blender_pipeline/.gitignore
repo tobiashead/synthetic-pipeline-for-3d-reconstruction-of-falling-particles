@@ -1,2 +1,8 @@
-# ignore Folders with meshes and data
-3D_Dice
+# ignore __pycache__
+dev/
+# ignore cache.txt
+cache.txt
+logfile.txt
+params_textureEvaluation.json
+params_movingO.json
+params_fixedO.json
