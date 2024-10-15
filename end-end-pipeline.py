@@ -84,6 +84,7 @@ evaluation_params = {
             "Recalculation":            False
         },
     "TextureEvaluation": {
+        "active": True,
         "Recalculation": False,
         "patch_size": 21,
         "levels": 256,

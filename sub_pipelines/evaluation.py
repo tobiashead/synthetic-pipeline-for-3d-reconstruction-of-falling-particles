@@ -74,6 +74,7 @@ if __name__ == "__main__":
                 "Recalculation":            False
             },
         "TextureEvaluation": {
+            "active": False,
             "Recalculation": True,
             "patch_size": 21,
             "levels": 256,

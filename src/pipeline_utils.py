@@ -343,20 +343,21 @@ def PlotCameraPoses(cams_ref,cams_rec,scene_params,obj_moving,evaluation_dir,Dis
 def TextureEvaluation(evaluation_dir,obj_path,app_paths,evaluation_params,DebugMode,DisplayPlots):
     from src.TextureEvaluation import GetImagesForTextureEvaluation, GLCM_Evaluation
     text_params = evaluation_params["TextureEvaluation"]
-    # Generate Data for Texture Evaluation
-    Recalculation = text_params["Recalculation"]
-    blender_path = app_paths["blender_exe"]
-    script_path = Path(__file__).resolve().parent.parent / "blender_pipeline"
-    mesh_r_trans_path = evaluation_dir / "texturedMesh_TRANSFORMED.obj"
-    OutputTextureRef_path = evaluation_dir / "TextureReference"
-    OutputTextureRec_path = evaluation_dir / "TextureReconstruction"
-    if (Recalculation or not (OutputTextureRef_path.exists() and OutputTextureRec_path.exists())):
-        GetImagesForTextureEvaluation(obj_path,OutputTextureRef_path,script_path,blender_path,DebugMode)
-        GetImagesForTextureEvaluation(mesh_r_trans_path,OutputTextureRec_path,script_path,blender_path,DebugMode)
-    # Texture Evaluation
-    patch_size = text_params["patch_size"]; image_number = text_params["image_number"]; levels = text_params["levels"]; 
-    distances = text_params["distances"]; features = text_params["features"]
-    GLCM_Evaluation(evaluation_dir,OutputTextureRef_path,OutputTextureRec_path,patch_size,image_number,levels,distances,random_seed=124,features = features,num_windows=4,DisplayPlots=DisplayPlots)
+    if text_params["active"]:
+        # Generate Data for Texture Evaluation
+        Recalculation = text_params["Recalculation"]
+        blender_path = app_paths["blender_exe"]
+        script_path = Path(__file__).resolve().parent.parent / "blender_pipeline"
+        mesh_r_trans_path = evaluation_dir / "texturedMesh_TRANSFORMED.obj"
+        OutputTextureRef_path = evaluation_dir / "TextureReference"
+        OutputTextureRec_path = evaluation_dir / "TextureReconstruction"
+        if (Recalculation or not (OutputTextureRef_path.exists() and OutputTextureRec_path.exists())):
+            GetImagesForTextureEvaluation(obj_path,OutputTextureRef_path,script_path,blender_path,DebugMode)
+            GetImagesForTextureEvaluation(mesh_r_trans_path,OutputTextureRec_path,script_path,blender_path,DebugMode)
+        # Texture Evaluation
+        patch_size = text_params["patch_size"]; image_number = text_params["image_number"]; levels = text_params["levels"]; 
+        distances = text_params["distances"]; features = text_params["features"]
+        GLCM_Evaluation(evaluation_dir,OutputTextureRef_path,OutputTextureRec_path,patch_size,image_number,levels,distances,random_seed=124,features = features,num_windows=4,DisplayPlots=DisplayPlots)
     
 def CopyDataToCaseStudyFolder(study_output_dir,output_dir,image_dir,obj_path):
     # Copy the data from the data generation and the 3D reconstruction together into a folder in the case study folder
