@@ -38,7 +38,7 @@ else:
         "cam": {
             "even_dist": False,  # are the cameras evenly distributed, True or False
             # only necessary if even_dist = False
-            "pos_file_path": r"C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_data\Dynamic2Static_Test_Moving\CamerasExtrinsicsStatic.json",
+            "pos_file_path": r"C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_data\2cams_omega360_u110_3\CamerasExtrinsicsStatic.json",
             "number": 10,                  # number of cameras at one level
             "focuspoint": [0,0,1],        # [m] Location of the point of focus
             "distance": 0.2,              # [m] Euclidean distance to the "center point"

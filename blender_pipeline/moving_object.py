@@ -151,6 +151,7 @@ for t_count, t in enumerate(time_vec):
     translate_obj(t,params["motion"],obj) # translate image and get new position
     rotate_obj(t,params["motion"],obj)                       # rotate object
     if is_object_in_camera_view(obj,mode = params["render"]["mode"]):   # check if the object is visible on the images
+        #obj.location = [0,0,1] # Only Rotation, No Translation
         # Save Orientation and Position of the moving object
         obj_state = save_obj_state(obj_state,t_count,obj)
         # Rendering of all cameras in the scene

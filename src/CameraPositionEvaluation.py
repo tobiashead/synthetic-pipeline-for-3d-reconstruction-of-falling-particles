@@ -48,7 +48,7 @@ def PlotAbsPositionError_for_xyz(evaluation_path,pos_x,pos_y, DisplayPlots=False
     fig.savefig(Path(evaluation_path) / 'CamPositionErrorXYZ.svg',format='svg',bbox_inches='tight')
     fig.savefig(Path(evaluation_path) / 'CamPositionErrorXYZ.pdf',format='pdf',bbox_inches='tight')
     
-def AbsPositionError(evaluation_path,pos_x,pos_y,outlier_criterion=0.005, focuspoint =[0,0,1],DisplayPlots = False):   
+def PositionError(evaluation_path,pos_x,pos_y,outlier_criterion=0.005, focuspoint =[0,0,1],DisplayPlots = False):   
     cam_pos_error_abs = np.linalg.norm(pos_x-pos_y,axis=1)
     fig = plt.figure(figsize=(5, 5))
     plt.hist(cam_pos_error_abs*1000, bins=15, color='skyblue', edgecolor='black')
@@ -58,7 +58,8 @@ def AbsPositionError(evaluation_path,pos_x,pos_y,outlier_criterion=0.005, focusp
     std_deviation = np.std(cam_pos_error_abs)
     # Counting the number of outliers
     cam_pos_error_rel = np.divide(cam_pos_error_abs,np.linalg.norm(pos_y-focuspoint,axis=1))
-    mean_error_rel = np.mean(cam_pos_error_rel) 
+    mean_error_rel = np.mean(cam_pos_error_rel)
+    std_deviation_rel = np.std(cam_pos_error_rel) 
     outliers_count = int(np.sum(cam_pos_error_rel > outlier_criterion))
     print(f"Mean absolute camera position error: {mean_error*1000:.2f}mm")
     print(f"Mean relative camera position error: {mean_error_rel*100:.2f}%")
@@ -68,8 +69,8 @@ def AbsPositionError(evaluation_path,pos_x,pos_y,outlier_criterion=0.005, focusp
     if DisplayPlots: plt.show()
     fig.savefig(Path(evaluation_path) / 'CamPositionError.svg',format='svg',bbox_inches='tight')
     fig.savefig(Path(evaluation_path) / 'CamPositionError.pdf',format='pdf',bbox_inches='tight')
-    return mean_error, std_deviation, mean_error_rel, outliers_count
-    
+    return mean_error, std_deviation, mean_error_rel, std_deviation_rel, outliers_count
+   
 def OrientationError(Rx,Ry,outlier_criterion_angle = 1):   
     from scipy.spatial.transform import Rotation
     angle_diff = np.zeros([len(Rx),1])

@@ -163,7 +163,7 @@ def PlotReconstructedObject(project_name,evaluation_path,DisplayPlots):
     from src.plot_mesh_vedo import plot_mesh_vedo
     fig,screenshot_path = plot_mesh_vedo(project_name,evaluation_path,DisplayPlots)
     
-def PrintStaticCameraPoses(image_dir,params,obj_moving):
+def PrintStaticCameraPoses(image_dir,params,obj_moving,PlotCamPoses=False):
     from src.CameraProcessing import read_camera_alignment_reference, read_object_alignment, ExportCameras2Blender
     cams_ref = read_camera_alignment_reference(image_dir)
     objs, obj0 = read_object_alignment(image_dir)   
@@ -174,6 +174,10 @@ def PrintStaticCameraPoses(image_dir,params,obj_moving):
             cam.Dynamic2StaticScene(objs[cam.CorrespondigIndexObject].Transformation, obj0.Transformation,focuspoint)   
     ExportCameras2Blender(cams_ref,image_dir, static_scene = True)
     logging.info("Export static camera poses")
+    if PlotCamPoses:
+        logging.info("Plot static camera poses in case of a dynamic scene")
+        PlotCameraPoses_DataGen(cams_ref,params,obj_moving)
+        
        
 def LoadSceneParameters(image_dir):
     logging.info('Start the actual photogrammetry-pipeline:')
@@ -265,8 +269,8 @@ def EvaluateSizeProperties(evaluation_path,object_path,T,T_global):
     df = EvaluateVolumeSurfaceArea(evaluation_path,object_path,T_global,T)
     dict_morphology = {
         "ref": {"volume": df.iloc[2,1], "surface": df.iloc[2,2], "surf2vol": df.iloc[2,4], "sphericity": df.iloc[2,5]},
-        "rec": {"volume": df.iloc[0,1], "surface": df.iloc[0,2], "surf2vol": df.iloc[0,4], "sphericity": df.iloc[0,5]},
-        "rec_CC": {"volume": df.iloc[1,1]}
+        "rec": {"volume": df.iloc[0,1], "surface": df.iloc[0,2], "surf2vol": df.iloc[0,4], "sphericity": df.iloc[0,5]}
+        #"rec_CC": {"volume": df.iloc[1,1]}
     }
     return dict_morphology
     
@@ -288,12 +292,12 @@ def EvaluateCameraPoses(obj_moving,cams_rec,cams_ref,objs,obj0,T,scene_params,ev
     # Quantitativ evaluation of the reconstructed camera positions
     from src.CameraPositionEvaluation import CreateCameraDataSets
     pos_x,pos_y,Rx,Ry = CreateCameraDataSets(cams_rec,cams_ref)
-    from src.CameraPositionEvaluation import PlotAbsPositionError_for_xyz, AbsPositionError
+    from src.CameraPositionEvaluation import PlotAbsPositionError_for_xyz, PositionError
     PlotAbsPositionError_for_xyz(evaluation_dir,pos_x,pos_y,DisplayPlots)
     threshold = CamEvalParams["threshold"] 
-    mean_error, std_deviation, mean_error_rel, outliers_count = AbsPositionError(evaluation_dir,pos_x,pos_y,outlier_criterion=threshold,DisplayPlots=DisplayPlots)
+    mean_error, std_deviation, mean_error_rel, std_deviation_rel, outliers_count = PositionError(evaluation_dir,pos_x,pos_y,outlier_criterion=threshold,DisplayPlots=DisplayPlots)
     # return results in an dict
-    dict_camera = {"mean_abs_error": mean_error, "std_abs_error": std_deviation, "mean_rel_error": mean_error_rel, 
+    dict_camera = {"mean_abs_error": mean_error, "std_abs_error": std_deviation, "mean_rel_error": mean_error_rel, "std_rel_error": std_deviation_rel,
                    "images": len(cams_ref), "rec_cams": len(cams_rec), "outliers": outliers_count}
     return dict_camera
     
@@ -340,6 +344,27 @@ def PlotCameraPoses(cams_ref,cams_rec,scene_params,obj_moving,evaluation_dir,Dis
         visualizer4.save(path)
         visualizer4.show(show=DisplayPlots)
         
+        
+def PlotCameraPoses_DataGen(cams_ref,scene_params,obj_moving):
+    from src.camera_pose_visualizer import CameraPoseVisualizer
+    focal_length = scene_params["cam"]["focal_length"]*10**(-3)
+    aspect_ratio = scene_params["cam"]["sensor_size"][0] / scene_params["cam"]["sensor_size"][1]
+    sensor_width = scene_params["cam"]["sensor_size"][0]*10**(-3)
+    distance = scene_params["cam"]["distance"]
+    focuspoint = scene_params["cam"]["focuspoint"]
+    visual_offset= 0.05
+    # Plot dynamic scene / reference
+    if obj_moving:
+        visualizer1 = CameraPoseVisualizer([focuspoint[0]-(distance-visual_offset), focuspoint[0]+(distance-visual_offset)], [focuspoint[1]-(distance-visual_offset), focuspoint[1]+(distance-visual_offset)], [focuspoint[2]-(distance-visual_offset), focuspoint[2]+(distance-visual_offset)])
+        visualizer1.load_cameras(cams_ref,focal_length,aspect_ratio,sensor_width,scale=2,alpha=0.05,DrawCoordSystem=True,colormap='gnuplot',static_scene=False,color_based_on_height=True)
+        visualizer1.load_cube(cams_ref,position=focuspoint)
+        visualizer1.show() 
+         
+    visualizer2 = CameraPoseVisualizer([focuspoint[0]-(distance-visual_offset), focuspoint[0]+(distance-visual_offset)], [focuspoint[1]-(distance-visual_offset), focuspoint[1]+(distance-visual_offset)], [focuspoint[2]-(distance-visual_offset), focuspoint[2]+(distance-visual_offset)])
+    visualizer2.load_cameras(cams_ref,focal_length,aspect_ratio,sensor_width,scale=2,alpha=0.3,DrawCoordSystem=True,static_scene=True,colorbar=True) 
+    visualizer2.load_cube(cams_ref,static_scene=True,position=focuspoint)      
+    visualizer2.show()
+    
 def TextureEvaluation(evaluation_dir,obj_path,app_paths,evaluation_params,DebugMode,DisplayPlots):
     from src.TextureEvaluation import GetImagesForTextureEvaluation, GLCM_Evaluation
     text_params = evaluation_params["TextureEvaluation"]
@@ -413,11 +438,11 @@ def SaveQuantitativeEvaluationData(evaluation_dir,evaluation_dict):
     
 def QuantitativeEvaluationData2DataFrame(data):
 
-    scaling_rel_error = ((data["Morphology"]["rec"]["volume"]**(1/3)-data["Morphology"]["rec_CC"]["volume"]**(1/3)) / data["Morphology"]["rec_CC"]["volume"]**(1/3))*100
+    #scaling_rel_error = ((data["Morphology"]["rec"]["volume"]**(1/3)-data["Morphology"]["rec_CC"]["volume"]**(1/3)) / data["Morphology"]["rec_CC"]["volume"]**(1/3))*100
     df_data = {
         "Scaling_median": [data["ScalingFactor"]["median"]],
         "Scaling_std": [data["ScalingFactor"]["std"]],
-        "Scaling_error_percent": [scaling_rel_error],
+        #"Scaling_error_percent": [scaling_rel_error],
         "Mesh2MeshDist_mean": [data["Mesh2MeshDistance"]["mean"]],
         "Mesh2MeshDist_std": [data["Mesh2MeshDistance"]["std"]],
         "volume_ref": [data["Morphology"]["ref"]["volume"]],
@@ -428,6 +453,8 @@ def QuantitativeEvaluationData2DataFrame(data):
         "sphericity_rec": [data["Morphology"]["rec"]["sphericity"]],
         "cam_mean_abs_error": [data["Camera"]["mean_abs_error"]],
         "cam_std_abs_error": [data["Camera"]["std_abs_error"]],
+        "cam_mean_rel_error": [data["Camera"]["mean_rel_error"]],
+        "cam_std_rel_error": [data["Camera"]["std_rel_error"]],
         "cam_outliers": [data["Camera"]["outliers"]],
         "cam_threshold": [data["ParamsEvo"]["CameraPositioning"]["threshold"]],
         "rec_cams": [data["Camera"]["rec_cams"]],

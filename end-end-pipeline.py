@@ -1,20 +1,16 @@
 import logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
-
-from src.pipeline_utils import (
-    LoadDefaultSceneParameters
-)
+from src.pipeline_utils import LoadDefaultSceneParameters
 from sub_pipelines.data_generation import DataGeneration
 from sub_pipelines.scene_reconstruction import SceneReconstruction
 from sub_pipelines.evaluation import EvaluateReconstruction
 
-
 ################################################### General Information ############################################################################
-project_name = 'TestGesamtpipeline'  # What should be the name of the project ?
+project_name = '3cams_BaseCaseB_rot_y'  # What should be the name of the project ?
 obj_moving = True                   # Does the object move?
 external_params = False             # Use Params from external parameter file
 params_file_name = None             # default: None
-Evaluation = True                   # Should an evaluation of the reconstructed scene be executed?
+Evaluation = False                   # Should an evaluation of the reconstructed scene be executed?
 DebugMode = False
 DisplayPlots = True
 
@@ -23,19 +19,16 @@ params = LoadDefaultSceneParameters(project_name,obj_moving,params_file_name,ext
 if external_params == False:
 #--------------------------------------------------Adjustable parameters ---------------------------------------------------------------------------
     # Object and Movement
-    params["motion"]["s0"] = [0, 0, 1.1]                  # [m] set x,y,z position of the object at t=0s, 
+    params["motion"]["s0"] = [0, 0, 1.15]                  # [m] set x,y,z position of the object at t=0s, 
     params["motion"]["a"] = [0,0, -9.81]               # [m^2/s] acceleration
-    #params["motion"]["a"] = [0,0,0]
-    #params["motion"]["v0"] = [0,0,-1.5]                 # [m/s] initial velocity
-    params["motion"]["omega"] = 360/0.092              # [°/s] angular velocity around the unit vector e (axis of rotation)
-    #params["motion"]["omega"] = 0                       # [°/s] angular velocity around the unit vector e (axis of rotation)
-    params["motion"]["e"] = [1, 1, 1]                   # [-,-,-] axis of rotation 
-    params["io"]["obj_path"] = r"C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\objects\MS_20_2\MS_22_2_wR_schw_M.obj"
+    params["motion"]["omega"] = 360/0.0797763773682944   # [°/s] angular velocity around the unit vector e (axis of rotation)
+    params["motion"]["e"] = [1, 0, 0]                   # [-,-,-] axis of rotation 
+    params["io"]["obj_path"] = r"C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\objects\GRAU5\GRAU5.obj"
     # Camera
-    params["cam"]["even_dist"] = True
-    params["cam"]["pos_file_path"] = r"C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_data\TestNoRotation_ConstVelocity_3cam\CamerasExtrinsicsStatic.json"
+    params["cam"]["even_dist"] = False
+    params["cam"]["pos_file_path"] = r"C:\Users\Tobias\Nextcloud\clientsync\UNI\Masterarbeit\Auswertung\Kamerapositionierung\3_Kameras\CamerasExtrinsicsStatic_BaseCase_FallB.json"
     params["cam"]["number"] = 3
-    params["cam"]["distance"] = 0.3              # m
+    params["cam"]["distance"] = 0.4              # m
     params["cam"]["vert_angle"] = [0]
     params["cam"]["focuspoint"] = [0,0,1]        
     params["cam"]["fps"] = 218
@@ -44,10 +37,10 @@ if external_params == False:
     # Rendering
     params["render"]["resolution_x"] = 2064
     params["render"]["resolution_y"] = 1544
-    params["render"]["format"] = 'JPEG'          # Select image format: 'JPEG' or 'PNG'
-    params["render"]["transparent"] = False      # Remove Background ? works only with PNG-format
-    params["render"]["mode"] = 'BBOX_CORNERS'   # "OBJECT_CENTER", "BBOX_SURFACES_CENTERS", "BBOX_CORNERS"
-                                                # --> OBJECT_CENTER = least images, BBOX_CORNERS = most images
+    params["render"]["format"] = 'PNG'          # Select image format: 'JPEG' or 'PNG'
+    params["render"]["transparent"] = True      # Remove Background ? works only with PNG-format
+    params["render"]["mode"] = 'OBJECT_CENTER'   # "OBJECT_CENTER", "BBOX_SURFACES_CENTERS", "BBOX_CORNERS"
+                                                # --> OBJECT_CENTER = least images, BBOX_CORNERS = most images                               
     #-------------------------------------------------- DO NOT CHANGE ----------------------------------------------------------------------------------
     params["io"]["label_images"] = 3 if obj_moving else 1       
     # params["io"]["label_images"] = 3
@@ -84,7 +77,7 @@ evaluation_params = {
             "Recalculation":            False
         },
     "TextureEvaluation": {
-        "active": True,
+        "active": False,
         "Recalculation": False,
         "patch_size": 21,
         "levels": 256,
@@ -100,11 +93,11 @@ evaluation_params = {
 ########################################################### ROUTINE ################################################################################
 
 ################################################### 1.) Data Generation ############################################################################
-image_dir, obj_path = DataGeneration(params,obj_moving,DebugMode)
+PlotCamPoses = True if (Evaluation  == False and DisplayPlots == True )else False
+image_dir, obj_path = DataGeneration(params,obj_moving,DebugMode,PlotCamPoses)
 ################################################### 2.) 3D-Reconstruction with Scaling #############################################################
 scaling = False if Evaluation else True
-output_path, scaling_factor = SceneReconstruction(rec_params,scaling_params,image_dir,scaling,DebugMode)
+output_path, scaling_factor = SceneReconstruction(rec_params,scaling_params,image_dir,scaling,DebugMode,True,DisplayPlots)
 ################################################### 3.) Evaluation #################################################################################
-data_evaluation, scaling_factor = EvaluateReconstruction(output_path,evaluation_params,scaling_params,DebugMode,DisplayPlots) if Evaluation else None
-
+if Evaluation: data_evaluation, scaling_factor = EvaluateReconstruction(output_path,evaluation_params,scaling_params,DebugMode,DisplayPlots)
 

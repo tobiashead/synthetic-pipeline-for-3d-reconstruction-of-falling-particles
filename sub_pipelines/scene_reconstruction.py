@@ -15,7 +15,7 @@ from src.pipeline_utils import (
     )
 
 ################################################### Data Generation Function ###########################################################################
-def SceneReconstruction(rec_params,scaling_params,image_dir,scaling=True,DebugMode=False):
+def SceneReconstruction(rec_params,scaling_params,image_dir,scaling=True,DebugMode=False, SaveImagesObj = True, DisplayPlots = False):
     app_paths = LoadAppPaths()                                      # Load path to the applications
     ref_params = LoadSceneParameters(image_dir)
     rec_params, output_path, evaluation_path = CreateMeshroomFolders(rec_params,ref_params)
@@ -26,7 +26,7 @@ def SceneReconstruction(rec_params,scaling_params,image_dir,scaling=True,DebugMo
         scaling_factor = ScaleScene(cams_rec,cams_ref,evaluation_path,scaling_params)
     else: scaling_factor = None
     WriteCacheForSubsequentEvaluation(ref_params,rec_params,image_dir)
-    PlotReconstructedObject(ref_params["io"]["name"],rec_params["evaluation_path"],DisplayPlots=False)
+    if SaveImagesObj: PlotReconstructedObject(ref_params["io"]["name"],rec_params["evaluation_path"],DisplayPlots)
     return output_path, scaling_factor
 ########################################################################################################################################################
 
@@ -37,7 +37,7 @@ if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 ################################################### Reconstruction Settings ########################################################################
 #------------------------------------------------- Adjustable parameters ---------------------------------------------------------------------------
-    image_dir = r"C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_data\TestBaseCased09MS22_3"     # File path to the folder where the images are located
+    image_dir = r"C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_data\2cams_omega360_u110_3"     # File path to the folder where the images are located
     DebugMode  = False                  # Activate Debug Mode
     scaling = True                      # Activate Scaling 
     

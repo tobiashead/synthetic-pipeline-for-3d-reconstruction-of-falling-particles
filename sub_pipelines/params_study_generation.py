@@ -17,27 +17,27 @@ from sub_pipelines.data_generation import DataGeneration
 from sub_pipelines.scene_reconstruction import SceneReconstruction
 
 ################################################### General Information ############################################################################
-project_name = 'ParameterStudy'  # What should be the name of the project ?
+project_name = 'BaseCase_NumberCams'  # What should be the name of the project ?
 obj_moving = True                   # Does the object move?
 external_params = False             # Use Params from external parameter file
 params_file_name = None             # default: None
 
-study_output_dir = r"C:\Users\Tobias\Documents\Masterarbeit_lokal\ParamStudies\1"
+study_output_dir = r"C:\Users\Tobias\Documents\Masterarbeit_lokal\ParamStudies\BaseCase_NumberCams"
 
 ################################################### Scene Settings #################################################################################
 params = LoadDefaultSceneParameters(project_name,obj_moving,params_file_name) # Load standard parameters from json file
 if external_params == False:
 #--------------------------------------------------Adjustable parameters ---------------------------------------------------------------------------
     # Object and Movement
-    params["motion"]["s0"] = [0, 0, 1.1]               # [m] set x,y,z position of the object at t=0s, 
+    params["motion"]["s0"] = [0, 0, 1.15]               # [m] set x,y,z position of the object at t=0s, 
     params["motion"]["a"] = [0,0, -9.81]               # [m^2/s] acceleration
-    params["motion"]["omega"] = 360/0.092              # [°/s] angular velocity around the unit vector e (axis of rotation)
-    params["motion"]["e"] = [1, 0, 1]                  # [-,-,-] axis of rotation 
+    params["motion"]["omega"] = 360/0.0797763773682944             # [°/s] angular velocity around the unit vector e (axis of rotation)
+    params["motion"]["e"] = [1, 1, 1]                  # [-,-,-] axis of rotation 
     # Camera
     params["cam"]["even_dist"] = True
     params["cam"]["pos_file_path"] = r"C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_pipeline\Scripts\CamerasExtrinsicsStatic.json"
-    params["cam"]["number"] = 3
-    params["cam"]["distance"] = 0.2     # m
+    params["cam"]["number"] = 4
+    params["cam"]["distance"] = 0.4     # m
     params["cam"]["vert_angle"] = [0]
     params["cam"]["focuspoint"] = [0,0,1]        
     params["cam"]["fps"] = 218
@@ -46,9 +46,9 @@ if external_params == False:
     # Rendering
     params["render"]["resolution_x"] = 2064
     params["render"]["resolution_y"] = 1544
-    params["render"]["format"] = 'JPEG'             # Select image format: 'JPEG' or 'PNG'
-    params["render"]["transparent"] = False         # Remove Background ? works only with PNG-format
-    params["render"]["mode"] = 'BBOX_CORNERS'       # "OBJECT_CENTER", "BBOX_SURFACES_CENTERS", "BBOX_CORNERS"
+    params["render"]["format"] = 'PNG'             # Select image format: 'JPEG' or 'PNG'
+    params["render"]["transparent"] = True         # Remove Background ? works only with PNG-format
+    params["render"]["mode"] = 'BBOX_SURFACES_CENTERS'       # "OBJECT_CENTER", "BBOX_SURFACES_CENTERS", "BBOX_CORNERS"
                                                     # --> OBJECT_CENTER = least images, BBOX_CORNERS = most images
     #-------------------------------------------------- DO NOT CHANGE ----------------------------------------------------------------------------------
     params["io"]["label_images"] = 3 if obj_moving else 1                               # how to label rendered images
@@ -62,7 +62,7 @@ rec_params = {
     "InterFileExtension": ".ply",     # Extension of the intermediate file export. (‘.abc’, ‘.ply’)
     "OutputTextureSize": 8192,       # Output Texture Size (1024, 2048, 4096, 8192, 16384), (default 8192)
     "fillHoles": True,                # Fill Holes with plausible values
-    "TextureDownscale": 2,            # Texture Downscale Factor (default 2), TextureSize  = OutputTextureSize/TextureDownscale
+    "TextureDownscale": 1,            # Texture Downscale Factor (default 2), TextureSize  = OutputTextureSize/TextureDownscale
 }
 
 # Which parameters should be varied? how often should the simulation be repeated?
@@ -84,11 +84,11 @@ rec_params = {
 # ]
 # 7) repetition
 #reps = [1,2,3]
-cam_distances = [0.3,0.4,0.5]
-cam_numb  = [3,4,5,6]  
+cam_distances = [0.4]
+cam_numb  = [2,3,4,5,6]  
 rotation_axis = [[1,1,1]]
-omega = [4500]
-s0 = [[0,0,1.1]]
+omega = [4512.614032823645]
+s0 = [[0,0,1.15]]
 objects = [
      {"name": "GRAU5", "path": r"C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\objects\GRAU5\GRAU5.obj"}
 ] 
@@ -141,7 +141,7 @@ for i in range(initial_case,n_combinations):
     start_time_iteration = time.time()
     image_dir, obj_path = DataGeneration(params,obj_moving)
     start_time_rec = time.time()
-    output_dir, scaling_factor = SceneReconstruction(rec_params,None,image_dir,scaling=False)
+    output_dir, scaling_factor = SceneReconstruction(rec_params,None,image_dir,scaling=False,DebugMode=False,SaveImagesObj = False)
     duration_rec = time.time()-start_time_rec
     
     output_dir_rel, image_dir_rel, obj_path_rel = CopyDataToCaseStudyFolder(study_output_dir,output_dir,image_dir,obj_path)

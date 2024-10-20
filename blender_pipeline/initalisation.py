@@ -12,12 +12,12 @@ params = {
     # Input and output parameters
     "io": {
         "script_path": r'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_pipeline',                    # Path of the script files
-        "obj_path": r"C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\objects\MS_20_2\MS_22_2_wR_schw_M.obj",    # Path to the object file
+        "obj_path": r"C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\objects\GRAU5\GRAU5_centered.obj",    # Path to the object file
         #"obj_path": Path("C:/Users/Tobias/Documents/Masterarbeit_lokal/synthetic_pipeline/blender_pipeline/3D_Dice/3D_Dice.obj")
     },
     # Position and movement of the object
     "motion": {
-        "s0": [0, 0.3, 0],            # [m] set x,y,z position of the object at t=0s
+        "s0": [0, 0, 1],            # [m] set x,y,z position of the object at t=0s
     },
     # Camera parameters
     "cam": {
@@ -25,9 +25,9 @@ params = {
         # only necessary if even_dist = False
         "pos_file_path": r"C:\Users\Tobias\Nextcloud\Shared\MA Tobias Kopf\Base-case_Datensatz\6sRotXY\CamerasExtrinsicsStatic.json", # path to the file containing the camera positions
         # only necessary if even_dist = True
-        "number": 3,                  # number of cameras at one level
-        "focuspoint": [0,0.3,0],        # [m] Location of the point of focus
-        "distance": 0.2,              # [m] Euclidean distance to the "center point"
+        "number": 5,                  # number of cameras at one level
+        "focuspoint": [0,0,1],        # [m] Location of the point of focus
+        "distance": 0.4,              # [m] Euclidean distance to the "center point"
         # necessary, regardless of the value of even_dist 
         "vert_angle": [0],            # [°] Vertical angle from centre to camera position
         "focal_length": 16,           # [mm] focal length of all cameras
@@ -35,10 +35,14 @@ params = {
     },
     # Light parameters
     "light": {
-        "z": [1],                    # [m] height of the light sources
-        "hor_angle": [165, 345],     # [°] Horizontal angle from centre to light position
+        "z": [0,1,2],                    # [m] height of the light sources
+        "hor_angle": [ 
+                45,
+                135,
+                225,
+                315,],     # [°] Horizontal angle from centre to light position
         "distance": 1,               # [m] Horizontal Euclidean distance to the center point
-        "intensity": 100             # [W] Light intensity
+        "intensity": 25             # [W] Light intensity
     },
 }
 ######################################################################################
