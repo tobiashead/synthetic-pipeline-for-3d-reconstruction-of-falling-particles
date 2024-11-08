@@ -5,3 +5,4 @@ old/
 venv_synthetic/
 path_settings.json
 # thesis/
+*.svg

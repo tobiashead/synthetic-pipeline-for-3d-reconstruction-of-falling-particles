@@ -16,26 +16,26 @@ def read_camera_alignment_reconstruction(basebase_file_path_meshroom):
     base_file_path_meshroom = Path(basebase_file_path_meshroom) / 'MeshroomCache' / 'StructureFromMotion'
     folder_name = os.listdir(base_file_path_meshroom)
     sfm_data_path =  base_file_path_meshroom / folder_name[0] / "cameras.sfm"
-    with open(sfm_data_path, 'r') as file:
-        sfm_data = json.load(file)
-    
-    # save all camera objects in a list    
-    cams_rec = []
-    n_img = len(sfm_data["views"])
-    n_pose = len(sfm_data["poses"])
-    for i in range(n_pose):
-        Pose = sfm_data["poses"][i]["pose"]["transform"]
-        poseId = sfm_data["poses"][i]["poseId"]
-        for j in range(n_img):
-            viewId = sfm_data["views"][j]["viewId"]
-            if poseId == viewId:
-                img_path = sfm_data["views"][j]["path"]
-                ImageFileName = os.path.basename(img_path)
-                break
-        cam = camera_reconstructed(ImageFileName,Pose)
-        cams_rec.append(cam)
+    if sfm_data_path.is_file():
+        with open(sfm_data_path, 'r') as file:
+            sfm_data = json.load(file)
+        # save all camera objects in a list    
+        cams_rec = []
+        n_img = len(sfm_data["views"])
+        n_pose = len(sfm_data["poses"])
+        for i in range(n_pose):
+            Pose = sfm_data["poses"][i]["pose"]["transform"]
+            poseId = sfm_data["poses"][i]["poseId"]
+            for j in range(n_img):
+                viewId = sfm_data["views"][j]["viewId"]
+                if poseId == viewId:
+                    img_path = sfm_data["views"][j]["path"]
+                    ImageFileName = os.path.basename(img_path)
+                    break
+            cam = camera_reconstructed(ImageFileName,Pose)
+            cams_rec.append(cam)
+    else: cams_rec = []; print("Warning: SfM-File is not existing. Reconstruction not successful.")
     return cams_rec
-    
 #-----------------------------------------------------------------------
 def read_camera_alignment_reference(base_file_path_blender):
     # load camera data from blender

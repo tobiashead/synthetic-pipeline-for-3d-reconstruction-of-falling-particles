@@ -11,7 +11,7 @@ from sub_pipelines.evaluation import EvaluateReconstruction
 
 ################################################### General Information ############################################################################
 
-params_study_dir = r"C:\Users\Tobias\Documents\Masterarbeit_lokal\ParamStudies\BaseCase_NumberCams"
+params_study_dir = r"C:\Users\Tobias\Documents\Masterarbeit_lokal\ParamStudies\Distance_3cam_rotY400_ObjectCenter"
 DisplayPlots = False 
 DebugMode  = False                  # Activate Debug Mode
 
@@ -33,7 +33,7 @@ evaluation_params = {
         "features":  ["dissimilarity","correlation"]    # "contrast", "dissimilarity", "homogeneity", "ASM", "energy", "correlation"
     },
     "CameraPositioning": {
-        "threshold": 0.0025 # outlier criterion: error > treshold*(actual distance from the camera to the center of the scene)
+        "threshold": 0.01 # outlier criterion: error > treshold*(actual distance from the camera to the center of the scene)
     }       
 }
 #---------------------------------------------------------------------------------------------------------------------------------------------------    

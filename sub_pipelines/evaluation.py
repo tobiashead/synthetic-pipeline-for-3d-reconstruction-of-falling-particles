@@ -58,11 +58,11 @@ if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 ################################################### Reconstruction Settings ########################################################################
 #------------------------------------------------- Adjustable parameters ---------------------------------------------------------------------------
-    output_dir = r"C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\meshroom_data\TestBaseCased09MS22_2"    # File path to the folder where the meshroom data is located
-    #ImageObjectPathList  = [
-    #    Path(output_dir) / "Images",
-    #    Path(output_dir) / r"InputObject\GRAU5_centered.obj"
-    #]
+    output_dir = r"C:\Users\Tobias\Documents\Masterarbeit_lokal\ParamStudies\Frames_3cam_rotY400\Study_frames_3cam_rotY400_4"    # File path to the folder where the meshroom data is located
+    ImageObjectPathList  = [
+        Path(output_dir) / "Images",
+        Path(output_dir) / r"InputObject\GRAU5_centered.obj"
+    ]
 #---------------------------------------------------------------------------------------------------------------------------------------------------    
     DebugMode  = False                  # Activate Debug Mode
     DisplayPlots = False 
@@ -95,8 +95,8 @@ if __name__ == "__main__":
         # absolute criterion: treshold: 0.1m
     }
 #---------------------------------------------------------------------------------------------------------------------------------------------------       
-    #data = EvaluateReconstruction(output_dir,evaluation_params,scaling_params,DebugMode,DisplayPlots,ImageObjectPathList)
-    data, scaling_factor = EvaluateReconstruction(output_dir,evaluation_params,scaling_params,DebugMode,DisplayPlots)
+    data, scaling_factor = EvaluateReconstruction(output_dir,evaluation_params,scaling_params,DebugMode,DisplayPlots,ImageObjectPathList)
+    #data, scaling_factor = EvaluateReconstruction(output_dir,evaluation_params,scaling_params,DebugMode,DisplayPlots)
 #---------------------------------------------------------------------------------------------------------------------------------------------------    
     import matplotlib.pyplot as plt
     plt.show()   

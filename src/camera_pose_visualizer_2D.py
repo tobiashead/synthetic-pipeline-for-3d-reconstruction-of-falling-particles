@@ -76,6 +76,11 @@ class CameraPoseVisualizer:
             plt.title(title)
         plt.tight_layout()
         if show: plt.show()
+    
+    def save(self,path, bbox_inches = 'tight'):
+        #plt.savefig(str(path) + ".eps", format='eps',bbox_inches= bbox_inches,pad_inches=pad_inches)
+        plt.savefig(str(path) + ".pdf", format='pdf',bbox_inches= bbox_inches)
+        plt.savefig(str(path) + ".svg", format='svg',bbox_inches= bbox_inches)
         
     def load_cameras(self,cams,focal_length=0.016,aspect_ratio=1.3358,sensor_width=0.00712,scale=2,alpha=0.35,select_color="r",cam_center = True, point_size = 10):
         for i,cam in enumerate(cams):

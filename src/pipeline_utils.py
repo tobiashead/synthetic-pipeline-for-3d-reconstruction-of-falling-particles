@@ -129,13 +129,13 @@ def ImportCameras(output_path,image_dir):
     from src.CameraProcessing import read_camera_alignment_reconstruction, read_camera_alignment_reference, match_cameras
     cams_ref = read_camera_alignment_reference(image_dir)
     logging.info('Imported reference cameras')
-    try:
-        cams_rec = read_camera_alignment_reconstruction(output_path)
+    cams_rec = read_camera_alignment_reconstruction(output_path)
+    if len(cams_rec) > 0:
         logging.info('Imported reconstructed cameras')
         cams_rec, cams_ref  = match_cameras(cams_rec,cams_ref)
         logging.info('Assigned reconstructed and reference cameras')
-    except:
-        logging.exception('Error when loading or matching the reconstructed cameras. Check if Structure From Motion step was successful')
+    else:
+        logging.warning("The reconstruction of the cameras was not successful. Skip the comparison between the reconstructed and reference cameras")
     return cams_rec, cams_ref
 
 def ImportObject(image_dir):
@@ -155,13 +155,14 @@ def ScaleScene(cams_rec,cams_ref,evaluation_path,scaling_params,DisplayAllPlots=
     print(f"{len(cams_rec)} of {len(cams_ref)} cameras could be reconstructed!")
     factor_mean, factor_median, factor_std, _, number_inliers, number_outliers  = scaling_factor(cams_rec,cams_ref,evaluation_path,scaling_params["PreOutlierDetection"],scaling_params["threshold"],scaling_params["criterion"],True,DisplayAllPlots) 
     scaling = factor_median
-    print(f"Scaling factor: {scaling}")
+    if factor_mean is not None: print(f"Scaling factor: {scaling}")
     dict_scaling = {"median": factor_median, "mean": factor_mean, "std": factor_std, "number_inliers": number_inliers, "number_outliers": number_outliers} 
     return scaling, dict_scaling
 
 def PlotReconstructedObject(project_name,evaluation_path,DisplayPlots):
     from src.plot_mesh_vedo import plot_mesh_vedo
     fig,screenshot_path = plot_mesh_vedo(project_name,evaluation_path,DisplayPlots)
+    if fig is None: logging.warning("Reconstructed object could not be loaded")
     
 def PrintStaticCameraPoses(image_dir,params,obj_moving,PlotCamPoses=False):
     from src.CameraProcessing import read_camera_alignment_reference, read_object_alignment, ExportCameras2Blender
@@ -215,6 +216,10 @@ def GetEvaluationAndImageDirAndObjPath(output_path,imageANDobject_path):
 
 
 def GlobalMeshRegistration(evaluation_dir,obj_path,params_MeshRegis,scaling_factor,DebugMode=False):
+    if scaling_factor is None:
+        logging.warning("No scaling factor available. Skip global registration")
+        return None
+    
     ManualRegistration = params_MeshRegis["ManualGlobalRegistration"]      
     ThreePointRegistration = params_MeshRegis["ThreePointRegistration"]
     Recalculation = params_MeshRegis["Recalculation"]
@@ -242,6 +247,9 @@ def FineMeshRegistration(evaluation_dir,obj_path,app_paths,params_MeshRegis,Debu
     if not (Recalculation==False and (log_path.exists() and T_path.exists())):
         cc_path = app_paths["cloudcompare_exe"]
         T_global_path = evaluation_dir / 'GlobalTransformationMatrix.txt'
+        if not T_global_path.is_file(): 
+            logging.warning("No global registration matrix available. Skip local registration")
+            return None
         mesh_r_path = evaluation_dir / 'texturedMesh.obj'     
         # Set parameters
         save_meshes_all_at_once = False                 # Save the transformed reconstructed mesh with the Groud_truth mesh in a single file (uses a lot of hard disk space)
@@ -260,7 +268,11 @@ def EvaluateRecMesh(evaluation_dir):
     # read mean distance and standard deviation from the log file
     from src.read_c2m_distance_from_log import read_c2m_distance_from_log
     log_path = evaluation_dir / "log_CloudCompare.txt"
-    mean_distance, std_deviation = read_c2m_distance_from_log(log_path)
+    if log_path.is_file():
+        mean_distance, std_deviation = read_c2m_distance_from_log(log_path)
+    else:
+        mean_distance = [None,None]; std_deviation = [None,None] 
+        logging.warning("No log file from CloudCompare exists. Skip the determination of the mesh-to-mesh-distance")
     dict_M2M = {"mean": mean_distance[1], "std": std_deviation[1]}
     return dict_M2M
 
@@ -275,27 +287,31 @@ def EvaluateSizeProperties(evaluation_path,object_path,T,T_global):
     return dict_morphology
     
 def EvaluateCameraPoses(obj_moving,cams_rec,cams_ref,objs,obj0,T,scene_params,evaluation_dir,CamEvalParams,DisplayPlots=False):
-    focuspoint = scene_params["cam"]["focuspoint"]
-    # Calculate camera parameters in relation to the global coordinate system
-    for i, cam in enumerate(cams_rec): cam.Transformation2WorldCoordinateSystem(T,focuspoint)
-    # Calculate camera positions in the dynamic (object is moving) and the static case (object is fixed)
-    for cam in cams_ref:
-        if obj_moving: 
-            Tdynamic2static = cam.Dynamic2StaticScene(objs[cam.CorrespondigIndexObject].Transformation, obj0.Transformation,focuspoint)
-            if cam.CorrespondigIndex != None:
-                cam_rec = cams_rec[cam.CorrespondigIndex]
-                cam_rec.TransformationDynamic = np.linalg.inv(Tdynamic2static) @ cam_rec.TransformationStatic
-        else:
-            cam.TransformationDynamic = None    # delete Transformation Matrix of the dynamic case if the object is not moving 
-    # Visual Evaluation
-    PlotCameraPoses(cams_ref,cams_rec,scene_params,obj_moving,evaluation_dir,DisplayPlots)
-    # Quantitativ evaluation of the reconstructed camera positions
-    from src.CameraPositionEvaluation import CreateCameraDataSets
-    pos_x,pos_y,Rx,Ry = CreateCameraDataSets(cams_rec,cams_ref)
-    from src.CameraPositionEvaluation import PlotAbsPositionError_for_xyz, PositionError
-    PlotAbsPositionError_for_xyz(evaluation_dir,pos_x,pos_y,DisplayPlots)
-    threshold = CamEvalParams["threshold"] 
-    mean_error, std_deviation, mean_error_rel, std_deviation_rel, outliers_count = PositionError(evaluation_dir,pos_x,pos_y,outlier_criterion=threshold,DisplayPlots=DisplayPlots)
+    if T is not None:
+        focuspoint = scene_params["cam"]["focuspoint"]
+        # Calculate camera parameters in relation to the global coordinate system
+        for i, cam in enumerate(cams_rec): cam.Transformation2WorldCoordinateSystem(T,focuspoint)
+        # Calculate camera positions in the dynamic (object is moving) and the static case (object is fixed)
+        for cam in cams_ref:
+            if obj_moving: 
+                Tdynamic2static = cam.Dynamic2StaticScene(objs[cam.CorrespondigIndexObject].Transformation, obj0.Transformation,focuspoint)
+                if cam.CorrespondigIndex != None:
+                    cam_rec = cams_rec[cam.CorrespondigIndex]
+                    cam_rec.TransformationDynamic = np.linalg.inv(Tdynamic2static) @ cam_rec.TransformationStatic
+            else:
+                cam.TransformationDynamic = None    # delete Transformation Matrix of the dynamic case if the object is not moving 
+        # Visual Evaluation
+        PlotCameraPoses(cams_ref,cams_rec,scene_params,obj_moving,evaluation_dir,DisplayPlots)
+        # Quantitativ evaluation of the reconstructed camera positions
+        from src.CameraPositionEvaluation import CreateCameraDataSets
+        pos_x,pos_y,Rx,Ry = CreateCameraDataSets(cams_rec,cams_ref)
+        from src.CameraPositionEvaluation import PlotAbsPositionError_for_xyz, PositionError
+        PlotAbsPositionError_for_xyz(evaluation_dir,pos_x,pos_y,DisplayPlots)
+        threshold = CamEvalParams["threshold"] 
+        mean_error, std_deviation, mean_error_rel, std_deviation_rel, outliers_count = PositionError(evaluation_dir,pos_x,pos_y,outlier_criterion=threshold,DisplayPlots=DisplayPlots)
+    else:
+        logging.warning("No global registration matrix exists. Skip camera pose evaluation.")
+        mean_error = None; std_deviation =  None; mean_error_rel = None; std_deviation_rel = None; outliers_count =  None
     # return results in an dict
     dict_camera = {"mean_abs_error": mean_error, "std_abs_error": std_deviation, "mean_rel_error": mean_error_rel, "std_rel_error": std_deviation_rel,
                    "images": len(cams_ref), "rec_cams": len(cams_rec), "outliers": outliers_count}
@@ -374,6 +390,9 @@ def TextureEvaluation(evaluation_dir,obj_path,app_paths,evaluation_params,DebugM
         blender_path = app_paths["blender_exe"]
         script_path = Path(__file__).resolve().parent.parent / "blender_pipeline"
         mesh_r_trans_path = evaluation_dir / "texturedMesh_TRANSFORMED.obj"
+        if not mesh_r_trans_path.is_file():
+            logging.warning("Mesh file of the registered reconstructed object not found. Skip the texture evaluation.")
+            return
         OutputTextureRef_path = evaluation_dir / "TextureReference"
         OutputTextureRec_path = evaluation_dir / "TextureReconstruction"
         if (Recalculation or not (OutputTextureRef_path.exists() and OutputTextureRec_path.exists())):
@@ -462,3 +481,20 @@ def QuantitativeEvaluationData2DataFrame(data):
     }
     df = pd.DataFrame(df_data)
     return df
+
+def calculate_angular_velocity_from_fov_angle_diff(cam_distance, fov_angle_diff, focuspoint, s0, a ,v0, cam_parameter=None):
+    if cam_parameter:
+        focal_length = cam_parameter["focal_length"]
+        sensor_hight = cam_parameter["sensor_size"][1]
+    else:
+        focal_length = 16 
+        sensor_hight = 5.33
+    viewing_window_hight  = sensor_hight / focal_length * cam_distance 
+    s1 =  focuspoint[2] + viewing_window_hight / 2
+    s2 =  focuspoint[2] - viewing_window_hight / 2
+    t1 = -v0[2]/a[2] + np.sqrt( (v0[2]/a[2])**2 - (2/a[2])*(s0[2]-s1) )
+    t2 = -v0[2]/a[2] + np.sqrt( (v0[2]/a[2])**2 - (2/a[2])*(s0[2]-s2) )
+    dt = t2-t1
+    omega = fov_angle_diff/dt  # °/s
+    return omega
+ 

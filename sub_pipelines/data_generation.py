@@ -27,7 +27,7 @@ def DataGeneration(params,obj_moving, DebugMode = False, PlotCamPoses = False):
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')   
     ################################################### General Information ############################################################################
-    project_name = '3cams_even_rot_y'  # What should be the name of the project ?
+    project_name = 'Test100fps'  # What should be the name of the project ?
     obj_moving = True                  # Does the object move?
     external_params = False             # Use Params from external parameter file
     params_file_name = "params_movingO_BASECASE.JSON"    # default: None
@@ -38,17 +38,18 @@ if __name__ == "__main__":
     if external_params == False:
     #--------------------------------------------------Adjustable parameters ---------------------------------------------------------------------------
         # Object and Movement
-        params["motion"]["s0"] = [0, 0, 1.15]               # [m] set x,y,z position of the object at t=0s, 
+        params["motion"]["s0"] = [0, 0, 1.2]               # [m] set x,y,z position of the object at t=0s, 
         params["motion"]["a"] = [0,0, -9.81]                # [m^2/s] acceleration
         params["motion"]["v0"] = [0,0,0]                 # [m/s] initial velocity
-        params["motion"]["omega"] = 360/0.0797763773682944   # [°/s] angular velocity around the unit vector e (axis of rotation)
+        params["motion"]["omega"] = 400/0.025274708685451258  # [°/s] angular velocity around the unit vector e (axis of rotation)
+        #params["motion"]["omega"] = 360/0.05910511413658484
         params["motion"]["e"] = [0, 1, 0]                   # [-,-,-] axis of rotation 
         params["io"]["obj_path"] = r"C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\objects\GRAU5\GRAU5_centered.obj"
         # Camera
         params["cam"]["even_dist"] = True
-        params["cam"]["pos_file_path"] = r"C:\Users\Tobias\Desktop\CamerasExtrinsicsStatic.json"
+        params["cam"]["pos_file_path"] = r"C:\Users\Tobias\Nextcloud\clientsync\UNI\Masterarbeit\Auswertung\Kamerapositionierung\3_Kameras\CamerasExtrinsicsStatic_BaseCase_FallA.json"
         params["cam"]["number"] = 3
-        params["cam"]["distance"] = 0.4              # m
+        params["cam"]["distance"] = 0.15              # m
         params["cam"]["vert_angle"] = [0]
         params["cam"]["focuspoint"] = [0,0,1]        
         params["cam"]["fps"] = 218

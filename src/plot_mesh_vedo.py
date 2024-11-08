@@ -2,10 +2,15 @@ import numpy as np
 from pathlib import Path
 import vedo
 vedo.settings.default_backend = 'vtk'
-def plot_mesh_vedo(project_name,output_path,DisplayPlots = False):
-    mesh_path = str(Path(output_path) / 'texturedMesh.obj')
-    texture_path = str(Path(output_path) /'texture_1001.png')
-    mesh_vedo = vedo.Mesh(mesh_path).texture(texture_path)
+def plot_mesh_vedo(project_name,output_path,DisplayPlots = False,Transformed = False):
+    texture_path = Path(output_path) /'texture_1001.png'
+    if not Transformed: mesh_path = Path(output_path) / 'texturedMesh.obj'
+    else: mesh_path = Path(output_path) / 'texturedMesh_TRANSFORMED.obj'
+    if (not mesh_path.is_file()) or (not texture_path.is_file()):
+        print("Warning: Mesh file and/or texture file not existing.")
+        return None, None
+    
+    mesh_vedo = vedo.Mesh(str(mesh_path)).texture(str(texture_path))
 
     # List of planes
     planes = ['xy', 'yz', 'xz']
@@ -30,12 +35,29 @@ def plot_mesh_vedo(project_name,output_path,DisplayPlots = False):
             # Incrementing the subplot index
             ind += 1
     # Generating a screenshot path based on the output directory and project name
-    screenshot_path = Path(output_path) / (project_name + '.png')
+    screenshot_path = Path(output_path) / (project_name + '.png') if project_name is not None else None
     # Capturing a screenshot of the current plot and saving it to the generated screenshot path
     if DisplayPlots: plt.show(interactive = True)
     vedo.screenshot(screenshot_path).close()
     
     return plt, screenshot_path
+
+
+def plot_mesh_vedo_one_window(mesh_path,texture_path,screenshot_path = None):
+    if (not mesh_path.is_file()) or (not texture_path.is_file()):
+        print("Warning: Mesh file and/or texture file not existing.")
+        obj_exists = False
+        return obj_exists
+    else: obj_exists = True
+    mesh_vedo = vedo.Mesh(str(mesh_path)).texture(str(texture_path))
+
+    plt = vedo.show(mesh_vedo, interactive=False)
+    plt.interactive()
+    if screenshot_path is not None:
+        vedo.screenshot(screenshot_path)
+    plt.close()
+    return obj_exists
+
 
 if __name__ == "__main__":
     output_path = r"C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\objects\BP_02"
