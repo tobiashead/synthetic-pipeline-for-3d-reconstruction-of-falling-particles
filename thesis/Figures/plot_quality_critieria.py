@@ -118,8 +118,9 @@ def plot_4_quality_criteria(PSets_Eval_small_qual, savefig_folder, figsize, xlab
     # Graues, transparentes Intervall auf der x-Achse
     if optimal_span is not None:
         for ax in axes.flat: 
-            ax.axvspan(optimal_span[0], optimal_span[1], color='gray', alpha=0.2)  # alpha steuert die Transparenz (0=voll transparent, 1=voll deckend)
-
+            ax.axvspan(optimal_span[0], optimal_span[1], color='gray', alpha=0.2, linestyle  = "-",linewidth = 0)  # alpha steuert die Transparenz (0=voll transparent, 1=voll deckend)
+            ax.axvline(optimal_span[0], color='grey', linewidth=0.5,  linestyle = "-")  # Linke Linie
+            ax.axvline(optimal_span[1], color='grey', linewidth=0.5, linestyle = "-")  # Rechte Linie
     if mark_base_case is not None:
         for ax in axes.flat: 
             ax.axvline(x=mark_base_case, color='black', linestyle='-.',linewidth=0.6)
