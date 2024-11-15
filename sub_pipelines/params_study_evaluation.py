@@ -11,7 +11,7 @@ from sub_pipelines.evaluation import EvaluateReconstruction
 
 ################################################### General Information ############################################################################
 
-params_study_dir = r"C:\Users\Tobias\Documents\Masterarbeit_lokal\ParamStudies\Distance_3cam_rotY400_ObjectCenter"
+params_study_dir = r"C:\Users\Tobias\Documents\Masterarbeit_lokal\ParamStudies\Frames_3cam_rotY400_ObjectCenter2"
 DisplayPlots = False 
 DebugMode  = False                  # Activate Debug Mode
 

@@ -7,7 +7,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from src.plot_mesh_vedo import plot_mesh_vedo_one_window
 ################################################### General Information ############################################################################
 
-params_study_dir = r"C:\Users\Tobias\Documents\Masterarbeit_lokal\ParamStudies\Distance_3cam_rotY400_ObjectCenter"
+params_study_dir = r"C:\Users\Tobias\Documents\Masterarbeit_lokal\ParamStudies\Frames_3cam_rotY400_ObjectCenter"
 
 ################################################### Functions #####################################################################################
 

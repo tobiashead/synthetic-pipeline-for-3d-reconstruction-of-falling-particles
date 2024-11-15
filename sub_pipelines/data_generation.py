@@ -41,7 +41,7 @@ if __name__ == "__main__":
         params["motion"]["s0"] = [0, 0, 1.2]               # [m] set x,y,z position of the object at t=0s, 
         params["motion"]["a"] = [0,0, -9.81]                # [m^2/s] acceleration
         params["motion"]["v0"] = [0,0,0]                 # [m/s] initial velocity
-        params["motion"]["omega"] = 400/0.025274708685451258  # [°/s] angular velocity around the unit vector e (axis of rotation)
+        params["motion"]["omega"] = 400/0.0682487071144817  # [°/s] angular velocity around the unit vector e (axis of rotation)
         #params["motion"]["omega"] = 360/0.05910511413658484
         params["motion"]["e"] = [0, 1, 0]                   # [-,-,-] axis of rotation 
         params["io"]["obj_path"] = r"C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\objects\GRAU5\GRAU5_centered.obj"
@@ -49,10 +49,10 @@ if __name__ == "__main__":
         params["cam"]["even_dist"] = True
         params["cam"]["pos_file_path"] = r"C:\Users\Tobias\Nextcloud\clientsync\UNI\Masterarbeit\Auswertung\Kamerapositionierung\3_Kameras\CamerasExtrinsicsStatic_BaseCase_FallA.json"
         params["cam"]["number"] = 3
-        params["cam"]["distance"] = 0.15              # m
+        params["cam"]["distance"] = 0.4              # m
         params["cam"]["vert_angle"] = [0]
         params["cam"]["focuspoint"] = [0,0,1]        
-        params["cam"]["fps"] = 218
+        params["cam"]["fps"] = 880
         params["cam"]["sensor_size"] = [7.12, 5.33]  # [mm,mm] sensor width and sensor height
         params["cam"]["focal_length"] = 16           # [mm] focal length of all cameras
         # Rendering

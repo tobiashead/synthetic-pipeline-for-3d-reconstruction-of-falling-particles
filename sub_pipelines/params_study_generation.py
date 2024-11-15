@@ -18,13 +18,13 @@ from sub_pipelines.data_generation import DataGeneration
 from sub_pipelines.scene_reconstruction import SceneReconstruction
 
 ################################################### General Information ############################################################################
-project_name = 'Distance_3cam_rotY400_ObjectCenter'  # What should be the name of the project ?
+project_name = 'Frames_3cam_rotY400_ObjectCenter2'  # What should be the name of the project ?
 obj_moving = True                   # Does the object move?
 external_params = False             # Use Params from external parameter file
 params_file_name = None             # default: None
 fov_difference_angle = 400          # default: None, e.g. 360,  If activated, the angular velocity is determined as a function of the difference angle in the field of view of the cameras
 
-study_output_dir = r"C:\Users\Tobias\Documents\Masterarbeit_lokal\ParamStudies\Distance_3cam_rotY400_ObjectCenter"
+study_output_dir = r"C:\Users\Tobias\Documents\Masterarbeit_lokal\ParamStudies\Frames_3cam_rotY400_ObjectCenter2"
 
 ################################################### Scene Settings #################################################################################
 params = LoadDefaultSceneParameters(project_name,obj_moving,params_file_name) # Load standard parameters from json file
@@ -87,15 +87,16 @@ rec_params = {
 # 7) repetition
 #reps = [1,2,3]
 cam_numb = [3]
-cam_distances = [0.1,0.15,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1,1.1,1.2]
+#cam_distances = [0.1,0.15,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1,1.1,1.2]
+cam_distances = [0.4]
 rotation_axis = [[0,1,0]]
 omega = [0]
 s0 = [[0,0,1.2]]
 objects = [
      {"name": "GRAU5", "path": r"C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\objects\GRAU5\GRAU5.obj"}
 ] 
-#cam_fps = [90, 100, 110, 125, 150, 200, 250, 350, 500, 750, 1000]
-cam_fps = [218]
+cam_fps = [90, 105, 120, 145, 175, 220, 290, 365, 440, 585, 730, 880, 1027]
+#cam_fps = [218]
 reps = [1,2,3]
 
 # Create Parameter Sets (Combinations of all variables)
