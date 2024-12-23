@@ -54,8 +54,15 @@ class CameraPoseVisualizer:
         self.ax.add_collection3d(
             Poly3DCollection(cube_faces, facecolors=color, linewidths=0.3, edgecolors=color, alpha=alpha))
 
-    def extrinsic2pyramid(self, extrinsic, color='r', focal_len=5, aspect_ratio=0.3,sensor_width=0.3,scale_rel=1,alpha=0.35,DrawCoordSystem=True):
-        # Adaptation of the camera scaling due to the different scaling factor of the transformation matrices
+    def extrinsic2pyramid(self, extrinsic, color='r', focal_len=5, aspect_ratio=0.3,sensor_width=0.3,
+                          scale_rel=1,alpha=0.35,DrawCoordSystem=True, cam_model = "OpenCV"):
+        
+        if cam_model == "Blender":
+            converting = np.array([[1,0,0],[0 ,-1, 0],[0, 0, -1]])
+            rot_matrix_blender = extrinsic[:3,:3].copy()
+            rot_matrix = converting @ rot_matrix_blender
+            extrinsic[:3,:3] = rot_matrix
+        # Adaptation of the camera scaling due to the different scaling factor of the transformation matrices    
         scale_extrinsic = np.mean([np.linalg.norm(extrinsic[:, 0]),np.linalg.norm(extrinsic[:, 1]),np.linalg.norm(extrinsic[:, 2])])
         scale = scale_rel/scale_extrinsic
         vertex_std = np.array([[0, 0, 0, 1],
@@ -74,6 +81,7 @@ class CameraPoseVisualizer:
         
         # Draw coordinate system
         if DrawCoordSystem == True:
+            if  cam_model == "Blender": extrinsic[:3,:3] = rot_matrix_blender
             origin = np.array([0, 0, 0,1]) @ extrinsic.T;                   origin_transformed = origin[:3]
             x_axis = np.array([focal_len*scale*.5, 0, 0,1]) @ extrinsic.T;  x_axis_transformed = x_axis[:3]
             y_axis = np.array([0, focal_len*scale*.5, 0,1]) @ extrinsic.T;  y_axis_transformed = y_axis[:3]

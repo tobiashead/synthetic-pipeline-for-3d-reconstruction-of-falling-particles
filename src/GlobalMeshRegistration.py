@@ -176,3 +176,35 @@ def GlobalMeshRegistration(mesh_r_path,mesh_gt_path,voxel_size,draw_registration
     # -----------------------------------------------------------------------    
     # Return Transformation Matrix
     return T
+
+
+if __name__ == "__main__":
+    mesh_path  = r"C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\objects\12S\12S.obj"
+    mesh = o3d.io.read_triangle_mesh(str(mesh_path))
+    pcd = mesh.sample_points_poisson_disk(number_of_points=5000)
+
+    # Berechne die Normals für die gesamte Punktwolke
+    pcd.estimate_normals(search_param=o3d.geometry.KDTreeSearchParamHybrid(radius=0.1, max_nn=30))
+
+    # Reduziere die Punktwolke: Auswahl einer zufälligen Teilmenge
+    sample_ratio = 0.3  # Anteil der Punkte, deren Normals angezeigt werden
+    indices = np.random.choice(len(pcd.points), size=int(len(pcd.points) * sample_ratio), replace=False)
+
+    # Erstelle die reduzierte Punktwolke
+    reduced_pcd = pcd.select_by_index(indices)
+
+    # Erstelle die Hauptpunktwolke OHNE die reduzierten Punkte
+    remaining_indices = list(set(range(len(pcd.points))) - set(indices))  # Differenz der Indizes
+    pcd_no_normals = pcd.select_by_index(remaining_indices)  # Wähle die verbleibenden Punkte aus
+
+    # Entferne die Normals und setze Farben
+    pcd_no_normals.colors = o3d.utility.Vector3dVector(np.tile([1, 0.706, 0], (len(pcd_no_normals.points), 1)))  # Grau einfärben
+    pcd_no_normals.normals = o3d.utility.Vector3dVector([])  # Keine Normals
+
+    reduced_pcd.paint_uniform_color([1, 0.706, 0])  # Reduzierte Punktwolke in Rot
+
+    # Visualisierung: Hauptpunktwolke ohne Normals, reduzierte Punktwolke mit Normals
+    o3d.visualization.draw_geometries(
+        [pcd_no_normals, reduced_pcd],
+        point_show_normal=True  # Normals werden nur für reduced_pcd angezeigt
+    )

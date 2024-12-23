@@ -51,9 +51,9 @@ def PlotAbsPositionError_for_xyz(evaluation_path,pos_x,pos_y, DisplayPlots=False
 def PositionError(evaluation_path,pos_x,pos_y,outlier_criterion=0.005, focuspoint =[0,0,1],DisplayPlots = False):   
     cam_pos_error_abs = np.linalg.norm(pos_x-pos_y,axis=1)
     fig = plt.figure(figsize=(5, 5))
-    plt.hist(cam_pos_error_abs*1000, bins=15, color='skyblue', edgecolor='black')
-    plt.xlabel(r"Camera Position Error $||\mathbf{x}_{c,rec}^{stat}-\mathbf{x}_{c,ref}^{stat}||_2$ in mm")
-    plt.ylabel("frequency")
+    plt.hist(cam_pos_error_abs*1000, bins=20, color='skyblue', edgecolor='black')
+    plt.xlabel(r"$||\mathbf{\hat{x}}_{c}^{fix}-\mathbf{x}_{c}^{fix}||_2$ in mm", fontsize=10)
+    plt.ylabel("frequency",fontsize=10)
     mean_error = np.mean(cam_pos_error_abs) 
     std_deviation = np.std(cam_pos_error_abs)
     # Counting the number of outliers

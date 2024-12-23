@@ -149,14 +149,16 @@ def ImportObject(image_dir):
         obj_moving = True
     return obj_moving, objs, obj0
 
-def ScaleScene(cams_rec,cams_ref,evaluation_path,scaling_params,DisplayAllPlots=False):
+def ScaleScene(cams_rec,cams_ref,evaluation_path,scaling_params,DisplayAllPlots=False,extract_plot = False):
     from src.scaling_factor import scaling_factor
     logging.info('Calculate scaling factor')
     print(f"{len(cams_rec)} of {len(cams_ref)} cameras could be reconstructed!")
-    factor_mean, factor_median, factor_std, _, number_inliers, number_outliers  = scaling_factor(cams_rec,cams_ref,evaluation_path,scaling_params["PreOutlierDetection"],scaling_params["threshold"],scaling_params["criterion"],True,DisplayAllPlots) 
+    factor_mean, factor_median, factor_std, fig, number_inliers, number_outliers  = scaling_factor(cams_rec,cams_ref,evaluation_path,scaling_params["PreOutlierDetection"],scaling_params["threshold"],scaling_params["criterion"],True,DisplayAllPlots) 
     scaling = factor_median
     if factor_mean is not None: print(f"Scaling factor: {scaling}")
     dict_scaling = {"median": factor_median, "mean": factor_mean, "std": factor_std, "number_inliers": number_inliers, "number_outliers": number_outliers} 
+    if extract_plot:
+        return scaling, dict_scaling, fig
     return scaling, dict_scaling
 
 def PlotReconstructedObject(project_name,evaluation_path,DisplayPlots):
@@ -211,7 +213,7 @@ def GetEvaluationAndImageDirAndObjPath(output_path,imageANDobject_path):
                 # Add the variable name and value pair to the variables dictionary after stripping whitespace
                 variables[name.strip()] = value.strip()
         image_dir = variables.get("image_dir", "")
-        obj_path = variables.get("obj_path", "")
+        obj_path = Path(variables.get("obj_path", ""))
     return evaluation_dir, image_dir, obj_path
 
 
