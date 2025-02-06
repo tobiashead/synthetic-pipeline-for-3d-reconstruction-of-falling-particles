@@ -6,11 +6,11 @@ from sub_pipelines.scene_reconstruction import SceneReconstruction
 from sub_pipelines.evaluation import EvaluateReconstruction
 
 ################################################### General Information ############################################################################
-project_name = 'PlotRegistrierung1'  # What should be the name of the project ?
+project_name = 'Test'               # What should be the name of the project ?
 obj_moving = True                   # Does the object move?
 external_params = False             # Use Params from external parameter file
 params_file_name = None             # default: None
-Evaluation = False                   # Should an evaluation of the reconstructed scene be executed?
+Evaluation = True                   # Should an evaluation of the reconstructed scene be executed?
 DebugMode = False
 DisplayPlots = True
 
