@@ -1,5 +1,13 @@
 # Synthetic pipeline for 3D-reconstruction of falling particles (Thesis-Branch)
 The branch contains specific code for my master thesis.
+
+## Features
+1) Generation of a synthetic data set of falling particles
+
+2) 3D-reconstruction based on the data set
+
+3) Evaluation of the reconstructed object
+
 ## Requirements
 - Windows 10/11
 - NVIDIA CUDA-enabled GPU (for 3D-Reconstructing)
@@ -44,21 +52,42 @@ The branch contains specific code for my master thesis.
 - Download objects and save them in `...\synthetic-pipeline-for-3d-reconstruction-of-falling-particles\objects`
     - Objects available here:  `https://tubcloud.tu-berlin.de/s/Kd2C5DmpqppmJJC` (password: "8EPx4sYEZb")
     
-
 ## Usage
-- **pipeline.ipynb**:
-    - For rendering the object in Blender and reconstructing the object using the previously generated images with Meshroom
-    - Choose your settings:
-        - Project name
-        - obj_moving (dynamic or static scene)
-        - Mesh file (path to the .obj file)
-        - Camera settings etc.
+- **end-end-pipeline.py**:
+    - Pipeline includes all 3 steps: 
+        1) Generation of a synthetic data set 
+        2) 3D-reconstruction based on the data set
+        3) Evaluation of the reconstructed object
+    - Choose settings:
+        - General Informations:
+            - Project name
+            - obj_moving (dynamic or static scene)
+            - Evaluation --> Should the reconstructed object be evaluated ? 
+        - Scene Settings
+            - Mesh file (path to the .obj file)
+            - Object Movement
+            - Camera Settings
+            - Rendering Settings
+        - Reconstruction Settings
+        - Scaling Settings
+        - Evaluation Settings
 
-- **pipeline_evaluation.ipynb**:
-    - Code for evaluating the reconstruction 
-    - Select the output folder of the reconstruction ( eg. `...\synthetic-pipeline-for-3d-reconstruction-of-falling-particles\meshroom_data\{project_name}`)
+- **sub_pipelines / data_generation.py**:
+    - Pipeline include only the data_generation step
+
+- **sub_pipelines / scene_reconstruction.py**:
+    - Pipeline include only the 3d_reconstruction step
+
+- **sub_pipelines / evaluation.py**:
+    - Pipeline include only the evaluation step
+
+- **sub_pipelines / params_study_generation.py**:
+    - Pipeline to create a data set for a parameter study and perform a 3D reconstruction based on it
+
+- **sub_pipelines / params_study_evaluation.py**:
+    - Pipeline for quantitative evaluation of the results of the parameter study
 
 ## Author
 - **Tobias Kopf**
-- Date: Februar 06, 2025
+- Date: February 06, 2025
 - Email: tobias.kopf@hotmail.de
