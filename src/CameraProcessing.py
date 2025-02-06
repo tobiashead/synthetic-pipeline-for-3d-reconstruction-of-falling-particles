@@ -3,11 +3,7 @@ import json
 import os
 import pandas as pd
 import numpy as np
-import importlib
-import sys
-importlib.reload(sys.modules['src.classes']) if 'src.classes' in sys.modules else None
 from src.classes import camera_reconstructed, camera_reference, object
-importlib.reload(sys.modules['src.TransMatrix_Utils']) if 'src.TransMatrix_Utils' in sys.modules else None
 from src.TransMatrix_Utils import Get_Location_Rotation3x3_Scale_from_Transformation4x4, RotationMatrix3x3_To_EulerAngles
 
 #-----------------------------------------------------------------------

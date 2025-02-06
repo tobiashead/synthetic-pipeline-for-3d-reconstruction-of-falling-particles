@@ -5,7 +5,6 @@ from mpl_toolkits.mplot3d.art3d import Poly3DCollection
 from scipy.spatial.transform import Rotation
 import importlib
 import sys
-importlib.reload(sys.modules['src.TransMatrix_Utils']) if 'src.TransMatrix_Utils' in sys.modules else None
 from src.TransMatrix_Utils import Get_Location_Rotation3x3_Scale_from_Transformation4x4
 
 ###################################################################################
@@ -22,7 +21,7 @@ class CameraPoseVisualizer:
         self.ax.set_xlabel('x in m')
         self.ax.set_ylabel('y in m')
         self.ax.set_zlabel('z in m')
-        print('initialize camera pose visualizer')
+        #print('initialize camera pose visualizer')
         
     def create_cube(self, position, size, color='r', alpha=0.35, rotation=None):
         # Define the vertices of the cube relative to its center
@@ -165,7 +164,7 @@ class CameraPoseVisualizer:
                         color,norm,cmap = self.color_based_on_timestep(cam.TimeStep,TimeStep_max,alpha,colormap)
                     else:
                         color = 'r'
-                        print("Warning! Display of colors depending on the time step NOT possible. Only one time step exists.")
+                        #print("Warning! Display of colors depending on the time step NOT possible. Only one time step exists.")
                         skip_colorbar = True
             else:
                 color = select_color

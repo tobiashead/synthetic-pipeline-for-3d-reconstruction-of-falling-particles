@@ -1,7 +1,4 @@
-import sys
-import os
 import logging
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from src.pipeline_utils import (
     LoadDefaultSceneParameters,
     LoadAppPaths,
@@ -27,8 +24,8 @@ def DataGeneration(params,obj_moving, DebugMode = False, PlotCamPoses = False):
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')   
     ################################################### General Information ############################################################################
-    project_name = 'GRAU5_3view'  # What should be the name of the project ?
-    obj_moving = False                  # Does the object move?
+    project_name = 'test'  # What should be the name of the project ?
+    obj_moving = True                  # Does the object move?
     external_params = False             # Use Params from external parameter file
     params_file_name = "params_movingO_BASECASE.JSON"    # default: None
     DebugMode  = False                  # Activate Debug Mode
@@ -38,19 +35,19 @@ if __name__ == "__main__":
     if external_params == False:
     #--------------------------------------------------Adjustable parameters ---------------------------------------------------------------------------
         # Object and Movement
-        params["motion"]["s0"] = [0, 0, 1.1]               # [m] set x,y,z position of the object at t=0s, 
-        params["motion"]["a"] = [0,0, -9.81]                # [m^2/s] acceleration
-        params["motion"]["v0"] = [0,0,0]                 # [m/s] initial velocity
-        params["motion"]["omega"] = 35/0.0682487071144817  # [°/s] angular velocity around the unit vector e (axis of rotation)
-        #params["motion"]["omega"] = 360/0.05910511413658484
+        params["motion"]["s0"] = [0, 0, 1.2]               # [m] set x,y,z position of the object at t=0s, 
+        params["motion"]["a"] = [0,0, -9.81]               # [m^2/s] acceleration
+        params["motion"]["v0"] = [0,0,0]                   # [m/s] initial velocity
+        #params["motion"]["omega"] = 35/0.0682487071144817 # [°/s] angular velocity around the unit vector e (axis of rotation)
+        params["motion"]["omega"] = 360/0.068248707114481
         params["motion"]["e"] = [0, 1, 0]                   # [-,-,-] axis of rotation 
-        params["io"]["obj_path"] = r"C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\objects\GRAU5\GRAU5_centered.obj"
+        params["io"]["obj_path"] = r"C:\Users\Tobias\Documents\Masterarbeit_lokal\pipeline_only_for_data_generation\synthetic_pipeline\objects\GRAU5\GRAU5_centered.obj"
         # Camera
-        params["cam"]["even_dist"] = True 
+        params["cam"]["even_dist"] = True               # If False: --> Take camera poses from the pos_file file
         params["cam"]["pos_file_path"] = r"C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\Base-case Datensatz\\CameraPositions_BaseCase.json"
-        params["cam"]["number"] = 3
-        params["cam"]["distance"] = 0.18              # m
-        params["cam"]["vert_angle"] = [-45,0,45]
+        params["cam"]["number"] = 3                     # number of cameras per layer (scalar)
+        params["cam"]["distance"] = 0.4                 # m
+        params["cam"]["vert_angle"] = [0]               # vertical angle between focuspoint and camera in degree (vector)[-45,0,45]
         params["cam"]["focuspoint"] = [0,0,1]        
         params["cam"]["fps"] = 218
         params["cam"]["sensor_size"] = [7.12, 5.33]  # [mm,mm] sensor width and sensor height
@@ -58,7 +55,7 @@ if __name__ == "__main__":
         # Rendering
         params["render"]["resolution_x"] = 2064
         params["render"]["resolution_y"] = 1544
-        params["render"]["format"] = 'PNG'          # Select image format: 'JPEG' or 'PNG'
+        params["render"]["format"] = 'JPEG'         # Select image format: 'JPEG' or 'PNG'
         params["render"]["transparent"] = True      # Remove Background ? works only with PNG-format
         params["render"]["mode"] = 'BBOX_SURFACES_CENTERS'   # "OBJECT_CENTER", "BBOX_SURFACES_CENTERS", "BBOX_CORNERS"
                                                     # --> OBJECT_CENTER = least images, BBOX_CORNERS = most images
