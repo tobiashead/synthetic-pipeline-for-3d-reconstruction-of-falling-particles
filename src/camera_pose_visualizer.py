@@ -1,14 +1,12 @@
 import numpy as np
-import matplotlib as mpl
 import matplotlib.pyplot as plt
 from matplotlib.patches import Patch
 from mpl_toolkits.mplot3d.art3d import Poly3DCollection
 from scipy.spatial.transform import Rotation
-from pathlib import Path
 import importlib
 import sys
 importlib.reload(sys.modules['src.TransMatrix_Utils']) if 'src.TransMatrix_Utils' in sys.modules else None
-from src.TransMatrix_Utils import Get_Location_Rotation3x3_Scale_from_Transformation4x4, rotation_matrix_x
+from src.TransMatrix_Utils import Get_Location_Rotation3x3_Scale_from_Transformation4x4
 
 ###################################################################################
 # code is originally based on https://github.com/demul/extrinsic2pyramid, but has been modified
@@ -56,8 +54,15 @@ class CameraPoseVisualizer:
         self.ax.add_collection3d(
             Poly3DCollection(cube_faces, facecolors=color, linewidths=0.3, edgecolors=color, alpha=alpha))
 
-    def extrinsic2pyramid(self, extrinsic, color='r', focal_len=5, aspect_ratio=0.3,sensor_width=0.3,scale_rel=1,alpha=0.35,DrawCoordSystem=True):
-        # Adaptation of the camera scaling due to the different scaling factor of the transformation matrices
+    def extrinsic2pyramid(self, extrinsic, color='r', focal_len=5, aspect_ratio=0.3,sensor_width=0.3,
+                          scale_rel=1,alpha=0.35,DrawCoordSystem=True, cam_model = "OpenCV"):
+        
+        if cam_model == "Blender":
+            converting = np.array([[1,0,0],[0 ,-1, 0],[0, 0, -1]])
+            rot_matrix_blender = extrinsic[:3,:3].copy()
+            rot_matrix = converting @ rot_matrix_blender
+            extrinsic[:3,:3] = rot_matrix
+        # Adaptation of the camera scaling due to the different scaling factor of the transformation matrices    
         scale_extrinsic = np.mean([np.linalg.norm(extrinsic[:, 0]),np.linalg.norm(extrinsic[:, 1]),np.linalg.norm(extrinsic[:, 2])])
         scale = scale_rel/scale_extrinsic
         vertex_std = np.array([[0, 0, 0, 1],
@@ -76,6 +81,7 @@ class CameraPoseVisualizer:
         
         # Draw coordinate system
         if DrawCoordSystem == True:
+            if  cam_model == "Blender": extrinsic[:3,:3] = rot_matrix_blender
             origin = np.array([0, 0, 0,1]) @ extrinsic.T;                   origin_transformed = origin[:3]
             x_axis = np.array([focal_len*scale*.5, 0, 0,1]) @ extrinsic.T;  x_axis_transformed = x_axis[:3]
             y_axis = np.array([0, focal_len*scale*.5, 0,1]) @ extrinsic.T;  y_axis_transformed = y_axis[:3]
@@ -99,15 +105,15 @@ class CameraPoseVisualizer:
         scalar_mappable.set_array([])
         fig.colorbar(scalar_mappable, ax=ax, orientation=orientation, label=label)  # shrink=0.9,pad=0.1
 
-    def show(self,title=None):
+    def show(self,title=None,show=True):
         if title is not None:
             plt.title(title)
         plt.tight_layout()
-        plt.show()
+        if show: plt.show()
 
         
     def save(self,path, bbox_inches = 'tight',pad_inches=0.1):
-        plt.savefig(str(path) + ".eps", format='eps',bbox_inches= bbox_inches,pad_inches=pad_inches)
+        #plt.savefig(str(path) + ".eps", format='eps',bbox_inches= bbox_inches,pad_inches=pad_inches)
         plt.savefig(str(path) + ".pdf", format='pdf',bbox_inches= bbox_inches,pad_inches=pad_inches)
         plt.savefig(str(path) + ".svg", format='svg',bbox_inches= bbox_inches,pad_inches=pad_inches)
     
@@ -185,10 +191,10 @@ class CameraPoseVisualizer:
         else:
             self.create_cube(position=position,size=0.03,color='k',alpha=0.3)
             
-    def load_lights(self,lights,color="orange", size=30):
+    def load_lights(self,lights,color="orange", size=30, alpha=0.8):
         for i in range(len(lights)):
             light = lights.iloc[i]
             x = light["PositionX"]; y = light["PositionY"]; z = light["PositionZ"]
-            self.ax.scatter(x,y,z,c=color,marker='o',s = size)
+            self.ax.scatter(x,y,z,c=color,marker='o',s = size,alpha=alpha)
             
     

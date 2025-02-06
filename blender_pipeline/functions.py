@@ -59,16 +59,15 @@ def create_lightsources(light,focuspoint = [0,0,1]):
             light_data.append([*light_location,light_intensity,light_distance])
     return light_data            
 #------------------------------------------------------------------------------------
-def renderCameras(params,t_count,image_count,camera_data):
-    output_path = Path(params["io"]["output_path"]); project_name = params["io"]["name"]; label_images = params["io"]["label_images"]
-    image_format = params["render"]["format"]; render_engine = params["render"]["engine"]
-    resolution_x = params["render"]["resolution_x"]; resolution_y = params["render"]["resolution_y"]
-    resolution_percentage = params["render"]["resolution_percentage"];  transparent = params["render"]["transparent"]
+def set_render_settings(render):
+    # Render settings
+    image_format = render["format"]; render_engine = render["engine"]
+    resolution_x = render["resolution_x"]; resolution_y = render["resolution_y"]
+    resolution_percentage = render["resolution_percentage"];  transparent = render["transparent"]
     if transparent:
         if image_format == "JPEG": 
-            image_format = "PNG"; params["render"]["format"] = image_format; 
+            image_format = "PNG"; render["format"] = image_format; 
             print("Warning! JPEG format does not support transparency! Change image format from JPEG to PNG")
-    # Render settings
     bpy.context.scene.render.image_settings.file_format = image_format
     if transparent: bpy.context.scene.render.image_settings.color_mode = 'RGBA'
     bpy.context.scene.render.film_transparent = transparent
@@ -76,7 +75,11 @@ def renderCameras(params,t_count,image_count,camera_data):
     bpy.context.scene.render.resolution_x = resolution_x
     bpy.context.scene.render.resolution_y = resolution_y
     bpy.context.scene.render.resolution_percentage = resolution_percentage
-    
+
+#------------------------------------------------------------------------------------    
+def renderCameras(params,t_count,image_count,camera_data):
+    output_path = Path(params["io"]["output_path"]); label_images = params["io"]["label_images"]
+    image_format = params["render"]["format"];  
     # Iterate through all cameras and render
     camera_number = 0
     for obj in bpy.data.objects:
@@ -87,9 +90,9 @@ def renderCameras(params,t_count,image_count,camera_data):
             camera_number += 1
             image_count += 1
             if label_images == 3:
-                file_name = f"{project_name}_c{camera_number:04d}_t{t_count}.{output_file_suffix}"
+                file_name = f"c{camera_number:03d}_t{t_count:04d}.{output_file_suffix}"
             elif label_images == 2:
-                file_name = f"{project_name}_t{t_count}_c{camera_number:04d}.{output_file_suffix}"
+                file_name = f"t{t_count::04d}_c{camera_number:03d}.{output_file_suffix}"
             else:
                 file_name = f"{image_count:04d}.{output_file_suffix}"
             image_path = str(output_path / file_name)
@@ -111,7 +114,6 @@ def translate_obj(t,motion,obj):
     s0 = mathutils.Vector(motion['s0'])
     s = a / 2 * t**2 + v0 * t + s0
     obj.location = s; motion['s'] = list(s)
-    return motion
 #------------------------------------------------------------------------------------  
 # Rotate the object: 
 def rotate_obj(t,motion,obj):
@@ -178,7 +180,6 @@ def create_output_path(project_path,project_name):
             # Increment counter for the next attempt
             counter += 1
     return str(output_path)
-
 #------------------------------------------------------------------------------------ 
 # Storage of simulation and imaging data
 def save_BlenderSettingsAndConfiguration(params,camera_data,object_data=None,light_data=None):
@@ -217,7 +218,8 @@ def save_BlenderSettingsAndConfiguration(params,camera_data,object_data=None,lig
     # write cache file with location of the output folder
     cache_path = Path(params["io"]["script_path"]) / "cache.txt"
     with open(cache_path, "w") as txt_file:
-        txt_file.write(params["io"]["output_path"])
+        txt_file.write(params["io"]["output_path"] + "\n")
+        txt_file.write(params["io"]["obj_path"])
 #------------------------------------------------------------------------------------
 # Display warnings
 def print_warnings(params):
@@ -278,11 +280,11 @@ def save_obj_state(obj_motion,t_count,obj):
     return obj_motion
 #------------------------------------------------------------------------------------
 # Detect whether the object is in the field of view of any camera
-def is_object_in_camera_view(obj,mode="ALWAYS_IN_VIEW"):
+def is_object_in_camera_view(obj,mode="OBJECT_CENTER"):
     # Centre of the object
     point = np.array(obj.location)
     # Instead of the centre point a part of the bounding box should be in the field of view of the cameras
-    if mode == "ALWAYS_IN_VIEW":
+    if mode == "OBJECT_CENTER":
         points = [point]
     else:
         # Ensure the scene is updated to recalculate the matrix
@@ -292,9 +294,9 @@ def is_object_in_camera_view(obj,mode="ALWAYS_IN_VIEW"):
         # Calculation of the center point of the bounding box
         bbox_center = sum(bbox_corners, mathutils.Vector()) / 8
         # Calculation of the maximum distance from the center point to the corners of the bounding box
-        if mode == "PARTIALLY_IN_VIEW":
+        if mode == "BBOX_CORNERS":
             points = bbox_corners
-        elif mode == "MAINLY_IN_VIEW":
+        elif mode == "BBOX_SURFACES_CENTERS":
             points = [
                 (bbox_corners[0] + bbox_corners[1] + bbox_corners[4] + bbox_corners[5]) / 4,
                 (bbox_corners[0] + bbox_corners[1] + bbox_corners[2] + bbox_corners[3]) / 4,
@@ -304,7 +306,7 @@ def is_object_in_camera_view(obj,mode="ALWAYS_IN_VIEW"):
                 (bbox_corners[2] + bbox_corners[3] + bbox_corners[6] + bbox_corners[7]) / 4,
             ]
         else:
-            print(f"Warning: Mode {mode} does not exist! Switch to mode ALWAYS_IN_VIEW")
+            print(f"Warning: Mode {mode} does not exist! Switch to mode OBJECT_CENTER")
             points = [point]
             
     # Check whether the object is at least in the field of view of one of the cameras
@@ -314,7 +316,7 @@ def is_object_in_camera_view(obj,mode="ALWAYS_IN_VIEW"):
                 if is_point_in_view(object,point):
                     return True
     return False
-    
+#------------------------------------------------------------------------------------   
 def is_point_in_view(camera,point):
     # projection into the image plane
     co_2d = bpy_extras.object_utils.world_to_camera_view(bpy.context.scene, camera, mathutils.Vector(point))
@@ -322,3 +324,25 @@ def is_point_in_view(camera,point):
     if (0.0 <= co_2d.x <= 1.0) and (0.0 <= co_2d.y <= 1.0) and (co_2d.z >= 0):
         return True
     return False  
+#------------------------------------------------------------------------------------
+# Place the object in the center of the coordinate system and save the object there
+def SaveObjectInWorldCoordinateOrigin(obj,obj_file_path):   
+    # If the object is already in the center point or is placed very close to the center point
+    #   --> accordingly do nothing
+    if (np.linalg.norm(np.array(obj.location)) < 10**(-5)) :
+        return obj_file_path
+    else:
+        original_obj_path = Path(obj_file_path)
+        directory = original_obj_path.parent
+        original_filename = original_obj_path.stem
+        extension = original_obj_path.suffix
+        new_filename = f"{original_filename}_centered{extension}"
+        new_obj_path = directory / new_filename
+        # If a centered object already exists, link to this
+        if new_obj_path.exists():
+            return str(new_obj_path)
+        else:
+            # center object and save the result
+            obj.location = mathutils.Vector([0,0,0])
+            bpy.ops.wm.obj_export(filepath=str(new_obj_path))
+            return str(new_obj_path)

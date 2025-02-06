@@ -20,27 +20,35 @@ sns.set(style='white',font='Arial')
 
 #-----------------------------------------------------------------------
 
-def scaling_factor(cams_rec,cams_ref,evaluation_path,PreOutlierDetection=False,threshold = 0.025, criterion = "abs"):
+def scaling_factor(cams_rec,cams_ref,evaluation_path,PreOutlierDetection=False,threshold = 0.025, criterion = "abs",plot=True,DisplayAllPlots=True):
     # calculate distance between the reconstructed cameras within a timestep for all timesteps (x)
     # calculate the same for the reference cameras (y)
-    # Calculation of an information matrix containing the corresponding time steps and camera indices for all x and y values 
+    # Calculation of an information matrix containing the corresponding time steps and camera indices for all x and y values
     y, x, cams_info = CalculateDistancesWithinOneTimeStep(cams_ref,cams_rec)
     if len(y) == 0:
-        print("Error: No scaling factor could be determined because no two cameras could be reconstructed at the same time step.")
-        print("A scaling factor of 0.2 is chosen.")
-        return 0.2, 0.2, None, None
+        print("Warning: No scaling factor could be determined because no two cameras could be reconstructed at the same time step.")
+        return None, None, None, None, None, None
     # Detect and remove outliers that do not agree with the consistency rules
     if PreOutlierDetection:
         cams_info = np.vstack(cams_info)
+        total_number = len(y)
         y, x = ConsistencyBasedOutlierDetection(y,x,cams_info,threshold,criterion)
+        number_inliers = len(y);     number_outliers = total_number - number_inliers; 
+    else: number_outliers = None; number_inliers = len(y)
     # calculate scaling factor and statistical measurements 
+    if len(y) == 0:
+        print("Warning: No scaling factor could be determined as no camera distances have successfully completed the outlier detection step.")
+        return None, None, None, None, None, None
     factor_vec = np.divide(y,x)                     # Scaling factor = distance_ref / distance_rec     
     factor_mean = np.mean(factor_vec)               # Calculate mean scaling factor
     factor_median = np.median(factor_vec)           # Calculate median scaling factor
     factor_std = np.std(factor_vec)                 # Calculate standard deviation of scaling factors
     # plot and return
-    fig = scaling_factor_plot(factor_vec,factor_mean,factor_median,factor_std,evaluation_path)
-    return factor_mean, factor_median, factor_std, fig
+    if plot:
+        fig = scaling_factor_plot(factor_vec,factor_mean,factor_median,factor_std,evaluation_path,DisplayAllPlots)
+    else: fig = None
+    return factor_mean, factor_median, factor_std, fig, number_inliers, number_outliers 
+   
 
 #-----------------------------------------------------------------------
 
@@ -48,17 +56,23 @@ def scaling_factor_RANSAC(cams_rec,cams_ref,evaluation_path,PreOutlierDetection,
     # calculate distance between the reconstructed cameras within a timestep for all timesteps (x)
     # calculate the same for the reference cameras (y)
     # Calculation of an information matrix containing the corresponding time steps and camera indices for all x and y values 
+    if cams_rec is None:
+        print("Warning: No reconstructed cameras are available. Skip scaling step.")
+        return None
     y, x, cams_info = CalculateDistancesWithinOneTimeStep(cams_ref,cams_rec)
     if len(y) == 0:
         print("Error: No scaling factor could be determined because no two cameras could be reconstructed at the same time step.")
-        print("A scaling factor of 0.2 is chosen.")
-        return 0.2
+        print("Abort evaluation.")
+        return None
     # Detect and remove outliers that do not agree with the consistency rules
     # n_img = len(cams_ref); n_TimeSteps = cams_ref[-1].TimeStep
     # n_cam = int(n_img/n_TimeSteps) 
     if  PreOutlierDetection:
         cams_info = np.vstack(cams_info)
         y,x = ConsistencyBasedOutlierDetection(y,x,cams_info,threshold,criterion)
+    if len(y) == 0:
+        print("Warning: No scaling factor could be determined as no camera distances have successfully completed the outlier detection step.")
+        return None
     # allows a RANSAC solution in certain cases by introducing an artificial point at (0, 0)  
     y = np.append(y,0); x = np.append(x,0); 
     # Standardize features by removing the mean and scaling to unit variance (not necessary)
@@ -190,9 +204,10 @@ def ConsistencyBasedOutlierDetection(y, x, cam_rec_info, threshold=0.025, criter
                         inlier_cameras.add((t_ind1, cam2_ind1))
                         inlier_cameras.add((t_ind2, cam1_ind2))
                         inlier_cameras.add((t_ind2, cam2_ind2))
-        if criterion == "rel": print(f"{n- np.sum(IsInlier)} of {n} measured distances between camera pairs were detected as outliers (relative threshold: {threshold*100:.1f}%)")
-        elif criterion == "abs_norm": print(f"{n- np.sum(IsInlier)} of {n} measured distances between camera pairs were detected as outliers (absolute normalized threshold: {threshold*1000:.0f}mm)")
-        else:  print(f"{n- np.sum(IsInlier)} of {n} measured distances between camera pairs were detected as outliers (absolute threshold: {threshold*1000:.0f}mm)")
+        number_outlier = n - np.sum(IsInlier)
+        if criterion == "rel": print(f"{number_outlier} of {n} measured distances between camera pairs were detected as outliers (relative threshold: {threshold*100:.1f}%)")
+        elif criterion == "abs_norm": print(f"{number_outlier} of {n} measured distances between camera pairs were detected as outliers (absolute normalized threshold: {threshold*1000:.0f}mm)")
+        else:  print(f"{number_outlier} of {n} measured distances between camera pairs were detected as outliers (absolute threshold: {threshold*1000:.0f}mm)")
         outlier_cameras = set()                                     # define a class to save the outliers
         # first set all cameras as outliers and the remove the inliers from the outliers
         for i, (cam1, cam2, t) in enumerate(cam_rec_info):           
@@ -208,11 +223,12 @@ def ConsistencyBasedOutlierDetection(y, x, cam_rec_info, threshold=0.025, criter
         # only return the distances marked as inliers
         y = y[IsInlier]
         x = x[IsInlier]
-    return y, x
+        
+    return y, x 
 
 #-----------------------------------------------------------------------   
 
-def scaling_factor_plot(factor_vec,factor_mean,factor_median,factor_std,evaluation_path):
+def scaling_factor_plot(factor_vec,factor_mean,factor_median,factor_std,evaluation_path,DisplayAllPlots=True):
     fig = plt.figure(figsize=(6.4,4.8))
     g = sns.histplot(data=pd.DataFrame(factor_vec),legend=False, kde=True,fill=False)
     g.set_ylabel('Frequency',fontsize=11)
@@ -225,10 +241,11 @@ def scaling_factor_plot(factor_vec,factor_mean,factor_median,factor_std,evaluati
     plt.legend(loc='upper right',fontsize=11)
     plt.annotate('$\sigma = {:.3e}$'.format(factor_std),[270,240],xycoords='figure points', fontsize=11)
     plt.grid()   
-    plt.show()
+    if DisplayAllPlots: plt.show()
     fig.savefig(Path(evaluation_path) / 'scaling_factor.svg',format='svg',bbox_inches='tight')
     fig.savefig(Path(evaluation_path) / 'scaling_factor.pdf',format='pdf',bbox_inches='tight')
-    fig.savefig(Path(evaluation_path) / 'scaling_factor.eps',format='eps',bbox_inches='tight')
+    #fig.savefig(Path(evaluation_path) / 'scaling_factor.eps',format='eps',bbox_inches='tight')
+    
     return fig
 
 #-----------------------------------------------------------------------   

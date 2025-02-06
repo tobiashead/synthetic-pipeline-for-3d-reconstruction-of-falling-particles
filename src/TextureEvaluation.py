@@ -30,6 +30,7 @@ plt.rcParams['font.size'] = fsize
 plt.rcParams['legend.fontsize'] = tsize
 plt.rcParams['xtick.direction'] = tdir
 plt.rcParams['ytick.direction'] = tdir
+plt.rcParams['axes.formatter.use_mathtext']=True
 plt.rcParams['xtick.major.size'] = major
 plt.rcParams['xtick.minor.size'] = minor
 plt.rcParams['ytick.major.size'] = major
@@ -44,17 +45,18 @@ plt.rcParams['legend.handlelength'] = lhandle
 #fig_width = fig_width_pt*inches_per_pt  # width in inches
 #fig_height = fig_width*golden_mean      # height in inches
 
-def GetImagesForTextureEvaluation(obj_path,output_path,script_path,blender_path):
+def GetImagesForTextureEvaluation(obj_path,output_path,script_path,blender_path,DebugMode=False):
     # Parameter File Path
-    TextureParams_path = Path(script_path) / "params_textureEvaluation.json"
+    TextureParams_path_input = Path(script_path) / "params_textureEvaluation_default.json"
     # Load Parameter from json file
-    with open(TextureParams_path, 'r') as file:
+    with open(TextureParams_path_input, 'r') as file:
         params_texture = json.load(file)
     # Change parameters. In this case, object path and output path
     params_texture["io"]["obj_path"] = str(obj_path)
     params_texture["io"]["output_path"] = str(output_path)
     # Update Json File
-    with open(TextureParams_path, "w") as json_file:
+    TextureParams_path_output = Path(script_path) / "params_textureEvaluation.json"
+    with open(TextureParams_path_output, "w") as json_file:
         json.dump(params_texture, json_file, indent=5) 
     # delete output folder if already exist 
     if os.path.exists(output_path):
@@ -64,9 +66,17 @@ def GetImagesForTextureEvaluation(obj_path,output_path,script_path,blender_path)
     # render images in blender
     script_path = Path(script_path) / "texture_evaluation.py"
     command = f"{blender_path} --background --python {script_path}"
-    return_code = subprocess.run(command,text=True)  
+    log_file = Path(script_path).parent / 'logfile.txt'
+    with log_file.open('w') as f, subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True) as proc:
+        for line in proc.stdout:
+            if DebugMode:
+                print(line, end='')
+            f.write(line); f.flush()
+    proc.wait()
+  
     
-def GLCM_Evaluation(OutputTextureRef_path,OutputTextureRec_path,patch_size,image_number,levels,distances,random_seed=124,features = ["dissimilarity","correlation"],num_windows=4, offset = [0,0], offset_method = "non-standardized"):
+def GLCM_Evaluation(evaluation_dir,OutputTextureRef_path,OutputTextureRec_path,patch_size,image_number,levels,distances,random_seed=124,
+                    features = ["dissimilarity","correlation"],num_windows=4, offset = [0,0], offset_method = "non-standardized",DisplayPlots=True):
     # create Grey Scale Image
     image_ref, image_rec, height, width = create_greyscale_image(OutputTextureRef_path,OutputTextureRec_path,levels,image_number)
     # Identify window on which the object is visible
@@ -80,7 +90,7 @@ def GLCM_Evaluation(OutputTextureRef_path,OutputTextureRec_path,patch_size,image
     else:
         feature_matrix_rec[:,0] += offset[0]*feature_matrix_rec[:,0]; feature_matrix_rec[:,1] += offset[1]*feature_matrix_rec[:,1] 
     # create the figure
-    GLCM_figure1(image_ref,image_rec,windows_ref,windows_rec,feature_matrix_ref,feature_matrix_rec,features,levels,patch_size,locations,offset,offset_method)
+    GLCM_figure1(evaluation_dir,image_ref,image_rec,windows_ref,windows_rec,feature_matrix_ref,feature_matrix_rec,features,levels,patch_size,locations,offset,offset_method,DisplayPlots)
     
 def identify_windows_containing_the_object(random_seed,height,width,patch_size,levels,distances,image_ref,image_rec=None,num_windows=4,ASM_crit = 0.01):
     locations = []
@@ -120,7 +130,7 @@ def calculate_GLCM_features(windows,distances,levels,features):
             feature_matrix[i,j] = feature_value
     return feature_matrix, glcm
 
-def GLCM_figure1(image_ref,image_rec,windows_ref,windows_rec,features_ref,features_rec,features,levels,patch_size,locations,offset,offset_method):
+def GLCM_figure1(evaluation_dir,image_ref,image_rec,windows_ref,windows_rec,features_ref,features_rec,features,levels,patch_size,locations,offset,offset_method,DisplayPlots = True):
     # create figure
     fig = plt.figure(layout='constrained',figsize=(5.44, 6))
     subfigs = fig.subfigures(2, 1, wspace=0.07) 
@@ -182,7 +192,10 @@ def GLCM_figure1(image_ref,image_rec,windows_ref,windows_rec,features_ref,featur
         ax.set_xlabel(f"Window {i+1} (Rec.)")
     fig.suptitle('Grey level co-occurrence matrix features', fontsize=11, y=1.05)
     fig.tight_layout
-    plt.show()
+    fig.savefig(Path(evaluation_dir) / 'GLCM.svg',format='svg',bbox_inches='tight')
+    fig.savefig(Path(evaluation_dir) / 'GLCM.pdf',format='pdf',bbox_inches='tight')
+    if DisplayPlots: plt.show()
+   
     
 def get_image_path_by_number(directory, image_number):
     if not os.path.isdir(directory):

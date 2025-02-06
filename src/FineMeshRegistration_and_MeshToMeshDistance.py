@@ -3,7 +3,7 @@ from pathlib import Path
 import subprocess
 import numpy as np
 
-def FineMeshRegistration_and_MeshToMeshDistance(CC_path,params_CC,evaluation_path,mesh_gt_path,mesh_r_path,output_format_mesh,InitialTrans_path):
+def FineMeshRegistration_and_MeshToMeshDistance(CC_path,params_CC,evaluation_path,mesh_gt_path,mesh_r_path,output_format_mesh,InitialTrans_path,DebugMode=False):
     silent = params_CC[0]; save_meshes_all_at_once = params_CC[1]; adjust_scale = params_CC[2]; output_format_mesh = params_CC[3]
     # Create Path to log file
     log_path = evaluation_path / "log_CloudCompare.txt"                     # Path to log file
@@ -40,7 +40,10 @@ def FineMeshRegistration_and_MeshToMeshDistance(CC_path,params_CC,evaluation_pat
         adjust_scale_index = command.index("1e-7") + 1
         command.insert(adjust_scale_index, "-ADJUST_SCALE")   
     # Run CloudCompare command        
-    return_code = subprocess.run(command, text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    if DebugMode:
+        return_code = subprocess.run(command, text=True)
+    else:
+        return_code = subprocess.run(command, text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     
     # Define path for transformed mesh and ICP Transformation Matrix
     mesh_r_trans_path = evaluation_path / ("texturedMesh_TRANSFORMED." + output_format_mesh)

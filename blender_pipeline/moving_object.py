@@ -4,6 +4,7 @@ import sys
 import importlib
 from pathlib import Path
 import json
+import bpy
 
 ######################################################################################
 #                                MOVING OBJECT                                       #
@@ -21,8 +22,8 @@ else:
     params = {
         # Input and output parameters
         "io": {
-            "name": 'falling_dodekaeder_even_dist_3cam',    # project name (e.g. 'Dodekaeder')
-            "obj_path": r"C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_pipeline\3D_Dice\3D_Dice.obj",    # Path to the object file
+            "name": 'Moving5cam',    # project name (e.g. 'Dodekaeder')
+            "obj_path": r"C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\objects\MS_20_2\MS_22_2_wR_schw_M.obj",    # Path to the object file
             "label_images": 3               # how to label rendered images
             # 1: "{project_name}_{image_count}"
             # 2: "{project_name}_{timestep_count}_{camera_number}"
@@ -43,9 +44,9 @@ else:
             # only necessary if even_dist = False
             "pos_file_path": r'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_pipeline\Scripts\camera_positions.json', # path to the file containing the camera positions
             # only necessary if even_dist = True
-            "number": 3,                  # number of cameras at one level
+            "number": 5,                  # number of cameras at one level
             "focuspoint": [0,0,1],        # [m] Location of the point of focus
-            "distance": 0.3,              # [m] Euclidean distance to the "focus point"
+            "distance": 0.2,              # [m] Euclidean distance to the "focus point"
             "vert_angle": [0],            # [°] Vertical angle from centre to camera position
             # necessary, regardless of the value of even_dist 
             "focal_length": 16,           # [mm] focal length of all cameras
@@ -54,9 +55,9 @@ else:
         },
         # Light parameters
         "light": {
-            "z": [0,1,2],                # [m] height of the light sources
-            "hor_angle": [45,90,135,180,225,270,315,360],     # [°] Horizontal angle from centre to light position
-            "distance": 1,                # [m] Horizontal Euclidean distance to the center point
+            "z": [0.8,1.2],                # [m] height of the light sources
+            "hor_angle": [45,135,215,305],     # [°] Horizontal angle from centre to light position
+            "distance": 0.2,                # [m] Horizontal Euclidean distance to the center point
             "intensity": 10               # [W] Light intensity
         },
         # Render Settings
@@ -67,7 +68,8 @@ else:
             "resolution_x": 2064,
             "resolution_y": 1544,
             "resolution_percentage": 100,
-            "mode": 'MAINLY_IN_VIEW',   # "MAINLY_IN_VIEW", "PARTIALLY_IN_VIEW", "ALWAYS_IN_VIEW"
+            "mode": 'OBJECT_CENTER',   # "OBJECT_CENTER", "BBOX_SURFACES_CENTERS", "BBOX_CORNERS"
+            # --> OBJECT_CENTER = least images, BBOX_CORNERS = most images
             "transparent": False
         },
         # Exiftool options
@@ -76,13 +78,13 @@ else:
         }
     }
 ######################################################################################
-project_path = (Path(__file__).resolve()).parent.parent.parent
+project_path = (Path(__file__).resolve()).parent.parent
 with open(project_path / "path_settings.json", 'r') as file:
     app_paths = json.load(file)
 params["exiftool"]["path"] = app_paths["exiftool_exe"]
 ############################# Import functions #######################################
 # import functions from external script-folder
-params["io"]["script_path"] = str(project_path / "blender_pipeline" / "Scripts")
+params["io"]["script_path"] = str(project_path / "blender_pipeline")
 if params["io"]["script_path"] not in sys.path:
     sys.path.append(params["io"]["script_path"])
 else:
@@ -100,7 +102,9 @@ from functions import (
     print_warnings,
     create_not_evenly_distributed_cameras,
     save_obj_state,
-    is_object_in_camera_view
+    is_object_in_camera_view,
+    SaveObjectInWorldCoordinateOrigin,
+    set_render_settings
     )
 # import modules from text-data block
 #sys.modules["functions"] = bpy.data.texts['functions.py'].as_module()
@@ -113,10 +117,11 @@ bpy.ops.object.select_all(action='SELECT')
 bpy.ops.object.delete()
 #------------------------------------------------------------------------------------
 # Load objects
-bpy.ops.wm.obj_import(filepath=str(params["io"]["obj_path"]))   # Import the OBJ model
+bpy.ops.wm.obj_import(filepath=params["io"]["obj_path"])   # Import the OBJ model
 obj = bpy.context.active_object                                 # Retrieve the last imported object (this is now the active object)
 bpy.ops.object.origin_set(type='ORIGIN_CENTER_OF_VOLUME', center='BOUNDS')  # Recalculate the object's bounding box to update its center of mass
-params["motion"] = translate_obj(0,params["motion"],obj)        # Set the position of the object at t=0s
+params["io"]["obj_path"] = SaveObjectInWorldCoordinateOrigin(obj,str(params["io"]["obj_path"]))  # Center object and save the centered object (if not already saved) 
+translate_obj(0,params["motion"],obj)        # Set the position of the object at t=0s
 params["motion"]["e"] = (np.array(params["motion"]["e"]) / np.linalg.norm(params["motion"]["e"])).tolist() # normalize rotation vector (not necessary, but good for clarity)
 obj.rotation_mode = "AXIS_ANGLE"; rotate_obj(0,params["motion"],obj)    # Set the rotation of the object at t=0s
 #------------------------------------------------------------------------------------
@@ -129,6 +134,8 @@ if params["cam"]["even_dist"] == True:
     cam2fp_dis = params["cam"]["distance"] * np.ones([params["cam"]["number"]*len(params["cam"]["vert_angle"]),1]) # calculate the distances between the cameras and the point of focuse
 else: 
     cam2fp_dis = create_not_evenly_distributed_cameras(params["cam"])
+# Set render settings
+set_render_settings(params["render"])    
 #------------------------------------------------------------------------------------
 # Create light sources
 light_data = create_lightsources(params["light"],params["cam"]["focuspoint"])
@@ -141,9 +148,10 @@ time_vec = np.arange(0,params["motion"]["sim_time"],1/params["cam"]["fps"])
 image_count = 0; camera_data = []; obj_state = []; obj_in_window = False
 obj_state = save_obj_state(obj_state,0,obj)     # save initial object location and orientation
 for t_count, t in enumerate(time_vec):
-    params["motion"] = translate_obj(t,params["motion"],obj) # translate image and get new position
+    translate_obj(t,params["motion"],obj) # translate image and get new position
     rotate_obj(t,params["motion"],obj)                       # rotate object
     if is_object_in_camera_view(obj,mode = params["render"]["mode"]):   # check if the object is visible on the images
+        #obj.location = [0,0,1] # Only Rotation, No Translation
         # Save Orientation and Position of the moving object
         obj_state = save_obj_state(obj_state,t_count,obj)
         # Rendering of all cameras in the scene

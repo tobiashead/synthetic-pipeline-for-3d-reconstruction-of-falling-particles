@@ -1,14 +1,14 @@
 {
      "io": {
-          "name": "Moving_MS_02_3cam",
-          "obj_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\objects\\MS_20_2\\centered\\MS_22_2_wR_schw_M.obj",
+          "name": "default_moving",
+          "obj_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\objects\\GRAU5\\GRAU5.obj",
           "label_images": 3
      },
      "motion": {
           "s0": [
+               1.1,
                0,
-               0,
-               1.1
+               0
           ],
           "v0": [
                0,
@@ -22,15 +22,15 @@
           ],
           "e": [
                1,
-               0,
+               1,
                1
           ],
-          "omega": 3913.0434782608695,
+          "omega": 1125,
           "sim_time": 5
      },
      "cam": {
           "even_dist": true,
-          "pos_file_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\blender_pipeline\\Scripts\\CamerasExtrinsicsStatic.json",
+          "pos_file_path": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\synthetic_pipeline\\blender_pipeline\\Scripts\\camera_positions.json",
           "number": 3,
           "focuspoint": [
                0,
@@ -56,16 +56,12 @@
           ],
           "hor_angle": [
                45,
-               90,
                135,
-               180,
                225,
-               270,
-               315,
-               360
+               315
           ],
           "distance": 1,
-          "intensity": 10
+          "intensity": 20
      },
      "render": {
           "format": "JPEG",
@@ -73,7 +69,7 @@
           "resolution_x": 2064,
           "resolution_y": 1544,
           "resolution_percentage": 100,
-          "mode": "MAINLY_IN_VIEW",
+          "mode": "OBJECT_CENTER",
           "transparent": false
      },
      "exiftool": {

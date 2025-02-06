@@ -7,14 +7,13 @@ import matplotlib.pyplot as plt
 current_dir = Path(__file__).resolve().parent
 parent_dir = Path(__file__).resolve().parent.parent
 sys.path.append(str(parent_dir))
-from src.CameraProcessing import read_camera_alignment_reference, match_cameras, read_object_alignment
+from src.CameraProcessing import read_camera_alignment_reference, read_object_alignment, ExportCameras2Blender
 from src.camera_pose_visualizer import CameraPoseVisualizer
 
 style_path = current_dir / 'thesis.mplstyle'
 plt.style.use(str(style_path))
 
-image_dir = r"C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_data\6sRotXY"
-#image_dir = r'C:\Users\Tobias\Nextcloud\Shared\MA Tobias Kopf\Base-case_Datensatz\6sRotXY'
+image_dir = r"C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_data\GRAU5_NoRot_3cams"
 cams_ref = read_camera_alignment_reference(image_dir)
 objs, obj0 = read_object_alignment(image_dir)   
 
@@ -30,6 +29,8 @@ aspect_ratio = params["cam"]["sensor_size"][0] / params["cam"]["sensor_size"][1]
 # transformation from dynamic into static scene
 for cam in cams_ref:
     Tdynamic2static = cam.Dynamic2StaticScene(objs[cam.CorrespondigIndexObject].Transformation, obj0.Transformation,focuspoint)
+    
+ExportCameras2Blender(cams_ref,image_dir, static_scene = True)
 
 top=1.0
 bottom=0.015

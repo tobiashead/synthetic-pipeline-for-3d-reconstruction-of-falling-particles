@@ -1,0 +1,67 @@
+from pathlib import Path
+import json
+import sys
+import matplotlib.pyplot as plt
+#from matplotlib import font_manager
+#import matplotlib as mpl
+current_dir = Path(__file__).resolve().parent
+parent_dir = Path(__file__).resolve().parent.parent
+sys.path.append(str(parent_dir))
+from src.CameraProcessing import read_camera_alignment_reference, read_light_alignment
+from src.camera_pose_visualizer import CameraPoseVisualizer
+
+style_path = current_dir / 'thesis.mplstyle'
+plt.style.use(str(style_path))
+
+image_dir1 = r'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_data\static5cams3layers_4'
+image_dir2 = r'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_data\Moving5cam_1'
+cams_static = read_camera_alignment_reference(image_dir1)
+cams_dynamic = read_camera_alignment_reference(image_dir2) 
+lights_static = read_light_alignment(image_dir1)   
+lights_dynamic = read_light_alignment(image_dir2)   
+
+# load camera parameters
+params_file_path = Path(image_dir1) / "params.json"
+with open(params_file_path, 'r') as file:
+    params = json.load(file)
+focuspoint = params["cam"]["focuspoint"]
+focal_length = params["cam"]["focal_length"]*10**(-3)
+sensor_width = params["cam"]["sensor_size"][0]*10**(-3)
+aspect_ratio = params["cam"]["sensor_size"][0] / params["cam"]["sensor_size"][1]
+
+
+top=1.0
+bottom=0.09
+left=0.15
+right=0.975
+hspace=0.2
+wspace=0.2
+azim = 45.77153558052431; elev = 22.64419475655432
+# static scene    
+from src.camera_pose_visualizer import CameraPoseVisualizer 
+visualizer2 = CameraPoseVisualizer([-0.2, 0.2], [-0.2, 0.2], [0.8, 1.2],figsize=(2.73,2.64))
+visualizer2.load_cameras(cams_static,focal_length,aspect_ratio,sensor_width,scale=2,alpha=0.3,DrawCoordSystem=True,static_scene=True,colorbar=False,select_color='r') 
+visualizer2.load_cube(cams_static,static_scene=True)   
+visualizer2.load_lights(lights_static,size=15,alpha=0.8)
+#visualizer2.fig.subplots_adjust(top=top, bottom=bottom, left=left, right=right, hspace=hspace,wspace=wspace)
+visualizer2.ax.view_init(elev=elev, azim=azim)
+#visualizer2.save(path,bbox_inches=None)  
+visualizer2.show()
+# Speichere Azimut und Elevation
+azim = visualizer2.ax.azim
+elev = visualizer2.ax.elev
+print(f"Saved azimuth: {azim}, elevation: {elev}")
+
+# dynamic scene
+from src.camera_pose_visualizer import CameraPoseVisualizer
+visualizer = CameraPoseVisualizer([-0.2, 0.2], [-0.2, 0.2], [0.8, 1.2],figsize=(2.73,2.64))
+visualizer.load_cameras(cams_dynamic[:5],focal_length,aspect_ratio,sensor_width,scale=2,alpha=0.3,DrawCoordSystem=True,static_scene=False,select_color="red")
+visualizer.load_cube(cams_dynamic)
+visualizer.load_lights(lights_dynamic,size=15,alpha=0.8)
+visualizer.ax.view_init(elev=elev, azim=azim)
+visualizer.fig.subplots_adjust(top=top, bottom=bottom, left=left, right=right)
+#visualizer.save(path,bbox_inches=None,pad_inches=0)      
+visualizer.show()
+    
+
+

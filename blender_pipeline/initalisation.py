@@ -3,7 +3,7 @@ import sys
 import importlib
 
 ######################################################################################
-#                                Initialisation                                      #
+#                                Initialisation         --> MUST BE UPDATED          #
 ######################################################################################
 
 ############################# Select Parameters ######################################
@@ -11,8 +11,8 @@ import importlib
 params = {
     # Input and output parameters
     "io": {
-        "script_path": r'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_pipeline\Scripts',                    # Path of the script files
-        "obj_path": r'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\objects\Dodekaeder\Mesh-Dateien\Wuerfel_12s\12S.obj',    # Path to the object file
+        "script_path": r'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_pipeline',                    # Path of the script files
+        "obj_path": r"C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\objects\GRAU5\GRAU5_centered.obj",    # Path to the object file
         #"obj_path": Path("C:/Users/Tobias/Documents/Masterarbeit_lokal/synthetic_pipeline/blender_pipeline/3D_Dice/3D_Dice.obj")
     },
     # Position and movement of the object
@@ -23,11 +23,11 @@ params = {
     "cam": {
         "even_dist": True,            # are the cameras evenly distributed, True or False
         # only necessary if even_dist = False
-        "pos_file_path": r'C:\Users\Tobias\Documents\Masterarbeit_lokal\synthetic_pipeline\blender_pipeline\Scripts\camera_positions.json', # path to the file containing the camera positions
+        "pos_file_path": r"C:\Users\Tobias\Nextcloud\Shared\MA Tobias Kopf\Base-case_Datensatz\6sRotXY\CamerasExtrinsicsStatic.json", # path to the file containing the camera positions
         # only necessary if even_dist = True
-        "number": 3,                  # number of cameras at one level
+        "number": 5,                  # number of cameras at one level
         "focuspoint": [0,0,1],        # [m] Location of the point of focus
-        "distance": 0.2,              # [m] Euclidean distance to the "center point"
+        "distance": 0.4,              # [m] Euclidean distance to the "center point"
         # necessary, regardless of the value of even_dist 
         "vert_angle": [0],            # [°] Vertical angle from centre to camera position
         "focal_length": 16,           # [mm] focal length of all cameras
@@ -35,10 +35,14 @@ params = {
     },
     # Light parameters
     "light": {
-        "z": [1],                    # [m] height of the light sources
-        "hor_angle": [165, 345],     # [°] Horizontal angle from centre to light position
+        "z": [0,1,2],                    # [m] height of the light sources
+        "hor_angle": [ 
+                45,
+                135,
+                225,
+                315,],     # [°] Horizontal angle from centre to light position
         "distance": 1,               # [m] Horizontal Euclidean distance to the center point
-        "intensity": 100             # [W] Light intensity
+        "intensity": 25             # [W] Light intensity
     },
 }
 ######################################################################################
@@ -75,7 +79,10 @@ params["motion"]["e"] = [0,0,0]; params["motion"]["omega"] = 0
 rotate_obj(0,params["motion"],obj) # Set the rotation of the object at t=0s
 #------------------------------------------------------------------------------------
 # Create cameras
-create_evenly_distributed_cameras(params["cam"])
+if params["cam"]["even_dist"] == True:
+    create_evenly_distributed_cameras(params["cam"])
+else:
+    create_not_evenly_distributed_cameras(params["cam"]) 
 #------------------------------------------------------------------------------------
 # Create light sources
 create_lightsources(params["light"],params["cam"]["focuspoint"])

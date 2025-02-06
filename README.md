@@ -1,4 +1,4 @@
-# Synthetic pipeline for 3D-reconstruction of falling particles
+# Synthetic pipeline for 3D-reconstruction of falling particles (Development-Branch)
 ## Requirements
 - Windows 10/11
 - NVIDIA CUDA-enabled GPU (for 3D-Reconstructing)
@@ -15,8 +15,12 @@
     git clone https://git.tu-berlin.de/tobias_kopf/synthetic-pipeline-for-3d-reconstruction-of-falling-particles.git
     ```
     - Authentication: Log in with TU account
-
-- Install packages:
+- Rename the Repository: e.g. "synthetic_pipeline" (Shortest possible name, as Windows limits the file path)
+    - Windows Terminal / PowerShell
+        ```bash
+        ren .\synthetic-pipeline-for-3d-reconstruction-of-falling-particles\ synthetic_pipeline
+        ```
+- Install packages: (Commands for use in Windows PowerShell)
     - Create virtual environment using the **venv** module: (working with **virtualenv** is also possible)
         ```bash
         cd synthetic-pipeline-for-3d-reconstruction-of-falling-particles/venv_synthetic_311
@@ -55,7 +59,7 @@
 
 ## Author
 - **Tobias Kopf**
-- Date: June 26, 2024
+- Date: October 10, 2024
 - Email: tobias.kopf@tu-berlin.de
 
 ## TODO
@@ -63,8 +67,8 @@
     - Adapting the positioning of the light sources
         -  option to import from external file
         -  more intuitive parameterization
-    - Use of relative file paths when specifying the object path and the path of the camera position file ??
-    
+    - selection criterion: ???
+        - Check whether the object is in the viewing window for each image individually   
 
 ## CHANGELOG
 - blender_pipeline:
@@ -72,13 +76,24 @@
         - The new criterion is based on fewer simplifications.
         - The 3D coordinates of the object are projected onto the image plane.
 	    - The system then checks whether the object is in the image-windows on the image plane.
+        - rename the selection criterions
     -  rotation of the object
         - no longer describe the rotation the with Euler angles
         - instead use Axis-Angle
     - Adapting the positioning of the light sources
         - export positioning of the lights
+    - Save automatically a centered version of the input object, if it's not already centered
+    - Define the render parameters at the beginning of the function for all cameras and not individually for each render call
+    - New folder structure
 - evaluation_pipeline:
         - import positioning of the lights
         - add a option for plotting also the lights in the camera plot (reference)
 - path_settings:
     - add CloudComapre to path_settings
+- create end-end-pipeline
+- create subpipelines:
+    - pipeline only for data generation (can also be used as a function)
+    - pipeline only for the actual 3d-reconstruction (can also be used as a function)
+    - pipeline for parameter studies (including generation and 3d-reconstruction)
+    - pipeline for evaluation
+    - pipeline for evaluation parameter studies
