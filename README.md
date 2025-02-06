@@ -1,4 +1,5 @@
-# Synthetic pipeline for 3D-reconstruction of falling particles (Development-Branch)
+# Synthetic pipeline for 3D-reconstruction of falling particles (Thesis-Branch)
+The branch contains specific code for my master thesis.
 ## Requirements
 - Windows 10/11
 - NVIDIA CUDA-enabled GPU (for 3D-Reconstructing)
@@ -59,41 +60,5 @@
 
 ## Author
 - **Tobias Kopf**
-- Date: October 10, 2024
-- Email: tobias.kopf@tu-berlin.de
-
-## TODO
-- blender_pipeline:
-    - Adapting the positioning of the light sources
-        -  option to import from external file
-        -  more intuitive parameterization
-    - selection criterion: ???
-        - Check whether the object is in the viewing window for each image individually   
-
-## CHANGELOG
-- blender_pipeline:
-    - selection criterion: Is the object in the viewing window of the cameras?
-        - The new criterion is based on fewer simplifications.
-        - The 3D coordinates of the object are projected onto the image plane.
-	    - The system then checks whether the object is in the image-windows on the image plane.
-        - rename the selection criterions
-    -  rotation of the object
-        - no longer describe the rotation the with Euler angles
-        - instead use Axis-Angle
-    - Adapting the positioning of the light sources
-        - export positioning of the lights
-    - Save automatically a centered version of the input object, if it's not already centered
-    - Define the render parameters at the beginning of the function for all cameras and not individually for each render call
-    - New folder structure
-- evaluation_pipeline:
-        - import positioning of the lights
-        - add a option for plotting also the lights in the camera plot (reference)
-- path_settings:
-    - add CloudComapre to path_settings
-- create end-end-pipeline
-- create subpipelines:
-    - pipeline only for data generation (can also be used as a function)
-    - pipeline only for the actual 3d-reconstruction (can also be used as a function)
-    - pipeline for parameter studies (including generation and 3d-reconstruction)
-    - pipeline for evaluation
-    - pipeline for evaluation parameter studies
+- Date: Februar 06, 2025
+- Email: tobias.kopf@hotmail.de
