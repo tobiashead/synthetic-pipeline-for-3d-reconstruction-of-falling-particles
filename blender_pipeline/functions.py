@@ -346,3 +346,18 @@ def SaveObjectInWorldCoordinateOrigin(obj,obj_file_path):
             obj.location = mathutils.Vector([0,0,0])
             bpy.ops.wm.obj_export(filepath=str(new_obj_path))
             return str(new_obj_path)
+#------------------------------------------------------------------------------------
+# Check if the connection with exiftool is working
+def check_exiftool_connection(exiftool):
+    path = exiftool["path"]
+    mode = exiftool["mod"]
+    if mode != 0:
+            try:
+                result = subprocess.run([path, "-ver"], capture_output=True, text=True, check=True)
+                print(f"ExifTool is working. Version: {result.stdout.strip()}")
+            except FileNotFoundError:
+                exiftool["mod"] = 0
+                print("Warning: ExifTool is not installed or not found in PATH. Exif tags cannot be written.")
+            except subprocess.CalledProcessError as e:
+                exiftool["mod"] = 0
+                print(f"Warning: ExifTool encountered an issue ({e}). Exif tags cannot be written.")

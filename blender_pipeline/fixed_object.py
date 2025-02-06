@@ -66,7 +66,7 @@ else:
         },
         # Exiftool options
         "exiftool": {
-            "mod": 2   # choose operating mod (1 = "immediately", 2= "aferwards" --> improve performance)
+            "mod": 2   # choose operating mod (0 = "off", 1 = "immediately", 2= "aferwards" --> improve performance)
         }
     }
 ############################# Import functions #######################################
@@ -92,8 +92,13 @@ from functions import (
     create_not_evenly_distributed_cameras,
     rotate_obj,
     SaveObjectInWorldCoordinateOrigin,
-    set_render_settings
+    set_render_settings,
+    check_exiftool_connection
     )
+
+# Check if communication with Exif-Tool is working
+check_exiftool_connection(params["exiftool"])
+
 ######################################################################################
          
 ############################# Fixed-object routine ###################################

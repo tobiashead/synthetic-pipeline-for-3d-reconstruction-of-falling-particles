@@ -29,7 +29,8 @@ if __name__ == "__main__":
     external_params = False             # Use Params from external parameter file
     params_file_name = "params_movingO_BASECASE.JSON"    # default: None
     DebugMode  = False                  # Activate Debug Mode
-    PlotCamPoses = True              # Plot camera poses (dynamic and static)
+    PlotCamPoses = True                 # Plot camera poses (dynamic and static)
+    WriteMetadata = True                # Write metadata in the Exif-format
     ################################################### Scene Settings #################################################################################
     params = LoadDefaultSceneParameters(project_name,obj_moving,params_file_name,external_params) # Load standard parameters from json file
     if external_params == False:
@@ -55,13 +56,13 @@ if __name__ == "__main__":
         # Rendering
         params["render"]["resolution_x"] = 2064
         params["render"]["resolution_y"] = 1544
-        params["render"]["format"] = 'JPEG'         # Select image format: 'JPEG' or 'PNG'
-        params["render"]["transparent"] = True      # Remove Background ? works only with PNG-format
+        params["render"]["format"] = 'PNG'                  # Select image format: 'JPEG' or 'PNG'
+        params["render"]["transparent"] = True               # Remove Background ? works only with PNG-format
         params["render"]["mode"] = 'BBOX_SURFACES_CENTERS'   # "OBJECT_CENTER", "BBOX_SURFACES_CENTERS", "BBOX_CORNERS"
                                                     # --> OBJECT_CENTER = least images, BBOX_CORNERS = most images
         #-------------------------------------------------- DO NOT CHANGE ----------------------------------------------------------------------------------
         params["io"]["label_images"] = 3 if obj_moving else 1       
-        #params["io"]["label_images"] = 3
+        params["exiftool"]["mod"] = 2 if WriteMetadata else 0
         if obj_moving == False: params["motion"]["s0"] = params["cam"]["focuspoint"]    # override the location at t=0s in case of a static scene
     # Run data generation        
     DataGeneration(params,obj_moving,DebugMode,PlotCamPoses)

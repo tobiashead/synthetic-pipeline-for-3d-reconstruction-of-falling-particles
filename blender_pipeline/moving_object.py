@@ -4,7 +4,6 @@ import sys
 import importlib
 from pathlib import Path
 import json
-import bpy
 
 ######################################################################################
 #                                MOVING OBJECT                                       #
@@ -74,7 +73,7 @@ else:
         },
         # Exiftool options
         "exiftool": {
-            "mod": 2   # choose operating mod (1 = "immediately", 2= "aferwards" --> improve performance)
+            "mod": 2            # choose operating mode (0 = "off", 1 = "immediately", 2= "aferwards" --> improve performance)
         }
     }
 ######################################################################################
@@ -104,8 +103,13 @@ from functions import (
     save_obj_state,
     is_object_in_camera_view,
     SaveObjectInWorldCoordinateOrigin,
-    set_render_settings
+    set_render_settings,
+    check_exiftool_connection
     )
+
+# Check if communication with Exif-Tool is working
+check_exiftool_connection(params["exiftool"])
+
 # import modules from text-data block
 #sys.modules["functions"] = bpy.data.texts['functions.py'].as_module()
 ######################################################################################

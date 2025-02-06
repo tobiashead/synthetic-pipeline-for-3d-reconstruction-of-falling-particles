@@ -1,4 +1,4 @@
-# Synthetic pipeline for 3D-reconstruction of falling particles (data-gen--only-branch)
+# Synthetic pipeline for 3D-reconstruction of falling particles (data-gen-only-branch)
 
 ## Features
 Generation of a synthetic data set of falling particles
@@ -6,9 +6,10 @@ Generation of a synthetic data set of falling particles
 ## Requirements
 - Windows 10/11
 - [Blender4.0](https://builder.blender.org/download/daily/archive/)
-- [ExifTool by Phil Harvey](https://exiftool.org/) 
-    - just download and unzip the archive, then rename "exiftool(-k).exe" to "exiftool.exe" for command-line use
-- [Python 3.11](https://www.python.org/downloads/release/python-3110/) (compatibility with other recent Python versions) 
+- [Python 3.11](https://www.python.org/downloads/release/python-3110/) (compatibility with other recent Python versions)
+- If the images are to receive metadata ?  
+    - [ExifTool by Phil Harvey](https://exiftool.org/) (tested with version 12.76)
+        - just download and unzip the archive, then rename "exiftool(-k).exe" to "exiftool.exe" for command-line use
 
 ## Installation
 - Clone or download the repository: (Avoid spaces in the file path)
@@ -55,7 +56,8 @@ Generation of a synthetic data set of falling particles
         - General Informations:
             - Project name
             - obj_moving (dynamic or static scene)
-            - Evaluation --> Should the reconstructed object be evaluated ? 
+            - Evaluation (should the reconstructed object be evaluated?) 
+            - WriteMetadata (should the images receive metadata?)
         - Scene Settings
             - Mesh file (path to the .obj file)
             - Object Movement
