@@ -1,11 +1,11 @@
 # Synthetic pipeline for 3D-reconstruction of falling particles (Main-Branch)
 
 ## Features
-    1) Generation of a synthetic data set of falling particles
+1) Generation of a synthetic data set of falling particles
 
-    2) 3D-reconstruction based on the data set
+2) 3D-reconstruction based on the data set
 
-    3) Evaluation of the reconstructed object
+3) Evaluation of the reconstructed object
     
 ## Requirements
 - Windows 10/11
@@ -86,7 +86,7 @@
 
 - **sub_pipelines / params_study_evaluation.py**:
     - Pipeline for quantitative evaluation of the results of the parameter study
-    
+
 ## Author
 - **Tobias Kopf**
 - Date:  February 06, 2025
