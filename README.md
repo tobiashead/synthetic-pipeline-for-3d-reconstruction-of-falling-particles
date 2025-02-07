@@ -26,7 +26,7 @@
 ```bash
 git clone https://git.tu-berlin.de/tobias_kopf/synthetic-pipeline-for-3d-reconstruction-of-falling-particles.git
 ```
-Alternatively, you can directly download the "data-gen-only" branch from this [link](https://git.tu-berlin.de/tobias_kopf/synthetic-pipeline-for-3d-reconstruction-of-falling-particles), extract the ZIP file, and skip steps 2–4.
+Alternatively, you can directly download the "master" branch from this [link](https://git.tu-berlin.de/tobias_kopf/synthetic-pipeline-for-3d-reconstruction-of-falling-particles), extract the ZIP file, and skip steps 2–4.
 
 ### 2. Rename the repository (optional but recommended)
 
