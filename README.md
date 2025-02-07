@@ -27,7 +27,7 @@ The branch contains specific code for my master thesis.
 ```bash
 git clone https://git.tu-berlin.de/tobias_kopf/synthetic-pipeline-for-3d-reconstruction-of-falling-particles.git
 ```
-Alternatively, you can directly download the "data-gen-only" branch from this [link](https://git.tu-berlin.de/tobias_kopf/synthetic-pipeline-for-3d-reconstruction-of-falling-particles/-/tree/thesis), extract the ZIP file, and skip steps 2–4.
+Alternatively, you can directly download the "thesis" branch from this [link](https://git.tu-berlin.de/tobias_kopf/synthetic-pipeline-for-3d-reconstruction-of-falling-particles/-/tree/thesis), extract the ZIP file, and skip steps 2–4.
 
 ### 2. Rename the repository (optional but recommended)
 
@@ -41,7 +41,12 @@ ren .\synthetic-pipeline-for-3d-reconstruction-of-falling-particles\ synthetic_p
 cd synthetic_pipeline
 ```
 
-### 4. Set up a virtual environment
+### 4. Switch to the "thesis" branch
+```bash
+git checkout -b thesis origin/thesis
+```
+
+### 5. Set up a virtual environment
 
 The repository already contains an empty `venv_synthetic_311` folder with `requirements.txt`. Therefore:
 
@@ -71,7 +76,7 @@ py -3.11 -m venv venv_synthetic_311
   venv_synthetic_311\Scripts\activate.bat
   ```
 
-### 5. Install dependencies
+### 6. Install dependencies
 
 After activating the virtual environment:
 
@@ -79,7 +84,7 @@ After activating the virtual environment:
 pip install -r venv_synthetic_311\requirements.txt
 ```
 
-### 6. Select the Python Kernel in the IDE
+### 7. Select the Python Kernel in the IDE
 
 If using an IDE such as **VSCode, Jupyter Notebook, JupyterLab, Spyder, or PyCharm**, ensure the Python executable from the virtual environment is selected:
 
@@ -87,7 +92,7 @@ If using an IDE such as **VSCode, Jupyter Notebook, JupyterLab, Spyder, or PyCha
 ...\synthetic_pipeline\venv_synthetic_311\Scripts\python.exe
 ```
 
-### 7. Set Application Paths
+### 8. Set Application Paths
 
 - Set the path to the applications (Blender, ExifTool, Meshroom, CloudCompare) inside the file `...\synthetic_pipeline\path_settings.json`
 
