@@ -3,11 +3,14 @@ import json
 import subprocess
 import logging
 
-def LoadDefaultSceneParameters(project_name,obj_moving,params_file_name=None,external_params = False):
+def LoadDefaultSceneParameters(project_name,obj_moving,params_file_name=None,external_params = False, multiple_objects = False):
     logging.info(f"Running 3D-Reconstruction pipeline: project name = {project_name}, moving object = {obj_moving}")
     logging.info('Load the default parameter set for the scene')
     if params_file_name == None or external_params == False:
-        params_file_name = "params_movingO_default.json" if obj_moving else "params_fixedO_default.json"
+        if multiple_objects == False:
+            params_file_name = "params_movingO_default.json" if obj_moving else "params_fixedO_default.json"
+        else:
+            params_file_name = "params_multiple_movingO_default.json" if obj_moving else "params_multiple_fixedO_default.json"
     script_folder = Path.cwd() / "blender_pipeline"     # base file path of the script files
     params_file_path = Path(script_folder) / params_file_name
     with open(params_file_path, 'r') as file:
@@ -15,9 +18,12 @@ def LoadDefaultSceneParameters(project_name,obj_moving,params_file_name=None,ext
     params["io"]["name"] = project_name
     return params
 
-def SaveSceneParameters(params,obj_moving):
+def SaveSceneParameters(params,obj_moving, multiple_objects = False):
     logging.info('Saves the current parameter set for the scene')
-    params_file_name = "params_movingO.json" if obj_moving else "params_fixedO.json"
+    if multiple_objects == False:
+        params_file_name = "params_movingO.json" if obj_moving else "params_fixedO.json"
+    else:
+        params_file_name = "params_multiple_movingO.json" if obj_moving else "params_multiple_fixedO.json" 
     script_folder = Path.cwd() / "blender_pipeline" # base file path of the script files
     params_file_path = Path(script_folder) / params_file_name
     with open(params_file_path, "w") as json_file:
@@ -26,6 +32,23 @@ def SaveSceneParameters(params,obj_moving):
 def RenderImagesBlender(app_paths,obj_moving,ConsoleOutput=False):
     blender_path = app_paths["blender_exe"]
     script_name = 'moving_object.py' if obj_moving else 'fixed_object.py'
+    script_folder = Path.cwd() / "blender_pipeline"  # base file path of the script files
+    script_path = Path(script_folder) / script_name
+    command = f"{blender_path} --background --python {script_path} --log-level -1"
+    logging.info('Running the simulation and rendering of the scene in Blender')
+    log_file = Path(script_folder) / 'logfile.txt'
+    with log_file.open('w') as f, subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True) as proc:
+        for line in proc.stdout:
+            if ConsoleOutput:
+                print(line, end='')
+            f.write(line); f.flush()
+    proc.wait()
+    logging.info('Completed simulation and rendering of the scene in Blender')
+    return proc.returncode
+
+def RenderImagesBlenderMultiObjects(app_paths,obj_moving,ConsoleOutput=False):
+    blender_path = app_paths["blender_exe"]
+    script_name = 'multiple_moving_objects.py' if obj_moving else 'multiple_fixed_objects.py'
     script_folder = Path.cwd() / "blender_pipeline"  # base file path of the script files
     script_path = Path(script_folder) / script_name
     command = f"{blender_path} --background --python {script_path} --log-level -1"

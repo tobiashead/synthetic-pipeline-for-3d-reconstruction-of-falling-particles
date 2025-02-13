@@ -7,6 +7,7 @@ from pathlib import Path
 import subprocess
 import csv
 import json
+import random
 
 # File: functions.py
 
@@ -182,7 +183,7 @@ def create_output_path(project_path,project_name):
     return str(output_path)
 #------------------------------------------------------------------------------------ 
 # Storage of simulation and imaging data
-def save_BlenderSettingsAndConfiguration(params,camera_data,object_data=None,light_data=None):
+def save_BlenderSettingsAndConfiguration(params,camera_data,object_data=None,light_data=None,execution_time_per_frame=None):
     output_path = Path(params["io"]["output_path"])
 
     # write json-file with all selected parameters 
@@ -220,6 +221,11 @@ def save_BlenderSettingsAndConfiguration(params,camera_data,object_data=None,lig
     with open(cache_path, "w") as txt_file:
         txt_file.write(params["io"]["output_path"] + "\n")
         txt_file.write(params["io"]["obj_path"])
+    # Write Executation time per frame
+    if execution_time_per_frame is not None:
+        path_execution_time = Path(output_path).resolve() / "ExecutionTime.txt"
+        execution_text = f"Execution time per frame in s: {execution_time_per_frame}"
+        path_execution_time.write_text(execution_text, encoding="utf-8")    
 #------------------------------------------------------------------------------------
 # Display warnings
 def print_warnings(params):
@@ -361,3 +367,171 @@ def check_exiftool_connection(exiftool):
             except subprocess.CalledProcessError as e:
                 exiftool["mod"] = 0
                 print(f"Warning: ExifTool encountered an issue ({e}). Exif tags cannot be written.")
+#------------------------------------------------------------------------------------
+def generate_cubic_grid(num_particles, bounds):
+    """
+    Generates positions in a 3D grid while keeping fixed outer dimensions.
+    :param num_particles: Desired number of particles.
+    :param bounds: Tuple of outer dimensions ((x_min, x_max), (y_min, y_max), (z_min, z_max)).
+    :return: Array of positions (shape: (num_particles, 3)).
+    """
+    (x_min, x_max), (y_min, y_max), (z_min, z_max) = bounds
+    # Determine the number of points per axis (approximately cubic distribution)
+    n = int(np.ceil(num_particles ** (1/3))) 
+    # Create evenly spaced points along each axis
+    x = np.linspace(x_min, x_max, n)
+    y = np.linspace(y_min, y_max, n)
+    z = np.linspace(z_min, z_max, n) 
+    # Generate the grid using meshgrid and reshape it into a list of points
+    grid = np.array(np.meshgrid(x, y, z, indexing='ij')).reshape(3, -1).T
+    # If more points were generated than needed, randomly select the desired number
+    if grid.shape[0] > num_particles:
+        indices = np.random.choice(grid.shape[0], size=num_particles, replace=False)
+        grid = grid[indices]
+    return grid
+
+def generate_random_positions_rectangular(num_particles, bounds, min_distance, max_attempts=10000):
+    """
+    Generates random positions within given bounds ensuring that no two positions are closer than min_distance.
+    
+    Parameters:
+    num_particles (int): Desired number of particles.
+    bounds (tuple): Tuple of outer dimensions ((x_min, x_max), (y_min, y_max), (z_min, z_max)).
+    min_distance (float): Minimum allowed distance between any two particles.
+    max_attempts (int): Maximum attempts to generate a valid position for each particle.
+    
+    Returns:
+    list: A list of mathutils.Vector positions.
+    """
+    positions = []
+    (x_min, x_max), (y_min, y_max), (z_min, z_max) = bounds
+
+    for i in range(num_particles):
+        valid = False
+        attempt = 0
+        while not valid and attempt < max_attempts:
+            # Generate a random position within bounds
+            x = np.random.uniform(x_min, x_max)
+            y = np.random.uniform(y_min, y_max)
+            z = np.random.uniform(z_min, z_max)
+            pos = mathutils.Vector((x, y, z))
+            
+            # Check if the generated position overlaps with any already placed particle
+            valid = True
+            for existing in positions:
+                if (pos - existing).length < min_distance:
+                    valid = False
+                    break
+            
+            if valid:
+                positions.append(pos)
+            else:
+                attempt += 1
+        
+        # If a valid position is not found within max_attempts, warn and use the last generated position
+        if not valid:
+            print(f"Warning: Could not place particle {i} without overlapping after {max_attempts} attempts.")
+            positions.append(pos)
+    return positions
+
+def generate_random_positions_cylinder(num_particles, bounds, min_distance, max_attempts=10000):
+    """
+    Generates random positions within a cylinder, ensuring that no two positions are closer than min_distance.
+    Parameters:
+    num_particles (int): Desired number of particles.
+    bounds (tuple): Tuple of outer dimensions ((z_min, z_max), R_max).
+    min_distance (float): Minimum allowed distance between any two particles.
+    max_attempts (int): Maximum attempts to generate a valid position for each particle.
+    
+    Returns:
+    list: A list of mathutils.Vector positions.
+    """
+    positions = []
+    (z_min, z_max), R_max = bounds
+    for i in range(num_particles):
+        valid = False
+        attempt = 0
+        while not valid and attempt < max_attempts:
+            # Generate random z-position within bounds
+            z = np.random.uniform(z_min, z_max)
+            # Generate random position in the xy-plane within the circle (x^2 + y^2 < R_max^2)
+            r = R_max * np.sqrt(np.random.uniform(0, 1))  # Uniform distribution in a disk
+            theta = np.random.uniform(0, 2 * np.pi)  # Uniformly distributed angle in the plane
+            # Convert polar coordinates to Cartesian coordinates
+            x = r * np.cos(theta)
+            y = r * np.sin(theta)
+            pos = mathutils.Vector((x, y, z))
+            # Check if the generated position overlaps with any already placed particle
+            valid = True
+            for existing in positions:
+                if (pos - existing).length < min_distance:
+                    valid = False
+                    break
+            if valid:
+                positions.append(pos)
+            else:
+                attempt += 1
+        # If a valid position is not found within max_attempts, warn and use the last generated position
+        if not valid:
+            print(f"Warning: Could not place particle {i} without overlapping after {max_attempts} attempts.")
+            positions.append(pos)
+    return positions
+#------------------------------------------------------------------------------------
+def move_objects_to_initial_position(objs, positions):
+    """
+    Moves the given Blender objects to their corresponding initial positions.
+    
+    Parameters:
+    objs (list): A list of Blender objects.
+    positions (list): A list of positions. Each position should be a tuple, list, or mathutils.Vector 
+                      with 3 elements (x, y, z). The length of this list must match the length of objs.
+    """
+    for obj, pos in zip(objs, positions):
+        # Convert the position to a mathutils.Vector if it is not already one
+        if not isinstance(pos, mathutils.Vector):
+            pos = mathutils.Vector(pos)
+        # Set the object's location to the new position
+        obj.location = pos
+#------------------------------------------------------------------------------------
+def rotate_objects_randomly(objs):
+    """
+    Rotates the given Blender objects randomly.
+    
+    Parameters:
+    objs (list): A list of Blender objects to be rotated.
+    """
+    for obj in objs:
+        # Generate random rotation angles in radians for the x, y, and z axes
+        random_rotation = mathutils.Euler((
+            random.uniform(0, 2 * math.pi),
+            random.uniform(0, 2 * math.pi),
+            random.uniform(0, 2 * math.pi)
+        ), 'XYZ')
+        # Set the object's rotation to the random rotation
+        obj.rotation_euler = random_rotation
+#------------------------------------------------------------------------------------    
+def calculate_image_size(params):
+    """
+    Calculates the image dimensions (width and height in meters) based on the camera's sensor size,
+    focal length, and the distance from the camera.
+
+    Parameters:
+        params (dict): A dictionary containing camera parameters. It should have the following structure:
+            {
+                "cam": {
+                    "sensor_size": (sensor_width, sensor_height),  # Sensor dimensions in meters
+                    "focal_length": focal_length,                  # Focal length (same units as sensor dimensions)
+                    "distance": camera_distance                    # Distance from camera to subject in meters
+                }
+            }
+    Returns:
+        tuple: (image_width, image_height) in meters.
+    """
+    sensor_width = params["cam"]["sensor_size"][0]
+    sensor_height = params["cam"]["sensor_size"][1]
+    focal_length = params["cam"]["focal_length"]
+    camera_distance = params["cam"]["distance"]
+    # Calculate the image dimensions using similar triangles
+    image_height = sensor_height * camera_distance / focal_length
+    image_width = sensor_width * camera_distance / focal_length
+    return (image_width, image_height)

@@ -1,0 +1,59 @@
+{
+     "io": {
+          "name": "default_multiple_fixed_objects",
+          "obj_path": "must remain",
+          "label_images": 1
+     },
+     "objects": {
+          "folder": "",
+          "number": 1,
+          "min_distance": 0.02,
+          "crop_cylinder": 0.25
+     },
+     "cam": {
+          "even_dist": true,
+          "pos_file_path": "C:\\\\Users\\\\Tobias\\\\Documents\\\\Masterarbeit_lokal\\\\Base-case Datensatz\\\\CameraPositions_BaseCase.json",
+          "number": 4,
+          "focuspoint": [
+               0,
+               0,
+               1
+          ],
+          "distance": 0.5,
+          "vert_angle": [
+               0
+          ],
+          "focal_length": 16,
+          "sensor_size": [
+               7.12,
+               5.33
+          ],
+          "fps": 218
+     },
+     "light": {
+          "z": [
+               0,
+               1,
+               2
+          ],
+          "hor_angle": [
+               45,
+               135,
+               225,
+               315
+          ],
+          "distance": 1,
+          "intensity": 20
+     },
+     "render": {
+          "format": "JPEG",
+          "engine": "BLENDER_EEVEE",
+          "resolution_x": 2064,
+          "resolution_y": 1544,
+          "resolution_percentage": 100,
+          "transparent": false
+     },
+     "exiftool": {
+          "mod": 2
+     }
+}

@@ -1,8 +1,11 @@
-# Synthetic pipeline for 3D-reconstruction of falling particles (data-gen-only-branch)
+# Synthetic pipeline for 3D-reconstruction of falling particles (data-gen-only-mult-obj-branch)
 
 ## Features
-Generation of a synthetic data set of falling particles
-    
+Generation of a synthetic data set of multiple static particles
+
+## Project Status
+This project is still in development.
+
 ## Requirements
 
 - Windows 10/11
@@ -21,7 +24,7 @@ Generation of a synthetic data set of falling particles
 ```bash
 git clone https://git.tu-berlin.de/tobias_kopf/synthetic-pipeline-for-3d-reconstruction-of-falling-particles.git
 ```
-Alternatively, you can directly download the "data-gen-only" branch from this [link](https://git.tu-berlin.de/tobias_kopf/synthetic-pipeline-for-3d-reconstruction-of-falling-particles/-/tree/data-gen-only), extract the ZIP file, and skip steps 2–4.
+Alternatively, you can directly download the "data-gen-only" branch from this [link](https://git.tu-berlin.de/tobias_kopf/synthetic-pipeline-for-3d-reconstruction-of-falling-particles/-/tree/data-gen-only-mult-obj), extract the ZIP file, and skip steps 2–4.
 ### 2. Rename the repository (optional but recommended)
 
 ```bash
@@ -36,7 +39,7 @@ cd synthetic_pipeline
 
 ### 4. Switch to the "data-gen-only" branch
 ```bash
-git checkout -b data-gen-only origin/data-gen-only
+git checkout -b data-gen-only-mult-obj origin/data-gen-only-mult-obj
 ```
 ### 5. Set up a virtual environment
 
@@ -97,19 +100,19 @@ Now the environment is set up, and the project is ready to use. 🚀
 - Save objects in the following folder: `...\synthetic_pipeline\objects`  
     - A demo object is available here: [Download Link](https://tubcloud.tu-berlin.de/s/Kd2C5DmpqppmJJC) (password: **"8EPx4sYEZb"**)  
 
-- **data_generation.py**:  
+- **main_mulitple_objects.py**:  
     - Configure the following settings:  
         - **General Information:**  
             - Project name  
-            - Is the object moving? (dynamic or static scene)  
             - Metadata? (should images include metadata?)  
         - **Scene Settings:**  
-            - Mesh file (path to the `.obj` file)  
-            - Object movement  
+            - Folder to the mesh files of the objects to be used
+            - Number of Particles, Minimal Distance between the particles
+            - Size of the measurement volume
             - Camera settings  
             - Rendering settings
 
 ## Author
 - **Tobias Kopf**
-- Date:  February 07, 2025
+- Date:  February 13, 2025
 - Email: tobias.kopf@hotmail.de
