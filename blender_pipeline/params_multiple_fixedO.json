@@ -1,13 +1,14 @@
 {
      "io": {
-          "name": "n=200",
+          "name": "n200_JPEG",
           "obj_path": "must remain",
           "label_images": 1
      },
      "objects": {
-          "folder": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\pipeline_only_for_data_generation\\synthetic_pipeline\\objects",
-          "number": 100,
-          "min_distance": 0.025
+          "folder": "C:\\Users\\Tobias\\Documents\\Masterarbeit_lokal\\pipeline_only_for_data_generation\\synthetic_pipeline\\objects\\rendering_time_analyses",
+          "number": 200,
+          "min_distance": 0.025,
+          "crop_cylinder": 0.25
      },
      "cam": {
           "even_dist": true,
@@ -54,6 +55,6 @@
           "mode": "BBOX_SURFACES_CENTERS"
      },
      "exiftool": {
-          "mod": 2
+          "mod": 0
      }
 }

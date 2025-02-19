@@ -163,7 +163,8 @@ execution_time = time.time() - start_time  # Calculate duration
 execution_time_per_frame = execution_time / image_count
 #------------------------------------------------------------------------------------        
 # Write Exif-Tags
-write_exif_tags(params["cam"],params["render"],params["io"]["output_path"],params["exiftool"])
+if params["exiftool"]["mod"] == 2:
+    write_exif_tags(params["cam"],params["render"],params["io"]["output_path"],params["exiftool"])
 ######################################################################################
 
 ############################## Save data #############################################

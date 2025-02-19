@@ -25,18 +25,18 @@ def DataGenerationMultipleObjects(params,obj_moving, DebugMode = False, PlotCamP
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')   
     ################################################### General Information ############################################################################
-    project_name = 'n=200'  # What should be the name of the project ?
+    project_name = 'n200_JPEG'  # What should be the name of the project ?
     external_params = False             # Use Params from external parameter file
     params_file_name = "params_movingO_BASECASE.JSON"    # default: None
     DebugMode  = False                  # Activate Debug Mode
-    WriteMetadata = True                # Write metadata in the Exif-format
+    WriteMetadata = False                # Write metadata in the Exif-format
     ################################################### Scene Settings #################################################################################
     params = LoadDefaultSceneParameters(project_name,False, params_file_name,external_params, multiple_objects = True) # Load standard parameters from json file
     if external_params == False:
     #--------------------------------------------------Adjustable parameters ---------------------------------------------------------------------------
         # Objects
         params["objects"]["folder"] = r"C:\Users\Tobias\Documents\Masterarbeit_lokal\pipeline_only_for_data_generation\synthetic_pipeline\objects\rendering_time_analyses"
-        params["objects"]["number"] = 100
+        params["objects"]["number"] = 200
         params["objects"]["min_distance"] = 0.025       # minimum distance between the particles so that overlaps are avoided
         params["objects"]["crop_cylinder"] = 0.25       # reduces the size of the cylinder in which the particles are placed.
         # Cams
