@@ -19,9 +19,9 @@ Generation of a synthetic data set of falling particles
 **Important:** Avoid spaces in the file path, as Windows has path length limitations.
 
 ```bash
-git clone https://git.tu-berlin.de/tobias_kopf/synthetic-pipeline-for-3d-reconstruction-of-falling-particles.git
+git clone https://github.com/tobiashead/synthetic-pipeline-for-3d-reconstruction-of-falling-particles.git
 ```
-Alternatively, you can directly download the "data-gen-only" branch from this [link](https://git.tu-berlin.de/tobias_kopf/synthetic-pipeline-for-3d-reconstruction-of-falling-particles/-/tree/data-gen-only), extract the ZIP file, and skip steps 2–4.
+Alternatively, you can directly download the "data-gen-only" branch from this [link](https://github.com/tobiashead/synthetic-pipeline-for-3d-reconstruction-of-falling-particles/edit/data-gen-only), extract the ZIP file, and skip steps 2–4.
 ### 2. Rename the repository (optional but recommended)
 
 ```bash
